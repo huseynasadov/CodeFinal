@@ -617,7 +617,9 @@ textarea:-ms-input-placeholder {
     margin-right: 50px;
   }
 }
-
+.sticky_header_right .main_menu nav > ul > li > a {
+  color: #242424;
+}
 .sticky_header_right .main_menu nav > ul > li > a.active {
   color: #0063d1;
 }
