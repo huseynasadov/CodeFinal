@@ -43,8 +43,8 @@
                         </div>
                         <div class="top_right text-right">
                             <ul>
-                                <li><a href="account.html"> My Account </a></li>
-                                <li><a href="checkout.html"> Checkout </a></li>
+                                <li><a asp-controller="login" asp-action="account"> My Account </a></li>
+                                <li><a asp-controller="ordering" asp-action="checkout"> Checkout </a></li>
                             </ul>
                         </div>
                         <div class="search_container">
@@ -78,7 +78,7 @@
 
                         <div class="middel_right_info">
                             <div class="header_wishlist">
-                                <a href="wishlist.html"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+                                <a asp-controller="ordering" asp-action="wishlist"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
                                 <span class="wishlist_quantity">3</span>
                             </div>
                             <div class="mini_cart_wrapper">
@@ -126,10 +126,10 @@
 
                                     <div class="mini_cart_footer">
                                         <div class="cart_button">
-                                            <a href="cart.html">View cart</a>
+                                            <a asp-controller="ordering" asp-action="cart">View cart</a>
                                         </div>
                                         <div class="cart_button">
-                                            <a href="checkout.html">Checkout</a>
+                                            <a asp-controller="ordering" asp-action="checkout">Checkout</a>
                                         </div>
 
                                     </div>
@@ -141,31 +141,31 @@
                         <div id="menu" class="text-left ">
                             <ul class="offcanvas_main_menu">
                                 <li class="menu-item-has-children active">
-                                    <a href="index.html">Home</a>
+                                    <a asp-controller="home" asp-action="index">Home</a>
                                 </li>
                                 <li class="menu-item-has-children">
-                                    <a href="shop.html">Shop</a>
+                                    <a asp-controller="shop" asp-action="index">Shop</a>
                                 </li>
                                 <li class="menu-item-has-children">
-                                    <a href="blog.html">blog</a>
+                                    <a asp-controller="blog" asp-action="index">blog</a>
                                 </li>
                                 <li class="menu-item-has-children">
-                                    <a href="services.html">services</a>
+                                    <a asp-controller="service" asp-action="index">services</a>
                                 </li>
                                 <li class="menu-item-has-children">
-                                    <a href="account.html">my account</a>
+                                    <a asp-controller="login" asp-action="account">my account</a>
                                 </li>
                                 <li class="menu-item-has-children">
-                                    <a href="about.html">about Us</a>
+                                    <a asp-controller="about" asp-action="index">about Us</a>
                                 </li>
                                 <li class="menu-item-has-children">
-                                    <a href="faq.html">FAQ</a>
+                                    <a asp-controller="faq" asp-action="index">FAQ</a>
                                 </li>
                                 <li class="menu-item-has-children">
-                                    <a href="privacy.html">Privacy Policy</a>
+                                    <a asp-controller="privacy" asp-action="index">Privacy Policy</a>
                                 </li>
                                 <li class="menu-item-has-children">
-                                    <a href="contact.html"> Contact Us</a>
+                                    <a asp-controller="contact" asp-action="index"> Contact Us</a>
                                 </li>
                             </ul>
                         </div>
@@ -201,8 +201,8 @@
                         <div class="col-lg-6 col-md-6">
                             <div class="top_right text-right">
                                 <ul>
-                                    <li><a href="account.html"> My Account </a></li>
-                                    <li><a href="checkout.html"> Checkout </a></li>
+                                    <li><a asp-controller="login" asp-action="account"> My Account </a></li>
+                                    <li><a asp-controller="ordering" asp-action="checkout"> Checkout </a></li>
                                 </ul>
                             </div>
                         </div>
@@ -216,7 +216,7 @@
                     <div class="row align-items-center">
                         <div class="col-lg-3">
                             <div class="logo">
-                                <a href="index.html"><img src="~/images/logo/logo.png" alt=""></a>
+                                <a asp-controller="home" asp-action="index"><img src="~/images/logo/logo.png" alt=""></a>
                             </div>
                         </div>
                         <div class="col-lg-9">
@@ -239,13 +239,13 @@
                                         <li>
                                             <a href="#">pages<i class="fa fa-angle-down"></i></a>
                                             <ul class="sub_menu pages">
-                                                <li><a href="about.html">About Us</a></li>
-                                                <li><a href="faq.html">Frequently Questions</a></li>
-                                                <li><a href="privacy.html">Privacy Policy</a></li>
-                                                <li><a href="login.html">Login</a></li>
+                                                <li><a asp-controller="about" asp-action="index">About Us</a></li>
+                                                <li><a asp-controller="faq" asp-action="index">Frequently Questions</a></li>
+                                                <li><a asp-controller="privacy" asp-action="index">Privacy Policy</a></li>
+                                                <li><a asp-controller="login" asp-action="index">Login</a></li>
                                             </ul>
                                         </li>
-                                        <li><a href="contact.html"> Contact Us</a></li>
+                                        <li><a asp-controller="contact" asp-action="index"> Contact Us</a></li>
                                     </ul>
                                 </nav>
                             </div>
@@ -437,10 +437,10 @@
                                             <button type="submit">Search</button>
                                         </div>
                                     </form>
-                                </div>
+                                </div> 
                                 <div class="middel_right_info">
                                     <div class="header_wishlist">
-                                        <a href="wishlist.html"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+                                        <a asp-controller="ordering" asp-action="wishlist"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
                                         <span class="wishlist_quantity">3</span>
                                     </div>
                                     <div class="mini_cart_wrapper">
@@ -488,10 +488,10 @@
 
                                             <div class="mini_cart_footer">
                                                 <div class="cart_button">
-                                                    <a href="cart.html">View cart</a>
+                                                    <a asp-controller="ordering" asp-action="cart">View cart</a>
                                                 </div>
                                                 <div class="cart_button">
-                                                    <a href="checkout.html">Checkout</a>
+                                                    <a asp-controller="ordering" asp-action="checkout">Checkout</a>
                                                 </div>
 
                                             </div>
@@ -515,7 +515,7 @@
             <div class="row align-items-center">
                 <div class="col-lg-3">
                     <div class="logo">
-                        <a href="index.html"><img src="~/images/logo/logo.png" alt=""></a>
+                        <a asp-controller="home" asp-action="index"><img src="~/images/logo/logo.png" alt=""></a>
                     </div>
                 </div>
                 <div class="col-lg-9">
@@ -523,26 +523,26 @@
                         <div class="main_menu">
                             <nav>
                                 <ul>
-                                    <li><a class="active" href="index.html">home</a></li>
-                                    <li class="mega_items"><a href="shop.html">shop</a></li>
-                                    <li><a href="blog.html">blog</a></li>
+                                    <li><a class="active" asp-controller="home" asp-action="index">home</a></li>
+                                    <li class="mega_items"><a asp-controller="shop" asp-action="index">shop</a></li>
+                                    <li><a asp-controller="blog" asp-action="index">blog</a></li>
                                     <li>
                                         <a href="#">pages <i class="fa fa-angle-down"></i></a>
                                         <ul class="sub_menu pages">
-                                            <li><a href="about.html">About Us</a></li>
-                                            <li><a href="services.html">services</a></li>
-                                            <li><a href="faq.html">Frequently Questions</a></li>
-                                            <li><a href="privacy.html">Privacy Policy</a></li>
-                                            <li><a href="login.html">Login</a></li>
+                                            <li><a asp-controller="about" asp-action="index">About Us</a></li>
+                                            <li><a asp-controller="service" asp-action="index">services</a></li>
+                                            <li><a asp-controller="faq" asp-action="index">Frequently Questions</a></li>
+                                            <li><a asp-controller="privacy" asp-action="index">Privacy Policy</a></li>
+                                            <li><a asp-controller="login" asp-action="index">Login</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="contact.html"> Contact Us</a></li>
+                                    <li><a asp-controller="contact" asp-action="index"> Contact Us</a></li>
                                 </ul>
                             </nav>
                         </div>
                         <div class="middel_right_info">
                             <div class="header_wishlist">
-                                <a href="wishlist.html"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+                                <a asp-controller="ordering" asp-action="wishlist"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
                                 <span class="wishlist_quantity">3</span>
                             </div>
                             <div class="mini_cart_wrapper">
@@ -590,10 +590,10 @@
 
                                     <div class="mini_cart_footer">
                                         <div class="cart_button">
-                                            <a href="cart.html">View cart</a>
+                                            <a asp-controller="ordering" asp-action="cart">View cart</a>
                                         </div>
                                         <div class="cart_button">
-                                            <a href="checkout.html">Checkout</a>
+                                            <a asp-controller="ordering" asp-action="checkout">Checkout</a>
                                         </div>
 
                                     </div>
@@ -708,10 +708,10 @@
                                     <ul>
                                         <li><a href="#">My Account</a></li>
                                         <li><a href="#">Order History</a></li>
-                                        <li><a href="wishlist.html">Wish List</a></li>
+                                        <li><a asp-controller="ordering" asp-action="wishlist">Wish List</a></li>
                                         <li><a href="#">Newsletter</a></li>
                                         <li><a href="#">Affiliate</a></li>
-                                        <li><a href="faq.html">International Orders</a></li>
+                                        <li><a asp-controller="faq" asp-action="index">International Orders</a></li>
                                     </ul>
                                 </div>
                             </div>
