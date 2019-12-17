@@ -1,0 +1,7 @@
+C:\Users\Huseyn\Desktop\CodeFinal\JunkoSolution\Junko.Data\bin\Debug\netcoreapp3.1\Junko.Data.deps.json
+C:\Users\Huseyn\Desktop\CodeFinal\JunkoSolution\Junko.Data\bin\Debug\netcoreapp3.1\Junko.Data.dll
+C:\Users\Huseyn\Desktop\CodeFinal\JunkoSolution\Junko.Data\obj\Debug\netcoreapp3.1\Junko.Data.AssemblyInfoInputs.cache
+C:\Users\Huseyn\Desktop\CodeFinal\JunkoSolution\Junko.Data\obj\Debug\netcoreapp3.1\Junko.Data.AssemblyInfo.cs
+C:\Users\Huseyn\Desktop\CodeFinal\JunkoSolution\Junko.Data\bin\Debug\netcoreapp3.1\Junko.Data.pdb
+C:\Users\Huseyn\Desktop\CodeFinal\JunkoSolution\Junko.Data\obj\Debug\netcoreapp3.1\Junko.Data.dll
+C:\Users\Huseyn\Desktop\CodeFinal\JunkoSolution\Junko.Data\obj\Debug\netcoreapp3.1\Junko.Data.pdb
