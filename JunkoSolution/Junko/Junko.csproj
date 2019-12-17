@@ -18,7 +18,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Junko.Data\Junko.Data.csproj" />
     <ProjectReference Include="..\Junko.Repo\Junko.Repo.csproj" />
+    <ProjectReference Include="..\Junko.Service\Junko.Service.csproj" />
   </ItemGroup>
 
 

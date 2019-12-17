@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 
 namespace Junko.Repo.IRepositories
 {
-    public interface IUnitOfWork : IDisposable
+    public interface IUnitOfWork  :IDisposable
     {
-        ISettingRepository Books { get; }
+        ISettingRepository Setting { get; }
         Task<int> CommitAsync();
     }
 }

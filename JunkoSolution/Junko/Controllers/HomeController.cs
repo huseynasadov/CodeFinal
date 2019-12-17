@@ -6,13 +6,20 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Junko.Models;
+using Junko.Service.DataService;
+using Junko.Data.Entries;
 
 namespace Junko.Controllers
 {
     public class HomeController : Controller
     {
-        
 
+        private readonly ISettingService _settingService;
+        public HomeController(ISettingService settingService)
+        {
+            _settingService = settingService;
+
+        }
         public IActionResult Index()
         {
             return View();

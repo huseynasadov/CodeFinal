@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Junko.Repo.Data;
+using Junko.Repo.IRepositories;
+using Junko.Repo.Repositories;
+using Junko.Service.DataService;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -29,6 +32,10 @@ namespace Junko
 
             services.AddDbContext<JunkoDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"), x => x.MigrationsAssembly("Junko.Repo")));
+
+
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddTransient<ISettingService, SettingService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -26,8 +26,15 @@ using Junko.Models;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 3 "C:\Users\Huseyn\Desktop\CodeFinal\JunkoSolution\Junko\Views\_ViewImports.cshtml"
+using Junko.Data.Entries;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"12eb0337d7fbaa071523da4e193ea9ba7e378c4b", @"/Views/Login/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"5144a00927b5e0f3184bbe62a224a706f7c8e3bb", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"3486063a9f3db427679abb1248bb55d849aebc76", @"/Views/_ViewImports.cshtml")]
     public class Views_Login_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("action", new global::Microsoft.AspNetCore.Html.HtmlString("#"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -94,7 +101,7 @@ using Junko.Models;
                     <div class=""account_form"">
                         <h2>login</h2>
                         ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "12eb0337d7fbaa071523da4e193ea9ba7e378c4b4640", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "12eb0337d7fbaa071523da4e193ea9ba7e378c4b4827", async() => {
                 WriteLiteral(@"
                             <p>
                                 <label>Username or email <span>*</span></label>
@@ -138,7 +145,7 @@ using Junko.Models;
                     <div class=""account_form register"">
                         <h2>Register</h2>
                         ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "12eb0337d7fbaa071523da4e193ea9ba7e378c4b7161", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "12eb0337d7fbaa071523da4e193ea9ba7e378c4b7348", async() => {
                 WriteLiteral(@"
                             <p>
                                 <label>Email address  <span>*</span></label>

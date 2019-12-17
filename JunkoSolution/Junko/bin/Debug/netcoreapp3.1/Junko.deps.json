@@ -24,7 +24,9 @@
     ".NETCoreApp,Version=v3.1": {
       "Junko/1.0.0": {
         "dependencies": {
+          "Junko.Data": "1.0.0",
           "Junko.Repo": "1.0.0",
+          "Junko.Service": "1.0.0",
           "Microsoft.EntityFrameworkCore.Design": "3.1.0",
           "Microsoft.EntityFrameworkCore.Tools": "3.1.0",
           "Microsoft.Extensions.Logging.Debug": "3.1.0",
@@ -2056,6 +2058,17 @@
         },
         "compile": {
           "Junko.Repo.dll": {}
+        }
+      },
+      "Junko.Service/1.0.0": {
+        "dependencies": {
+          "Junko.Repo": "1.0.0"
+        },
+        "runtime": {
+          "Junko.Service.dll": {}
+        },
+        "compile": {
+          "Junko.Service.dll": {}
         }
       },
       "Microsoft.AspNetCore.Antiforgery/3.1.0.0": {
@@ -4856,6 +4869,11 @@
       "sha512": ""
     },
     "Junko.Repo/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Junko.Service/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

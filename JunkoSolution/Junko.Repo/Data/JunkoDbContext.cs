@@ -20,7 +20,7 @@ namespace Junko.Repo.Data
                 Id=1,
                 Logo="Junko"
                 }
-                );
+               );
         }
     }
 }

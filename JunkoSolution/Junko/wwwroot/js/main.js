@@ -619,7 +619,7 @@
     
     /*---elevateZoom---*/
     $("#zoom1").elevateZoom({
-        gallery:'gallery_01', 
+        gallery:'gallery_02', 
         responsive : true,
         cursor: 'crosshair',
         zoomType : 'inner',

@@ -11,13 +11,13 @@ namespace Junko.Repo.Repositories
     {
 
         private readonly JunkoDbContext _context;
-        private SettingRepository _bookRepository;
+        private SettingRepository _SettingRepository;
         public UnitOfWork(JunkoDbContext context)
         {
             this._context = context;
 
         }
-        public ISettingRepository Books => _bookRepository ??= new SettingRepository(_context);
+        public ISettingRepository Setting => _SettingRepository ??= new SettingRepository(_context);
 
 
         public async Task<int> CommitAsync()

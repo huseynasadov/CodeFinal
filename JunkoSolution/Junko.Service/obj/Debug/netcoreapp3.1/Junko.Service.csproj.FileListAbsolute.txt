@@ -1,7 +1,13 @@
 C:\Users\Huseyn\Desktop\CodeFinal\JunkoSolution\Junko.Service\bin\Debug\netcoreapp3.1\Junko.Service.deps.json
 C:\Users\Huseyn\Desktop\CodeFinal\JunkoSolution\Junko.Service\bin\Debug\netcoreapp3.1\Junko.Service.dll
 C:\Users\Huseyn\Desktop\CodeFinal\JunkoSolution\Junko.Service\bin\Debug\netcoreapp3.1\Junko.Service.pdb
+C:\Users\Huseyn\Desktop\CodeFinal\JunkoSolution\Junko.Service\bin\Debug\netcoreapp3.1\Junko.Data.dll
+C:\Users\Huseyn\Desktop\CodeFinal\JunkoSolution\Junko.Service\bin\Debug\netcoreapp3.1\Junko.Repo.dll
+C:\Users\Huseyn\Desktop\CodeFinal\JunkoSolution\Junko.Service\bin\Debug\netcoreapp3.1\Junko.Repo.pdb
+C:\Users\Huseyn\Desktop\CodeFinal\JunkoSolution\Junko.Service\bin\Debug\netcoreapp3.1\Junko.Data.pdb
+C:\Users\Huseyn\Desktop\CodeFinal\JunkoSolution\Junko.Service\obj\Debug\netcoreapp3.1\Junko.Service.csprojAssemblyReference.cache
 C:\Users\Huseyn\Desktop\CodeFinal\JunkoSolution\Junko.Service\obj\Debug\netcoreapp3.1\Junko.Service.AssemblyInfoInputs.cache
 C:\Users\Huseyn\Desktop\CodeFinal\JunkoSolution\Junko.Service\obj\Debug\netcoreapp3.1\Junko.Service.AssemblyInfo.cs
+C:\Users\Huseyn\Desktop\CodeFinal\JunkoSolution\Junko.Service\obj\Debug\netcoreapp3.1\Junko.Service.csproj.CopyComplete
 C:\Users\Huseyn\Desktop\CodeFinal\JunkoSolution\Junko.Service\obj\Debug\netcoreapp3.1\Junko.Service.dll
 C:\Users\Huseyn\Desktop\CodeFinal\JunkoSolution\Junko.Service\obj\Debug\netcoreapp3.1\Junko.Service.pdb

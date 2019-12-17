@@ -1,8 +1,10 @@
 ﻿using Junko.Data.Entries;
 using Junko.Repo.Data;
 using Junko.Repo.IRepositories;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -18,7 +20,7 @@ namespace Junko.Repo.Repositories
         }
         public async Task<Setting> GetFirst()
         {
-            return await _db.Setting.firstOfDefoul
+            return await _db.Setting.FirstOrDefaultAsync();
         }
     }
 }

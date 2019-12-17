@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Junko.Repo.IRepositories
 {
-   public interface  ISettingRepository 
+   public interface  ISettingRepository : IRepository<Setting>
     {
         Task<Setting> GetFirst();
     }

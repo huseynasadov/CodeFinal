@@ -2571,6 +2571,19 @@
         "runtime": {
           "bin/placeholder/Junko.Repo.dll": {}
         }
+      },
+      "Junko.Service/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "Junko.Repo": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Junko.Service.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Junko.Service.dll": {}
+        }
       }
     }
   },
@@ -8262,11 +8275,18 @@
       "type": "project",
       "path": "../Junko.Repo/Junko.Repo.csproj",
       "msbuildProject": "../Junko.Repo/Junko.Repo.csproj"
+    },
+    "Junko.Service/1.0.0": {
+      "type": "project",
+      "path": "../Junko.Service/Junko.Service.csproj",
+      "msbuildProject": "../Junko.Service/Junko.Service.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
+      "Junko.Data >= 1.0.0",
       "Junko.Repo >= 1.0.0",
+      "Junko.Service >= 1.0.0",
       "Microsoft.EntityFrameworkCore.Design >= 3.1.0",
       "Microsoft.EntityFrameworkCore.Tools >= 3.1.0",
       "Microsoft.Extensions.Logging.Debug >= 3.1.0",
@@ -8303,8 +8323,14 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
+            "C:\\Users\\Huseyn\\Desktop\\CodeFinal\\JunkoSolution\\Junko.Data\\Junko.Data.csproj": {
+              "projectPath": "C:\\Users\\Huseyn\\Desktop\\CodeFinal\\JunkoSolution\\Junko.Data\\Junko.Data.csproj"
+            },
             "C:\\Users\\Huseyn\\Desktop\\CodeFinal\\JunkoSolution\\Junko.Repo\\Junko.Repo.csproj": {
               "projectPath": "C:\\Users\\Huseyn\\Desktop\\CodeFinal\\JunkoSolution\\Junko.Repo\\Junko.Repo.csproj"
+            },
+            "C:\\Users\\Huseyn\\Desktop\\CodeFinal\\JunkoSolution\\Junko.Service\\Junko.Service.csproj": {
+              "projectPath": "C:\\Users\\Huseyn\\Desktop\\CodeFinal\\JunkoSolution\\Junko.Service\\Junko.Service.csproj"
             }
           }
         }

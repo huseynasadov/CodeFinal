@@ -26,8 +26,15 @@ using Junko.Models;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 3 "C:\Users\Huseyn\Desktop\CodeFinal\JunkoSolution\Junko\Views\_ViewImports.cshtml"
+using Junko.Data.Entries;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"6d6979cc9a0fc2bdf80912cfad735bed61bd7c80", @"/Views/Ordering/Checkout.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"5144a00927b5e0f3184bbe62a224a706f7c8e3bb", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"3486063a9f3db427679abb1248bb55d849aebc76", @"/Views/_ViewImports.cshtml")]
     public class Views_Ordering_Checkout : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("action", new global::Microsoft.AspNetCore.Html.HtmlString("#"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -118,7 +125,7 @@ using Junko.Models;
                                     If you are a new customer please proceed to the Billing & Shipping section.
                                 </p>
                                 ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6d6979cc9a0fc2bdf80912cfad735bed61bd7c808807", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6d6979cc9a0fc2bdf80912cfad735bed61bd7c808994", async() => {
                 WriteLiteral(@"
                                     <div class=""form_group"">
                                         <label>Username or email <span>*</span></label>
@@ -166,7 +173,7 @@ using Junko.Models;
                         <div id=""checkout_coupon"" class=""collapse"" data-parent=""#accordion"">
                             <div class=""checkout_info"">
                                 ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6d6979cc9a0fc2bdf80912cfad735bed61bd7c8011994", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6d6979cc9a0fc2bdf80912cfad735bed61bd7c8012181", async() => {
                 WriteLiteral("\r\n                                    <input placeholder=\"Coupon code\" type=\"text\">\r\n                                    <button type=\"submit\">Apply coupon</button>\r\n                                ");
             }
             );
@@ -192,7 +199,7 @@ using Junko.Models;
                 <div class=""row"">
                     <div class=""col-lg-6 col-md-6"">
                         ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6d6979cc9a0fc2bdf80912cfad735bed61bd7c8013813", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6d6979cc9a0fc2bdf80912cfad735bed61bd7c8014000", async() => {
                 WriteLiteral(@"
                             <h3>Billing Details</h3>
                             <div class=""row"">
@@ -213,7 +220,7 @@ using Junko.Models;
                                     <label for=""country"">country <span>*</span></label>
                                     <select class=""niceselect_option"" name=");
                 WriteLiteral("\"cuntry\" id=\"country\">\r\n                                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6d6979cc9a0fc2bdf80912cfad735bed61bd7c8015218", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6d6979cc9a0fc2bdf80912cfad735bed61bd7c8015405", async() => {
                     WriteLiteral("bangladesh");
                 }
                 );
@@ -229,7 +236,7 @@ using Junko.Models;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6d6979cc9a0fc2bdf80912cfad735bed61bd7c8016486", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6d6979cc9a0fc2bdf80912cfad735bed61bd7c8016673", async() => {
                     WriteLiteral("Algeria");
                 }
                 );
@@ -245,7 +252,7 @@ using Junko.Models;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6d6979cc9a0fc2bdf80912cfad735bed61bd7c8017751", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6d6979cc9a0fc2bdf80912cfad735bed61bd7c8017938", async() => {
                     WriteLiteral("Afghanistan");
                 }
                 );
@@ -261,7 +268,7 @@ using Junko.Models;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6d6979cc9a0fc2bdf80912cfad735bed61bd7c8019020", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6d6979cc9a0fc2bdf80912cfad735bed61bd7c8019207", async() => {
                     WriteLiteral("Ghana");
                 }
                 );
@@ -277,7 +284,7 @@ using Junko.Models;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6d6979cc9a0fc2bdf80912cfad735bed61bd7c8020283", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6d6979cc9a0fc2bdf80912cfad735bed61bd7c8020470", async() => {
                     WriteLiteral("Albania");
                 }
                 );
@@ -293,7 +300,7 @@ using Junko.Models;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6d6979cc9a0fc2bdf80912cfad735bed61bd7c8021548", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6d6979cc9a0fc2bdf80912cfad735bed61bd7c8021735", async() => {
                     WriteLiteral("Bahrain");
                 }
                 );
@@ -309,7 +316,7 @@ using Junko.Models;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6d6979cc9a0fc2bdf80912cfad735bed61bd7c8022813", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6d6979cc9a0fc2bdf80912cfad735bed61bd7c8023000", async() => {
                     WriteLiteral("Colombia");
                 }
                 );
@@ -325,7 +332,7 @@ using Junko.Models;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6d6979cc9a0fc2bdf80912cfad735bed61bd7c8024079", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6d6979cc9a0fc2bdf80912cfad735bed61bd7c8024266", async() => {
                     WriteLiteral("Dominican Republic");
                 }
                 );
@@ -414,7 +421,7 @@ using Junko.Models;
                                                     <select class=""niceselect_option"" name=""cuntry""
                                                             id=""countru_name"">
                                                         ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6d6979cc9a0fc2bdf80912cfad735bed61bd7c8029988", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6d6979cc9a0fc2bdf80912cfad735bed61bd7c8030175", async() => {
                     WriteLiteral("bangladesh");
                 }
                 );
@@ -430,7 +437,7 @@ using Junko.Models;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                                                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6d6979cc9a0fc2bdf80912cfad735bed61bd7c8031272", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6d6979cc9a0fc2bdf80912cfad735bed61bd7c8031459", async() => {
                     WriteLiteral("Algeria");
                 }
                 );
@@ -446,7 +453,7 @@ using Junko.Models;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                                                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6d6979cc9a0fc2bdf80912cfad735bed61bd7c8032553", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6d6979cc9a0fc2bdf80912cfad735bed61bd7c8032740", async() => {
                     WriteLiteral("Afghanistan");
                 }
                 );
@@ -462,7 +469,7 @@ using Junko.Models;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                                                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6d6979cc9a0fc2bdf80912cfad735bed61bd7c8033838", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6d6979cc9a0fc2bdf80912cfad735bed61bd7c8034025", async() => {
                     WriteLiteral("Ghana");
                 }
                 );
@@ -478,7 +485,7 @@ using Junko.Models;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                                                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6d6979cc9a0fc2bdf80912cfad735bed61bd7c8035117", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6d6979cc9a0fc2bdf80912cfad735bed61bd7c8035304", async() => {
                     WriteLiteral("Albania");
                 }
                 );
@@ -494,7 +501,7 @@ using Junko.Models;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                                                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6d6979cc9a0fc2bdf80912cfad735bed61bd7c8036398", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6d6979cc9a0fc2bdf80912cfad735bed61bd7c8036585", async() => {
                     WriteLiteral("Bahrain");
                 }
                 );
@@ -510,7 +517,7 @@ using Junko.Models;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                                                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6d6979cc9a0fc2bdf80912cfad735bed61bd7c8037679", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6d6979cc9a0fc2bdf80912cfad735bed61bd7c8037866", async() => {
                     WriteLiteral("Colombia");
                 }
                 );
@@ -526,7 +533,7 @@ using Junko.Models;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                                                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6d6979cc9a0fc2bdf80912cfad735bed61bd7c8038961", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6d6979cc9a0fc2bdf80912cfad735bed61bd7c8039148", async() => {
                     WriteLiteral("Dominican Republic");
                 }
                 );
@@ -602,7 +609,7 @@ using Junko.Models;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                    </div>\r\n                    <div class=\"col-lg-6 col-md-6\">\r\n                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6d6979cc9a0fc2bdf80912cfad735bed61bd7c8044096", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6d6979cc9a0fc2bdf80912cfad735bed61bd7c8044283", async() => {
                 WriteLiteral(@"
                             <h3>Your order</h3>
                             <div class=""order_table table-responsive"">
@@ -672,7 +679,7 @@ using Junko.Models;
                                     <label for=""payment_defult"" data-toggle=""collapse"" data-target=""#collapsedefult""
                                            aria-controls=""collapsedefult"">
                                         PayPal ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "6d6979cc9a0fc2bdf80912cfad735bed61bd7c8048499", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "6d6979cc9a0fc2bdf80912cfad735bed61bd7c8048686", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
