@@ -2,10 +2,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using FluentValidation;
+using FluentValidation.AspNetCore;
+using Junko.Data.Entries;
 using Junko.Repo.Data;
 using Junko.Repo.IRepositories;
 using Junko.Repo.Repositories;
 using Junko.Service.DataService;
+using Junko.Validators;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -29,6 +33,9 @@ namespace Junko
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddMvc(setup => {
+                //...mvc setup...
+            }).AddFluentValidation();
 
             services.AddDbContext<JunkoDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"), x => x.MigrationsAssembly("Junko.Repo")));
@@ -36,6 +43,8 @@ namespace Junko
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddTransient<ISettingService, SettingService>();
+
+            services.AddTransient<IValidator<Setting>, SettingValidator>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

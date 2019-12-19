@@ -222,7 +222,6 @@ C:\Users\Huseyn\Desktop\CodeFinal\JunkoSolution\Junko\bin\Debug\netcoreapp3.1\Ju
 C:\Users\Huseyn\Desktop\CodeFinal\JunkoSolution\Junko\obj\Debug\netcoreapp3.1\Junko.csprojAssemblyReference.cache
 C:\Users\Huseyn\Desktop\CodeFinal\JunkoSolution\Junko\obj\Debug\netcoreapp3.1\staticwebassets\Junko.StaticWebAssets.Manifest.cache
 C:\Users\Huseyn\Desktop\CodeFinal\JunkoSolution\Junko\obj\Debug\netcoreapp3.1\staticwebassets\Junko.StaticWebAssets.xml
-C:\Users\Huseyn\Desktop\CodeFinal\JunkoSolution\Junko\obj\Debug\netcoreapp3.1\Junko.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Huseyn\Desktop\CodeFinal\JunkoSolution\Junko\obj\Debug\netcoreapp3.1\Junko.RazorAssemblyInfo.cache
 C:\Users\Huseyn\Desktop\CodeFinal\JunkoSolution\Junko\obj\Debug\netcoreapp3.1\Junko.RazorAssemblyInfo.cs
 C:\Users\Huseyn\Desktop\CodeFinal\JunkoSolution\Junko\obj\Debug\netcoreapp3.1\Junko.AssemblyInfoInputs.cache
@@ -258,3 +257,8 @@ C:\Users\Huseyn\Desktop\CodeFinal\JunkoSolution\Junko\obj\Debug\netcoreapp3.1\Ju
 C:\Users\Huseyn\Desktop\CodeFinal\JunkoSolution\Junko\obj\Debug\netcoreapp3.1\Junko.pdb
 C:\Users\Huseyn\Desktop\CodeFinal\JunkoSolution\Junko\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\Header\Default.cshtml.g.cs
 C:\Users\Huseyn\Desktop\CodeFinal\JunkoSolution\Junko\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\Footer\Default.cshtml.g.cs
+C:\Users\Huseyn\Desktop\CodeFinal\JunkoSolution\Junko\bin\Debug\netcoreapp3.1\FluentValidation.dll
+C:\Users\Huseyn\Desktop\CodeFinal\JunkoSolution\Junko\bin\Debug\netcoreapp3.1\FluentValidation.AspNetCore.dll
+C:\Users\Huseyn\Desktop\CodeFinal\JunkoSolution\Junko\bin\Debug\netcoreapp3.1\FluentValidation.DependencyInjectionExtensions.dll
+C:\Users\Huseyn\Desktop\CodeFinal\JunkoSolution\Junko\obj\Debug\netcoreapp3.1\Junko.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Huseyn\Desktop\CodeFinal\JunkoSolution\Junko\obj\Debug\netcoreapp3.1\Junko.MvcApplicationPartsAssemblyInfo.cache
