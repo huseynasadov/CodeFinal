@@ -1,6 +1,7 @@
-﻿
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer _localizer
 @{
-    ViewData["Title"] = "Account";
+    ViewData["Title"] = _localizer["Account"];
 }
 
 <!--breadcrumbs area start-->
@@ -31,18 +32,16 @@
                         <div class="dashboard_tab_button">
                             <ul role="tablist" class="nav flex-column dashboard-list">
                                 <li>
-                                    <a href="#dashboard" data-toggle="tab" class="nav-link active">Dashboard</a>
+                                    <a href="#dashboard" data-toggle="tab" class="nav-link active">@_localizer["Dashboard"]</a>
                                 </li>
-                                <li> <a href="#orders" data-toggle="tab" class="nav-link">Orders</a></li>
-                                <li><a href="#downloads" data-toggle="tab" class="nav-link">Downloads</a></li>
-                                <li><a href="#address" data-toggle="tab" class="nav-link">Addresses</a></li>
+                                <li> <a href="#orders" data-toggle="tab" class="nav-link">@_localizer["Orders"]</a></li>
+                                <li><a href="#address" data-toggle="tab" class="nav-link">@_localizer["Addresses"]</a></li>
                                 <li>
                                     <a href="#account-details" data-toggle="tab" class="nav-link">
-                                        Account
-                                        details
+                                        @_localizer["Account Details"]
                                     </a>
                                 </li>
-                                <li><a href="login.html" class="nav-link">logout</a></li>
+                                <li><a href="login.html" class="nav-link">@_localizer["Logout"]</a></li>
                             </ul>
                         </div>
                     </div>
@@ -50,12 +49,9 @@
                         <!-- Tab panes -->
                         <div class="tab-content dashboard_content">
                             <div class="tab-pane fade show active" id="dashboard">
-                                <h3>Dashboard </h3>
+                                <h3>@_localizer["Dashboard"] </h3>
                                 <p>
-                                    From your account dashboard. you can easily check &amp; view your <a href="#">recent orders</a>, manage your <a href="#">
-                                        shipping and billing
-                                        addresses
-                                    </a> and <a href="#">Edit your password and account details.</a>
+                                    @_localizer["From your account dashboard. you can easily check and view your recent orders manage your shipping and and Edit your password and account details."] 
                                 </p>
                             </div>
                             <div class="tab-pane fade" id="orders">
@@ -64,60 +60,27 @@
                                     <table class="table">
                                         <thead>
                                             <tr>
-                                                <th>Order</th>
-                                                <th>Date</th>
-                                                <th>Status</th>
-                                                <th>Total</th>
-                                                <th>Actions</th>
+                                                <th>@_localizer["Order"]</th>
+                                                <th>@_localizer["Date"]</th>
+                                                <th>@_localizer["Status"]</th>
+                                                <th>@_localizer["Total"]</th>
+                                                <th>@_localizer["Actions"]</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
                                                 <td>1</td>
                                                 <td>May 10, 2018</td>
-                                                <td><span class="success">Completed</span></td>
+                                                <td><span class="success">@_localizer["Completed"]</span></td>
                                                 <td>$25.00 for 1 item </td>
-                                                <td><a href="cart.html" class="view">view</a></td>
+                                                <td><a href="cart.html" class="view">@_localizer["View"]</a></td>
                                             </tr>
                                             <tr>
                                                 <td>2</td>
                                                 <td>May 10, 2018</td>
-                                                <td>Processing</td>
+                                                <td>@_localizer["Processing"]</td>
                                                 <td>$17.00 for 1 item </td>
-                                                <td><a href="cart.html" class="view">view</a></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                            <div class="tab-pane fade" id="downloads">
-                                <h3>Downloads</h3>
-                                <div class="table-responsive">
-                                    <table class="table">
-                                        <thead>
-                                            <tr>
-                                                <th>Product</th>
-                                                <th>Downloads</th>
-                                                <th>Expires</th>
-                                                <th>Download</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>Shopnovilla - Free Real Estate PSD Template</td>
-                                                <td>May 10, 2018</td>
-                                                <td><span class="danger">Expired</span></td>
-                                                <td>
-                                                    <a href="#" class="view">Click Here To Download Your File</a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Organic - ecommerce html template</td>
-                                                <td>Sep 11, 2018</td>
-                                                <td>Never</td>
-                                                <td>
-                                                    <a href="#" class="view">Click Here To Download Your File</a>
-                                                </td>
+                                                <td><a href="cart.html" class="view">@_localizer["View"]</a></td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -125,7 +88,7 @@
                             </div>
                             <div class="tab-pane" id="address">
                                 <p>The following addresses will be used on the checkout page by default.</p>
-                                <h4 class="billing-address">Billing address</h4>
+                                <h4 class="billing-address">@_localizer["Address"]</h4>
                                 <a href="#" class="view">Edit</a>
                                 <p><strong>Bobby Jackson</strong></p>
                                 <address>
@@ -139,7 +102,7 @@
                                 <p>Bangladesh</p>
                             </div>
                             <div class="tab-pane fade" id="account-details">
-                                <h3>Account details </h3>
+                                <h3>@_localizer["Account Details"]</h3>
                                 <div class="login">
                                     <div class="login_form_container">
                                         <div class="account_login_form">
@@ -148,12 +111,12 @@
                                                 <div class="input-radio">
                                                     <span class="custom-radio">
                                                         <input type="radio" value="1"
-                                                               name="id_gender"> Mr.
-                                                    </span>
+                                                               name="id_gender"> @_localizer["Mr"].
+                                                        </span>
                                                     <span class="custom-radio">
                                                         <input type="radio" value="1"
-                                                               name="id_gender"> Mrs.
-                                                    </span>
+                                                               name="id_gender"> @_localizer["Mrs"].
+                                                        </span>
                                                 </div> <br>
                                                 <label>First Name</label>
                                                 <input type="text" name="first-name">
@@ -171,22 +134,14 @@
                                                 </span>
                                                 <br>
                                                 <span class="custom_checkbox">
-                                                    <input type="checkbox" value="1" name="optin">
-                                                    <label>Receive offers from our partners</label>
-                                                </span>
-                                                <br>
-                                                <span class="custom_checkbox">
                                                     <input type="checkbox" value="1" name="newsletter">
                                                     <label>
-                                                        Sign up for our newsletter<br><em>
-                                                            You may unsubscribe at
-                                                            any moment. For that purpose, please find our contact
-                                                            info in the legal notice.
+                                                       @_localizer["Sign up for our newsletter"]<br><em >@_localizer["You may unsubscribe at any moment. For that purpose, please find our info in the legal notice."]
                                                         </em>
                                                     </label>
                                                 </span>
                                                 <div class="save_button primary_btn default_button">
-                                                    <button type="submit">Save</button>
+                                                    <button type="submit">@_localizer["Save"]</button>
                                                 </div>
                                             </form>
                                         </div>

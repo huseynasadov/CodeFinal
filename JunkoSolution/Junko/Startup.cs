@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 using FluentValidation;
@@ -12,11 +13,18 @@ using Junko.Service.DataService;
 using Junko.Validators;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Localization;
+using Microsoft.AspNetCore.Localization.Routing;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Razor;
+using Microsoft.AspNetCore.Routing;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Options;
 
 namespace Junko
 {
@@ -32,8 +40,44 @@ namespace Junko
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.Configure<CookiePolicyOptions>(options =>
+            {
+                // This lambda determines whether user consent for non-essential cookies is needed for a given request.
+                options.CheckConsentNeeded = context => true;
+                options.MinimumSameSitePolicy = SameSiteMode.None;
+            });
+            services.AddLocalization(opt =>
+            {
+                opt.ResourcesPath = "Resources";
+            });
+
+            services.AddMvc()
+                  .AddViewLocalization(opts => { opts.ResourcesPath = "Resources"; })
+                  .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix)
+                  .AddDataAnnotationsLocalization()
+              .SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
+
+            services.Configure<RequestLocalizationOptions>(opts =>
+            {
+                var supportedCultures = new List<CultureInfo> {
+                    new CultureInfo("en"),
+                    new CultureInfo("az-Latn-AZ"),
+                    new CultureInfo("en-US"),
+                    new CultureInfo("ru"),
+                  };
+
+                opts.DefaultRequestCulture = new RequestCulture("en-US");
+                // Formatting numbers, dates, etc.
+                opts.SupportedCultures = supportedCultures;
+                // UI strings that we have localized.
+                opts.SupportedUICultures = supportedCultures;
+            });
+
+
+
             services.AddControllersWithViews();
-            services.AddMvc(setup => {
+            services.AddMvc(setup =>
+            {
                 //...mvc setup...
             }).AddFluentValidation();
 
@@ -45,6 +89,7 @@ namespace Junko
             services.AddTransient<ISettingService, SettingService>();
 
             services.AddTransient<IValidator<Setting>, SettingValidator>();
+            services.AddMvc(option => option.EnableEndpointRouting = false);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -62,18 +107,38 @@ namespace Junko
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
+            var options = app.ApplicationServices.GetService<IOptions<RequestLocalizationOptions>>();
+            app.UseRequestLocalization(options.Value);
             app.UseRouting();
-
             app.UseAuthorization();
-
-            app.UseEndpoints(endpoints =>
+            IList<CultureInfo> supportedCultures = new List<CultureInfo>
+{
+    new CultureInfo("en-US"),
+    new CultureInfo("az-Latn-AZ"),
+};
+            var localizationOptions = new RequestLocalizationOptions
             {
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                DefaultRequestCulture = new RequestCulture("en-US"),
+                SupportedCultures = supportedCultures,
+                SupportedUICultures = supportedCultures
+            };
+            var requestProvider = new RouteDataRequestCultureProvider();
+            localizationOptions.RequestCultureProviders.Insert(0, requestProvider);
+
+            app.UseRouter(routes =>
+            {
+                routes.MapMiddlewareRoute("{culture=en-US}/{*mvcRoute}", subApp =>
+                {
+                    subApp.UseRequestLocalization(localizationOptions);
+
+                    subApp.UseMvc(mvcRoutes =>
+                    {
+                        mvcRoutes.MapRoute(
+                            name: "default",
+                            template: "{culture=en-US}/{controller=Home}/{action=Index}/{id?}");
+                    });
+                });
             });
         }
     }
 }
- 

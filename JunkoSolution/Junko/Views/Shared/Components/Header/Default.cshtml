@@ -1,4 +1,6 @@
-﻿@model Setting
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer _localizer
+@model Setting
 <!--header area start-->
 <!--Offcanvas menu area start-->
 <div class="off_canvars_overlay">
@@ -16,20 +18,22 @@
                         <a href="javascript:void(0)"><i class="ion-android-close"></i></a>
                     </div>
                     <div class="support_info">
-                        <p>Telephone Enquiry: <a href="tel:+6494461709">(012) 800 456 789 – 987</a></p>
+                        <p>@_localizer["Telephone Enquiry"]: <a href="tel: +6494461709">(012) 800 456 789 – 987</a></p>
+
                     </div>
                     <div class="top_right text-right">
                         <ul>
-                            <li><a asp-controller="login" asp-action="account"> My Account </a></li>
-                            <li><a asp-controller="ordering" asp-action="checkout"> Checkout </a></li>
+                            <li><a asp-controller="login" asp-action="account"> @_localizer["My Account"] </a></li>
+                            <li><a asp-controller="ordering" asp-action="checkout"> @_localizer["Checkout"] </a></li>
                         </ul>
                     </div>
                     <div class="search_container">
                         <form action="#">
                             <div class="hover_category">
                                 <select class="select_option" name="select" id="categori">
-                                    <option selected value="1">All Categories</option>
-                                    <option value="2">Accessories</option>
+                                    <option selected value="1">@_localizer["All Categories"]</option>
+
+<option value="2">Accessories</option>
                                     <option value="3">Accessories & More</option>
                                     <option value="4">Butters & Eggs</option>
                                     <option value="5">Camera & Video </option>
@@ -47,8 +51,9 @@
                                 </select>
                             </div>
                             <div class="search_box">
-                                <input placeholder="Search product..." type="text">
-                                <button type="submit">Search</button>
+                                <input placeholder="@_localizer["Search"] @_localizer["product"]..." type="text">
+                                <button type="submit">@_localizer["Search"]</button>
+
                             </div>
                         </form>
                     </div>
@@ -103,10 +108,10 @@
 
                                 <div class="mini_cart_footer">
                                     <div class="cart_button">
-                                        <a asp-controller="ordering" asp-action="cart">View cart</a>
+                                        <a asp-controller="ordering" asp-action="cart">@_localizer["View cart"]</a>
                                     </div>
                                     <div class="cart_button">
-                                        <a asp-controller="ordering" asp-action="checkout">Checkout</a>
+                                        <a asp-controller="ordering" asp-action="checkout">@_localizer["Checkout"]</a>
                                     </div>
 
                                 </div>
@@ -118,31 +123,31 @@
                     <div id="menu" class="text-left ">
                         <ul class="offcanvas_main_menu">
                             <li class="menu-item-has-children active">
-                                <a asp-controller="home" asp-action="index">Home</a>
+                                <a asp-controller="home" asp-action="index">@_localizer["home"]</a>
                             </li>
                             <li class="menu-item-has-children">
-                                <a asp-controller="shop" asp-action="index">Shop</a>
+                                <a asp-controller="shop" asp-action="index">@_localizer["Shop"]</a>
                             </li>
                             <li class="menu-item-has-children">
-                                <a asp-controller="blog" asp-action="index">blog</a>
+                                <a asp-controller="blog" asp-action="index">@_localizer["Blogs"]</a>
                             </li>
                             <li class="menu-item-has-children">
-                                <a asp-controller="service" asp-action="index">services</a>
+                                <a asp-controller="service" asp-action="index">@_localizer["Services"]</a>
                             </li>
                             <li class="menu-item-has-children">
-                                <a asp-controller="login" asp-action="account">my account</a>
+                                <a asp-controller="login" asp-action="account">@_localizer["My Account"]</a>
                             </li>
                             <li class="menu-item-has-children">
-                                <a asp-controller="about" asp-action="index">about Us</a>
+                                <a asp-controller="about" asp-action="index">@_localizer["About Us"]</a>
                             </li>
                             <li class="menu-item-has-children">
-                                <a asp-controller="faq" asp-action="index">FAQ</a>
+                                <a asp-controller="faq" asp-action="index">@_localizer["FAQ"]</a>
                             </li>
                             <li class="menu-item-has-children">
-                                <a asp-controller="privacy" asp-action="index">Privacy Policy</a>
+                                <a asp-controller="privacy" asp-action="index">@_localizer["Privacy Policy"]</a>
                             </li>
                             <li class="menu-item-has-children">
-                                <a asp-controller="contact" asp-action="index"> Contact Us</a>
+                                <a asp-controller="contact" asp-action="index">@_localizer["Contact Us"]</a>
                             </li>
                         </ul>
                     </div>
@@ -172,14 +177,18 @@
                 <div class="row align-items-center">
                     <div class="col-lg-6 col-md-6">
                         <div class="support_info">
-                            <p>Telephone Enquiry: <a href="tel:+6494461709">(012) 800 456 789 – 987</a></p>
+                            <p>@_localizer["Telephone Enquiry"]: <a href="tel: +6494461709">(012) 800 456 789 – 987</a></p>
+
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6">
                         <div class="top_right text-right">
                             <ul>
-                                <li><a asp-controller="login" asp-action="account"> My Account </a></li>
-                                <li><a asp-controller="ordering" asp-action="checkout"> Checkout </a></li>
+                                <li>
+                                    @await Html.PartialAsync("_SelectLanguagePartial")
+                                </li>
+                                <li><a asp-controller="login" asp-action="account">@_localizer["My Account"] </a></li>
+                                <li><a asp-controller="ordering" asp-action="checkout"> @_localizer["Checkout"] </a></li>
                             </ul>
                         </div>
                     </div>
@@ -201,28 +210,28 @@
                             <nav>
                                 <ul>
                                     <li>
-                                        <a class="active" asp-controller="home" asp-action="index">home</a>
+                                        <a class="active" asp-controller="home" asp-action="index">@_localizer["home"]</a>
 
                                     </li>
                                     <li class="mega_items">
-                                        <a asp-controller="shop" asp-action="index">shop</a>
+                                        <a asp-controller="shop" asp-action="index">@_localizer["Shop"]</a>
                                     </li>
                                     <li>
-                                        <a asp-controller="blog" asp-action="index">blog</a>
+                                        <a asp-controller="blog" asp-action="index">@_localizer["Blogs"]</a>
                                     </li>
                                     <li>
-                                        <a asp-controller="service" asp-action="index">services</a>
+                                        <a asp-controller="service" asp-action="index">@_localizer["Services"]</a>
                                     </li>
                                     <li>
-                                        <a href="#">pages<i class="fa fa-angle-down"></i></a>
+                                        <a href="#">@_localizer["Pages"]<i class="fa fa-angle-down"></i></a>
                                         <ul class="sub_menu pages">
-                                            <li><a asp-controller="about" asp-action="index">About Us</a></li>
-                                            <li><a asp-controller="faq" asp-action="index">Frequently Questions</a></li>
-                                            <li><a asp-controller="privacy" asp-action="index">Privacy Policy</a></li>
-                                            <li><a asp-controller="login" asp-action="index">Login</a></li>
+                                            <li><a asp-controller="about" asp-action="index">@_localizer["About Us"]</a></li>
+                                            <li><a asp-controller="faq" asp-action="index">@_localizer["Frequently Questions"]</a></li>
+                                            <li><a asp-controller="privacy" asp-action="index">@_localizer["Privacy Policy"]</a></li>
+                                            <li><a asp-controller="login" asp-action="index">@_localizer["Login"]</a></li>
                                         </ul>
                                     </li>
-                                    <li><a asp-controller="contact" asp-action="index"> Contact Us</a></li>
+                                    <li><a asp-controller="contact" asp-action="index">@_localizer["Contact Us"]</a></li>
                                 </ul>
                             </nav>
                         </div>
@@ -238,7 +247,8 @@
                     <div class="col-lg-3 col-md-12">
                         <div class="categories_menu categories_two">
                             <div class="categories_title">
-                                <h2 class="categori_toggle">ALL CATEGORIES</h2>
+                                <h2 class="categori_toggle">@_localizer["All Categories"]</h2>
+
                             </div>
                             <div class="categories_menu_toggle">
                                 <ul>
@@ -391,7 +401,8 @@
                                 <form action="#">
                                     <div class="hover_category">
                                         <select class="select_option" name="select" id="categori1">
-                                            <option selected value="1">All Categories</option>
+                                            <option selected value="1">@_localizer["All Categories"]</option>
+
                                             <option value="2">Accessories</option>
                                             <option value="3">Accessories & More</option>
                                             <option value="4">Butters & Eggs</option>
@@ -410,8 +421,9 @@
                                         </select>
                                     </div>
                                     <div class="search_box">
-                                        <input placeholder="Search product..." type="text">
-                                        <button type="submit">Search</button>
+                                        <input placeholder="@_localizer["Search"] @_localizer["product"]..." type="text">
+                                        <button type="submit">@_localizer["Search"]</button>
+
                                     </div>
                                 </form>
                             </div>
@@ -454,21 +466,18 @@
                                         </div>
                                         <div class="mini_cart_table">
                                             <div class="cart_total">
-                                                <span>Sub total:</span>
-                                                <span class="price">$138.00</span>
-                                            </div>
-                                            <div class="cart_total mt-10">
-                                                <span>total:</span>
+                                                <span>@_localizer["Total"]:</span>
                                                 <span class="price">$138.00</span>
                                             </div>
                                         </div>
 
                                         <div class="mini_cart_footer">
                                             <div class="cart_button">
-                                                <a asp-controller="ordering" asp-action="cart">View cart</a>
+                                                <a asp-controller="ordering" asp-action="cart">@_localizer["View Cart"]</a>
+
                                             </div>
                                             <div class="cart_button">
-                                                <a asp-controller="ordering" asp-action="checkout">Checkout</a>
+                                                <a asp-controller="ordering" asp-action="checkout">@_localizer["Checkout"]</a>
                                             </div>
 
                                         </div>
@@ -500,20 +509,23 @@
                     <div class="main_menu">
                         <nav>
                             <ul>
-                                <li><a class="active" asp-controller="home" asp-action="index">home</a></li>
-                                <li class="mega_items"><a asp-controller="shop" asp-action="index">shop</a></li>
-                                <li><a asp-controller="blog" asp-action="index">blog</a></li>
+                                <li><a class="active" asp-controller="home" asp-action="index">@_localizer["home"]</a></li>
+                                <li class="mega_items"><a asp-controller="shop" asp-action="index">@_localizer["Shop"]</a></li>
+                                <li><a asp-controller="blog" asp-action="index">@_localizer["Blogs"]</a></li>
                                 <li>
-                                    <a href="#">pages <i class="fa fa-angle-down"></i></a>
+                                    <a href="#">
+                                        @_localizer["Pages"] <i class="fa fa - angle - down"></i>
+                                    </a>
+
                                     <ul class="sub_menu pages">
-                                        <li><a asp-controller="about" asp-action="index">About Us</a></li>
+                                        <li><a asp-controller="about" asp-action="index">@_localizer["About Us"]</a></li>
                                         <li><a asp-controller="service" asp-action="index">services</a></li>
-                                        <li><a asp-controller="faq" asp-action="index">Frequently Questions</a></li>
-                                        <li><a asp-controller="privacy" asp-action="index">Privacy Policy</a></li>
-                                        <li><a asp-controller="login" asp-action="index">Login</a></li>
+                                        <li><a asp-controller="faq" asp-action="index">@_localizer["Frequently Questions"]</a></li>
+                                        <li><a asp-controller="privacy" asp-action="index">@_localizer["Privacy Policy"]</a></li>
+                                        <li><a asp-controller="login" asp-action="index">@_localizer["Login"]</a></li>
                                     </ul>
                                 </li>
-                                <li><a asp-controller="contact" asp-action="index"> Contact Us</a></li>
+                                <li><a asp-controller="contact" asp-action="index"> @_localizer["Contact Us"]</a></li>
                             </ul>
                         </nav>
                     </div>
@@ -555,22 +567,18 @@
                                     </div>
                                 </div>
                                 <div class="mini_cart_table">
-                                    <div class="cart_total">
-                                        <span>Sub total:</span>
-                                        <span class="price">$138.00</span>
-                                    </div>
                                     <div class="cart_total mt-10">
-                                        <span>total:</span>
+                                        <span>@_localizer["Total"]:</span>
                                         <span class="price">$138.00</span>
                                     </div>
                                 </div>
 
                                 <div class="mini_cart_footer">
                                     <div class="cart_button">
-                                        <a asp-controller="ordering" asp-action="cart">View cart</a>
+                                        <a asp-controller="ordering" asp-action="cart">@_localizer["View Cart"]</a>
                                     </div>
                                     <div class="cart_button">
-                                        <a asp-controller="ordering" asp-action="checkout">Checkout</a>
+                                        <a asp-controller="ordering" asp-action="checkout">@_localizer["Checkout"]</a>
                                     </div>
 
                                 </div>

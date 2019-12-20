@@ -1,4 +1,5 @@
-﻿
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer _localizer
 @{
     ViewData["Title"] = "Blogs";
 }
@@ -9,8 +10,8 @@
             <div class="col-12">
                 <div class="breadcrumb_content">
                     <ul>
-                        <li><a href="index.html">home</a></li>
-                        <li>blog</li>
+                        <li><a href="index.html">@_localizer["home"]</a></li>
+                        <li>@_localizer["Blogs"]</li>
                     </ul>
                 </div>
             </div>
@@ -28,10 +29,10 @@
                 <div class="col-lg-3 blog-">
                     <div class="blog_sidebar_widget">
                         <div class="widget_list widget_search">
-                            <h3>Search</h3>
+                            <h3>@_localizer["Search"]</h3>
                             <form action="#">
-                                <input placeholder="Search..." type="text">
-                                <button type="submit">search</button>
+                                <input placeholder="@_localizer["Search"]..." type="text">
+                                <button type="submit">@_localizer["Search"]</button>
                             </form>
                         </div>
                         <div class="widget_list comments">
@@ -159,7 +160,7 @@
                 <div class="col-lg-9">
                     <div class="blog_wrapper blog_wrapper_sidebar">
                         <div class="blog_header">
-                            <h1>Blog</h1>
+                            <h1>@_localizer["Blogs"]</h1>
                         </div>
                         <div class="row">
                             <div class="col-lg-6 col-md-6">
@@ -174,8 +175,8 @@
                                         <figcaption class="blog_content">
                                             <h3><a asp-controller="blog" asp-action="detail">Blog image post (sticky)</a></h3>
                                             <div class="blog_meta">
-                                                <span class="author">Posted by : <a href="#">admin</a> / </span>
-                                                <span class="post_date">On : <a href="#">April 10, 2019</a></span>
+                                                <span class="author">@_localizer["Posted By"] : <a href="#">admin</a> / </span>
+                                                <span class="post_date">@_localizer["On"] : <a href="#">April 10, 2019</a></span>
                                             </div>
                                             <div class="blog_desc">
                                                 <p>
@@ -186,7 +187,7 @@
                                                 </p>
                                             </div>
                                             <footer class="readmore_button">
-                                                <a asp-controller="blog" asp-action="detail">read more</a>
+                                                <a asp-controller="blog" asp-action="detail">@_localizer["read more"]</a>
                                             </footer>
                                         </figcaption>
                                     </figure>
@@ -379,7 +380,6 @@
                             <li class="current">1</li>
                             <li><a href="#">2</a></li>
                             <li><a href="#">3</a></li>
-                            <li class="next"><a href="#">next</a></li>
                             <li><a href="#">>></a></li>
                         </ul>
                     </div>

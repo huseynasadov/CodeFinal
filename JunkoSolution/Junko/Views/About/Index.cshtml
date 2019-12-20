@@ -1,6 +1,7 @@
-﻿
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer _localizer
 @{
-    ViewData["Title"] = "About Us";
+    ViewData["Title"] = _localizer["About Us"];
 }
 
 <!--breadcrumbs area start-->
@@ -10,8 +11,8 @@
             <div class="col-12">
                 <div class="breadcrumb_content">
                     <ul>
-                        <li><a href="index.html">home</a></li>
-                        <li>about us</li>
+                        <li><a href="index.html">@_localizer["home"]</a></li>
+                        <li>@_localizer["About Us"]</li>
                     </ul>
                 </div>
             </div>

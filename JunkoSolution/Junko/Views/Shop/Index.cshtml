@@ -1,23 +1,24 @@
-﻿
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer _localizer
 @{
-    ViewData["Title"] = "Shop";
+    ViewData["Title"] = _localizer["Shop"];
 }
 
 <!--breadcrumbs area start-->
-    <div class="breadcrumbs_area">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="breadcrumb_content">
-                        <ul>
-                            <li><a href="index.html">home</a></li>
-                            <li>Shop</li>
-                        </ul>
-                    </div>
+<div class="breadcrumbs_area">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="breadcrumb_content">
+                    <ul>
+                        <li><a href="index.html">_localizer["home"]</a></li>
+                        <li>_localizer["Shop"]</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </div>
+</div>
 <!--breadcrumbs area end-->
 <!--Main Start-->
 <main>
@@ -160,18 +161,17 @@
                         <div class=" niceselect_option">
                             <form class="select_option" action="#">
                                 <select name="orderby" id="short">
+                                    <option selected value="1">@_localizer["Sort by average rating"]</option>
+                                    <option value="2">@_localizer["Sort by newness"]</option>
 
-                                    <option selected value="1">Sort by average rating</option>
-                                    <option value="2">Sort by popularity</option>
-                                    <option value="3">Sort by newness</option>
-                                    <option value="4">Sort by price: low to high</option>
-                                    <option value="5">Sort by price: high to low</option>
-                                    <option value="6">Product Name: Z</option>
+                                    <option value="3">@_localizer["Sort by price"]: @_localizer["low to high"]</option>
+                                    <option value="4">@_localizer["Sort by price"]: @_localizer["high to low"]</option>
+                                    <option value="5">@_localizer["Sort by Product Name"]: Z</option>
                                 </select>
                             </form>
                         </div>
                         <div class="page_amount">
-                            <p>Showing 1–9 of 21 results</p>
+                            <p>@_localizer["Showing"] 1–9 of 21 @_localizer["results"]</p>
                         </div>
                     </div>
                     <!--shop toolbar end-->
@@ -183,7 +183,7 @@
                                         <a class="primary_img" asp-controller="shop" asp-action="detail"><img src="~/images/product/product1.jpg" alt=""></a>
                                         <a class="secondary_img" asp-controller="shop" asp-action="detail"><img src="~/images/product/product2.jpg" alt=""></a>
                                         <div class="label_product">
-                                            <span class="label_sale">sale</span>
+                                            <span class="label_sale">@_localizer["sale"]</span>
                                         </div>
                                         <div class="action_links">
                                             <ul>
@@ -193,7 +193,7 @@
                                             </ul>
                                         </div>
                                         <div class="add_to_cart">
-                                            <a href="cart.html" title="add to cart">Add to cart</a>
+                                            <a href="cart.html" title="add to cart">@_localizer["Add to cart"]</a>
                                         </div>
                                     </div>
                                     <div class="product_content grid_content">
@@ -234,7 +234,7 @@
                                         </div>
                                         <div class="right_caption">
                                             <div class="add_to_cart">
-                                                <a href="cart.html" title="add to cart">Add to cart</a>
+                                                <a href="cart.html" title="add to cart">@_localizer["Add to cart"]</a>
                                             </div>
                                             <div class="action_links">
                                                 <ul>
@@ -1045,10 +1045,10 @@
                     <div class="shop_toolbar t_bottom">
                         <div class="pagination">
                             <ul>
+                                
                                 <li class="current">1</li>
                                 <li><a href="#">2</a></li>
                                 <li><a href="#">3</a></li>
-                                <li class="next"><a href="#">next</a></li>
                                 <li><a href="#">>></a></li>
                             </ul>
                         </div>

@@ -318,6 +318,11 @@
         "runtime": {
           "Junko.dll": {}
         },
+        "resources": {
+          "az-Latn-AZ/Junko.resources.dll": {
+            "locale": "az-Latn-AZ"
+          }
+        },
         "compile": {
           "Junko.dll": {}
         }

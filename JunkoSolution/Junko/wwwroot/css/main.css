@@ -18,13 +18,13 @@ body {
 }
 
 body {
-  line-height: 24px;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  visibility: visible;
-  font-family: "Rubik", sans-serif;
-  color: #242424;
+    line-height: 24px;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    visibility: visible;
+    font-family: 'Roboto', sans-serif;
+    color: #242424;
 }
 
 h1,

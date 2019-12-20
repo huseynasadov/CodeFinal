@@ -1,6 +1,7 @@
-﻿
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer _localizer
 @{
-    ViewData["Title"] = "Blog Detail";
+    ViewData["Title"] = _localizer["Blog Detail"];
 }
 
 <!--breadcrumbs area start-->
@@ -10,8 +11,8 @@
             <div class="col-12">
                 <div class="breadcrumb_content">
                     <ul>
-                        <li><a href="index.html">home</a></li>
-                        <li>blog details</li>
+                        <li><a href="index.html">@_localizer["home"]</a></li>
+                        <li>@_localizer["Blog Detail"]</li>
                     </ul>
                 </div>
             </div>
@@ -152,8 +153,8 @@
                                 <div class="post_header">
                                     <h3 class="post_title">Blog image post (sticky)</h3>
                                     <div class="blog_meta">
-                                        <span class="author">Posted by : <a href="#">admin</a> / </span>
-                                        <span class="post_date">On : <a href="#">April 10, 2019</a> /</span>
+                                        <span class="author">@_localizer["Posted By"] : <a href="#">admin</a> / </span>
+                                        <span class="post_date">@_localizer["On"] : <a href="#">April 10, 2019</a> /</span>
                                         <span class="post_category">
                                             In : <a href="#">
                                                 Company, Image,
@@ -223,7 +224,7 @@
                                         </div>
 
                                         <div class="social_sharing">
-                                            <p>share this post:</p>
+                                            <p>@_localizer["share this post"]:</p>
                                             <ul>
                                                 <li>
                                                     <a href="#" title="facebook"><i class="fa fa-facebook"></i></a>
@@ -251,7 +252,7 @@
                             </figure>
                         </article>
                         <div class="related_posts">
-                            <h3>Related posts</h3>
+                            <h3>@_localizer["Related posts"]</h3>
                             <div class="row">
                                 <div class="col-lg-4 col-md-6">
                                     <article class="single_related">
@@ -261,10 +262,10 @@
                                             </div>
                                             <figcaption class="related_content">
                                                 <div class="blog_meta">
-                                                    <span class="author">By : <a href="#">admin</a> / </span>
+                                                    <span class="author">@_localizer["By"] : <a href="#">admin</a> / </span>
                                                     <span class="post_date"> April 11, 2019 </span>
                                                 </div>
-                                                <h4><a href="#">Post with Gallery</a></h4>
+                                                <h4><a href="#">@_localizer["Post with Gallery"]</a></h4>
                                             </figcaption>
                                         </figure>
                                     </article>
@@ -277,10 +278,10 @@
                                             </div>
                                             <figcaption class="related_content">
                                                 <div class="blog_meta">
-                                                    <span class="author">By : <a href="#">admin</a> / </span>
+                                                    <span class="author">@_localizer["By"] : <a href="#">admin</a> / </span>
                                                     <span class="post_date"> April 11, 2019 </span>
                                                 </div>
-                                                <h4><a href="#">Post with Audio</a></h4>
+                                                <h4><a href="#">@_localizer["Post with Audio"]</a></h4>
                                             </figcaption>
                                         </figure>
                                     </article>
@@ -293,7 +294,7 @@
                                             </div>
                                             <figcaption class="related_content">
                                                 <div class="blog_meta">
-                                                    <span class="author">By : <a href="#">admin</a> / </span>
+                                                    <span class="author">@_localizer["By"] : <a href="#">admin</a> / </span>
                                                     <span class="post_date"> April 11, 2019 </span>
                                                 </div>
                                                 <h4><a href="#">Maecenas ultricies</a></h4>
@@ -304,7 +305,7 @@
                             </div>
                         </div>
                         <div class="comments_box">
-                            <h3>3 Comments </h3>
+                            <h3>3 @_localizer["Comments"]  </h3>
                             <div class="comment_list">
                                 <div class="comment_thumb">
                                     <img src="~/images/blog/comment3.png.jpg" alt="">
@@ -318,7 +319,7 @@
                                         But I must explain to you how all this mistaken idea of denouncing pleasure
                                     </p>
                                     <div class="comment_reply">
-                                        <a href="#">Reply</a>
+                                        <a href="#">@_localizer["Reply"]</a>
                                     </div>
                                 </div>
 
@@ -358,8 +359,8 @@
                             </div>
                         </div>
                         <div class="comments_form">
-                            <h3>Leave a Reply </h3>
-                            <p>Your email address will not be published. Required fields are marked *</p>
+                            <h3>@_localizer["Leave a Reply"] </h3>
+                            <p>@_localizer["Your email address will not be published. Required fields are marked"] *</p>
                             <form action="#">
                                 <div class="row">
                                     <div class="col-12">
@@ -375,12 +376,8 @@
                                         <label for="email">Email </label>
                                         <input id="email" type="text">
                                     </div>
-                                    <div class="col-lg-4 col-md-4">
-                                        <label for="website">Website </label>
-                                        <input id="website" type="text">
-                                    </div>
                                 </div>
-                                <button class="button" type="submit">Post Comment</button>
+                                <button class="button" type="submit">@_localizer["Post Comment"]</button>
                             </form>
                         </div>
 

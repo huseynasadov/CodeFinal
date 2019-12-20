@@ -1,6 +1,7 @@
-﻿
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer _localizer
 @{
-    ViewData["Title"] = "Product-Detail";
+    ViewData["Title"] = _localizer["Product Detail"];
 }
 <!--breadcrumbs area start-->
 <div class="breadcrumbs_area">
@@ -9,8 +10,8 @@
             <div class="col-12">
                 <div class="breadcrumb_content">
                     <ul>
-                        <li><a href="index.html">home</a></li>
-                        <li>Shop Detail</li>
+                        <li><a href="index.html">@_localizer["home"]</a></li>
+                        <li>@_localizer["Product Detail"]</li>
                     </ul>
                 </div>
             </div>
@@ -108,8 +109,11 @@
                                 <div data-countdown="2023/12/15"></div>
                             </div>
                             <div class="product_variant color">
-                                <h3>Available Options</h3>
-                                <label>color</label>
+                                <h3>@_localizer["Available Options"]</h3>
+                                <label>
+                                    @_localizer["color"]
+                                </label>
+
                                 <ul>
                                     <li class="color1"><a href="#"></a></li>
                                     <li class="color2"><a href="#"></a></li>
@@ -118,19 +122,18 @@
                                 </ul>
                             </div>
                             <div class="product_variant quantity">
-                                <label>quantity</label>
+                                <label>@_localizer["quantity"]</label>
                                 <input min="1" max="100" value="1" type="number">
-                                <button class="button" type="submit">add to cart</button>
+                                <button class="button" type="submit">@_localizer["Add to cart"]</button>
 
                             </div>
                             <div class=" product_d_action">
                                 <ul>
-                                    <li><a href="#" title="Add to wishlist">+ Add to Wishlist</a></li>
-                                    <li><a href="#" title="Add to wishlist">+ Compare</a></li>
+                                    <li><a href="#" title="Add to wishlist">+ @_localizer["Add to Wishlist"]</a></li>
                                 </ul>
                             </div>
                             <div class="product_meta">
-                                <span>Category: <a href="#">Clothing</a></span>
+                                <span>@_localizer["Category"]: <a href="#">Clothing</a></span>
                             </div>
 
                         </form>
@@ -184,15 +187,15 @@
                             <ul class="nav" role="tablist">
                                 <li>
                                     <a class="active" data-toggle="tab" href="#info" role="tab" aria-controls="info"
-                                       aria-selected="false">Description</a>
+                                       aria-selected="false">@_localizer["Description"]</a>
                                 </li>
                                 <li>
                                     <a data-toggle="tab" href="#sheet" role="tab" aria-controls="sheet"
-                                       aria-selected="false">Specification</a>
+                                       aria-selected="false">@_localizer["Specification"]</a>
                                 </li>
                                 <li>
                                     <a data-toggle="tab" href="#reviews" role="tab" aria-controls="reviews"
-                                       aria-selected="false">Reviews (1)</a>
+                                       aria-selected="false">@_localizer["Reviews"] (1)</a>
                                 </li>
                             </ul>
                         </div>
