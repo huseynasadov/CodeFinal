@@ -5,20 +5,8 @@
 }
 
 <!--breadcrumbs area start-->
-<div class="breadcrumbs_area">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="breadcrumb_content">
-                    <ul>
-                        <li><a href="index.html">_localizer["home"]</a></li>
-                        <li>_localizer["Shop"]</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+
+@await Html.PartialAsync("~/Views/Shared/_Breadcrumb.cshtml")
 <!--breadcrumbs area end-->
 <!--Main Start-->
 <main>
@@ -1045,7 +1033,7 @@
                     <div class="shop_toolbar t_bottom">
                         <div class="pagination">
                             <ul>
-                                
+
                                 <li class="current">1</li>
                                 <li><a href="#">2</a></li>
                                 <li><a href="#">3</a></li>

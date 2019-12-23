@@ -4,8 +4,4 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Junko.Repo\Junko.Repo.csproj" />
-  </ItemGroup>
-
 </Project>

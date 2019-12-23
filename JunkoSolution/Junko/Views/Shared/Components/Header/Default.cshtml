@@ -1,6 +1,6 @@
 ﻿@using Microsoft.AspNetCore.Mvc.Localization
 @inject IViewLocalizer _localizer
-@model Setting
+@model SettingVM
 <!--header area start-->
 <!--Offcanvas menu area start-->
 <div class="off_canvars_overlay">
@@ -18,7 +18,7 @@
                         <a href="javascript:void(0)"><i class="ion-android-close"></i></a>
                     </div>
                     <div class="support_info">
-                        <p>@_localizer["Telephone Enquiry"]: <a href="tel: +6494461709">(012) 800 456 789 – 987</a></p>
+                        <p>@_localizer["Telephone Enquiry"]: <a href="tel: @Model.Setting.Phone">@Model.Setting.Phone</a></p>
 
                     </div>
                     <div class="top_right text-right">
@@ -155,11 +155,10 @@
                     <div class="Offcanvas_footer">
                         <span><a href="#"><i class="fa fa-envelope-o"></i> info@yourdomain.com</a></span>
                         <ul>
-                            <li class="facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
-                            <li class="twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
-                            <li class="pinterest"><a href="#"><i class="fa fa-pinterest-p"></i></a></li>
-                            <li class="google-plus"><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                            <li class="linkedin"><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                            @foreach (var social in Model.Setting.SocialActivities)
+                            {
+                                <li class="@social.Name"><a href="@social.Link"><i class="fa fa-@social.Name"></i></a></li>
+                            }
                         </ul>
                     </div>
                 </div>
@@ -177,7 +176,7 @@
                 <div class="row align-items-center">
                     <div class="col-lg-6 col-md-6">
                         <div class="support_info">
-                            <p>@_localizer["Telephone Enquiry"]: <a href="tel: +6494461709">(012) 800 456 789 – 987</a></p>
+                            <p>@_localizer["Telephone Enquiry"]: <a href="tel: @Model.Setting.Phone">@Model.Setting.Phone</a></p>
 
                         </div>
                     </div>
@@ -202,7 +201,7 @@
                 <div class="row align-items-center">
                     <div class="col-lg-3">
                         <div class="logo">
-                            <a asp-controller="home" asp-action="index"><img src="~/images/@Model.PhotoLogo" alt="@Model.Logo" /></a>
+                            <a asp-controller="home" asp-action="index"><img src="~/images/@Model.Setting.PhotoLogo" alt="@Model.Setting.Logo" /></a>
                         </div>
                     </div>
                     <div class="col-lg-9">
@@ -501,7 +500,7 @@
         <div class="row align-items-center">
             <div class="col-lg-3">
                 <div class="logo">
-                    <a asp-controller="home" asp-action="index"><img src="~/images/logo/logo.png" alt=""></a>
+                    <a asp-controller="home" asp-action="index"><img src="~/images/@Model.Setting.PhotoLogo" alt=""></a>
                 </div>
             </div>
             <div class="col-lg-9">

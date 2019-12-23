@@ -5,12 +5,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using FluentValidation;
 using FluentValidation.AspNetCore;
-using Junko.Data.Entries;
-using Junko.Repo.Data;
-using Junko.Repo.IRepositories;
-using Junko.Repo.Repositories;
-using Junko.Service.DataService;
-using Junko.Validators;
+using Junko.DAL;
+using Junko.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -81,14 +77,9 @@ namespace Junko
                 //...mvc setup...
             }).AddFluentValidation();
 
-            services.AddDbContext<JunkoDbContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"), x => x.MigrationsAssembly("Junko.Repo")));
+            services.AddDbContext<JunkoDBContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
-
-            services.AddScoped<IUnitOfWork, UnitOfWork>();
-            services.AddTransient<ISettingService, SettingService>();
-
-            services.AddTransient<IValidator<Setting>, SettingValidator>();
             services.AddMvc(option => option.EnableEndpointRouting = false);
         }
 

@@ -1,5 +1,9 @@
-﻿using Junko.Service.DataService;
+﻿
+using Junko.DAL;
+using Junko.ViewModels;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,16 +13,20 @@ namespace Junko.ViewComponents
 {
     public class FooterViewComponent: ViewComponent
     {
-        private readonly ISettingService _settingService;
-        public FooterViewComponent(ISettingService settingService)
+        JunkoDBContext _db;
+        public FooterViewComponent(JunkoDBContext context)
         {
-            _settingService = settingService;
-
+            _db = context;
         }
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            var items = await _settingService.GetFirst();
-            return View(items);
+            var rqf = Request.HttpContext.Features.Get<IRequestCultureFeature>();
+            var culture = rqf.RequestCulture.Culture;
+            SettingVM model = new SettingVM {
+                Setting=_db.Setting.Include("SocialActivities").FirstOrDefault(),
+                SettingTranslate=_db.SettingTranslates.FirstOrDefault(a=>a.Language.LanguageCode==culture.ToString())
+            };
+            return View(model);
         }
     }
 }
