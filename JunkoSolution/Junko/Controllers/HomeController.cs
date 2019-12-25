@@ -40,11 +40,9 @@ namespace Junko.Controllers
             Response.Cookies.Append(
                 CookieRequestCultureProvider.DefaultCookieName,
                 CookieRequestCultureProvider.MakeCookieValue(new RequestCulture(culture)),
-                new CookieOptions { Expires = DateTimeOffset.UtcNow.AddDays(1) }
+                new CookieOptions { Expires = DateTimeOffset.UtcNow.AddYears(1) }
             );
-
-           
-            return View(nameof(Index));
+            return LocalRedirect(returnUrl);
         }
     }
 }

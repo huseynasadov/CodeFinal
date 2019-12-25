@@ -179,11 +179,10 @@
                             <p>@_localizer["Telephone Enquiry"]: <a href="tel: @Model.Setting.Phone">@Model.Setting.Phone</a></p>
 
                         </div>
-                        <div>
-                            @await Html.PartialAsync("_SelectLanguagePartial")
-                        </div>
+                        
                     </div>
-                    <div class="col-lg-6 col-md-6">
+                    <div class="col-lg-6 col-md-6 d-flex justify-content-between align-items-center">
+                        @await Html.PartialAsync("_SelectLanguagePartial")
                         <div class="top_right text-right">
                             <ul>
                                 <li><a asp-controller="login" asp-action="account">@_localizer["My Account"] </a></li>

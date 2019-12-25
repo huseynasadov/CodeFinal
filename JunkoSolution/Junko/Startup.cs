@@ -56,10 +56,8 @@ namespace Junko
             services.Configure<RequestLocalizationOptions>(opts =>
             {
                 var supportedCultures = new List<CultureInfo> {
-                    new CultureInfo("en"),
                     new CultureInfo("az-Latn-AZ"),
-                    new CultureInfo("en-US"),
-                    new CultureInfo("ru"),
+                    new CultureInfo("en-US")
                   };
 
                 opts.DefaultRequestCulture = new RequestCulture("en-US");
@@ -102,33 +100,12 @@ namespace Junko
             app.UseRequestLocalization(options.Value);
             app.UseRouting();
             app.UseAuthorization();
-            IList<CultureInfo> supportedCultures = new List<CultureInfo>
-{
-    new CultureInfo("en-US"),
-    new CultureInfo("az-Latn-AZ"),
-};
-            var localizationOptions = new RequestLocalizationOptions
-            {
-                DefaultRequestCulture = new RequestCulture("en-US"),
-                SupportedCultures = supportedCultures,
-                SupportedUICultures = supportedCultures
-            };
-            var requestProvider = new RouteDataRequestCultureProvider();
-            localizationOptions.RequestCultureProviders.Insert(0, requestProvider);
 
-            app.UseRouter(routes =>
+            app.UseMvc(routes =>
             {
-                routes.MapMiddlewareRoute("{culture=en-US}/{*mvcRoute}", subApp =>
-                {
-                    subApp.UseRequestLocalization(localizationOptions);
-
-                    subApp.UseMvc(mvcRoutes =>
-                    {
-                        mvcRoutes.MapRoute(
-                            name: "default",
-                            template: "{culture=en-US}/{controller=Home}/{action=Index}/{id?}");
-                    });
-                });
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }
