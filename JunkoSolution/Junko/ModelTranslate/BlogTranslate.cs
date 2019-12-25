@@ -17,6 +17,9 @@ namespace Junko.ModelTranslate
         public Language Language { get; set; }
         [Required, MaxLength(200)]
         public string Title { get; set; }
+
+        [Required, MaxLength(300)]
+        public string Slug { get; set; }
         [Required, MaxLength(700)]
         public string Desc { get; set; }
         [Required,Column(TypeName = "ntext")]

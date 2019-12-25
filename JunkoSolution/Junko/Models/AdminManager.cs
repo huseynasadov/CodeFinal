@@ -34,5 +34,10 @@ namespace Junko.Models
         public AdminCategory Category { get; set; }
         public ICollection<Blog> Blogs { get; set; }
         public ICollection<Category> Categories { get; set; }
+        public ICollection<OurService> OurServices { get; set; }
+        public ICollection<ServicesCover> ServicesCovers { get; set; }
+        public ICollection<AboutSetting> AboutSettings { get; set; }
+        public ICollection<WhatDo> WhatDos { get; set; }
+        public ICollection<Faq> Faqs { get; set; }
     }
 }

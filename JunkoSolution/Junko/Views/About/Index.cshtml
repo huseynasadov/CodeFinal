@@ -1,12 +1,13 @@
 ﻿@using Microsoft.AspNetCore.Mvc.Localization
 @inject IViewLocalizer _localizer
+@model AboutVM
 @{
     ViewData["Title"] = _localizer["About Us"];
 }
 
 <!--breadcrumbs area start-->
 
-@await Html.PartialAsync("~/Views/Shared/_Breadcrumb.cshtml")
+@await Html.PartialAsync("~/Views/Shared/_Breadcrumb.cshtml",model:Model.Breadcrumb)
 <!--breadcrumbs area end-->
 <!--Main Start-->
 <main>
@@ -17,17 +18,12 @@
                 <div class="col-12">
                     <figure>
                         <div class="about_thumb">
-                            <img src="~/images/about/about1.jpg" alt="">
+                            <img src="~/images/@Model.AboutSettingTranslate.AboutSetting.Photo" alt="@Model.AboutSettingTranslate.Title">
                         </div>
                         <figcaption class="about_content">
-                            <h1>eCommerce Bootstrap Template for Electronics Store</h1>
+                            <h1>@Model.AboutSettingTranslate.Title</h1>
                             <p>
-                                Adipiscing lacus ut elementum, nec duis, tempor litora turpis dapibus. Imperdiet
-                                cursus odio tortor in elementum. Egestas nunc eleifend feugiat lectus laoreet, vel
-                                nunc taciti integer cras. Hac pede dis, praesent nibh ac dui mauris sit.
-                                Pellentesque mi, facilisi mauris, elit sociis leo sodales accumsan. Iaculis ac
-                                fringilla torquent lorem consectetuer, sociosqu phasellus risus urna aliquam,
-                                ornare.
+                                @Model.AboutSettingTranslate.Desc
                             </p>
                         </figcaption>
                     </figure>
@@ -40,46 +36,24 @@
     <div class="about_gallery_section">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6 col-md-6">
-                    <article class="single_gallery_section">
-                        <figure>
-                            <div class="gallery_thumb">
-                                <img src="~/images/about/about2.jpg" alt="">
-                            </div>
-                            <figcaption class="about_gallery_content">
-                                <h3>What do we do?</h3>
-                                <p>
-                                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-                                    doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore
-                                    veritatis et quasi
-                                    architecto. The point of using Lorem Ipsum is that it has a more-or-less normal
-                                    distribution of letters, as opposed to using ‘Content here, content here’,
-                                    making it look like readable English.
-                                </p>
-                            </figcaption>
-                        </figure>
-                    </article>
-                </div>
-                <div class="col-lg-6 col-md-6">
-                    <article class="single_gallery_section">
-                        <figure>
-                            <div class="gallery_thumb">
-                                <img src="~/images/about/about3.jpg" alt="">
-                            </div>
-                            <figcaption class="about_gallery_content">
-                                <h3>History Of Us</h3>
-                                <p>
-                                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-                                    doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore
-                                    veritatis et quasi
-                                    architecto. The point of using Lorem Ipsum is that it has a more-or-less normal
-                                    distribution of letters, as opposed to using ‘Content here, content here’,
-                                    making it look like readable English.
-                                </p>
-                            </figcaption>
-                        </figure>
-                    </article>
-                </div>
+                @foreach (var whatdo in Model.WhatDoTranslates)
+                {
+                    <div class="col-lg-6 col-md-6">
+                        <article class="single_gallery_section">
+                            <figure>
+                                <div class="gallery_thumb">
+                                    <img src="~/images/@whatdo.WhatDo.Photo" alt="@whatdo.Title">
+                                </div>
+                                <figcaption class="about_gallery_content">
+                                    <h3>@whatdo.Title</h3>
+                                    <p>
+                                        @whatdo.Desc
+                                    </p>
+                                </figcaption>
+                            </figure>
+                        </article>
+                    </div>
+                }
             </div>
         </div>
     </div>
@@ -88,51 +62,23 @@
     <div class="choseus_area">
         <div class="container">
             <div class="row">
-                <div class="col-lg-4 col-md-4">
-                    <div class="single_chose">
-                        <div class="chose_icone">
-                            <img src="~/images/about/About_icon1.png" alt="">
-                        </div>
-                        <div class="chose_content">
-                            <h3>Money Back Guarantee</h3>
-                            <p>
-                                Erat metus sodales eget dolor consectetuer, porta ut purus at et alias, nulla ornare
-                                velit amet
-                            </p>
+                @foreach (var ser in Model.OurServiceTranslates)
+                {
+                    <div class="col-lg-4 col-md-4">
+                        <div class="single_chose">
+                            <div class="chose_icone">
+                                <i style="font-size:50px" class="@ser.OurService.Icon"></i>
+                            </div>
+                            <div class="chose_content">
+                                <h3>@ser.Title</h3>
+                                <p>
+                                    @ser.Desc
+                                </p>
 
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-4">
-                    <div class="single_chose">
-                        <div class="chose_icone">
-                            <img src="~/images/about/About_icon2.png" alt="">
-                        </div>
-                        <div class="chose_content">
-                            <h3>Creative Design</h3>
-                            <p>
-                                Erat metus sodales eget dolor consectetuer, porta ut purus at et alias, nulla ornare
-                                velit amet
-                            </p>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4">
-                    <div class="single_chose">
-                        <div class="chose_icone">
-                            <img src="~/images/about/About_icon3.png" alt="">
-                        </div>
-                        <div class="chose_content">
-                            <h3>High Quality</h3>
-                            <p>
-                                Erat metus sodales eget dolor consectetuer, porta ut purus at et alias, nulla ornare
-                                velit amet
-                            </p>
-
-                        </div>
-                    </div>
-                </div>
+                }
             </div>
         </div>
     </div>
@@ -141,62 +87,23 @@
     <div class="team_area">
         <div class="container">
             <div class="row">
-                <div class="col-lg-3 col-md-6">
-                    <article class="team_member">
-                        <figure>
-                            <div class="team_thumb">
-                                <img src="~/images/about/about-us-person1.png" alt="">
-                            </div>
-                            <figcaption class="team_content">
-                                <h3>John</h3>
-                                <h5>Director</h5>
-                                <p>Phone: +(800) 123 456 789 <br> Email: john@example.com</p>
-                            </figcaption>
-                        </figure>
-                    </article>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <article class="team_member">
-                        <figure>
-                            <div class="team_thumb">
-                                <img src="~/images/about/about-us-person2.png" alt="">
-                            </div>
-                            <figcaption class="team_content">
-                                <h3>Mary</h3>
-                                <h5>Designer</h5>
-                                <p>Phone: +(800) 123 456 789 <br> Email: john@example.com</p>
-                            </figcaption>
-                        </figure>
-                    </article>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <article class="team_member">
-                        <figure>
-                            <div class="team_thumb">
-                                <img src="~/images/about/about-us-person3.png" alt="">
-                            </div>
-                            <figcaption class="team_content">
-                                <h3>Michael</h3>
-                                <h5>Developer</h5>
-                                <p>Phone: +(800) 123 456 789 <br> Email: john@example.com</p>
-                            </figcaption>
-                        </figure>
-                    </article>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <article class="team_member">
-                        <figure>
-                            <div class="team_thumb">
-                                <img src="~/images/about/about-us-person4.png" alt="">
-                            </div>
-                            <figcaption class="team_content">
-                                <h3>James</h3>
-                                <h5>Coder</h5>
-                                <p>Phone: +(800) 123 456 789 <br> Email: john@example.com</p>
-                            </figcaption>
-                        </figure>
-                    </article>
-                </div>
+                @foreach (var admin in Model.AdminManagers)
+                {
+                    <div class="col-lg-3 col-md-6">
+                        <article class="team_member">
+                            <figure>
+                                <div class="team_thumb">
+                                    <img src="~/images/@admin.Photo" alt="@admin.Firstname">
+                                </div>
+                                <figcaption class="team_content">
+                                    <h3>@admin.Firstname</h3>
+                                    <h5>@admin.Category.AdminCategoryTranslates.FirstOrDefault(a=>a.AdminCategoryId==admin.AdminCategoryId && a.LanguageId==Model.AboutSettingTranslate.LanguageId).Name</h5>
+                                    <p>@_localizer["Phone"] : @admin.Phone <br> @_localizer["Email"]: @admin.Email</p>
+                                </figcaption>
+                            </figure>
+                        </article>
+                    </div>
+                }
             </div>
         </div>
     </div>

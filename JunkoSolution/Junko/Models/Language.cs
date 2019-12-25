@@ -15,6 +15,11 @@ namespace Junko.Models
         public ICollection<BlogCategoryTranslate> BlogCategoryTranslates { get; set; }
         public ICollection<AdminCategoryTranslate> AdminCategoryTranslates { get; set; }
         public ICollection<BlogTranslate> BlogTranslates { get; set; }
+        public ICollection<ServicesCoverTranslate> ServicesCoverTranslates { get; set; }
+        public ICollection<OurServiceTranslate> OurServiceTranslates { get; set; }
+        public ICollection<AboutSettingTranslate> AboutSettingTranslates { get; set; }
+        public ICollection<WhatDo> WhatDos { get; set; }
+        public ICollection<FaqTranslate> FaqTranslates { get; set; }
 
     }
 }

@@ -24,6 +24,9 @@
     <EmbeddedResource Update="Resources\Controllers\HomeController.az-Latn-AZ.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Views\About\Index.az-Latn-AZ.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Resources\Views\Blog\Detail.az-Latn-AZ.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
     </EmbeddedResource>

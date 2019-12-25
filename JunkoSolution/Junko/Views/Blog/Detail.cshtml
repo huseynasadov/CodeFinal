@@ -1,12 +1,13 @@
 ﻿@using Microsoft.AspNetCore.Mvc.Localization
 @inject IViewLocalizer _localizer
+@model BlogDetailVM
 @{
     ViewData["Title"] = _localizer["Blog Detail"];
 }
 
 <!--breadcrumbs area start-->
 
-@await Html.PartialAsync("~/Views/Shared/_Breadcrumb.cshtml")
+@await Html.PartialAsync("~/Views/Shared/_Breadcrumb.cshtml",model:Model.BlogVM.Breadcrumb)
 <!--breadcrumbs area end-->
 <!--Main Start-->
 <main>
@@ -15,7 +16,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-3 col-md-12">
-                    @await Html.PartialAsync("~/Views/Shared/_BlogLeftSide.cshtml")
+                    @await Html.PartialAsync("~/Views/Shared/_BlogLeftSide.cshtml",model:Model.BlogVM)
                 </div>
                 <div class="col-lg-9 col-md-12">
                     <!--blog grid area start-->
@@ -23,77 +24,28 @@
                         <article class="single_blog">
                             <figure>
                                 <div class="post_header">
-                                    <h3 class="post_title">Blog image post (sticky)</h3>
+                                    <h3 class="post_title">@Model.Blog.Title</h3>
                                     <div class="blog_meta">
-                                        <span class="author">@_localizer["Posted By"] : <a href="#">admin</a> / </span>
-                                        <span class="post_date">@_localizer["On"] : <a href="#">April 10, 2019</a> /</span>
+                                        <span class="author">@_localizer["Posted By"] : <a href="#">@Model.Blog.Blog.AdminManager.Category.AdminCategoryTranslates.FirstOrDefault(a => a.LanguageId == Model.Blog.LanguageId).Name</a> / </span>
+                                        <span class="post_date">@_localizer["On"] : <a href="#">@Model.Blog.Blog.CreatedAt.ToString("MMMM dd, yyyy")</a> /</span>
                                         <span class="post_category">
                                             In : <a href="#">
-                                                Company, Image,
-                                                Travel
+                                            @foreach (var cat in Model.BlogCategories)
+                                            {
+                                                <span>@cat.Category.BlogCategoryTranslates.FirstOrDefault(b=>b.LanguageId==Model.Blog.LanguageId).Name</span>
+                                            }
                                             </a>
                                         </span>
                                     </div>
                                 </div>
                                 <div class="blog_thumb">
-                                    <a href="#"><img src="~/images/blog/blog-big1.jpg" alt=""></a>
+                                    <a href="#"><img src="~/images/@Model.Blog.Blog.Photo" alt=""></a>
                                 </div>
                                 <figcaption class="blog_content">
                                     <div class="post_content">
-                                        <p>
-                                            Aenean et tempor eros, vitae sollicitudin velit. Etiam varius enim nec
-                                            quam tempor, sed efficitur ex ultrices. Phasellus pretium est vel dui
-                                            vestibulum condimentum. Aenean nec suscipit nibh. Phasellus nec lacus id
-                                            arcu facilisis elementum. Curabitur lobortis, elit ut elementum congue,
-                                            erat ex bibendum odio, nec iaculis lacus sem non lorem. Duis suscipit
-                                            metus ante, sed convallis quam posuere quis. Ut tincidunt eleifend odio,
-                                            ac fringilla mi vehicula nec. Nunc vitae lacus eget lectus imperdiet
-                                            tempus sed in dui. Nam molestie magna at risus consectetur, placerat
-                                            suscipit justo dignissim. Sed vitae fringilla enim, nec ullamcorper
-                                            arcu.
-                                        </p>
-                                        <blockquote>
-                                            <p>
-                                                Quisque semper nunc vitae erat pellentesque, ac placerat arcu
-                                                consectetur. In venenatis elit ac ultrices convallis. Duis est nisi,
-                                                tincidunt ac urna sed, cursus blandit lectus. In ullamcorper sit
-                                                amet ligula ut eleifend. Proin dictum tempor ligula, ac feugiat
-                                                metus. Sed finibus tortor eu scelerisque scelerisque.
-                                            </p>
-                                        </blockquote>
-                                        <p>
-                                            Aenean et tempor eros, vitae sollicitudin velit. Etiam varius enim nec
-                                            quam tempor, sed efficitur ex ultrices. Phasellus pretium est vel dui
-                                            vestibulum condimentum. Aenean nec suscipit nibh. Phasellus nec lacus id
-                                            arcu facilisis elementum. Curabitur lobortis, elit ut elementum congue,
-                                            erat ex bibendum odio, nec iaculis lacus sem non lorem. Duis suscipit
-                                            metus ante, sed convallis quam posuere quis. Ut tincidunt eleifend odio,
-                                            ac fringilla mi vehicula nec. Nunc vitae lacus eget lectus imperdiet
-                                            tempus sed in dui. Nam molestie magna at risus consectetur, placerat
-                                            suscipit justo dignissim. Sed vitae fringilla enim, nec ullamcorper
-                                            arcu.
-                                        </p>
-                                        <p>
-                                            Suspendisse turpis ipsum, tempus in nulla eu, posuere pharetra nibh. In
-                                            dignissim vitae lorem non mollis. Praesent pretium tellus in tortor
-                                            viverra condimentum. Nullam dignissim facilisis nisl, accumsan placerat
-                                            justo ultricies vel. Vivamus finibus mi a neque pretium, ut convallis
-                                            dui lacinia. Morbi a rutrum velit. Curabitur sagittis quam quis
-                                            consectetur mattis. Aenean sit amet quam vel turpis interdum sagittis et
-                                            eget neque. Nunc ante quam, luctus et neque a, interdum iaculis metus.
-                                            Aliquam vel ante mattis, placerat orci id, vehicula quam. Suspendisse
-                                            quis eros cursus, viverra urna sed, commodo mauris. Cras diam arcu,
-                                            fringilla a sem condimentum, viverra facilisis nunc. Curabitur vitae
-                                            orci id nulla maximus maximus. Nunc pulvinar sollicitudin molestie.
-                                        </p>
+                                      @Html.Raw(Model.Blog.Content)
                                     </div>
                                     <div class="entry_content">
-                                        <div class="post_meta">
-                                            <span>Tags: </span>
-                                            <span><a href="#">, fashion</a></span>
-                                            <span><a href="#">, t-shirt</a></span>
-                                            <span><a href="#">, white</a></span>
-                                        </div>
 
                                         <div class="social_sharing">
                                             <p>@_localizer["share this post"]:</p>

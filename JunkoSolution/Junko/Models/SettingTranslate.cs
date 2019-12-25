@@ -21,5 +21,7 @@ namespace Junko.Models
         [MaxLength(200)]
         public string FAQTitle { get; set; }
         public string FAQContent { get; set; }
+        [Column(TypeName ="ntext")]
+        public string Privacy { get; set; }
     }
 }

@@ -1,11 +1,12 @@
 ﻿@using Microsoft.AspNetCore.Mvc.Localization
 @inject IViewLocalizer _localizer
+@model BlogVM
 @{
     ViewData["Title"] = "Blogs";
 }
 <!--breadcrumbs area start-->
 
-@await Html.PartialAsync("~/Views/Shared/_Breadcrumb.cshtml")
+@{await Html.PartialAsync("~/Views/Shared/_Breadcrumb.cshtml", model:Model.Breadcrumb);}
 <!--breadcrumbs area end-->
 <!--Main Start-->
 <main>
@@ -15,7 +16,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-3 blog-">
-                    @await Html.PartialAsync("~/Views/Shared/_BlogLeftSide.cshtml")
+                    @await Html.PartialAsync("~/Views/Shared/_BlogLeftSide.cshtml",model:Model)
                 </div>
                 <div class="col-lg-9">
                     <div class="blog_wrapper blog_wrapper_sidebar">
@@ -23,206 +24,36 @@
                             <h1>@_localizer["Blogs"]</h1>
                         </div>
                         <div class="row">
-                            <div class="col-lg-6 col-md-6">
-                                <article class="single_blog mb-60">
-                                    <figure>
-                                        <div class="blog_thumb">
-                                            <a asp-controller="blog" asp-action="detail">
-                                                <img src="~/images/blog/blog1.jpg"
-                                                     alt="">
-                                            </a>
-                                        </div>
-                                        <figcaption class="blog_content">
-                                            <h3><a asp-controller="blog" asp-action="detail">Blog image post (sticky)</a></h3>
-                                            <div class="blog_meta">
-                                                <span class="author">@_localizer["Posted By"] : <a href="#">admin</a> / </span>
-                                                <span class="post_date">@_localizer["On"] : <a href="#">April 10, 2019</a></span>
+                            @foreach (var blog in Model.Blogs)
+                            {
+                                <div class="col-lg-6 col-md-6">
+                                    <article class="single_blog mb-60">
+                                        <figure>
+                                            <div class="blog_thumb">
+                                                <a asp-controller="blog" asp-action="detail" asp-route-id="@blog.BlogId">
+                                                    <img src="~/images/@blog.Blog.Photo"
+                                                         alt="@blog.Title">
+                                                </a>
                                             </div>
-                                            <div class="blog_desc">
-                                                <p>
-                                                    Donec vitae hendrerit arcu, sit amet faucibus nisl. Cras pretium
-                                                    arcu ex. Aenean posuere libero eu augue condimentum rhoncus.
-                                                    Praesent ornare tortor ac ante egestas hendrerit. Aliquam et
-                                                    metus pharetra, bibendum massa nec, fermentum odio.
-                                                </p>
-                                            </div>
-                                            <footer class="readmore_button">
-                                                <a asp-controller="blog" asp-action="detail">@_localizer["read more"]</a>
-                                            </footer>
-                                        </figcaption>
-                                    </figure>
-                                </article>
-                            </div>
-                            <div class="col-lg-6 col-md-6">
-                                <article class="single_blog blog_bidio mb-60">
-                                    <figure>
-                                        <div class="blog_thumb">
-                                            <!--
-                                            <iframe src="https://www.youtube.com/embed/2Zt8va_6HRk"
-                                                allow="autoplay; encrypted-media" allowfullscreen></iframe>-->
-                                        </div>
-                                        <figcaption class="blog_content">
-                                            <h3><a asp-controller="blog" asp-action="detail">Post with Video</a></h3>
-                                            <div class="blog_meta">
-                                                <span class="author">Posted by : <a href="#">admin</a> / </span>
-                                                <span class="post_date">On : <a href="#">April 10, 2019</a></span>
-                                            </div>
-                                            <div class="blog_desc">
-                                                <p>
-                                                    Donec vitae hendrerit arcu, sit amet faucibus nisl. Cras pretium
-                                                    arcu ex. Aenean posuere libero eu augue condimentum rhoncus.
-                                                    Praesent ornare tortor ac ante egestas hendrerit. Aliquam et
-                                                    metus pharetra, bibendum massa nec, fermentum odio.
-                                                </p>
-                                            </div>
-                                            <footer class="readmore_button">
-                                                <a asp-controller="blog" asp-action="detail">read more</a>
-                                            </footer>
-                                        </figcaption>
-                                    </figure>
-                                </article>
-                            </div>
-                            <div class="col-lg-6 col-md-6">
-                                <article class="single_blog_gallery mb-60">
-                                    <figure>
-                                        <div class="blog_thumb_active owl-carousel">
-                                            <div class="single_blog_thumb">
-                                                <a href="#"><img src="~/images/blog/blog2.jpg" alt=""></a>
-                                            </div>
-                                            <div class="single_blog_thumb">
-                                                <a href="#"><img src="~/images/blog/blog1.jpg" alt=""></a>
-                                            </div>
-                                            <div class="single_blog_thumb">
-                                                <a href="#"><img src="~/images/blog/blog3.jpg" alt=""></a>
-                                            </div>
-                                            <div class="single_blog_thumb">
-                                                <a href="#"><img src="~/images/blog/blog4.jpg" alt=""></a>
-                                            </div>
-                                            <div class="single_blog_thumb">
-                                                <a href="#"><img src="~/images/blog/blog5.jpg" alt=""></a>
-                                            </div>
-                                        </div>
-                                        <figcaption class="blog_content">
-                                            <h3><a href="blog-details.html">Post with Gallery</a></h3>
-                                            <div class="blog_meta">
-                                                <span class="author">Posted by : <a href="#">admin</a> / </span>
-                                                <span class="post_date">On : <a href="#">April 10, 2019</a></span>
-                                            </div>
-                                            <div class="blog_desc">
-                                                <p>
-                                                    Donec vitae hendrerit arcu, sit amet faucibus nisl. Cras pretium
-                                                    arcu ex. Aenean posuere libero eu augue condimentum rhoncus.
-                                                    Praesent ornare tortor ac ante egestas hendrerit. Aliquam et
-                                                    metus pharetra, bibendum massa nec, fermentum odio.
-                                                </p>
-                                            </div>
-                                            <footer class="readmore_button">
-                                                <a href="blog-details.html">read more</a>
-                                            </footer>
-                                        </figcaption>
-                                    </figure>
-                                </article>
-                            </div>
-                            <div class="col-lg-6 col-md-6">
-                                <article class="single_blog mb-60">
-                                    <figure>
-                                        <div class="blog_thumb">
-                                            <a href="blog-details.html">
-                                                <img src="~/images/blog/blog3.jpg"
-                                                     alt="">
-                                            </a>
-                                        </div>
-                                        <figcaption class="blog_content">
-                                            <h3><a href="blog-details.html">Maecenas ultricies</a></h3>
-                                            <div class="blog_meta">
-                                                <span class="author">Posted by : <a href="#">admin</a> / </span>
-                                                <span class="post_date">On : <a href="#">April 10, 2019</a></span>
-                                            </div>
-                                            <div class="blog_desc">
-                                                <p>
-                                                    Donec vitae hendrerit arcu, sit amet faucibus nisl. Cras pretium
-                                                    arcu ex. Aenean posuere libero eu augue condimentum rhoncus.
-                                                    Praesent ornare tortor ac ante egestas hendrerit. Aliquam et
-                                                    metus pharetra, bibendum massa nec, fermentum odio.
-                                                </p>
-                                            </div>
-                                            <footer class="readmore_button">
-                                                <a href="blog-details.html">read more</a>
-                                            </footer>
-                                        </figcaption>
-                                    </figure>
-                                </article>
-                            </div>
-                            <div class="col-lg-6 col-md-6">
-                                <article class="single_blog mb-60">
-                                    <figure>
-                                        <div class="blog_thumb">
-                                            <a href="blog-details.html">
-                                                <img src="~/images/blog/blog4.jpg"
-                                                     alt="">
-                                            </a>
-                                        </div>
-                                        <figcaption class="blog_content">
-                                            <h3><a href="blog-details.html">Post with Audio</a></h3>
-                                            <div class="blog_meta">
-                                                <span class="author">Posted by : <a href="#">admin</a> / </span>
-                                                <span class="post_date">On : <a href="#">April 10, 2019</a></span>
-                                            </div>
-                                            <div class="blog_aduio_icone">
-                                                <!-- <audio controls>
-                                                     <source
-                                                         src="http://www.jplayer.org/audio/mp3/TSP-01-Cro_magnon_man.mp3?1"
-                                                         type="audio/mp3">
-                                                 </audio>-->
-                                            </div>
-                                            <div class="blog_desc">
-                                                <p>
-                                                    Donec vitae hendrerit arcu, sit amet faucibus nisl. Cras pretium
-                                                    arcu ex. Aenean posuere libero eu augue condimentum rhoncus.
-                                                    Praesent ornare tortor ac ante egestas hendrerit. Aliquam et
-                                                    metus pharetra, bibendum massa nec, fermentum odio.
-                                                </p>
-                                            </div>
-                                            <footer class="readmore_button">
-                                                <a href="blog-details.html">read more</a>
-                                            </footer>
-                                        </figcaption>
-                                    </figure>
-                                </article>
-                            </div>
-                            <div class="col-lg-6 col-md-6">
-                                <article class="single_blog mb-60">
-                                    <figure>
-                                        <div class="blog_thumb">
-                                            <a href="blog-details.html">
-                                                <img src="~/images/blog/blog5.jpg"
-                                                     alt="">
-                                            </a>
-                                        </div>
-                                        <figcaption class="blog_content">
-                                            <h3><a href="blog-details.html">Praesent imperdiet</a></h3>
-                                            <div class="blog_meta">
-                                                <span class="author">Posted by : <a href="#">admin</a> / </span>
-                                                <span class="post_date">On : <a href="#">April 10, 2019</a></span>
-                                            </div>
-                                            <div class="blog_desc">
-                                                <p>
-                                                    Donec vitae hendrerit arcu, sit amet faucibus nisl. Cras pretium
-                                                    arcu ex. Aenean posuere libero eu augue condimentum rhoncus.
-                                                    Praesent ornare tortor ac ante egestas hendrerit. Aliquam et
-                                                    metus pharetra, bibendum massa nec, fermentum odio. Cras et
-                                                    vehicula orci. Curabitur aliquet ullamcorper suscipit. Aliquam
-                                                    erat volutpat. Cras convallis libero mi, sit amet scelerisque
-                                                    elit suscipit id.
-                                                </p>
-                                            </div>
-                                            <footer class="readmore_button">
-                                                <a href="blog-details.html">read more</a>
-                                            </footer>
-                                        </figcaption>
-                                    </figure>
-                                </article>
-                            </div>
+                                            <figcaption class="blog_content">
+                                                <h3><a asp-controller="blog" asp-action="detail" asp-route-id="@blog.BlogId">@blog.Title</a></h3>
+                                                <div class="blog_meta">
+                                                    <span class="author">@_localizer["Posted By"] : <a href="#">@blog.Blog.AdminManager.Category.AdminCategoryTranslates.FirstOrDefault(a=>a.LanguageId==blog.LanguageId).Name</a> / </span>
+                                                    <span class="post_date">@_localizer["On"] : <a href="#">@blog.Blog.CreatedAt.ToString("MMMM dd, yyyy")</a></span>
+                                                </div>
+                                                <div class="blog_desc">
+                                                    <p>
+                                                        @blog.Desc
+                                                    </p>
+                                                </div>
+                                                <footer class="readmore_button">
+                                                    <a asp-controller="blog" asp-action="detail" asp-route-id="@blog.BlogId">@_localizer["read more"]</a>
+                                                </footer>
+                                            </figcaption>
+                                        </figure>
+                                    </article>
+                                </div>
+                            }
                         </div>
                     </div>
                 </div>
@@ -233,18 +64,9 @@
     <!--blog pagination area start-->
     <div class="blog_pagination">
         <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="pagination">
-                        <ul>
-                            <li class="current">1</li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">>></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+
+            @await Html.PartialAsync("~/Views/Shared/_Pagination.cshtml", model: Model.Pagination)
+            
         </div>
     </div>
     <!--blog pagination area end-->

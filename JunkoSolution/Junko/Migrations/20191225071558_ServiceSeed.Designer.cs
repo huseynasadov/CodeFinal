@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Junko.Migrations
 {
     [DbContext(typeof(JunkoDBContext))]
-    [Migration("20191223173225_AdminBlogTranslateSeed")]
-    partial class AdminBlogTranslateSeed
+    [Migration("20191225071558_ServiceSeed")]
+    partial class ServiceSeed
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -454,7 +454,7 @@ namespace Junko.Migrations
                             Content = "<p>Bəzi orqanları 90 sarı tramvay və ya sarı metro adlı mətn yayılan həssas content daha müasir bir görünüş vermək üçün Lorem Ipsum dəyişin. Fransız və ya İngilis dili idi, lakin bir çox insanlar, istədiyiniz təsiri nail olunmayıb mətn oxumaq üçün axtarırdılar. Distractions səbəb ola bilər istiqamətləri olan, oxunaqlı mətn İş və bu layout diqqət kömək edə bilər.</ p < p Suspendisse turpis ipsumtempus in nulla euposuere pharetra nibh.dignissim vitae lorem non mollis.Praesent pretium tellus in viverra condimentum.Nullam dignissim facilisis nislaccumsan justo ultricies vel.Vivamus finibus mi a neque pretiumut dui lacinia.Morbi a rutrum velit.Curabitur sagittis quam consectetur mattis.Aenean sit amet quam vel turpis interdum sagittis eget neque.Nunc ante quamluctus et neque ainterdum iaculis metusAliquam vel ante mattisplacerat orci idvehicula quam.quis eros cursusviverra urna sedcommodo mauris.Cras diam arcufringilla a sem condimentumviverra facilisis nunc.Curabitur orci id nulla maximus maximus.Nunc pulvinar sollicitudin molestie</ p </ div > ",
                             Desc = "LoremIpsum360 ° pulsuz online generator saxta mətn. Bu modellər üçün əvəz mətn və ya alternativ mətn yaratmaq üçün tam mətn simulator edir. Bu müxtəlif dillərdə mətnlərin nümunələri yaratmaq üçün latın və kiril qrafikası ilə müxtəlif təsadüfi mətnlər edir.",
                             LanguageId = 2,
-                            Title = "Acadanlıqlar"
+                            Title = "Avadanlıqlar"
                         },
                         new
                         {
@@ -482,6 +482,250 @@ namespace Junko.Migrations
                             Desc = "LoremIpsum360 ° pulsuz online generator saxta mətn. Bu modellər üçün əvəz mətn və ya alternativ mətn yaratmaq üçün tam mətn simulator edir. Bu müxtəlif dillərdə mətnlərin nümunələri yaratmaq üçün latın və kiril qrafikası ilə müxtəlif təsadüfi mətnlər edir.",
                             LanguageId = 2,
                             Title = "Yeni paylaşım"
+                        });
+                });
+
+            modelBuilder.Entity("Junko.ModelTranslate.OurServiceTranslate", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Desc")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(300)")
+                        .HasMaxLength(300);
+
+                    b.Property<int>("LanguageId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("OurServiceId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(200)")
+                        .HasMaxLength(200);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("LanguageId");
+
+                    b.HasIndex("OurServiceId");
+
+                    b.ToTable("OurServiceTranslates");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Desc = "Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem.",
+                            LanguageId = 1,
+                            OurServiceId = 1,
+                            Title = "BRANDING"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Desc = "Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem.",
+                            LanguageId = 1,
+                            OurServiceId = 2,
+                            Title = "WEB DESIGN"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Desc = "Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem.",
+                            LanguageId = 1,
+                            OurServiceId = 3,
+                            Title = "PHOTOGRAPHY"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Desc = "Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem.",
+                            LanguageId = 1,
+                            OurServiceId = 4,
+                            Title = "WEB DEVELOPMENT"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Desc = "Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem.",
+                            LanguageId = 1,
+                            OurServiceId = 5,
+                            Title = "CODING"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Desc = "Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem.",
+                            LanguageId = 1,
+                            OurServiceId = 6,
+                            Title = "MARKETING"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Desc = "Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem.",
+                            LanguageId = 1,
+                            OurServiceId = 7,
+                            Title = "SUPPORT"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Desc = "Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem.",
+                            LanguageId = 1,
+                            OurServiceId = 8,
+                            Title = "GRAPHIC DESIGN"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Desc = "Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem.",
+                            LanguageId = 2,
+                            OurServiceId = 1,
+                            Title = "Brendinq"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            Desc = "Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem.",
+                            LanguageId = 2,
+                            OurServiceId = 2,
+                            Title = "Web Dizayn"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            Desc = "Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem.",
+                            LanguageId = 2,
+                            OurServiceId = 3,
+                            Title = "Potoqrafiya"
+                        },
+                        new
+                        {
+                            Id = 12,
+                            Desc = "Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem.",
+                            LanguageId = 2,
+                            OurServiceId = 4,
+                            Title = "Web proqranlaşdırma"
+                        },
+                        new
+                        {
+                            Id = 13,
+                            Desc = "Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem.",
+                            LanguageId = 2,
+                            OurServiceId = 5,
+                            Title = "Kod"
+                        },
+                        new
+                        {
+                            Id = 14,
+                            Desc = "Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem.",
+                            LanguageId = 2,
+                            OurServiceId = 6,
+                            Title = "Marketinq"
+                        },
+                        new
+                        {
+                            Id = 15,
+                            Desc = "Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem.",
+                            LanguageId = 2,
+                            OurServiceId = 7,
+                            Title = "Təchizat"
+                        },
+                        new
+                        {
+                            Id = 16,
+                            Desc = "Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem.",
+                            LanguageId = 2,
+                            OurServiceId = 8,
+                            Title = "Qrafik Dizayn"
+                        });
+                });
+
+            modelBuilder.Entity("Junko.ModelTranslate.ServicesCoverTranslate", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Desc")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(500)")
+                        .HasMaxLength(500);
+
+                    b.Property<int>("LanguageId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ServicesCoverId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(100)")
+                        .HasMaxLength(100);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("LanguageId");
+
+                    b.HasIndex("ServicesCoverId");
+
+                    b.ToTable("ServicesCoverTranslates");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Desc = "Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima.",
+                            LanguageId = 1,
+                            ServicesCoverId = 1,
+                            Title = "DESIGN THE COVER"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Desc = "Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima.",
+                            LanguageId = 1,
+                            ServicesCoverId = 2,
+                            Title = "DESIGN THE COVER"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Desc = "Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima.",
+                            LanguageId = 1,
+                            ServicesCoverId = 3,
+                            Title = "DESIGN THE COVER"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Desc = "Usuf öy usuf həncərsən ayna durinan beyjə öy yağlaşoy, sumsux qredit siyəndər vızqırt yağlaşoy qağa basırıx mamoa bimürvət dayna aya siyəndər anarıdan-bəri ölüm.",
+                            LanguageId = 2,
+                            ServicesCoverId = 1,
+                            Title = "ƏSAS DİZAYN"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Desc = "Usuf öy usuf həncərsən ayna durinan beyjə öy yağlaşoy, sumsux qredit siyəndər vızqırt yağlaşoy qağa basırıx mamoa bimürvət dayna aya siyəndər anarıdan-bəri ölüm.",
+                            LanguageId = 2,
+                            ServicesCoverId = 2,
+                            Title = "ƏSAS DİZAYN"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Desc = "Usuf öy usuf həncərsən ayna durinan beyjə öy yağlaşoy, sumsux qredit siyəndər vızqırt yağlaşoy qağa basırıx mamoa bimürvət dayna aya siyəndər anarıdan-bəri ölüm.",
+                            LanguageId = 2,
+                            ServicesCoverId = 3,
+                            Title = "ƏSAS DİZAYN"
                         });
                 });
 
@@ -569,7 +813,7 @@ namespace Junko.Migrations
                         {
                             Id = 1,
                             AdminCategoryId = 1,
-                            CreatedAt = new DateTime(2019, 12, 23, 21, 32, 24, 433, DateTimeKind.Local).AddTicks(9934),
+                            CreatedAt = new DateTime(2019, 12, 25, 11, 15, 57, 659, DateTimeKind.Local).AddTicks(567),
                             Email = "Huseynia@code.edu.az",
                             Firstname = "Huseyn",
                             Lastname = "Asadov",
@@ -614,8 +858,8 @@ namespace Junko.Migrations
                         {
                             Id = 1,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2019, 12, 23, 21, 32, 24, 435, DateTimeKind.Local).AddTicks(3843),
-                            ModifiedAt = new DateTime(2019, 12, 23, 21, 32, 24, 435, DateTimeKind.Local).AddTicks(3832),
+                            CreatedAt = new DateTime(2019, 12, 25, 11, 15, 57, 660, DateTimeKind.Local).AddTicks(4299),
+                            ModifiedAt = new DateTime(2019, 12, 25, 11, 15, 57, 660, DateTimeKind.Local).AddTicks(4289),
                             Photo = "blog/blog1.jpg",
                             Status = true
                         },
@@ -623,8 +867,8 @@ namespace Junko.Migrations
                         {
                             Id = 2,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2019, 12, 23, 21, 32, 24, 435, DateTimeKind.Local).AddTicks(5917),
-                            ModifiedAt = new DateTime(2019, 12, 23, 21, 32, 24, 435, DateTimeKind.Local).AddTicks(5906),
+                            CreatedAt = new DateTime(2019, 12, 25, 11, 15, 57, 660, DateTimeKind.Local).AddTicks(6242),
+                            ModifiedAt = new DateTime(2019, 12, 25, 11, 15, 57, 660, DateTimeKind.Local).AddTicks(6233),
                             Photo = "blog/blog2.jpg",
                             Status = true
                         },
@@ -632,8 +876,8 @@ namespace Junko.Migrations
                         {
                             Id = 3,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2019, 12, 23, 21, 32, 24, 435, DateTimeKind.Local).AddTicks(5952),
-                            ModifiedAt = new DateTime(2019, 12, 23, 21, 32, 24, 435, DateTimeKind.Local).AddTicks(5950),
+                            CreatedAt = new DateTime(2019, 12, 25, 11, 15, 57, 660, DateTimeKind.Local).AddTicks(6272),
+                            ModifiedAt = new DateTime(2019, 12, 25, 11, 15, 57, 660, DateTimeKind.Local).AddTicks(6270),
                             Photo = "blog/blog3.jpg",
                             Status = true
                         },
@@ -641,8 +885,8 @@ namespace Junko.Migrations
                         {
                             Id = 4,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2019, 12, 23, 21, 32, 24, 435, DateTimeKind.Local).AddTicks(5956),
-                            ModifiedAt = new DateTime(2019, 12, 23, 21, 32, 24, 435, DateTimeKind.Local).AddTicks(5955),
+                            CreatedAt = new DateTime(2019, 12, 25, 11, 15, 57, 660, DateTimeKind.Local).AddTicks(6276),
+                            ModifiedAt = new DateTime(2019, 12, 25, 11, 15, 57, 660, DateTimeKind.Local).AddTicks(6274),
                             Photo = "blog/blog4.jpg",
                             Status = true
                         },
@@ -650,8 +894,8 @@ namespace Junko.Migrations
                         {
                             Id = 5,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2019, 12, 23, 21, 32, 24, 435, DateTimeKind.Local).AddTicks(5960),
-                            ModifiedAt = new DateTime(2019, 12, 23, 21, 32, 24, 435, DateTimeKind.Local).AddTicks(5958),
+                            CreatedAt = new DateTime(2019, 12, 25, 11, 15, 57, 660, DateTimeKind.Local).AddTicks(6281),
+                            ModifiedAt = new DateTime(2019, 12, 25, 11, 15, 57, 660, DateTimeKind.Local).AddTicks(6278),
                             Photo = "blog/blog5.jpg",
                             Status = true
                         },
@@ -659,90 +903,90 @@ namespace Junko.Migrations
                         {
                             Id = 6,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2019, 12, 23, 21, 32, 24, 435, DateTimeKind.Local).AddTicks(5964),
-                            ModifiedAt = new DateTime(2019, 12, 23, 21, 32, 24, 435, DateTimeKind.Local).AddTicks(5962),
-                            Photo = "blog/blog6.jpg",
+                            CreatedAt = new DateTime(2019, 12, 25, 11, 15, 57, 660, DateTimeKind.Local).AddTicks(6285),
+                            ModifiedAt = new DateTime(2019, 12, 25, 11, 15, 57, 660, DateTimeKind.Local).AddTicks(6283),
+                            Photo = "blog/blog1.jpg",
                             Status = true
                         },
                         new
                         {
                             Id = 7,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2019, 12, 23, 21, 32, 24, 435, DateTimeKind.Local).AddTicks(5968),
-                            ModifiedAt = new DateTime(2019, 12, 23, 21, 32, 24, 435, DateTimeKind.Local).AddTicks(5966),
-                            Photo = "blog/blog7.jpg",
+                            CreatedAt = new DateTime(2019, 12, 25, 11, 15, 57, 660, DateTimeKind.Local).AddTicks(6289),
+                            ModifiedAt = new DateTime(2019, 12, 25, 11, 15, 57, 660, DateTimeKind.Local).AddTicks(6287),
+                            Photo = "blog/blog2.jpg",
                             Status = true
                         },
                         new
                         {
                             Id = 8,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2019, 12, 23, 21, 32, 24, 435, DateTimeKind.Local).AddTicks(5971),
-                            ModifiedAt = new DateTime(2019, 12, 23, 21, 32, 24, 435, DateTimeKind.Local).AddTicks(5969),
-                            Photo = "blog/blog1.jpg",
+                            CreatedAt = new DateTime(2019, 12, 25, 11, 15, 57, 660, DateTimeKind.Local).AddTicks(6292),
+                            ModifiedAt = new DateTime(2019, 12, 25, 11, 15, 57, 660, DateTimeKind.Local).AddTicks(6291),
+                            Photo = "blog/blog3.jpg",
                             Status = true
                         },
                         new
                         {
                             Id = 9,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2019, 12, 23, 21, 32, 24, 435, DateTimeKind.Local).AddTicks(5975),
-                            ModifiedAt = new DateTime(2019, 12, 23, 21, 32, 24, 435, DateTimeKind.Local).AddTicks(5973),
-                            Photo = "blog/blog9.jpg",
+                            CreatedAt = new DateTime(2019, 12, 25, 11, 15, 57, 660, DateTimeKind.Local).AddTicks(6296),
+                            ModifiedAt = new DateTime(2019, 12, 25, 11, 15, 57, 660, DateTimeKind.Local).AddTicks(6294),
+                            Photo = "blog/blog4.jpg",
                             Status = true
                         },
                         new
                         {
                             Id = 10,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2019, 12, 23, 21, 32, 24, 435, DateTimeKind.Local).AddTicks(5978),
-                            ModifiedAt = new DateTime(2019, 12, 23, 21, 32, 24, 435, DateTimeKind.Local).AddTicks(5977),
-                            Photo = "blog/blog10.jpg",
+                            CreatedAt = new DateTime(2019, 12, 25, 11, 15, 57, 660, DateTimeKind.Local).AddTicks(6300),
+                            ModifiedAt = new DateTime(2019, 12, 25, 11, 15, 57, 660, DateTimeKind.Local).AddTicks(6298),
+                            Photo = "blog/blog5.jpg",
                             Status = true
                         },
                         new
                         {
                             Id = 11,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2019, 12, 23, 21, 32, 24, 435, DateTimeKind.Local).AddTicks(5982),
-                            ModifiedAt = new DateTime(2019, 12, 23, 21, 32, 24, 435, DateTimeKind.Local).AddTicks(5980),
-                            Photo = "blog/blog11.jpg",
+                            CreatedAt = new DateTime(2019, 12, 25, 11, 15, 57, 660, DateTimeKind.Local).AddTicks(6303),
+                            ModifiedAt = new DateTime(2019, 12, 25, 11, 15, 57, 660, DateTimeKind.Local).AddTicks(6302),
+                            Photo = "blog/blog1.jpg",
                             Status = true
                         },
                         new
                         {
                             Id = 12,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2019, 12, 23, 21, 32, 24, 435, DateTimeKind.Local).AddTicks(5985),
-                            ModifiedAt = new DateTime(2019, 12, 23, 21, 32, 24, 435, DateTimeKind.Local).AddTicks(5984),
-                            Photo = "blog/blog12.jpg",
+                            CreatedAt = new DateTime(2019, 12, 25, 11, 15, 57, 660, DateTimeKind.Local).AddTicks(6307),
+                            ModifiedAt = new DateTime(2019, 12, 25, 11, 15, 57, 660, DateTimeKind.Local).AddTicks(6305),
+                            Photo = "blog/blog2.jpg",
                             Status = true
                         },
                         new
                         {
                             Id = 13,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2019, 12, 23, 21, 32, 24, 435, DateTimeKind.Local).AddTicks(5989),
-                            ModifiedAt = new DateTime(2019, 12, 23, 21, 32, 24, 435, DateTimeKind.Local).AddTicks(5987),
-                            Photo = "blog/blog13.jpg",
+                            CreatedAt = new DateTime(2019, 12, 25, 11, 15, 57, 660, DateTimeKind.Local).AddTicks(6310),
+                            ModifiedAt = new DateTime(2019, 12, 25, 11, 15, 57, 660, DateTimeKind.Local).AddTicks(6309),
+                            Photo = "blog/blog3.jpg",
                             Status = true
                         },
                         new
                         {
                             Id = 14,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2019, 12, 23, 21, 32, 24, 435, DateTimeKind.Local).AddTicks(5993),
-                            ModifiedAt = new DateTime(2019, 12, 23, 21, 32, 24, 435, DateTimeKind.Local).AddTicks(5991),
-                            Photo = "blog/blog14.jpg",
+                            CreatedAt = new DateTime(2019, 12, 25, 11, 15, 57, 660, DateTimeKind.Local).AddTicks(6314),
+                            ModifiedAt = new DateTime(2019, 12, 25, 11, 15, 57, 660, DateTimeKind.Local).AddTicks(6312),
+                            Photo = "blog/blog4.jpg",
                             Status = true
                         },
                         new
                         {
                             Id = 15,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2019, 12, 23, 21, 32, 24, 435, DateTimeKind.Local).AddTicks(5996),
-                            ModifiedAt = new DateTime(2019, 12, 23, 21, 32, 24, 435, DateTimeKind.Local).AddTicks(5995),
-                            Photo = "blog/blog15.jpg",
+                            CreatedAt = new DateTime(2019, 12, 25, 11, 15, 57, 660, DateTimeKind.Local).AddTicks(6318),
+                            ModifiedAt = new DateTime(2019, 12, 25, 11, 15, 57, 660, DateTimeKind.Local).AddTicks(6316),
+                            Photo = "blog/blog5.jpg",
                             Status = true
                         });
                 });
@@ -774,12 +1018,13 @@ namespace Junko.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("BlogCategory");
+                    b.ToTable("BlogCategories");
 
                     b.HasData(
                         new
                         {
                             Id = 1,
+                            AdminManagerId = 1,
                             BlogId = 1,
                             CategoryId = 1,
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -787,6 +1032,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 2,
+                            AdminManagerId = 1,
                             BlogId = 1,
                             CategoryId = 2,
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -794,6 +1040,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 3,
+                            AdminManagerId = 1,
                             BlogId = 1,
                             CategoryId = 3,
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -801,6 +1048,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 4,
+                            AdminManagerId = 1,
                             BlogId = 2,
                             CategoryId = 4,
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -808,6 +1056,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 5,
+                            AdminManagerId = 1,
                             BlogId = 2,
                             CategoryId = 5,
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -815,6 +1064,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 6,
+                            AdminManagerId = 1,
                             BlogId = 2,
                             CategoryId = 6,
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -822,6 +1072,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 7,
+                            AdminManagerId = 1,
                             BlogId = 3,
                             CategoryId = 1,
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -829,6 +1080,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 8,
+                            AdminManagerId = 1,
                             BlogId = 3,
                             CategoryId = 3,
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -836,6 +1088,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 9,
+                            AdminManagerId = 1,
                             BlogId = 3,
                             CategoryId = 5,
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -843,6 +1096,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 10,
+                            AdminManagerId = 1,
                             BlogId = 4,
                             CategoryId = 1,
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -850,6 +1104,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 11,
+                            AdminManagerId = 1,
                             BlogId = 5,
                             CategoryId = 2,
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -857,6 +1112,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 12,
+                            AdminManagerId = 1,
                             BlogId = 6,
                             CategoryId = 3,
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -864,6 +1120,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 13,
+                            AdminManagerId = 1,
                             BlogId = 7,
                             CategoryId = 4,
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -871,6 +1128,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 14,
+                            AdminManagerId = 1,
                             BlogId = 8,
                             CategoryId = 5,
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -878,6 +1136,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 15,
+                            AdminManagerId = 1,
                             BlogId = 9,
                             CategoryId = 6,
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -885,6 +1144,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 16,
+                            AdminManagerId = 1,
                             BlogId = 10,
                             CategoryId = 1,
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -892,6 +1152,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 17,
+                            AdminManagerId = 1,
                             BlogId = 11,
                             CategoryId = 2,
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -899,6 +1160,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 18,
+                            AdminManagerId = 1,
                             BlogId = 12,
                             CategoryId = 3,
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -906,6 +1168,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 19,
+                            AdminManagerId = 1,
                             BlogId = 13,
                             CategoryId = 4,
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -913,6 +1176,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 20,
+                            AdminManagerId = 1,
                             BlogId = 14,
                             CategoryId = 5,
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -920,6 +1184,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 21,
+                            AdminManagerId = 1,
                             BlogId = 15,
                             CategoryId = 6,
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -956,48 +1221,48 @@ namespace Junko.Migrations
                         {
                             Id = 1,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2019, 12, 23, 21, 32, 24, 434, DateTimeKind.Local).AddTicks(7789),
-                            ModifiedAt = new DateTime(2019, 12, 23, 21, 32, 24, 434, DateTimeKind.Local).AddTicks(7043),
+                            CreatedAt = new DateTime(2019, 12, 25, 11, 15, 57, 659, DateTimeKind.Local).AddTicks(8332),
+                            ModifiedAt = new DateTime(2019, 12, 25, 11, 15, 57, 659, DateTimeKind.Local).AddTicks(7612),
                             Status = true
                         },
                         new
                         {
                             Id = 2,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2019, 12, 23, 21, 32, 24, 434, DateTimeKind.Local).AddTicks(9187),
-                            ModifiedAt = new DateTime(2019, 12, 23, 21, 32, 24, 434, DateTimeKind.Local).AddTicks(9166),
+                            CreatedAt = new DateTime(2019, 12, 25, 11, 15, 57, 659, DateTimeKind.Local).AddTicks(9664),
+                            ModifiedAt = new DateTime(2019, 12, 25, 11, 15, 57, 659, DateTimeKind.Local).AddTicks(9644),
                             Status = true
                         },
                         new
                         {
                             Id = 3,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2019, 12, 23, 21, 32, 24, 434, DateTimeKind.Local).AddTicks(9208),
-                            ModifiedAt = new DateTime(2019, 12, 23, 21, 32, 24, 434, DateTimeKind.Local).AddTicks(9205),
+                            CreatedAt = new DateTime(2019, 12, 25, 11, 15, 57, 659, DateTimeKind.Local).AddTicks(9687),
+                            ModifiedAt = new DateTime(2019, 12, 25, 11, 15, 57, 659, DateTimeKind.Local).AddTicks(9684),
                             Status = true
                         },
                         new
                         {
                             Id = 4,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2019, 12, 23, 21, 32, 24, 434, DateTimeKind.Local).AddTicks(9211),
-                            ModifiedAt = new DateTime(2019, 12, 23, 21, 32, 24, 434, DateTimeKind.Local).AddTicks(9210),
+                            CreatedAt = new DateTime(2019, 12, 25, 11, 15, 57, 659, DateTimeKind.Local).AddTicks(9691),
+                            ModifiedAt = new DateTime(2019, 12, 25, 11, 15, 57, 659, DateTimeKind.Local).AddTicks(9689),
                             Status = true
                         },
                         new
                         {
                             Id = 5,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2019, 12, 23, 21, 32, 24, 434, DateTimeKind.Local).AddTicks(9215),
-                            ModifiedAt = new DateTime(2019, 12, 23, 21, 32, 24, 434, DateTimeKind.Local).AddTicks(9214),
+                            CreatedAt = new DateTime(2019, 12, 25, 11, 15, 57, 659, DateTimeKind.Local).AddTicks(9694),
+                            ModifiedAt = new DateTime(2019, 12, 25, 11, 15, 57, 659, DateTimeKind.Local).AddTicks(9693),
                             Status = true
                         },
                         new
                         {
                             Id = 6,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2019, 12, 23, 21, 32, 24, 434, DateTimeKind.Local).AddTicks(9219),
-                            ModifiedAt = new DateTime(2019, 12, 23, 21, 32, 24, 434, DateTimeKind.Local).AddTicks(9217),
+                            CreatedAt = new DateTime(2019, 12, 25, 11, 15, 57, 659, DateTimeKind.Local).AddTicks(9698),
+                            ModifiedAt = new DateTime(2019, 12, 25, 11, 15, 57, 659, DateTimeKind.Local).AddTicks(9696),
                             Status = true
                         });
                 });
@@ -1031,6 +1296,153 @@ namespace Junko.Migrations
                             Id = 2,
                             LanguageCode = "az-Latn-AZ",
                             Name = "Azerbaijan"
+                        });
+                });
+
+            modelBuilder.Entity("Junko.Models.OurService", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("AdminManagerId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Icon")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(100)")
+                        .HasMaxLength(100);
+
+                    b.Property<DateTime>("ModifiedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AdminManagerId");
+
+                    b.ToTable("OurServices");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            AdminManagerId = 1,
+                            Icon = "fa fa-sliders",
+                            ModifiedAt = new DateTime(2019, 12, 25, 11, 15, 57, 662, DateTimeKind.Local).AddTicks(959),
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 2,
+                            AdminManagerId = 1,
+                            Icon = "fa fa-umbrella",
+                            ModifiedAt = new DateTime(2019, 12, 25, 11, 15, 57, 662, DateTimeKind.Local).AddTicks(2246),
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 3,
+                            AdminManagerId = 1,
+                            Icon = "fa fa-camera",
+                            ModifiedAt = new DateTime(2019, 12, 25, 11, 15, 57, 662, DateTimeKind.Local).AddTicks(2272),
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 4,
+                            AdminManagerId = 1,
+                            Icon = "fa fa-cog",
+                            ModifiedAt = new DateTime(2019, 12, 25, 11, 15, 57, 662, DateTimeKind.Local).AddTicks(2275),
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 5,
+                            AdminManagerId = 1,
+                            Icon = "fa fa-file-code-o",
+                            ModifiedAt = new DateTime(2019, 12, 25, 11, 15, 57, 662, DateTimeKind.Local).AddTicks(2277),
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 6,
+                            AdminManagerId = 1,
+                            Icon = "fa fa-bar-chart",
+                            ModifiedAt = new DateTime(2019, 12, 25, 11, 15, 57, 662, DateTimeKind.Local).AddTicks(2280),
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 7,
+                            AdminManagerId = 1,
+                            Icon = "fa fa-headphones",
+                            ModifiedAt = new DateTime(2019, 12, 25, 11, 15, 57, 662, DateTimeKind.Local).AddTicks(2282),
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 8,
+                            AdminManagerId = 1,
+                            Icon = "fa fa-leaf",
+                            ModifiedAt = new DateTime(2019, 12, 25, 11, 15, 57, 662, DateTimeKind.Local).AddTicks(2285),
+                            Status = true
+                        });
+                });
+
+            modelBuilder.Entity("Junko.Models.ServicesCover", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("AdminManagerId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("ModifiedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Photo")
+                        .HasColumnType("nvarchar(250)")
+                        .HasMaxLength(250);
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AdminManagerId");
+
+                    b.ToTable("ServicesCovers");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            AdminManagerId = 1,
+                            ModifiedAt = new DateTime(2019, 12, 25, 11, 15, 57, 661, DateTimeKind.Local).AddTicks(4606),
+                            Photo = "service/services1.jpg",
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 2,
+                            AdminManagerId = 1,
+                            ModifiedAt = new DateTime(2019, 12, 25, 11, 15, 57, 661, DateTimeKind.Local).AddTicks(5868),
+                            Photo = "service/services2.jpg",
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 3,
+                            AdminManagerId = 1,
+                            ModifiedAt = new DateTime(2019, 12, 25, 11, 15, 57, 661, DateTimeKind.Local).AddTicks(5899),
+                            Photo = "service/services3.jpg",
+                            Status = true
                         });
                 });
 
@@ -1084,7 +1496,7 @@ namespace Junko.Migrations
                             Email = "Junko@mail.com",
                             Location = "Code Academy",
                             Logo = "Junko",
-                            ModifiedAt = new DateTime(2019, 12, 23, 21, 32, 24, 431, DateTimeKind.Local).AddTicks(1317),
+                            ModifiedAt = new DateTime(2019, 12, 25, 11, 15, 57, 656, DateTimeKind.Local).AddTicks(218),
                             Phone = "+994 50 787 01 81",
                             PhotoLogo = "logo/logo.png"
                         });
@@ -1139,7 +1551,7 @@ namespace Junko.Migrations
                             FAQContent = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec id erat sagittis, faucibus metus malesuada, eleifend turpis. Mauris semper augue id nisl aliquet, a porta lectus mattis. Nulla at tortor augue. In eget enim diam. Donec gravida tortor sem, ac fermentum nibh rutrum sit amet. Nulla convallis mauris vitae congue consequat. Donec interdum nunc purus, vitae vulputate arcu fringilla quis. Vivamus iaculis euismod dui.",
                             FAQTitle = "Below are frequently asked questions, you may find the answer for yourself",
                             LanguageId = 1,
-                            ModifiedAt = new DateTime(2019, 12, 23, 21, 32, 24, 432, DateTimeKind.Local).AddTicks(8481),
+                            ModifiedAt = new DateTime(2019, 12, 25, 11, 15, 57, 657, DateTimeKind.Local).AddTicks(8572),
                             SettingId = 1
                         },
                         new
@@ -1149,7 +1561,7 @@ namespace Junko.Migrations
                             FAQContent = "",
                             FAQTitle = "Aşağıda tez-tez verilən suallarla özünüz üçün cavab tapa bilərsiniz",
                             LanguageId = 2,
-                            ModifiedAt = new DateTime(2019, 12, 23, 21, 32, 24, 432, DateTimeKind.Local).AddTicks(8588),
+                            ModifiedAt = new DateTime(2019, 12, 25, 11, 15, 57, 657, DateTimeKind.Local).AddTicks(8689),
                             SettingId = 1
                         });
                 });
@@ -1276,6 +1688,36 @@ namespace Junko.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("Junko.ModelTranslate.OurServiceTranslate", b =>
+                {
+                    b.HasOne("Junko.Models.Language", "Language")
+                        .WithMany("OurServiceTranslates")
+                        .HasForeignKey("LanguageId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Junko.Models.OurService", "OurService")
+                        .WithMany("OurServiceTranslates")
+                        .HasForeignKey("OurServiceId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Junko.ModelTranslate.ServicesCoverTranslate", b =>
+                {
+                    b.HasOne("Junko.Models.Language", "Language")
+                        .WithMany("ServicesCoverTranslates")
+                        .HasForeignKey("LanguageId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Junko.Models.ServicesCover", "ServicesCover")
+                        .WithMany("ServicesCoverTranslates")
+                        .HasForeignKey("ServicesCoverId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("Junko.Models.AdminManager", b =>
                 {
                     b.HasOne("Junko.Models.AdminCategory", "Category")
@@ -1315,6 +1757,20 @@ namespace Junko.Migrations
                 {
                     b.HasOne("Junko.Models.AdminManager", "AdminManager")
                         .WithMany("Categories")
+                        .HasForeignKey("AdminManagerId");
+                });
+
+            modelBuilder.Entity("Junko.Models.OurService", b =>
+                {
+                    b.HasOne("Junko.Models.AdminManager", "AdminManager")
+                        .WithMany("OurServices")
+                        .HasForeignKey("AdminManagerId");
+                });
+
+            modelBuilder.Entity("Junko.Models.ServicesCover", b =>
+                {
+                    b.HasOne("Junko.Models.AdminManager", "AdminManager")
+                        .WithMany("ServicesCovers")
                         .HasForeignKey("AdminManagerId");
                 });
 

@@ -19,6 +19,56 @@ namespace Junko.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("Junko.ModelTranslate.AboutSettingTranslate", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("AboutSettingId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Desc")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(600)")
+                        .HasMaxLength(600);
+
+                    b.Property<int>("LanguageId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(150)")
+                        .HasMaxLength(150);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AboutSettingId");
+
+                    b.HasIndex("LanguageId");
+
+                    b.ToTable("AboutSettingTranslates");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            AboutSettingId = 1,
+                            Desc = "Adipiscing lacus ut elementum, nec duis, tempor litora turpis dapibus. Imperdiet cursus odio tortor in elementum. Egestas nunc eleifend feugiat lectus laoreet, vel nunc taciti integer cras. Hac pede dis, praesent nibh ac dui mauris sit. Pellentesque mi, facilisi mauris, elit sociis leo sodales accumsan. Iaculis ac fringilla torquent lorem consectetuer, sociosqu phasellus risus urna aliquam, ornare.",
+                            LanguageId = 1,
+                            Title = "ECommerce For Electronics Store"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            AboutSettingId = 1,
+                            Desc = "Beyjə murtta səni yağlaşoy səni göyüz xışdıyaram, qağa ciji qayır öy a qıvlasız mamoğlu dığlatdın, eşiy anarıdan-bəri səni öy qayır. Çırtımına yiyə dursan? ayna durinan suruxvat ayna durinan dayna sülöymən kiri a qıvlasız səni, ciji siyəndər qalet murtta dığlatdın dınqı anarıdan-bəri, qavağında ölöm döyğa tutaşmıyın mamoğlu a bimürvət ayna durinan mığı.",
+                            LanguageId = 2,
+                            Title = "Elektronika Mağazası üçün Kommersiya fəaliyyəti"
+                        });
+                });
+
             modelBuilder.Entity("Junko.ModelTranslate.AdminCategoryTranslate", b =>
                 {
                     b.Property<int>("Id")
@@ -59,6 +109,48 @@ namespace Junko.Migrations
                             AdminCategoryId = 1,
                             LanguageId = 2,
                             Name = "Direktor"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            AdminCategoryId = 2,
+                            LanguageId = 1,
+                            Name = "Designer"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            AdminCategoryId = 2,
+                            LanguageId = 2,
+                            Name = "Dizayner"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            AdminCategoryId = 3,
+                            LanguageId = 1,
+                            Name = "Developer"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            AdminCategoryId = 3,
+                            LanguageId = 2,
+                            Name = "Proqramçı"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            AdminCategoryId = 4,
+                            LanguageId = 1,
+                            Name = "Accountant"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            AdminCategoryId = 4,
+                            LanguageId = 2,
+                            Name = "Mühasib"
                         });
                 });
 
@@ -197,6 +289,11 @@ namespace Junko.Migrations
                     b.Property<int>("LanguageId")
                         .HasColumnType("int");
 
+                    b.Property<string>("Slug")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(300)")
+                        .HasMaxLength(300);
+
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("nvarchar(200)")
@@ -215,271 +312,790 @@ namespace Junko.Migrations
                         {
                             Id = 1,
                             BlogId = 1,
-                            Content = "<p>Aenean et tempor eros,vitae sollicitudin velit.Etiam varius enim nec quam tempor sed efficitur ex ultrices.Phasellus pretium est vel vestibulum condimentum.Aenean nec suscipit nibh.Phasellus nec lacus arcu facilisis elementum.Curabitur lobortiselit ut elementum congueerat ex bibendum odionec iaculis lacus sem non lorem.Duis metus antesed convallis quam posuere quis.Ut tincidunt eleifend odioac fringilla mi vehicula nec.Nunc vitae lacus eget lectus tempus sed in dui.Nam molestie magna at risus suscipit justo dignissim.Sed vitae fringilla enimnec arcu</ p < blockquote < p Quisque semper nunc vitae erat pellentesqueac placerat consectetur.In venenatis elit ac ultrices convallis.Duis est nisitincidunt ac urna sedcursus blandit lectus.In ullamcorper amet ligula ut eleifend.Proin dictum tempor ligulaac metus.Sed finibus tortor eu scelerisque scelerisque</ p </ blockquote < p Aenean et tempor erosvitae sollicitudin velit.Etiam varius enim quam temporsed efficitur ex ultrices.Phasellus pretium est vel vestibulum condimentum.Aenean nec suscipit nibh.Phasellus nec lacus arcu facilisis elementum.Curabitur lobortiselit ut elementum congueerat ex bibendum odionec iaculis lacus sem non lorem.Duis metus antesed convallis quam posuere quis.Ut tincidunt eleifend odioac fringilla mi vehicula nec.Nunc vitae lacus eget lectus tempus sed in dui.Nam molestie magna at risus suscipit justo dignissim.Sed vitae fringilla enimnec arcu</ p < p Suspendisse turpis ipsumtempus in nulla euposuere pharetra nibh.dignissim vitae lorem non mollis.Praesent pretium tellus in viverra condimentum.Nullam dignissim facilisis nislaccumsan justo ultricies vel.Vivamus finibus mi a neque pretiumut dui lacinia.Morbi a rutrum velit.Curabitur sagittis quam consectetur mattis.Aenean sit amet quam vel turpis interdum sagittis eget neque.Nunc ante quamluctus et neque ainterdum iaculis metusAliquam vel ante mattisplacerat orci idvehicula quam.quis eros cursusviverra urna sedcommodo mauris.Cras diam arcufringilla a sem condimentumviverra facilisis nunc.Curabitur orci id nulla maximus maximus.Nunc pulvinar sollicitudin molestie</ p </ div > ",
+                            Content = "<p>Aenean et tempor eros,vitae sollicitudin velit.Etiam varius enim nec quam tempor sed efficitur ex ultrices.Phasellus pretium est vel vestibulum condimentum.Aenean nec suscipit nibh.Phasellus nec lacus arcu facilisis elementum.Curabitur lobortiselit ut elementum congueerat ex bibendum odionec iaculis lacus sem non lorem.Duis metus antesed convallis quam posuere quis.Ut tincidunt eleifend odioac fringilla mi vehicula nec.Nunc vitae lacus eget lectus tempus sed in dui.Nam molestie magna at risus suscipit justo dignissim.Sed vitae fringilla enimnec arcu</p><blockquote><p>Quisque semper nunc vitae erat pellentesqueac placerat consectetur.In venenatis elit ac ultrices convallis.Duis est nisitincidunt ac urna sedcursus blandit lectus.In ullamcorper amet ligula ut eleifend.Proin dictum tempor ligulaac metus.Sed finibus tortor eu scelerisque scelerisque</p></blockquote><p>Aenean et tempor erosvitae sollicitudin velit.Etiam varius enim quam temporsed efficitur ex ultrices.Phasellus pretium est vel vestibulum condimentum.Aenean nec suscipit nibh.Phasellus nec lacus arcu facilisis elementum.Curabitur lobortiselit ut elementum congueerat ex bibendum odionec iaculis lacus sem non lorem.Duis metus antesed convallis quam posuere quis.Ut tincidunt eleifend odioac fringilla mi vehicula nec.Nunc vitae lacus eget lectus tempus sed in dui.Nam molestie magna at risus suscipit justo dignissim.Sed vitae fringilla enimnec arcu</p><p>Suspendisse turpis ipsumtempus in nulla euposuere pharetra nibh.dignissim vitae lorem non mollis.Praesent pretium tellus in viverra condimentum.Nullam dignissim facilisis nislaccumsan justo ultricies vel.Vivamus finibus mi a neque pretiumut dui lacinia.Morbi a rutrum velit.Curabitur sagittis quam consectetur mattis.Aenean sit amet quam vel turpis interdum sagittis eget neque.Nunc ante quamluctus et neque ainterdum iaculis metusAliquam vel ante mattisplacerat orci idvehicula quam.quis eros cursusviverra urna sedcommodo mauris.Cras diam arcufringilla a sem condimentumviverra facilisis nunc.Curabitur orci id nulla maximus maximus.Nunc pulvinar sollicitudin molestie</p></div> ",
                             Desc = "Donec vitae hendrerit arcu, sit amet faucibus nisl. Cras pretium arcu ex. Aenean posuere libero eu augue condimentum rhoncus. Praesent ornare tortor ac ante egestas hendrerit. Aliquam et metus pharetra, bibendum massa nec, fermentum odio.",
                             LanguageId = 1,
+                            Slug = "Blog-Image-Post",
                             Title = "Blog Image Post (Sticky)"
                         },
                         new
                         {
                             Id = 2,
                             BlogId = 2,
-                            Content = "<p>Aenean et tempor eros,vitae sollicitudin velit.Etiam varius enim nec quam tempor sed efficitur ex ultrices.Phasellus pretium est vel vestibulum condimentum.Aenean nec suscipit nibh.Phasellus nec lacus arcu facilisis elementum.Curabitur lobortiselit ut elementum congueerat ex bibendum odionec iaculis lacus sem non lorem.Duis metus antesed convallis quam posuere quis.Ut tincidunt eleifend odioac fringilla mi vehicula nec.Nunc vitae lacus eget lectus tempus sed in dui.Nam molestie magna at risus suscipit justo dignissim.Sed vitae fringilla enimnec arcu</ p < blockquote < p Quisque semper nunc vitae erat pellentesqueac placerat consectetur.In venenatis elit ac ultrices convallis.Duis est nisitincidunt ac urna sedcursus blandit lectus.In ullamcorper amet ligula ut eleifend.Proin dictum tempor ligulaac metus.Sed finibus tortor eu scelerisque scelerisque</ p </ blockquote < p Aenean et tempor erosvitae sollicitudin velit.Etiam varius enim quam temporsed efficitur ex ultrices.Phasellus pretium est vel vestibulum condimentum.Aenean nec suscipit nibh.Phasellus nec lacus arcu facilisis elementum.Curabitur lobortiselit ut elementum congueerat ex bibendum odionec iaculis lacus sem non lorem.Duis metus antesed convallis quam posuere quis.Ut tincidunt eleifend odioac fringilla mi vehicula nec.Nunc vitae lacus eget lectus tempus sed in dui.Nam molestie magna at risus suscipit justo dignissim.Sed vitae fringilla enimnec arcu</ p < p Suspendisse turpis ipsumtempus in nulla euposuere pharetra nibh.dignissim vitae lorem non mollis.Praesent pretium tellus in viverra condimentum.Nullam dignissim facilisis nislaccumsan justo ultricies vel.Vivamus finibus mi a neque pretiumut dui lacinia.Morbi a rutrum velit.Curabitur sagittis quam consectetur mattis.Aenean sit amet quam vel turpis interdum sagittis eget neque.Nunc ante quamluctus et neque ainterdum iaculis metusAliquam vel ante mattisplacerat orci idvehicula quam.quis eros cursusviverra urna sedcommodo mauris.Cras diam arcufringilla a sem condimentumviverra facilisis nunc.Curabitur orci id nulla maximus maximus.Nunc pulvinar sollicitudin molestie</ p </ div > ",
+                            Content = "<p>Aenean et tempor eros,vitae sollicitudin velit.Etiam varius enim nec quam tempor sed efficitur ex ultrices.Phasellus pretium est vel vestibulum condimentum.Aenean nec suscipit nibh.Phasellus nec lacus arcu facilisis elementum.Curabitur lobortiselit ut elementum congueerat ex bibendum odionec iaculis lacus sem non lorem.Duis metus antesed convallis quam posuere quis.Ut tincidunt eleifend odioac fringilla mi vehicula nec.Nunc vitae lacus eget lectus tempus sed in dui.Nam molestie magna at risus suscipit justo dignissim.Sed vitae fringilla enimnec arcu</p><blockquote><p>Quisque semper nunc vitae erat pellentesqueac placerat consectetur.In venenatis elit ac ultrices convallis.Duis est nisitincidunt ac urna sedcursus blandit lectus.In ullamcorper amet ligula ut eleifend.Proin dictum tempor ligulaac metus.Sed finibus tortor eu scelerisque scelerisque</p></blockquote><p>Aenean et tempor erosvitae sollicitudin velit.Etiam varius enim quam temporsed efficitur ex ultrices.Phasellus pretium est vel vestibulum condimentum.Aenean nec suscipit nibh.Phasellus nec lacus arcu facilisis elementum.Curabitur lobortiselit ut elementum congueerat ex bibendum odionec iaculis lacus sem non lorem.Duis metus antesed convallis quam posuere quis.Ut tincidunt eleifend odioac fringilla mi vehicula nec.Nunc vitae lacus eget lectus tempus sed in dui.Nam molestie magna at risus suscipit justo dignissim.Sed vitae fringilla enimnec arcu</p><p>Suspendisse turpis ipsumtempus in nulla euposuere pharetra nibh.dignissim vitae lorem non mollis.Praesent pretium tellus in viverra condimentum.Nullam dignissim facilisis nislaccumsan justo ultricies vel.Vivamus finibus mi a neque pretiumut dui lacinia.Morbi a rutrum velit.Curabitur sagittis quam consectetur mattis.Aenean sit amet quam vel turpis interdum sagittis eget neque.Nunc ante quamluctus et neque ainterdum iaculis metusAliquam vel ante mattisplacerat orci idvehicula quam.quis eros cursusviverra urna sedcommodo mauris.Cras diam arcufringilla a sem condimentumviverra facilisis nunc.Curabitur orci id nulla maximus maximus.Nunc pulvinar sollicitudin molestie</p></div> ",
                             Desc = "Donec vitae hendrerit arcu, sit amet faucibus nisl. Cras pretium arcu ex. Aenean posuere libero eu augue condimentum rhoncus. Praesent ornare tortor ac ante egestas hendrerit. Aliquam et metus pharetra, bibendum massa nec, fermentum odio.",
                             LanguageId = 1,
+                            Slug = "Post-With-Gallery",
                             Title = "Post With Gallery"
                         },
                         new
                         {
                             Id = 3,
                             BlogId = 3,
-                            Content = "<p>Aenean et tempor eros,vitae sollicitudin velit.Etiam varius enim nec quam tempor sed efficitur ex ultrices.Phasellus pretium est vel vestibulum condimentum.Aenean nec suscipit nibh.Phasellus nec lacus arcu facilisis elementum.Curabitur lobortiselit ut elementum congueerat ex bibendum odionec iaculis lacus sem non lorem.Duis metus antesed convallis quam posuere quis.Ut tincidunt eleifend odioac fringilla mi vehicula nec.Nunc vitae lacus eget lectus tempus sed in dui.Nam molestie magna at risus suscipit justo dignissim.Sed vitae fringilla enimnec arcu</ p < blockquote < p Quisque semper nunc vitae erat pellentesqueac placerat consectetur.In venenatis elit ac ultrices convallis.Duis est nisitincidunt ac urna sedcursus blandit lectus.In ullamcorper amet ligula ut eleifend.Proin dictum tempor ligulaac metus.Sed finibus tortor eu scelerisque scelerisque</ p </ blockquote < p Aenean et tempor erosvitae sollicitudin velit.Etiam varius enim quam temporsed efficitur ex ultrices.Phasellus pretium est vel vestibulum condimentum.Aenean nec suscipit nibh.Phasellus nec lacus arcu facilisis elementum.Curabitur lobortiselit ut elementum congueerat ex bibendum odionec iaculis lacus sem non lorem.Duis metus antesed convallis quam posuere quis.Ut tincidunt eleifend odioac fringilla mi vehicula nec.Nunc vitae lacus eget lectus tempus sed in dui.Nam molestie magna at risus suscipit justo dignissim.Sed vitae fringilla enimnec arcu</ p < p Suspendisse turpis ipsumtempus in nulla euposuere pharetra nibh.dignissim vitae lorem non mollis.Praesent pretium tellus in viverra condimentum.Nullam dignissim facilisis nislaccumsan justo ultricies vel.Vivamus finibus mi a neque pretiumut dui lacinia.Morbi a rutrum velit.Curabitur sagittis quam consectetur mattis.Aenean sit amet quam vel turpis interdum sagittis eget neque.Nunc ante quamluctus et neque ainterdum iaculis metusAliquam vel ante mattisplacerat orci idvehicula quam.quis eros cursusviverra urna sedcommodo mauris.Cras diam arcufringilla a sem condimentumviverra facilisis nunc.Curabitur orci id nulla maximus maximus.Nunc pulvinar sollicitudin molestie</ p </ div > ",
+                            Content = "<p>Aenean et tempor eros,vitae sollicitudin velit.Etiam varius enim nec quam tempor sed efficitur ex ultrices.Phasellus pretium est vel vestibulum condimentum.Aenean nec suscipit nibh.Phasellus nec lacus arcu facilisis elementum.Curabitur lobortiselit ut elementum congueerat ex bibendum odionec iaculis lacus sem non lorem.Duis metus antesed convallis quam posuere quis.Ut tincidunt eleifend odioac fringilla mi vehicula nec.Nunc vitae lacus eget lectus tempus sed in dui.Nam molestie magna at risus suscipit justo dignissim.Sed vitae fringilla enimnec arcu</p><blockquote><p>Quisque semper nunc vitae erat pellentesqueac placerat consectetur.In venenatis elit ac ultrices convallis.Duis est nisitincidunt ac urna sedcursus blandit lectus.In ullamcorper amet ligula ut eleifend.Proin dictum tempor ligulaac metus.Sed finibus tortor eu scelerisque scelerisque</p></blockquote><p>Aenean et tempor erosvitae sollicitudin velit.Etiam varius enim quam temporsed efficitur ex ultrices.Phasellus pretium est vel vestibulum condimentum.Aenean nec suscipit nibh.Phasellus nec lacus arcu facilisis elementum.Curabitur lobortiselit ut elementum congueerat ex bibendum odionec iaculis lacus sem non lorem.Duis metus antesed convallis quam posuere quis.Ut tincidunt eleifend odioac fringilla mi vehicula nec.Nunc vitae lacus eget lectus tempus sed in dui.Nam molestie magna at risus suscipit justo dignissim.Sed vitae fringilla enimnec arcu</p><p>Suspendisse turpis ipsumtempus in nulla euposuere pharetra nibh.dignissim vitae lorem non mollis.Praesent pretium tellus in viverra condimentum.Nullam dignissim facilisis nislaccumsan justo ultricies vel.Vivamus finibus mi a neque pretiumut dui lacinia.Morbi a rutrum velit.Curabitur sagittis quam consectetur mattis.Aenean sit amet quam vel turpis interdum sagittis eget neque.Nunc ante quamluctus et neque ainterdum iaculis metusAliquam vel ante mattisplacerat orci idvehicula quam.quis eros cursusviverra urna sedcommodo mauris.Cras diam arcufringilla a sem condimentumviverra facilisis nunc.Curabitur orci id nulla maximus maximus.Nunc pulvinar sollicitudin molestie</p></div> ",
                             Desc = "Donec vitae hendrerit arcu, sit amet faucibus nisl. Cras pretium arcu ex. Aenean posuere libero eu augue condimentum rhoncus. Praesent ornare tortor ac ante egestas hendrerit. Aliquam et metus pharetra, bibendum massa nec, fermentum odio.",
                             LanguageId = 1,
+                            Slug = "Maecenas-Ultricies",
                             Title = "Maecenas Ultricies"
                         },
                         new
                         {
                             Id = 4,
                             BlogId = 4,
-                            Content = "<p>Aenean et tempor eros,vitae sollicitudin velit.Etiam varius enim nec quam tempor sed efficitur ex ultrices.Phasellus pretium est vel vestibulum condimentum.Aenean nec suscipit nibh.Phasellus nec lacus arcu facilisis elementum.Curabitur lobortiselit ut elementum congueerat ex bibendum odionec iaculis lacus sem non lorem.Duis metus antesed convallis quam posuere quis.Ut tincidunt eleifend odioac fringilla mi vehicula nec.Nunc vitae lacus eget lectus tempus sed in dui.Nam molestie magna at risus suscipit justo dignissim.Sed vitae fringilla enimnec arcu</ p < blockquote < p Quisque semper nunc vitae erat pellentesqueac placerat consectetur.In venenatis elit ac ultrices convallis.Duis est nisitincidunt ac urna sedcursus blandit lectus.In ullamcorper amet ligula ut eleifend.Proin dictum tempor ligulaac metus.Sed finibus tortor eu scelerisque scelerisque</ p </ blockquote < p Aenean et tempor erosvitae sollicitudin velit.Etiam varius enim quam temporsed efficitur ex ultrices.Phasellus pretium est vel vestibulum condimentum.Aenean nec suscipit nibh.Phasellus nec lacus arcu facilisis elementum.Curabitur lobortiselit ut elementum congueerat ex bibendum odionec iaculis lacus sem non lorem.Duis metus antesed convallis quam posuere quis.Ut tincidunt eleifend odioac fringilla mi vehicula nec.Nunc vitae lacus eget lectus tempus sed in dui.Nam molestie magna at risus suscipit justo dignissim.Sed vitae fringilla enimnec arcu</ p < p Suspendisse turpis ipsumtempus in nulla euposuere pharetra nibh.dignissim vitae lorem non mollis.Praesent pretium tellus in viverra condimentum.Nullam dignissim facilisis nislaccumsan justo ultricies vel.Vivamus finibus mi a neque pretiumut dui lacinia.Morbi a rutrum velit.Curabitur sagittis quam consectetur mattis.Aenean sit amet quam vel turpis interdum sagittis eget neque.Nunc ante quamluctus et neque ainterdum iaculis metusAliquam vel ante mattisplacerat orci idvehicula quam.quis eros cursusviverra urna sedcommodo mauris.Cras diam arcufringilla a sem condimentumviverra facilisis nunc.Curabitur orci id nulla maximus maximus.Nunc pulvinar sollicitudin molestie</ p </ div > ",
+                            Content = "<p>Aenean et tempor eros,vitae sollicitudin velit.Etiam varius enim nec quam tempor sed efficitur ex ultrices.Phasellus pretium est vel vestibulum condimentum.Aenean nec suscipit nibh.Phasellus nec lacus arcu facilisis elementum.Curabitur lobortiselit ut elementum congueerat ex bibendum odionec iaculis lacus sem non lorem.Duis metus antesed convallis quam posuere quis.Ut tincidunt eleifend odioac fringilla mi vehicula nec.Nunc vitae lacus eget lectus tempus sed in dui.Nam molestie magna at risus suscipit justo dignissim.Sed vitae fringilla enimnec arcu</p><blockquote><p>Quisque semper nunc vitae erat pellentesqueac placerat consectetur.In venenatis elit ac ultrices convallis.Duis est nisitincidunt ac urna sedcursus blandit lectus.In ullamcorper amet ligula ut eleifend.Proin dictum tempor ligulaac metus.Sed finibus tortor eu scelerisque scelerisque</p></blockquote><p>Aenean et tempor erosvitae sollicitudin velit.Etiam varius enim quam temporsed efficitur ex ultrices.Phasellus pretium est vel vestibulum condimentum.Aenean nec suscipit nibh.Phasellus nec lacus arcu facilisis elementum.Curabitur lobortiselit ut elementum congueerat ex bibendum odionec iaculis lacus sem non lorem.Duis metus antesed convallis quam posuere quis.Ut tincidunt eleifend odioac fringilla mi vehicula nec.Nunc vitae lacus eget lectus tempus sed in dui.Nam molestie magna at risus suscipit justo dignissim.Sed vitae fringilla enimnec arcu</p><p>Suspendisse turpis ipsumtempus in nulla euposuere pharetra nibh.dignissim vitae lorem non mollis.Praesent pretium tellus in viverra condimentum.Nullam dignissim facilisis nislaccumsan justo ultricies vel.Vivamus finibus mi a neque pretiumut dui lacinia.Morbi a rutrum velit.Curabitur sagittis quam consectetur mattis.Aenean sit amet quam vel turpis interdum sagittis eget neque.Nunc ante quamluctus et neque ainterdum iaculis metusAliquam vel ante mattisplacerat orci idvehicula quam.quis eros cursusviverra urna sedcommodo mauris.Cras diam arcufringilla a sem condimentumviverra facilisis nunc.Curabitur orci id nulla maximus maximus.Nunc pulvinar sollicitudin molestie</p></div> ",
                             Desc = "Donec vitae hendrerit arcu, sit amet faucibus nisl. Cras pretium arcu ex. Aenean posuere libero eu augue condimentum rhoncus. Praesent ornare tortor ac ante egestas hendrerit. Aliquam et metus pharetra, bibendum massa nec, fermentum odio.",
                             LanguageId = 1,
+                            Slug = "Post-with-audio",
                             Title = "Post With Audio"
                         },
                         new
                         {
                             Id = 5,
                             BlogId = 5,
-                            Content = "<p>Aenean et tempor eros,vitae sollicitudin velit.Etiam varius enim nec quam tempor sed efficitur ex ultrices.Phasellus pretium est vel vestibulum condimentum.Aenean nec suscipit nibh.Phasellus nec lacus arcu facilisis elementum.Curabitur lobortiselit ut elementum congueerat ex bibendum odionec iaculis lacus sem non lorem.Duis metus antesed convallis quam posuere quis.Ut tincidunt eleifend odioac fringilla mi vehicula nec.Nunc vitae lacus eget lectus tempus sed in dui.Nam molestie magna at risus suscipit justo dignissim.Sed vitae fringilla enimnec arcu</ p < blockquote < p Quisque semper nunc vitae erat pellentesqueac placerat consectetur.In venenatis elit ac ultrices convallis.Duis est nisitincidunt ac urna sedcursus blandit lectus.In ullamcorper amet ligula ut eleifend.Proin dictum tempor ligulaac metus.Sed finibus tortor eu scelerisque scelerisque</ p </ blockquote < p Aenean et tempor erosvitae sollicitudin velit.Etiam varius enim quam temporsed efficitur ex ultrices.Phasellus pretium est vel vestibulum condimentum.Aenean nec suscipit nibh.Phasellus nec lacus arcu facilisis elementum.Curabitur lobortiselit ut elementum congueerat ex bibendum odionec iaculis lacus sem non lorem.Duis metus antesed convallis quam posuere quis.Ut tincidunt eleifend odioac fringilla mi vehicula nec.Nunc vitae lacus eget lectus tempus sed in dui.Nam molestie magna at risus suscipit justo dignissim.Sed vitae fringilla enimnec arcu</ p < p Suspendisse turpis ipsumtempus in nulla euposuere pharetra nibh.dignissim vitae lorem non mollis.Praesent pretium tellus in viverra condimentum.Nullam dignissim facilisis nislaccumsan justo ultricies vel.Vivamus finibus mi a neque pretiumut dui lacinia.Morbi a rutrum velit.Curabitur sagittis quam consectetur mattis.Aenean sit amet quam vel turpis interdum sagittis eget neque.Nunc ante quamluctus et neque ainterdum iaculis metusAliquam vel ante mattisplacerat orci idvehicula quam.quis eros cursusviverra urna sedcommodo mauris.Cras diam arcufringilla a sem condimentumviverra facilisis nunc.Curabitur orci id nulla maximus maximus.Nunc pulvinar sollicitudin molestie</ p </ div > ",
+                            Content = "<p>Aenean et tempor eros,vitae sollicitudin velit.Etiam varius enim nec quam tempor sed efficitur ex ultrices.Phasellus pretium est vel vestibulum condimentum.Aenean nec suscipit nibh.Phasellus nec lacus arcu facilisis elementum.Curabitur lobortiselit ut elementum congueerat ex bibendum odionec iaculis lacus sem non lorem.Duis metus antesed convallis quam posuere quis.Ut tincidunt eleifend odioac fringilla mi vehicula nec.Nunc vitae lacus eget lectus tempus sed in dui.Nam molestie magna at risus suscipit justo dignissim.Sed vitae fringilla enimnec arcu</p><blockquote><p>Quisque semper nunc vitae erat pellentesqueac placerat consectetur.In venenatis elit ac ultrices convallis.Duis est nisitincidunt ac urna sedcursus blandit lectus.In ullamcorper amet ligula ut eleifend.Proin dictum tempor ligulaac metus.Sed finibus tortor eu scelerisque scelerisque</p></blockquote><p>Aenean et tempor erosvitae sollicitudin velit.Etiam varius enim quam temporsed efficitur ex ultrices.Phasellus pretium est vel vestibulum condimentum.Aenean nec suscipit nibh.Phasellus nec lacus arcu facilisis elementum.Curabitur lobortiselit ut elementum congueerat ex bibendum odionec iaculis lacus sem non lorem.Duis metus antesed convallis quam posuere quis.Ut tincidunt eleifend odioac fringilla mi vehicula nec.Nunc vitae lacus eget lectus tempus sed in dui.Nam molestie magna at risus suscipit justo dignissim.Sed vitae fringilla enimnec arcu</p><p>Suspendisse turpis ipsumtempus in nulla euposuere pharetra nibh.dignissim vitae lorem non mollis.Praesent pretium tellus in viverra condimentum.Nullam dignissim facilisis nislaccumsan justo ultricies vel.Vivamus finibus mi a neque pretiumut dui lacinia.Morbi a rutrum velit.Curabitur sagittis quam consectetur mattis.Aenean sit amet quam vel turpis interdum sagittis eget neque.Nunc ante quamluctus et neque ainterdum iaculis metusAliquam vel ante mattisplacerat orci idvehicula quam.quis eros cursusviverra urna sedcommodo mauris.Cras diam arcufringilla a sem condimentumviverra facilisis nunc.Curabitur orci id nulla maximus maximus.Nunc pulvinar sollicitudin molestie</p></div> ",
                             Desc = "Donec vitae hendrerit arcu, sit amet faucibus nisl. Cras pretium arcu ex. Aenean posuere libero eu augue condimentum rhoncus. Praesent ornare tortor ac ante egestas hendrerit. Aliquam et metus pharetra, bibendum massa nec, fermentum odio.",
                             LanguageId = 1,
+                            Slug = "preasent-imperdiet",
                             Title = "Praesent Imperdiet"
                         },
                         new
                         {
                             Id = 6,
                             BlogId = 6,
-                            Content = "<p>Aenean et tempor eros,vitae sollicitudin velit.Etiam varius enim nec quam tempor sed efficitur ex ultrices.Phasellus pretium est vel vestibulum condimentum.Aenean nec suscipit nibh.Phasellus nec lacus arcu facilisis elementum.Curabitur lobortiselit ut elementum congueerat ex bibendum odionec iaculis lacus sem non lorem.Duis metus antesed convallis quam posuere quis.Ut tincidunt eleifend odioac fringilla mi vehicula nec.Nunc vitae lacus eget lectus tempus sed in dui.Nam molestie magna at risus suscipit justo dignissim.Sed vitae fringilla enimnec arcu</ p < blockquote < p Quisque semper nunc vitae erat pellentesqueac placerat consectetur.In venenatis elit ac ultrices convallis.Duis est nisitincidunt ac urna sedcursus blandit lectus.In ullamcorper amet ligula ut eleifend.Proin dictum tempor ligulaac metus.Sed finibus tortor eu scelerisque scelerisque</ p </ blockquote < p Aenean et tempor erosvitae sollicitudin velit.Etiam varius enim quam temporsed efficitur ex ultrices.Phasellus pretium est vel vestibulum condimentum.Aenean nec suscipit nibh.Phasellus nec lacus arcu facilisis elementum.Curabitur lobortiselit ut elementum congueerat ex bibendum odionec iaculis lacus sem non lorem.Duis metus antesed convallis quam posuere quis.Ut tincidunt eleifend odioac fringilla mi vehicula nec.Nunc vitae lacus eget lectus tempus sed in dui.Nam molestie magna at risus suscipit justo dignissim.Sed vitae fringilla enimnec arcu</ p < p Suspendisse turpis ipsumtempus in nulla euposuere pharetra nibh.dignissim vitae lorem non mollis.Praesent pretium tellus in viverra condimentum.Nullam dignissim facilisis nislaccumsan justo ultricies vel.Vivamus finibus mi a neque pretiumut dui lacinia.Morbi a rutrum velit.Curabitur sagittis quam consectetur mattis.Aenean sit amet quam vel turpis interdum sagittis eget neque.Nunc ante quamluctus et neque ainterdum iaculis metusAliquam vel ante mattisplacerat orci idvehicula quam.quis eros cursusviverra urna sedcommodo mauris.Cras diam arcufringilla a sem condimentumviverra facilisis nunc.Curabitur orci id nulla maximus maximus.Nunc pulvinar sollicitudin molestie</ p </ div > ",
+                            Content = "<p>Aenean et tempor eros,vitae sollicitudin velit.Etiam varius enim nec quam tempor sed efficitur ex ultrices.Phasellus pretium est vel vestibulum condimentum.Aenean nec suscipit nibh.Phasellus nec lacus arcu facilisis elementum.Curabitur lobortiselit ut elementum congueerat ex bibendum odionec iaculis lacus sem non lorem.Duis metus antesed convallis quam posuere quis.Ut tincidunt eleifend odioac fringilla mi vehicula nec.Nunc vitae lacus eget lectus tempus sed in dui.Nam molestie magna at risus suscipit justo dignissim.Sed vitae fringilla enimnec arcu</p><blockquote><p>Quisque semper nunc vitae erat pellentesqueac placerat consectetur.In venenatis elit ac ultrices convallis.Duis est nisitincidunt ac urna sedcursus blandit lectus.In ullamcorper amet ligula ut eleifend.Proin dictum tempor ligulaac metus.Sed finibus tortor eu scelerisque scelerisque</p></blockquote><p>Aenean et tempor erosvitae sollicitudin velit.Etiam varius enim quam temporsed efficitur ex ultrices.Phasellus pretium est vel vestibulum condimentum.Aenean nec suscipit nibh.Phasellus nec lacus arcu facilisis elementum.Curabitur lobortiselit ut elementum congueerat ex bibendum odionec iaculis lacus sem non lorem.Duis metus antesed convallis quam posuere quis.Ut tincidunt eleifend odioac fringilla mi vehicula nec.Nunc vitae lacus eget lectus tempus sed in dui.Nam molestie magna at risus suscipit justo dignissim.Sed vitae fringilla enimnec arcu</p><p>Suspendisse turpis ipsumtempus in nulla euposuere pharetra nibh.dignissim vitae lorem non mollis.Praesent pretium tellus in viverra condimentum.Nullam dignissim facilisis nislaccumsan justo ultricies vel.Vivamus finibus mi a neque pretiumut dui lacinia.Morbi a rutrum velit.Curabitur sagittis quam consectetur mattis.Aenean sit amet quam vel turpis interdum sagittis eget neque.Nunc ante quamluctus et neque ainterdum iaculis metusAliquam vel ante mattisplacerat orci idvehicula quam.quis eros cursusviverra urna sedcommodo mauris.Cras diam arcufringilla a sem condimentumviverra facilisis nunc.Curabitur orci id nulla maximus maximus.Nunc pulvinar sollicitudin molestie</p></div> ",
                             Desc = "Donec vitae hendrerit arcu, sit amet faucibus nisl. Cras pretium arcu ex. Aenean posuere libero eu augue condimentum rhoncus. Praesent ornare tortor ac ante egestas hendrerit. Aliquam et metus pharetra, bibendum massa nec, fermentum odio.",
                             LanguageId = 1,
+                            Slug = "gallery-post",
                             Title = "Gallery Post"
                         },
                         new
                         {
                             Id = 7,
                             BlogId = 7,
-                            Content = "<p>Aenean et tempor eros,vitae sollicitudin velit.Etiam varius enim nec quam tempor sed efficitur ex ultrices.Phasellus pretium est vel vestibulum condimentum.Aenean nec suscipit nibh.Phasellus nec lacus arcu facilisis elementum.Curabitur lobortiselit ut elementum congueerat ex bibendum odionec iaculis lacus sem non lorem.Duis metus antesed convallis quam posuere quis.Ut tincidunt eleifend odioac fringilla mi vehicula nec.Nunc vitae lacus eget lectus tempus sed in dui.Nam molestie magna at risus suscipit justo dignissim.Sed vitae fringilla enimnec arcu</ p < blockquote < p Quisque semper nunc vitae erat pellentesqueac placerat consectetur.In venenatis elit ac ultrices convallis.Duis est nisitincidunt ac urna sedcursus blandit lectus.In ullamcorper amet ligula ut eleifend.Proin dictum tempor ligulaac metus.Sed finibus tortor eu scelerisque scelerisque</ p </ blockquote < p Aenean et tempor erosvitae sollicitudin velit.Etiam varius enim quam temporsed efficitur ex ultrices.Phasellus pretium est vel vestibulum condimentum.Aenean nec suscipit nibh.Phasellus nec lacus arcu facilisis elementum.Curabitur lobortiselit ut elementum congueerat ex bibendum odionec iaculis lacus sem non lorem.Duis metus antesed convallis quam posuere quis.Ut tincidunt eleifend odioac fringilla mi vehicula nec.Nunc vitae lacus eget lectus tempus sed in dui.Nam molestie magna at risus suscipit justo dignissim.Sed vitae fringilla enimnec arcu</ p < p Suspendisse turpis ipsumtempus in nulla euposuere pharetra nibh.dignissim vitae lorem non mollis.Praesent pretium tellus in viverra condimentum.Nullam dignissim facilisis nislaccumsan justo ultricies vel.Vivamus finibus mi a neque pretiumut dui lacinia.Morbi a rutrum velit.Curabitur sagittis quam consectetur mattis.Aenean sit amet quam vel turpis interdum sagittis eget neque.Nunc ante quamluctus et neque ainterdum iaculis metusAliquam vel ante mattisplacerat orci idvehicula quam.quis eros cursusviverra urna sedcommodo mauris.Cras diam arcufringilla a sem condimentumviverra facilisis nunc.Curabitur orci id nulla maximus maximus.Nunc pulvinar sollicitudin molestie</ p </ div > ",
+                            Content = "<p>Aenean et tempor eros,vitae sollicitudin velit.Etiam varius enim nec quam tempor sed efficitur ex ultrices.Phasellus pretium est vel vestibulum condimentum.Aenean nec suscipit nibh.Phasellus nec lacus arcu facilisis elementum.Curabitur lobortiselit ut elementum congueerat ex bibendum odionec iaculis lacus sem non lorem.Duis metus antesed convallis quam posuere quis.Ut tincidunt eleifend odioac fringilla mi vehicula nec.Nunc vitae lacus eget lectus tempus sed in dui.Nam molestie magna at risus suscipit justo dignissim.Sed vitae fringilla enimnec arcu</p><blockquote><p>Quisque semper nunc vitae erat pellentesqueac placerat consectetur.In venenatis elit ac ultrices convallis.Duis est nisitincidunt ac urna sedcursus blandit lectus.In ullamcorper amet ligula ut eleifend.Proin dictum tempor ligulaac metus.Sed finibus tortor eu scelerisque scelerisque</p></blockquote><p>Aenean et tempor erosvitae sollicitudin velit.Etiam varius enim quam temporsed efficitur ex ultrices.Phasellus pretium est vel vestibulum condimentum.Aenean nec suscipit nibh.Phasellus nec lacus arcu facilisis elementum.Curabitur lobortiselit ut elementum congueerat ex bibendum odionec iaculis lacus sem non lorem.Duis metus antesed convallis quam posuere quis.Ut tincidunt eleifend odioac fringilla mi vehicula nec.Nunc vitae lacus eget lectus tempus sed in dui.Nam molestie magna at risus suscipit justo dignissim.Sed vitae fringilla enimnec arcu</p><p>Suspendisse turpis ipsumtempus in nulla euposuere pharetra nibh.dignissim vitae lorem non mollis.Praesent pretium tellus in viverra condimentum.Nullam dignissim facilisis nislaccumsan justo ultricies vel.Vivamus finibus mi a neque pretiumut dui lacinia.Morbi a rutrum velit.Curabitur sagittis quam consectetur mattis.Aenean sit amet quam vel turpis interdum sagittis eget neque.Nunc ante quamluctus et neque ainterdum iaculis metusAliquam vel ante mattisplacerat orci idvehicula quam.quis eros cursusviverra urna sedcommodo mauris.Cras diam arcufringilla a sem condimentumviverra facilisis nunc.Curabitur orci id nulla maximus maximus.Nunc pulvinar sollicitudin molestie</p></div> ",
                             Desc = "Donec vitae hendrerit arcu, sit amet faucibus nisl. Cras pretium arcu ex. Aenean posuere libero eu augue condimentum rhoncus. Praesent ornare tortor ac ante egestas hendrerit. Aliquam et metus pharetra, bibendum massa nec, fermentum odio.",
                             LanguageId = 1,
+                            Slug = "Ultricies-Maecenas",
                             Title = "Ultricies Maecenas"
                         },
                         new
                         {
                             Id = 8,
                             BlogId = 8,
-                            Content = "<p>Aenean et tempor eros,vitae sollicitudin velit.Etiam varius enim nec quam tempor sed efficitur ex ultrices.Phasellus pretium est vel vestibulum condimentum.Aenean nec suscipit nibh.Phasellus nec lacus arcu facilisis elementum.Curabitur lobortiselit ut elementum congueerat ex bibendum odionec iaculis lacus sem non lorem.Duis metus antesed convallis quam posuere quis.Ut tincidunt eleifend odioac fringilla mi vehicula nec.Nunc vitae lacus eget lectus tempus sed in dui.Nam molestie magna at risus suscipit justo dignissim.Sed vitae fringilla enimnec arcu</ p < blockquote < p Quisque semper nunc vitae erat pellentesqueac placerat consectetur.In venenatis elit ac ultrices convallis.Duis est nisitincidunt ac urna sedcursus blandit lectus.In ullamcorper amet ligula ut eleifend.Proin dictum tempor ligulaac metus.Sed finibus tortor eu scelerisque scelerisque</ p </ blockquote < p Aenean et tempor erosvitae sollicitudin velit.Etiam varius enim quam temporsed efficitur ex ultrices.Phasellus pretium est vel vestibulum condimentum.Aenean nec suscipit nibh.Phasellus nec lacus arcu facilisis elementum.Curabitur lobortiselit ut elementum congueerat ex bibendum odionec iaculis lacus sem non lorem.Duis metus antesed convallis quam posuere quis.Ut tincidunt eleifend odioac fringilla mi vehicula nec.Nunc vitae lacus eget lectus tempus sed in dui.Nam molestie magna at risus suscipit justo dignissim.Sed vitae fringilla enimnec arcu</ p < p Suspendisse turpis ipsumtempus in nulla euposuere pharetra nibh.dignissim vitae lorem non mollis.Praesent pretium tellus in viverra condimentum.Nullam dignissim facilisis nislaccumsan justo ultricies vel.Vivamus finibus mi a neque pretiumut dui lacinia.Morbi a rutrum velit.Curabitur sagittis quam consectetur mattis.Aenean sit amet quam vel turpis interdum sagittis eget neque.Nunc ante quamluctus et neque ainterdum iaculis metusAliquam vel ante mattisplacerat orci idvehicula quam.quis eros cursusviverra urna sedcommodo mauris.Cras diam arcufringilla a sem condimentumviverra facilisis nunc.Curabitur orci id nulla maximus maximus.Nunc pulvinar sollicitudin molestie</ p </ div > ",
+                            Content = "<p>Aenean et tempor eros,vitae sollicitudin velit.Etiam varius enim nec quam tempor sed efficitur ex ultrices.Phasellus pretium est vel vestibulum condimentum.Aenean nec suscipit nibh.Phasellus nec lacus arcu facilisis elementum.Curabitur lobortiselit ut elementum congueerat ex bibendum odionec iaculis lacus sem non lorem.Duis metus antesed convallis quam posuere quis.Ut tincidunt eleifend odioac fringilla mi vehicula nec.Nunc vitae lacus eget lectus tempus sed in dui.Nam molestie magna at risus suscipit justo dignissim.Sed vitae fringilla enimnec arcu</p><blockquote><p>Quisque semper nunc vitae erat pellentesqueac placerat consectetur.In venenatis elit ac ultrices convallis.Duis est nisitincidunt ac urna sedcursus blandit lectus.In ullamcorper amet ligula ut eleifend.Proin dictum tempor ligulaac metus.Sed finibus tortor eu scelerisque scelerisque</p></blockquote><p>Aenean et tempor erosvitae sollicitudin velit.Etiam varius enim quam temporsed efficitur ex ultrices.Phasellus pretium est vel vestibulum condimentum.Aenean nec suscipit nibh.Phasellus nec lacus arcu facilisis elementum.Curabitur lobortiselit ut elementum congueerat ex bibendum odionec iaculis lacus sem non lorem.Duis metus antesed convallis quam posuere quis.Ut tincidunt eleifend odioac fringilla mi vehicula nec.Nunc vitae lacus eget lectus tempus sed in dui.Nam molestie magna at risus suscipit justo dignissim.Sed vitae fringilla enimnec arcu</p><p>Suspendisse turpis ipsumtempus in nulla euposuere pharetra nibh.dignissim vitae lorem non mollis.Praesent pretium tellus in viverra condimentum.Nullam dignissim facilisis nislaccumsan justo ultricies vel.Vivamus finibus mi a neque pretiumut dui lacinia.Morbi a rutrum velit.Curabitur sagittis quam consectetur mattis.Aenean sit amet quam vel turpis interdum sagittis eget neque.Nunc ante quamluctus et neque ainterdum iaculis metusAliquam vel ante mattisplacerat orci idvehicula quam.quis eros cursusviverra urna sedcommodo mauris.Cras diam arcufringilla a sem condimentumviverra facilisis nunc.Curabitur orci id nulla maximus maximus.Nunc pulvinar sollicitudin molestie</p></div> ",
                             Desc = "Donec vitae hendrerit arcu, sit amet faucibus nisl. Cras pretium arcu ex. Aenean posuere libero eu augue condimentum rhoncus. Praesent ornare tortor ac ante egestas hendrerit. Aliquam et metus pharetra, bibendum massa nec, fermentum odio.",
                             LanguageId = 1,
+                            Slug = "Audio-Post",
                             Title = " Audio Post"
                         },
                         new
                         {
                             Id = 9,
                             BlogId = 9,
-                            Content = "<p>Aenean et tempor eros,vitae sollicitudin velit.Etiam varius enim nec quam tempor sed efficitur ex ultrices.Phasellus pretium est vel vestibulum condimentum.Aenean nec suscipit nibh.Phasellus nec lacus arcu facilisis elementum.Curabitur lobortiselit ut elementum congueerat ex bibendum odionec iaculis lacus sem non lorem.Duis metus antesed convallis quam posuere quis.Ut tincidunt eleifend odioac fringilla mi vehicula nec.Nunc vitae lacus eget lectus tempus sed in dui.Nam molestie magna at risus suscipit justo dignissim.Sed vitae fringilla enimnec arcu</ p < blockquote < p Quisque semper nunc vitae erat pellentesqueac placerat consectetur.In venenatis elit ac ultrices convallis.Duis est nisitincidunt ac urna sedcursus blandit lectus.In ullamcorper amet ligula ut eleifend.Proin dictum tempor ligulaac metus.Sed finibus tortor eu scelerisque scelerisque</ p </ blockquote < p Aenean et tempor erosvitae sollicitudin velit.Etiam varius enim quam temporsed efficitur ex ultrices.Phasellus pretium est vel vestibulum condimentum.Aenean nec suscipit nibh.Phasellus nec lacus arcu facilisis elementum.Curabitur lobortiselit ut elementum congueerat ex bibendum odionec iaculis lacus sem non lorem.Duis metus antesed convallis quam posuere quis.Ut tincidunt eleifend odioac fringilla mi vehicula nec.Nunc vitae lacus eget lectus tempus sed in dui.Nam molestie magna at risus suscipit justo dignissim.Sed vitae fringilla enimnec arcu</ p < p Suspendisse turpis ipsumtempus in nulla euposuere pharetra nibh.dignissim vitae lorem non mollis.Praesent pretium tellus in viverra condimentum.Nullam dignissim facilisis nislaccumsan justo ultricies vel.Vivamus finibus mi a neque pretiumut dui lacinia.Morbi a rutrum velit.Curabitur sagittis quam consectetur mattis.Aenean sit amet quam vel turpis interdum sagittis eget neque.Nunc ante quamluctus et neque ainterdum iaculis metusAliquam vel ante mattisplacerat orci idvehicula quam.quis eros cursusviverra urna sedcommodo mauris.Cras diam arcufringilla a sem condimentumviverra facilisis nunc.Curabitur orci id nulla maximus maximus.Nunc pulvinar sollicitudin molestie</ p </ div > ",
+                            Content = "<p>Aenean et tempor eros,vitae sollicitudin velit.Etiam varius enim nec quam tempor sed efficitur ex ultrices.Phasellus pretium est vel vestibulum condimentum.Aenean nec suscipit nibh.Phasellus nec lacus arcu facilisis elementum.Curabitur lobortiselit ut elementum congueerat ex bibendum odionec iaculis lacus sem non lorem.Duis metus antesed convallis quam posuere quis.Ut tincidunt eleifend odioac fringilla mi vehicula nec.Nunc vitae lacus eget lectus tempus sed in dui.Nam molestie magna at risus suscipit justo dignissim.Sed vitae fringilla enimnec arcu</p><blockquote><p>Quisque semper nunc vitae erat pellentesqueac placerat consectetur.In venenatis elit ac ultrices convallis.Duis est nisitincidunt ac urna sedcursus blandit lectus.In ullamcorper amet ligula ut eleifend.Proin dictum tempor ligulaac metus.Sed finibus tortor eu scelerisque scelerisque</p></blockquote><p>Aenean et tempor erosvitae sollicitudin velit.Etiam varius enim quam temporsed efficitur ex ultrices.Phasellus pretium est vel vestibulum condimentum.Aenean nec suscipit nibh.Phasellus nec lacus arcu facilisis elementum.Curabitur lobortiselit ut elementum congueerat ex bibendum odionec iaculis lacus sem non lorem.Duis metus antesed convallis quam posuere quis.Ut tincidunt eleifend odioac fringilla mi vehicula nec.Nunc vitae lacus eget lectus tempus sed in dui.Nam molestie magna at risus suscipit justo dignissim.Sed vitae fringilla enimnec arcu</p><p>Suspendisse turpis ipsumtempus in nulla euposuere pharetra nibh.dignissim vitae lorem non mollis.Praesent pretium tellus in viverra condimentum.Nullam dignissim facilisis nislaccumsan justo ultricies vel.Vivamus finibus mi a neque pretiumut dui lacinia.Morbi a rutrum velit.Curabitur sagittis quam consectetur mattis.Aenean sit amet quam vel turpis interdum sagittis eget neque.Nunc ante quamluctus et neque ainterdum iaculis metusAliquam vel ante mattisplacerat orci idvehicula quam.quis eros cursusviverra urna sedcommodo mauris.Cras diam arcufringilla a sem condimentumviverra facilisis nunc.Curabitur orci id nulla maximus maximus.Nunc pulvinar sollicitudin molestie</p></div> ",
                             Desc = "Donec vitae hendrerit arcu, sit amet faucibus nisl. Cras pretium arcu ex. Aenean posuere libero eu augue condimentum rhoncus. Praesent ornare tortor ac ante egestas hendrerit. Aliquam et metus pharetra, bibendum massa nec, fermentum odio.",
                             LanguageId = 1,
+                            Slug = "Image-Post",
                             Title = "Image Post"
                         },
                         new
                         {
                             Id = 10,
                             BlogId = 10,
-                            Content = "<p>Aenean et tempor eros,vitae sollicitudin velit.Etiam varius enim nec quam tempor sed efficitur ex ultrices.Phasellus pretium est vel vestibulum condimentum.Aenean nec suscipit nibh.Phasellus nec lacus arcu facilisis elementum.Curabitur lobortiselit ut elementum congueerat ex bibendum odionec iaculis lacus sem non lorem.Duis metus antesed convallis quam posuere quis.Ut tincidunt eleifend odioac fringilla mi vehicula nec.Nunc vitae lacus eget lectus tempus sed in dui.Nam molestie magna at risus suscipit justo dignissim.Sed vitae fringilla enimnec arcu</ p < blockquote < p Quisque semper nunc vitae erat pellentesqueac placerat consectetur.In venenatis elit ac ultrices convallis.Duis est nisitincidunt ac urna sedcursus blandit lectus.In ullamcorper amet ligula ut eleifend.Proin dictum tempor ligulaac metus.Sed finibus tortor eu scelerisque scelerisque</ p </ blockquote < p Aenean et tempor erosvitae sollicitudin velit.Etiam varius enim quam temporsed efficitur ex ultrices.Phasellus pretium est vel vestibulum condimentum.Aenean nec suscipit nibh.Phasellus nec lacus arcu facilisis elementum.Curabitur lobortiselit ut elementum congueerat ex bibendum odionec iaculis lacus sem non lorem.Duis metus antesed convallis quam posuere quis.Ut tincidunt eleifend odioac fringilla mi vehicula nec.Nunc vitae lacus eget lectus tempus sed in dui.Nam molestie magna at risus suscipit justo dignissim.Sed vitae fringilla enimnec arcu</ p < p Suspendisse turpis ipsumtempus in nulla euposuere pharetra nibh.dignissim vitae lorem non mollis.Praesent pretium tellus in viverra condimentum.Nullam dignissim facilisis nislaccumsan justo ultricies vel.Vivamus finibus mi a neque pretiumut dui lacinia.Morbi a rutrum velit.Curabitur sagittis quam consectetur mattis.Aenean sit amet quam vel turpis interdum sagittis eget neque.Nunc ante quamluctus et neque ainterdum iaculis metusAliquam vel ante mattisplacerat orci idvehicula quam.quis eros cursusviverra urna sedcommodo mauris.Cras diam arcufringilla a sem condimentumviverra facilisis nunc.Curabitur orci id nulla maximus maximus.Nunc pulvinar sollicitudin molestie</ p </ div > ",
+                            Content = "<p>Aenean et tempor eros,vitae sollicitudin velit.Etiam varius enim nec quam tempor sed efficitur ex ultrices.Phasellus pretium est vel vestibulum condimentum.Aenean nec suscipit nibh.Phasellus nec lacus arcu facilisis elementum.Curabitur lobortiselit ut elementum congueerat ex bibendum odionec iaculis lacus sem non lorem.Duis metus antesed convallis quam posuere quis.Ut tincidunt eleifend odioac fringilla mi vehicula nec.Nunc vitae lacus eget lectus tempus sed in dui.Nam molestie magna at risus suscipit justo dignissim.Sed vitae fringilla enimnec arcu</p><blockquote><p>Quisque semper nunc vitae erat pellentesqueac placerat consectetur.In venenatis elit ac ultrices convallis.Duis est nisitincidunt ac urna sedcursus blandit lectus.In ullamcorper amet ligula ut eleifend.Proin dictum tempor ligulaac metus.Sed finibus tortor eu scelerisque scelerisque</p></blockquote><p>Aenean et tempor erosvitae sollicitudin velit.Etiam varius enim quam temporsed efficitur ex ultrices.Phasellus pretium est vel vestibulum condimentum.Aenean nec suscipit nibh.Phasellus nec lacus arcu facilisis elementum.Curabitur lobortiselit ut elementum congueerat ex bibendum odionec iaculis lacus sem non lorem.Duis metus antesed convallis quam posuere quis.Ut tincidunt eleifend odioac fringilla mi vehicula nec.Nunc vitae lacus eget lectus tempus sed in dui.Nam molestie magna at risus suscipit justo dignissim.Sed vitae fringilla enimnec arcu</p><p>Suspendisse turpis ipsumtempus in nulla euposuere pharetra nibh.dignissim vitae lorem non mollis.Praesent pretium tellus in viverra condimentum.Nullam dignissim facilisis nislaccumsan justo ultricies vel.Vivamus finibus mi a neque pretiumut dui lacinia.Morbi a rutrum velit.Curabitur sagittis quam consectetur mattis.Aenean sit amet quam vel turpis interdum sagittis eget neque.Nunc ante quamluctus et neque ainterdum iaculis metusAliquam vel ante mattisplacerat orci idvehicula quam.quis eros cursusviverra urna sedcommodo mauris.Cras diam arcufringilla a sem condimentumviverra facilisis nunc.Curabitur orci id nulla maximus maximus.Nunc pulvinar sollicitudin molestie</p></div> ",
                             Desc = "Donec vitae hendrerit arcu, sit amet faucibus nisl. Cras pretium arcu ex. Aenean posuere libero eu augue condimentum rhoncus. Praesent ornare tortor ac ante egestas hendrerit. Aliquam et metus pharetra, bibendum massa nec, fermentum odio.",
                             LanguageId = 1,
+                            Slug = "Other-Post",
                             Title = "Other Post"
                         },
                         new
                         {
                             Id = 11,
                             BlogId = 11,
-                            Content = "<p>Aenean et tempor eros,vitae sollicitudin velit.Etiam varius enim nec quam tempor sed efficitur ex ultrices.Phasellus pretium est vel vestibulum condimentum.Aenean nec suscipit nibh.Phasellus nec lacus arcu facilisis elementum.Curabitur lobortiselit ut elementum congueerat ex bibendum odionec iaculis lacus sem non lorem.Duis metus antesed convallis quam posuere quis.Ut tincidunt eleifend odioac fringilla mi vehicula nec.Nunc vitae lacus eget lectus tempus sed in dui.Nam molestie magna at risus suscipit justo dignissim.Sed vitae fringilla enimnec arcu</ p < blockquote < p Quisque semper nunc vitae erat pellentesqueac placerat consectetur.In venenatis elit ac ultrices convallis.Duis est nisitincidunt ac urna sedcursus blandit lectus.In ullamcorper amet ligula ut eleifend.Proin dictum tempor ligulaac metus.Sed finibus tortor eu scelerisque scelerisque</ p </ blockquote < p Aenean et tempor erosvitae sollicitudin velit.Etiam varius enim quam temporsed efficitur ex ultrices.Phasellus pretium est vel vestibulum condimentum.Aenean nec suscipit nibh.Phasellus nec lacus arcu facilisis elementum.Curabitur lobortiselit ut elementum congueerat ex bibendum odionec iaculis lacus sem non lorem.Duis metus antesed convallis quam posuere quis.Ut tincidunt eleifend odioac fringilla mi vehicula nec.Nunc vitae lacus eget lectus tempus sed in dui.Nam molestie magna at risus suscipit justo dignissim.Sed vitae fringilla enimnec arcu</ p < p Suspendisse turpis ipsumtempus in nulla euposuere pharetra nibh.dignissim vitae lorem non mollis.Praesent pretium tellus in viverra condimentum.Nullam dignissim facilisis nislaccumsan justo ultricies vel.Vivamus finibus mi a neque pretiumut dui lacinia.Morbi a rutrum velit.Curabitur sagittis quam consectetur mattis.Aenean sit amet quam vel turpis interdum sagittis eget neque.Nunc ante quamluctus et neque ainterdum iaculis metusAliquam vel ante mattisplacerat orci idvehicula quam.quis eros cursusviverra urna sedcommodo mauris.Cras diam arcufringilla a sem condimentumviverra facilisis nunc.Curabitur orci id nulla maximus maximus.Nunc pulvinar sollicitudin molestie</ p </ div > ",
+                            Content = "<p>Aenean et tempor eros,vitae sollicitudin velit.Etiam varius enim nec quam tempor sed efficitur ex ultrices.Phasellus pretium est vel vestibulum condimentum.Aenean nec suscipit nibh.Phasellus nec lacus arcu facilisis elementum.Curabitur lobortiselit ut elementum congueerat ex bibendum odionec iaculis lacus sem non lorem.Duis metus antesed convallis quam posuere quis.Ut tincidunt eleifend odioac fringilla mi vehicula nec.Nunc vitae lacus eget lectus tempus sed in dui.Nam molestie magna at risus suscipit justo dignissim.Sed vitae fringilla enimnec arcu</p><blockquote><p>Quisque semper nunc vitae erat pellentesqueac placerat consectetur.In venenatis elit ac ultrices convallis.Duis est nisitincidunt ac urna sedcursus blandit lectus.In ullamcorper amet ligula ut eleifend.Proin dictum tempor ligulaac metus.Sed finibus tortor eu scelerisque scelerisque</p></blockquote><p>Aenean et tempor erosvitae sollicitudin velit.Etiam varius enim quam temporsed efficitur ex ultrices.Phasellus pretium est vel vestibulum condimentum.Aenean nec suscipit nibh.Phasellus nec lacus arcu facilisis elementum.Curabitur lobortiselit ut elementum congueerat ex bibendum odionec iaculis lacus sem non lorem.Duis metus antesed convallis quam posuere quis.Ut tincidunt eleifend odioac fringilla mi vehicula nec.Nunc vitae lacus eget lectus tempus sed in dui.Nam molestie magna at risus suscipit justo dignissim.Sed vitae fringilla enimnec arcu</p><p>Suspendisse turpis ipsumtempus in nulla euposuere pharetra nibh.dignissim vitae lorem non mollis.Praesent pretium tellus in viverra condimentum.Nullam dignissim facilisis nislaccumsan justo ultricies vel.Vivamus finibus mi a neque pretiumut dui lacinia.Morbi a rutrum velit.Curabitur sagittis quam consectetur mattis.Aenean sit amet quam vel turpis interdum sagittis eget neque.Nunc ante quamluctus et neque ainterdum iaculis metusAliquam vel ante mattisplacerat orci idvehicula quam.quis eros cursusviverra urna sedcommodo mauris.Cras diam arcufringilla a sem condimentumviverra facilisis nunc.Curabitur orci id nulla maximus maximus.Nunc pulvinar sollicitudin molestie</p></div> ",
                             Desc = "Donec vitae hendrerit arcu, sit amet faucibus nisl. Cras pretium arcu ex. Aenean posuere libero eu augue condimentum rhoncus. Praesent ornare tortor ac ante egestas hendrerit. Aliquam et metus pharetra, bibendum massa nec, fermentum odio.",
                             LanguageId = 1,
+                            Slug = "Sticy-Post",
                             Title = "Sticy Post"
                         },
                         new
                         {
                             Id = 12,
                             BlogId = 12,
-                            Content = "<p>Aenean et tempor eros,vitae sollicitudin velit.Etiam varius enim nec quam tempor sed efficitur ex ultrices.Phasellus pretium est vel vestibulum condimentum.Aenean nec suscipit nibh.Phasellus nec lacus arcu facilisis elementum.Curabitur lobortiselit ut elementum congueerat ex bibendum odionec iaculis lacus sem non lorem.Duis metus antesed convallis quam posuere quis.Ut tincidunt eleifend odioac fringilla mi vehicula nec.Nunc vitae lacus eget lectus tempus sed in dui.Nam molestie magna at risus suscipit justo dignissim.Sed vitae fringilla enimnec arcu</ p < blockquote < p Quisque semper nunc vitae erat pellentesqueac placerat consectetur.In venenatis elit ac ultrices convallis.Duis est nisitincidunt ac urna sedcursus blandit lectus.In ullamcorper amet ligula ut eleifend.Proin dictum tempor ligulaac metus.Sed finibus tortor eu scelerisque scelerisque</ p </ blockquote < p Aenean et tempor erosvitae sollicitudin velit.Etiam varius enim quam temporsed efficitur ex ultrices.Phasellus pretium est vel vestibulum condimentum.Aenean nec suscipit nibh.Phasellus nec lacus arcu facilisis elementum.Curabitur lobortiselit ut elementum congueerat ex bibendum odionec iaculis lacus sem non lorem.Duis metus antesed convallis quam posuere quis.Ut tincidunt eleifend odioac fringilla mi vehicula nec.Nunc vitae lacus eget lectus tempus sed in dui.Nam molestie magna at risus suscipit justo dignissim.Sed vitae fringilla enimnec arcu</ p < p Suspendisse turpis ipsumtempus in nulla euposuere pharetra nibh.dignissim vitae lorem non mollis.Praesent pretium tellus in viverra condimentum.Nullam dignissim facilisis nislaccumsan justo ultricies vel.Vivamus finibus mi a neque pretiumut dui lacinia.Morbi a rutrum velit.Curabitur sagittis quam consectetur mattis.Aenean sit amet quam vel turpis interdum sagittis eget neque.Nunc ante quamluctus et neque ainterdum iaculis metusAliquam vel ante mattisplacerat orci idvehicula quam.quis eros cursusviverra urna sedcommodo mauris.Cras diam arcufringilla a sem condimentumviverra facilisis nunc.Curabitur orci id nulla maximus maximus.Nunc pulvinar sollicitudin molestie</ p </ div > ",
+                            Content = "<p>Aenean et tempor eros,vitae sollicitudin velit.Etiam varius enim nec quam tempor sed efficitur ex ultrices.Phasellus pretium est vel vestibulum condimentum.Aenean nec suscipit nibh.Phasellus nec lacus arcu facilisis elementum.Curabitur lobortiselit ut elementum congueerat ex bibendum odionec iaculis lacus sem non lorem.Duis metus antesed convallis quam posuere quis.Ut tincidunt eleifend odioac fringilla mi vehicula nec.Nunc vitae lacus eget lectus tempus sed in dui.Nam molestie magna at risus suscipit justo dignissim.Sed vitae fringilla enimnec arcu</p><blockquote><p>Quisque semper nunc vitae erat pellentesqueac placerat consectetur.In venenatis elit ac ultrices convallis.Duis est nisitincidunt ac urna sedcursus blandit lectus.In ullamcorper amet ligula ut eleifend.Proin dictum tempor ligulaac metus.Sed finibus tortor eu scelerisque scelerisque</p></blockquote><p>Aenean et tempor erosvitae sollicitudin velit.Etiam varius enim quam temporsed efficitur ex ultrices.Phasellus pretium est vel vestibulum condimentum.Aenean nec suscipit nibh.Phasellus nec lacus arcu facilisis elementum.Curabitur lobortiselit ut elementum congueerat ex bibendum odionec iaculis lacus sem non lorem.Duis metus antesed convallis quam posuere quis.Ut tincidunt eleifend odioac fringilla mi vehicula nec.Nunc vitae lacus eget lectus tempus sed in dui.Nam molestie magna at risus suscipit justo dignissim.Sed vitae fringilla enimnec arcu</p><p>Suspendisse turpis ipsumtempus in nulla euposuere pharetra nibh.dignissim vitae lorem non mollis.Praesent pretium tellus in viverra condimentum.Nullam dignissim facilisis nislaccumsan justo ultricies vel.Vivamus finibus mi a neque pretiumut dui lacinia.Morbi a rutrum velit.Curabitur sagittis quam consectetur mattis.Aenean sit amet quam vel turpis interdum sagittis eget neque.Nunc ante quamluctus et neque ainterdum iaculis metusAliquam vel ante mattisplacerat orci idvehicula quam.quis eros cursusviverra urna sedcommodo mauris.Cras diam arcufringilla a sem condimentumviverra facilisis nunc.Curabitur orci id nulla maximus maximus.Nunc pulvinar sollicitudin molestie</p></div> ",
                             Desc = "Donec vitae hendrerit arcu, sit amet faucibus nisl. Cras pretium arcu ex. Aenean posuere libero eu augue condimentum rhoncus. Praesent ornare tortor ac ante egestas hendrerit. Aliquam et metus pharetra, bibendum massa nec, fermentum odio.",
                             LanguageId = 1,
+                            Slug = "Travel-Post",
                             Title = "Travel Post"
                         },
                         new
                         {
                             Id = 13,
                             BlogId = 13,
-                            Content = "<p>Aenean et tempor eros,vitae sollicitudin velit.Etiam varius enim nec quam tempor sed efficitur ex ultrices.Phasellus pretium est vel vestibulum condimentum.Aenean nec suscipit nibh.Phasellus nec lacus arcu facilisis elementum.Curabitur lobortiselit ut elementum congueerat ex bibendum odionec iaculis lacus sem non lorem.Duis metus antesed convallis quam posuere quis.Ut tincidunt eleifend odioac fringilla mi vehicula nec.Nunc vitae lacus eget lectus tempus sed in dui.Nam molestie magna at risus suscipit justo dignissim.Sed vitae fringilla enimnec arcu</ p < blockquote < p Quisque semper nunc vitae erat pellentesqueac placerat consectetur.In venenatis elit ac ultrices convallis.Duis est nisitincidunt ac urna sedcursus blandit lectus.In ullamcorper amet ligula ut eleifend.Proin dictum tempor ligulaac metus.Sed finibus tortor eu scelerisque scelerisque</ p </ blockquote < p Aenean et tempor erosvitae sollicitudin velit.Etiam varius enim quam temporsed efficitur ex ultrices.Phasellus pretium est vel vestibulum condimentum.Aenean nec suscipit nibh.Phasellus nec lacus arcu facilisis elementum.Curabitur lobortiselit ut elementum congueerat ex bibendum odionec iaculis lacus sem non lorem.Duis metus antesed convallis quam posuere quis.Ut tincidunt eleifend odioac fringilla mi vehicula nec.Nunc vitae lacus eget lectus tempus sed in dui.Nam molestie magna at risus suscipit justo dignissim.Sed vitae fringilla enimnec arcu</ p < p Suspendisse turpis ipsumtempus in nulla euposuere pharetra nibh.dignissim vitae lorem non mollis.Praesent pretium tellus in viverra condimentum.Nullam dignissim facilisis nislaccumsan justo ultricies vel.Vivamus finibus mi a neque pretiumut dui lacinia.Morbi a rutrum velit.Curabitur sagittis quam consectetur mattis.Aenean sit amet quam vel turpis interdum sagittis eget neque.Nunc ante quamluctus et neque ainterdum iaculis metusAliquam vel ante mattisplacerat orci idvehicula quam.quis eros cursusviverra urna sedcommodo mauris.Cras diam arcufringilla a sem condimentumviverra facilisis nunc.Curabitur orci id nulla maximus maximus.Nunc pulvinar sollicitudin molestie</ p </ div > ",
+                            Content = "<p>Aenean et tempor eros,vitae sollicitudin velit.Etiam varius enim nec quam tempor sed efficitur ex ultrices.Phasellus pretium est vel vestibulum condimentum.Aenean nec suscipit nibh.Phasellus nec lacus arcu facilisis elementum.Curabitur lobortiselit ut elementum congueerat ex bibendum odionec iaculis lacus sem non lorem.Duis metus antesed convallis quam posuere quis.Ut tincidunt eleifend odioac fringilla mi vehicula nec.Nunc vitae lacus eget lectus tempus sed in dui.Nam molestie magna at risus suscipit justo dignissim.Sed vitae fringilla enimnec arcu</p><blockquote><p>Quisque semper nunc vitae erat pellentesqueac placerat consectetur.In venenatis elit ac ultrices convallis.Duis est nisitincidunt ac urna sedcursus blandit lectus.In ullamcorper amet ligula ut eleifend.Proin dictum tempor ligulaac metus.Sed finibus tortor eu scelerisque scelerisque</p></blockquote><p>Aenean et tempor erosvitae sollicitudin velit.Etiam varius enim quam temporsed efficitur ex ultrices.Phasellus pretium est vel vestibulum condimentum.Aenean nec suscipit nibh.Phasellus nec lacus arcu facilisis elementum.Curabitur lobortiselit ut elementum congueerat ex bibendum odionec iaculis lacus sem non lorem.Duis metus antesed convallis quam posuere quis.Ut tincidunt eleifend odioac fringilla mi vehicula nec.Nunc vitae lacus eget lectus tempus sed in dui.Nam molestie magna at risus suscipit justo dignissim.Sed vitae fringilla enimnec arcu</p><p>Suspendisse turpis ipsumtempus in nulla euposuere pharetra nibh.dignissim vitae lorem non mollis.Praesent pretium tellus in viverra condimentum.Nullam dignissim facilisis nislaccumsan justo ultricies vel.Vivamus finibus mi a neque pretiumut dui lacinia.Morbi a rutrum velit.Curabitur sagittis quam consectetur mattis.Aenean sit amet quam vel turpis interdum sagittis eget neque.Nunc ante quamluctus et neque ainterdum iaculis metusAliquam vel ante mattisplacerat orci idvehicula quam.quis eros cursusviverra urna sedcommodo mauris.Cras diam arcufringilla a sem condimentumviverra facilisis nunc.Curabitur orci id nulla maximus maximus.Nunc pulvinar sollicitudin molestie</p></div> ",
                             Desc = "Donec vitae hendrerit arcu, sit amet faucibus nisl. Cras pretium arcu ex. Aenean posuere libero eu augue condimentum rhoncus. Praesent ornare tortor ac ante egestas hendrerit. Aliquam et metus pharetra, bibendum massa nec, fermentum odio.",
                             LanguageId = 1,
+                            Slug = "Blog-with-Travel",
                             Title = "Blog with Travel"
                         },
                         new
                         {
                             Id = 14,
                             BlogId = 14,
-                            Content = "<p>Aenean et tempor eros,vitae sollicitudin velit.Etiam varius enim nec quam tempor sed efficitur ex ultrices.Phasellus pretium est vel vestibulum condimentum.Aenean nec suscipit nibh.Phasellus nec lacus arcu facilisis elementum.Curabitur lobortiselit ut elementum congueerat ex bibendum odionec iaculis lacus sem non lorem.Duis metus antesed convallis quam posuere quis.Ut tincidunt eleifend odioac fringilla mi vehicula nec.Nunc vitae lacus eget lectus tempus sed in dui.Nam molestie magna at risus suscipit justo dignissim.Sed vitae fringilla enimnec arcu</ p < blockquote < p Quisque semper nunc vitae erat pellentesqueac placerat consectetur.In venenatis elit ac ultrices convallis.Duis est nisitincidunt ac urna sedcursus blandit lectus.In ullamcorper amet ligula ut eleifend.Proin dictum tempor ligulaac metus.Sed finibus tortor eu scelerisque scelerisque</ p </ blockquote < p Aenean et tempor erosvitae sollicitudin velit.Etiam varius enim quam temporsed efficitur ex ultrices.Phasellus pretium est vel vestibulum condimentum.Aenean nec suscipit nibh.Phasellus nec lacus arcu facilisis elementum.Curabitur lobortiselit ut elementum congueerat ex bibendum odionec iaculis lacus sem non lorem.Duis metus antesed convallis quam posuere quis.Ut tincidunt eleifend odioac fringilla mi vehicula nec.Nunc vitae lacus eget lectus tempus sed in dui.Nam molestie magna at risus suscipit justo dignissim.Sed vitae fringilla enimnec arcu</ p < p Suspendisse turpis ipsumtempus in nulla euposuere pharetra nibh.dignissim vitae lorem non mollis.Praesent pretium tellus in viverra condimentum.Nullam dignissim facilisis nislaccumsan justo ultricies vel.Vivamus finibus mi a neque pretiumut dui lacinia.Morbi a rutrum velit.Curabitur sagittis quam consectetur mattis.Aenean sit amet quam vel turpis interdum sagittis eget neque.Nunc ante quamluctus et neque ainterdum iaculis metusAliquam vel ante mattisplacerat orci idvehicula quam.quis eros cursusviverra urna sedcommodo mauris.Cras diam arcufringilla a sem condimentumviverra facilisis nunc.Curabitur orci id nulla maximus maximus.Nunc pulvinar sollicitudin molestie</ p </ div > ",
+                            Content = "<p>Aenean et tempor eros,vitae sollicitudin velit.Etiam varius enim nec quam tempor sed efficitur ex ultrices.Phasellus pretium est vel vestibulum condimentum.Aenean nec suscipit nibh.Phasellus nec lacus arcu facilisis elementum.Curabitur lobortiselit ut elementum congueerat ex bibendum odionec iaculis lacus sem non lorem.Duis metus antesed convallis quam posuere quis.Ut tincidunt eleifend odioac fringilla mi vehicula nec.Nunc vitae lacus eget lectus tempus sed in dui.Nam molestie magna at risus suscipit justo dignissim.Sed vitae fringilla enimnec arcu</p><blockquote><p>Quisque semper nunc vitae erat pellentesqueac placerat consectetur.In venenatis elit ac ultrices convallis.Duis est nisitincidunt ac urna sedcursus blandit lectus.In ullamcorper amet ligula ut eleifend.Proin dictum tempor ligulaac metus.Sed finibus tortor eu scelerisque scelerisque</p></blockquote><p>Aenean et tempor erosvitae sollicitudin velit.Etiam varius enim quam temporsed efficitur ex ultrices.Phasellus pretium est vel vestibulum condimentum.Aenean nec suscipit nibh.Phasellus nec lacus arcu facilisis elementum.Curabitur lobortiselit ut elementum congueerat ex bibendum odionec iaculis lacus sem non lorem.Duis metus antesed convallis quam posuere quis.Ut tincidunt eleifend odioac fringilla mi vehicula nec.Nunc vitae lacus eget lectus tempus sed in dui.Nam molestie magna at risus suscipit justo dignissim.Sed vitae fringilla enimnec arcu</p><p>Suspendisse turpis ipsumtempus in nulla euposuere pharetra nibh.dignissim vitae lorem non mollis.Praesent pretium tellus in viverra condimentum.Nullam dignissim facilisis nislaccumsan justo ultricies vel.Vivamus finibus mi a neque pretiumut dui lacinia.Morbi a rutrum velit.Curabitur sagittis quam consectetur mattis.Aenean sit amet quam vel turpis interdum sagittis eget neque.Nunc ante quamluctus et neque ainterdum iaculis metusAliquam vel ante mattisplacerat orci idvehicula quam.quis eros cursusviverra urna sedcommodo mauris.Cras diam arcufringilla a sem condimentumviverra facilisis nunc.Curabitur orci id nulla maximus maximus.Nunc pulvinar sollicitudin molestie</p></div> ",
                             Desc = "Donec vitae hendrerit arcu, sit amet faucibus nisl. Cras pretium arcu ex. Aenean posuere libero eu augue condimentum rhoncus. Praesent ornare tortor ac ante egestas hendrerit. Aliquam et metus pharetra, bibendum massa nec, fermentum odio.",
                             LanguageId = 1,
+                            Slug = "Wordpress-Post",
                             Title = "Wordpress Post"
                         },
                         new
                         {
                             Id = 15,
                             BlogId = 15,
-                            Content = "<p>Aenean et tempor eros,vitae sollicitudin velit.Etiam varius enim nec quam tempor sed efficitur ex ultrices.Phasellus pretium est vel vestibulum condimentum.Aenean nec suscipit nibh.Phasellus nec lacus arcu facilisis elementum.Curabitur lobortiselit ut elementum congueerat ex bibendum odionec iaculis lacus sem non lorem.Duis metus antesed convallis quam posuere quis.Ut tincidunt eleifend odioac fringilla mi vehicula nec.Nunc vitae lacus eget lectus tempus sed in dui.Nam molestie magna at risus suscipit justo dignissim.Sed vitae fringilla enimnec arcu</ p < blockquote < p Quisque semper nunc vitae erat pellentesqueac placerat consectetur.In venenatis elit ac ultrices convallis.Duis est nisitincidunt ac urna sedcursus blandit lectus.In ullamcorper amet ligula ut eleifend.Proin dictum tempor ligulaac metus.Sed finibus tortor eu scelerisque scelerisque</ p </ blockquote < p Aenean et tempor erosvitae sollicitudin velit.Etiam varius enim quam temporsed efficitur ex ultrices.Phasellus pretium est vel vestibulum condimentum.Aenean nec suscipit nibh.Phasellus nec lacus arcu facilisis elementum.Curabitur lobortiselit ut elementum congueerat ex bibendum odionec iaculis lacus sem non lorem.Duis metus antesed convallis quam posuere quis.Ut tincidunt eleifend odioac fringilla mi vehicula nec.Nunc vitae lacus eget lectus tempus sed in dui.Nam molestie magna at risus suscipit justo dignissim.Sed vitae fringilla enimnec arcu</ p < p Suspendisse turpis ipsumtempus in nulla euposuere pharetra nibh.dignissim vitae lorem non mollis.Praesent pretium tellus in viverra condimentum.Nullam dignissim facilisis nislaccumsan justo ultricies vel.Vivamus finibus mi a neque pretiumut dui lacinia.Morbi a rutrum velit.Curabitur sagittis quam consectetur mattis.Aenean sit amet quam vel turpis interdum sagittis eget neque.Nunc ante quamluctus et neque ainterdum iaculis metusAliquam vel ante mattisplacerat orci idvehicula quam.quis eros cursusviverra urna sedcommodo mauris.Cras diam arcufringilla a sem condimentumviverra facilisis nunc.Curabitur orci id nulla maximus maximus.Nunc pulvinar sollicitudin molestie</ p </ div > ",
+                            Content = "<p>Aenean et tempor eros,vitae sollicitudin velit.Etiam varius enim nec quam tempor sed efficitur ex ultrices.Phasellus pretium est vel vestibulum condimentum.Aenean nec suscipit nibh.Phasellus nec lacus arcu facilisis elementum.Curabitur lobortiselit ut elementum congueerat ex bibendum odionec iaculis lacus sem non lorem.Duis metus antesed convallis quam posuere quis.Ut tincidunt eleifend odioac fringilla mi vehicula nec.Nunc vitae lacus eget lectus tempus sed in dui.Nam molestie magna at risus suscipit justo dignissim.Sed vitae fringilla enimnec arcu</p><blockquote><p>Quisque semper nunc vitae erat pellentesqueac placerat consectetur.In venenatis elit ac ultrices convallis.Duis est nisitincidunt ac urna sedcursus blandit lectus.In ullamcorper amet ligula ut eleifend.Proin dictum tempor ligulaac metus.Sed finibus tortor eu scelerisque scelerisque</p></blockquote><p>Aenean et tempor erosvitae sollicitudin velit.Etiam varius enim quam temporsed efficitur ex ultrices.Phasellus pretium est vel vestibulum condimentum.Aenean nec suscipit nibh.Phasellus nec lacus arcu facilisis elementum.Curabitur lobortiselit ut elementum congueerat ex bibendum odionec iaculis lacus sem non lorem.Duis metus antesed convallis quam posuere quis.Ut tincidunt eleifend odioac fringilla mi vehicula nec.Nunc vitae lacus eget lectus tempus sed in dui.Nam molestie magna at risus suscipit justo dignissim.Sed vitae fringilla enimnec arcu</p><p>Suspendisse turpis ipsumtempus in nulla euposuere pharetra nibh.dignissim vitae lorem non mollis.Praesent pretium tellus in viverra condimentum.Nullam dignissim facilisis nislaccumsan justo ultricies vel.Vivamus finibus mi a neque pretiumut dui lacinia.Morbi a rutrum velit.Curabitur sagittis quam consectetur mattis.Aenean sit amet quam vel turpis interdum sagittis eget neque.Nunc ante quamluctus et neque ainterdum iaculis metusAliquam vel ante mattisplacerat orci idvehicula quam.quis eros cursusviverra urna sedcommodo mauris.Cras diam arcufringilla a sem condimentumviverra facilisis nunc.Curabitur orci id nulla maximus maximus.Nunc pulvinar sollicitudin molestie</p></div> ",
                             Desc = "Donec vitae hendrerit arcu, sit amet faucibus nisl. Cras pretium arcu ex. Aenean posuere libero eu augue condimentum rhoncus. Praesent ornare tortor ac ante egestas hendrerit. Aliquam et metus pharetra, bibendum massa nec, fermentum odio.",
                             LanguageId = 1,
+                            Slug = "Company-Post",
                             Title = "Company Post"
                         },
                         new
                         {
                             Id = 17,
                             BlogId = 1,
-                            Content = "<p>Bəzi orqanları 90 sarı tramvay və ya sarı metro adlı mətn yayılan həssas content daha müasir bir görünüş vermək üçün Lorem Ipsum dəyişin. Fransız və ya İngilis dili idi, lakin bir çox insanlar, istədiyiniz təsiri nail olunmayıb mətn oxumaq üçün axtarırdılar. Distractions səbəb ola bilər istiqamətləri olan, oxunaqlı mətn İş və bu layout diqqət kömək edə bilər.</ p < p Suspendisse turpis ipsumtempus in nulla euposuere pharetra nibh.dignissim vitae lorem non mollis.Praesent pretium tellus in viverra condimentum.Nullam dignissim facilisis nislaccumsan justo ultricies vel.Vivamus finibus mi a neque pretiumut dui lacinia.Morbi a rutrum velit.Curabitur sagittis quam consectetur mattis.Aenean sit amet quam vel turpis interdum sagittis eget neque.Nunc ante quamluctus et neque ainterdum iaculis metusAliquam vel ante mattisplacerat orci idvehicula quam.quis eros cursusviverra urna sedcommodo mauris.Cras diam arcufringilla a sem condimentumviverra facilisis nunc.Curabitur orci id nulla maximus maximus.Nunc pulvinar sollicitudin molestie</ p </ div > ",
+                            Content = "<p>Bəzi orqanları 90 sarı tramvay və ya sarı metro adlı mətn yayılan həssas content daha müasir bir görünüş vermək üçün Lorem Ipsum dəyişin. Fransız və ya İngilis dili idi, lakin bir çox insanlar, istədiyiniz təsiri nail olunmayıb mətn oxumaq üçün axtarırdılar. Distractions səbəb ola bilər istiqamətləri olan, oxunaqlı mətn İş və bu layout diqqət kömək edə bilər.</p><p>Suspendisse turpis ipsumtempus in nulla euposuere pharetra nibh.dignissim vitae lorem non mollis.Praesent pretium tellus in viverra condimentum.Nullam dignissim facilisis nislaccumsan justo ultricies vel.Vivamus finibus mi a neque pretiumut dui lacinia.Morbi a rutrum velit.Curabitur sagittis quam consectetur mattis.Aenean sit amet quam vel turpis interdum sagittis eget neque.Nunc ante quamluctus et neque ainterdum iaculis metusAliquam vel ante mattisplacerat orci idvehicula quam.quis eros cursusviverra urna sedcommodo mauris.Cras diam arcufringilla a sem condimentumviverra facilisis nunc.Curabitur orci id nulla maximus maximus.Nunc pulvinar sollicitudin molestie</p></div> ",
                             Desc = "LoremIpsum360 ° pulsuz online generator saxta mətn. Bu modellər üçün əvəz mətn və ya alternativ mətn yaratmaq üçün tam mətn simulator edir. Bu müxtəlif dillərdə mətnlərin nümunələri yaratmaq üçün latın və kiril qrafikası ilə müxtəlif təsadüfi mətnlər edir.",
                             LanguageId = 2,
+                            Slug = "xabar-sakil-paylasimi",
                             Title = "Xəbər Şəkil Paylaşımı"
                         },
                         new
                         {
                             Id = 18,
                             BlogId = 2,
-                            Content = "<p>Bəzi orqanları 90 sarı tramvay və ya sarı metro adlı mətn yayılan həssas content daha müasir bir görünüş vermək üçün Lorem Ipsum dəyişin. Fransız və ya İngilis dili idi, lakin bir çox insanlar, istədiyiniz təsiri nail olunmayıb mətn oxumaq üçün axtarırdılar. Distractions səbəb ola bilər istiqamətləri olan, oxunaqlı mətn İş və bu layout diqqət kömək edə bilər.</ p < p Suspendisse turpis ipsumtempus in nulla euposuere pharetra nibh.dignissim vitae lorem non mollis.Praesent pretium tellus in viverra condimentum.Nullam dignissim facilisis nislaccumsan justo ultricies vel.Vivamus finibus mi a neque pretiumut dui lacinia.Morbi a rutrum velit.Curabitur sagittis quam consectetur mattis.Aenean sit amet quam vel turpis interdum sagittis eget neque.Nunc ante quamluctus et neque ainterdum iaculis metusAliquam vel ante mattisplacerat orci idvehicula quam.quis eros cursusviverra urna sedcommodo mauris.Cras diam arcufringilla a sem condimentumviverra facilisis nunc.Curabitur orci id nulla maximus maximus.Nunc pulvinar sollicitudin molestie</ p </ div > ",
+                            Content = "<p>Bəzi orqanları 90 sarı tramvay və ya sarı metro adlı mətn yayılan həssas content daha müasir bir görünüş vermək üçün Lorem Ipsum dəyişin. Fransız və ya İngilis dili idi, lakin bir çox insanlar, istədiyiniz təsiri nail olunmayıb mətn oxumaq üçün axtarırdılar. Distractions səbəb ola bilər istiqamətləri olan, oxunaqlı mətn İş və bu layout diqqət kömək edə bilər.</p><p>Suspendisse turpis ipsumtempus in nulla euposuere pharetra nibh.dignissim vitae lorem non mollis.Praesent pretium tellus in viverra condimentum.Nullam dignissim facilisis nislaccumsan justo ultricies vel.Vivamus finibus mi a neque pretiumut dui lacinia.Morbi a rutrum velit.Curabitur sagittis quam consectetur mattis.Aenean sit amet quam vel turpis interdum sagittis eget neque.Nunc ante quamluctus et neque ainterdum iaculis metusAliquam vel ante mattisplacerat orci idvehicula quam.quis eros cursusviverra urna sedcommodo mauris.Cras diam arcufringilla a sem condimentumviverra facilisis nunc.Curabitur orci id nulla maximus maximus.Nunc pulvinar sollicitudin molestie</p></div> ",
                             Desc = "LoremIpsum360 ° pulsuz online generator saxta mətn. Bu modellər üçün əvəz mətn və ya alternativ mətn yaratmaq üçün tam mətn simulator edir. Bu müxtəlif dillərdə mətnlərin nümunələri yaratmaq üçün latın və kiril qrafikası ilə müxtəlif təsadüfi mətnlər edir.",
                             LanguageId = 2,
+                            Slug = "qalaraya-paylasimi",
                             Title = "Qalareya Paylaşımı"
                         },
                         new
                         {
                             Id = 19,
                             BlogId = 3,
-                            Content = "<p>Bəzi orqanları 90 sarı tramvay və ya sarı metro adlı mətn yayılan həssas content daha müasir bir görünüş vermək üçün Lorem Ipsum dəyişin. Fransız və ya İngilis dili idi, lakin bir çox insanlar, istədiyiniz təsiri nail olunmayıb mətn oxumaq üçün axtarırdılar. Distractions səbəb ola bilər istiqamətləri olan, oxunaqlı mətn İş və bu layout diqqət kömək edə bilər.</ p < p Suspendisse turpis ipsumtempus in nulla euposuere pharetra nibh.dignissim vitae lorem non mollis.Praesent pretium tellus in viverra condimentum.Nullam dignissim facilisis nislaccumsan justo ultricies vel.Vivamus finibus mi a neque pretiumut dui lacinia.Morbi a rutrum velit.Curabitur sagittis quam consectetur mattis.Aenean sit amet quam vel turpis interdum sagittis eget neque.Nunc ante quamluctus et neque ainterdum iaculis metusAliquam vel ante mattisplacerat orci idvehicula quam.quis eros cursusviverra urna sedcommodo mauris.Cras diam arcufringilla a sem condimentumviverra facilisis nunc.Curabitur orci id nulla maximus maximus.Nunc pulvinar sollicitudin molestie</ p </ div > ",
+                            Content = "<p>Bəzi orqanları 90 sarı tramvay və ya sarı metro adlı mətn yayılan həssas content daha müasir bir görünüş vermək üçün Lorem Ipsum dəyişin. Fransız və ya İngilis dili idi, lakin bir çox insanlar, istədiyiniz təsiri nail olunmayıb mətn oxumaq üçün axtarırdılar. Distractions səbəb ola bilər istiqamətləri olan, oxunaqlı mətn İş və bu layout diqqət kömək edə bilər.</p><p>Suspendisse turpis ipsumtempus in nulla euposuere pharetra nibh.dignissim vitae lorem non mollis.Praesent pretium tellus in viverra condimentum.Nullam dignissim facilisis nislaccumsan justo ultricies vel.Vivamus finibus mi a neque pretiumut dui lacinia.Morbi a rutrum velit.Curabitur sagittis quam consectetur mattis.Aenean sit amet quam vel turpis interdum sagittis eget neque.Nunc ante quamluctus et neque ainterdum iaculis metusAliquam vel ante mattisplacerat orci idvehicula quam.quis eros cursusviverra urna sedcommodo mauris.Cras diam arcufringilla a sem condimentumviverra facilisis nunc.Curabitur orci id nulla maximus maximus.Nunc pulvinar sollicitudin molestie</p></div> ",
                             Desc = "LoremIpsum360 ° pulsuz online generator saxta mətn. Bu modellər üçün əvəz mətn və ya alternativ mətn yaratmaq üçün tam mətn simulator edir. Bu müxtəlif dillərdə mətnlərin nümunələri yaratmaq üçün latın və kiril qrafikası ilə müxtəlif təsadüfi mətnlər edir.",
                             LanguageId = 2,
+                            Slug = "texniki-paylasim",
                             Title = "Texniki Paylaşım"
                         },
                         new
                         {
                             Id = 20,
                             BlogId = 4,
-                            Content = "<p>Bəzi orqanları 90 sarı tramvay və ya sarı metro adlı mətn yayılan həssas content daha müasir bir görünüş vermək üçün Lorem Ipsum dəyişin. Fransız və ya İngilis dili idi, lakin bir çox insanlar, istədiyiniz təsiri nail olunmayıb mətn oxumaq üçün axtarırdılar. Distractions səbəb ola bilər istiqamətləri olan, oxunaqlı mətn İş və bu layout diqqət kömək edə bilər.</ p < p Suspendisse turpis ipsumtempus in nulla euposuere pharetra nibh.dignissim vitae lorem non mollis.Praesent pretium tellus in viverra condimentum.Nullam dignissim facilisis nislaccumsan justo ultricies vel.Vivamus finibus mi a neque pretiumut dui lacinia.Morbi a rutrum velit.Curabitur sagittis quam consectetur mattis.Aenean sit amet quam vel turpis interdum sagittis eget neque.Nunc ante quamluctus et neque ainterdum iaculis metusAliquam vel ante mattisplacerat orci idvehicula quam.quis eros cursusviverra urna sedcommodo mauris.Cras diam arcufringilla a sem condimentumviverra facilisis nunc.Curabitur orci id nulla maximus maximus.Nunc pulvinar sollicitudin molestie</ p </ div > ",
+                            Content = "<p>Bəzi orqanları 90 sarı tramvay və ya sarı metro adlı mətn yayılan həssas content daha müasir bir görünüş vermək üçün Lorem Ipsum dəyişin. Fransız və ya İngilis dili idi, lakin bir çox insanlar, istədiyiniz təsiri nail olunmayıb mətn oxumaq üçün axtarırdılar. Distractions səbəb ola bilər istiqamətləri olan, oxunaqlı mətn İş və bu layout diqqət kömək edə bilər.</p><p>Suspendisse turpis ipsumtempus in nulla euposuere pharetra nibh.dignissim vitae lorem non mollis.Praesent pretium tellus in viverra condimentum.Nullam dignissim facilisis nislaccumsan justo ultricies vel.Vivamus finibus mi a neque pretiumut dui lacinia.Morbi a rutrum velit.Curabitur sagittis quam consectetur mattis.Aenean sit amet quam vel turpis interdum sagittis eget neque.Nunc ante quamluctus et neque ainterdum iaculis metusAliquam vel ante mattisplacerat orci idvehicula quam.quis eros cursusviverra urna sedcommodo mauris.Cras diam arcufringilla a sem condimentumviverra facilisis nunc.Curabitur orci id nulla maximus maximus.Nunc pulvinar sollicitudin molestie</p></div> ",
                             Desc = "LoremIpsum360 ° pulsuz online generator saxta mətn. Bu modellər üçün əvəz mətn və ya alternativ mətn yaratmaq üçün tam mətn simulator edir. Bu müxtəlif dillərdə mətnlərin nümunələri yaratmaq üçün latın və kiril qrafikası ilə müxtəlif təsadüfi mətnlər edir.",
                             LanguageId = 2,
+                            Slug = "elektronika",
                             Title = "Elektrotexnika"
                         },
                         new
                         {
                             Id = 21,
                             BlogId = 5,
-                            Content = "<p>Bəzi orqanları 90 sarı tramvay və ya sarı metro adlı mətn yayılan həssas content daha müasir bir görünüş vermək üçün Lorem Ipsum dəyişin. Fransız və ya İngilis dili idi, lakin bir çox insanlar, istədiyiniz təsiri nail olunmayıb mətn oxumaq üçün axtarırdılar. Distractions səbəb ola bilər istiqamətləri olan, oxunaqlı mətn İş və bu layout diqqət kömək edə bilər.</ p < p Suspendisse turpis ipsumtempus in nulla euposuere pharetra nibh.dignissim vitae lorem non mollis.Praesent pretium tellus in viverra condimentum.Nullam dignissim facilisis nislaccumsan justo ultricies vel.Vivamus finibus mi a neque pretiumut dui lacinia.Morbi a rutrum velit.Curabitur sagittis quam consectetur mattis.Aenean sit amet quam vel turpis interdum sagittis eget neque.Nunc ante quamluctus et neque ainterdum iaculis metusAliquam vel ante mattisplacerat orci idvehicula quam.quis eros cursusviverra urna sedcommodo mauris.Cras diam arcufringilla a sem condimentumviverra facilisis nunc.Curabitur orci id nulla maximus maximus.Nunc pulvinar sollicitudin molestie</ p </ div > ",
+                            Content = "<p>Bəzi orqanları 90 sarı tramvay və ya sarı metro adlı mətn yayılan həssas content daha müasir bir görünüş vermək üçün Lorem Ipsum dəyişin. Fransız və ya İngilis dili idi, lakin bir çox insanlar, istədiyiniz təsiri nail olunmayıb mətn oxumaq üçün axtarırdılar. Distractions səbəb ola bilər istiqamətləri olan, oxunaqlı mətn İş və bu layout diqqət kömək edə bilər.</p><p>Suspendisse turpis ipsumtempus in nulla euposuere pharetra nibh.dignissim vitae lorem non mollis.Praesent pretium tellus in viverra condimentum.Nullam dignissim facilisis nislaccumsan justo ultricies vel.Vivamus finibus mi a neque pretiumut dui lacinia.Morbi a rutrum velit.Curabitur sagittis quam consectetur mattis.Aenean sit amet quam vel turpis interdum sagittis eget neque.Nunc ante quamluctus et neque ainterdum iaculis metusAliquam vel ante mattisplacerat orci idvehicula quam.quis eros cursusviverra urna sedcommodo mauris.Cras diam arcufringilla a sem condimentumviverra facilisis nunc.Curabitur orci id nulla maximus maximus.Nunc pulvinar sollicitudin molestie</p></div> ",
                             Desc = "LoremIpsum360 ° pulsuz online generator saxta mətn. Bu modellər üçün əvəz mətn və ya alternativ mətn yaratmaq üçün tam mətn simulator edir. Bu müxtəlif dillərdə mətnlərin nümunələri yaratmaq üçün latın və kiril qrafikası ilə müxtəlif təsadüfi mətnlər edir.",
                             LanguageId = 2,
+                            Slug = "yeni-robotlar",
                             Title = "Yeni Robotlar"
                         },
                         new
                         {
                             Id = 23,
                             BlogId = 6,
-                            Content = "<p>Bəzi orqanları 90 sarı tramvay və ya sarı metro adlı mətn yayılan həssas content daha müasir bir görünüş vermək üçün Lorem Ipsum dəyişin. Fransız və ya İngilis dili idi, lakin bir çox insanlar, istədiyiniz təsiri nail olunmayıb mətn oxumaq üçün axtarırdılar. Distractions səbəb ola bilər istiqamətləri olan, oxunaqlı mətn İş və bu layout diqqət kömək edə bilər.</ p < p Suspendisse turpis ipsumtempus in nulla euposuere pharetra nibh.dignissim vitae lorem non mollis.Praesent pretium tellus in viverra condimentum.Nullam dignissim facilisis nislaccumsan justo ultricies vel.Vivamus finibus mi a neque pretiumut dui lacinia.Morbi a rutrum velit.Curabitur sagittis quam consectetur mattis.Aenean sit amet quam vel turpis interdum sagittis eget neque.Nunc ante quamluctus et neque ainterdum iaculis metusAliquam vel ante mattisplacerat orci idvehicula quam.quis eros cursusviverra urna sedcommodo mauris.Cras diam arcufringilla a sem condimentumviverra facilisis nunc.Curabitur orci id nulla maximus maximus.Nunc pulvinar sollicitudin molestie</ p </ div > ",
+                            Content = "<p>Bəzi orqanları 90 sarı tramvay və ya sarı metro adlı mətn yayılan həssas content daha müasir bir görünüş vermək üçün Lorem Ipsum dəyişin. Fransız və ya İngilis dili idi, lakin bir çox insanlar, istədiyiniz təsiri nail olunmayıb mətn oxumaq üçün axtarırdılar. Distractions səbəb ola bilər istiqamətləri olan, oxunaqlı mətn İş və bu layout diqqət kömək edə bilər.</p><p>Suspendisse turpis ipsumtempus in nulla euposuere pharetra nibh.dignissim vitae lorem non mollis.Praesent pretium tellus in viverra condimentum.Nullam dignissim facilisis nislaccumsan justo ultricies vel.Vivamus finibus mi a neque pretiumut dui lacinia.Morbi a rutrum velit.Curabitur sagittis quam consectetur mattis.Aenean sit amet quam vel turpis interdum sagittis eget neque.Nunc ante quamluctus et neque ainterdum iaculis metusAliquam vel ante mattisplacerat orci idvehicula quam.quis eros cursusviverra urna sedcommodo mauris.Cras diam arcufringilla a sem condimentumviverra facilisis nunc.Curabitur orci id nulla maximus maximus.Nunc pulvinar sollicitudin molestie</p></div> ",
                             Desc = "LoremIpsum360 ° pulsuz online generator saxta mətn. Bu modellər üçün əvəz mətn və ya alternativ mətn yaratmaq üçün tam mətn simulator edir. Bu müxtəlif dillərdə mətnlərin nümunələri yaratmaq üçün latın və kiril qrafikası ilə müxtəlif təsadüfi mətnlər edir.",
                             LanguageId = 2,
+                            Slug = "yeni-iphone-11",
                             Title = "Yeni İphone 11"
                         },
                         new
                         {
                             Id = 24,
                             BlogId = 7,
-                            Content = "<p>Bəzi orqanları 90 sarı tramvay və ya sarı metro adlı mətn yayılan həssas content daha müasir bir görünüş vermək üçün Lorem Ipsum dəyişin. Fransız və ya İngilis dili idi, lakin bir çox insanlar, istədiyiniz təsiri nail olunmayıb mətn oxumaq üçün axtarırdılar. Distractions səbəb ola bilər istiqamətləri olan, oxunaqlı mətn İş və bu layout diqqət kömək edə bilər.</ p < p Suspendisse turpis ipsumtempus in nulla euposuere pharetra nibh.dignissim vitae lorem non mollis.Praesent pretium tellus in viverra condimentum.Nullam dignissim facilisis nislaccumsan justo ultricies vel.Vivamus finibus mi a neque pretiumut dui lacinia.Morbi a rutrum velit.Curabitur sagittis quam consectetur mattis.Aenean sit amet quam vel turpis interdum sagittis eget neque.Nunc ante quamluctus et neque ainterdum iaculis metusAliquam vel ante mattisplacerat orci idvehicula quam.quis eros cursusviverra urna sedcommodo mauris.Cras diam arcufringilla a sem condimentumviverra facilisis nunc.Curabitur orci id nulla maximus maximus.Nunc pulvinar sollicitudin molestie</ p </ div > ",
+                            Content = "<p>Bəzi orqanları 90 sarı tramvay və ya sarı metro adlı mətn yayılan həssas content daha müasir bir görünüş vermək üçün Lorem Ipsum dəyişin. Fransız və ya İngilis dili idi, lakin bir çox insanlar, istədiyiniz təsiri nail olunmayıb mətn oxumaq üçün axtarırdılar. Distractions səbəb ola bilər istiqamətləri olan, oxunaqlı mətn İş və bu layout diqqət kömək edə bilər.</p><p>Suspendisse turpis ipsumtempus in nulla euposuere pharetra nibh.dignissim vitae lorem non mollis.Praesent pretium tellus in viverra condimentum.Nullam dignissim facilisis nislaccumsan justo ultricies vel.Vivamus finibus mi a neque pretiumut dui lacinia.Morbi a rutrum velit.Curabitur sagittis quam consectetur mattis.Aenean sit amet quam vel turpis interdum sagittis eget neque.Nunc ante quamluctus et neque ainterdum iaculis metusAliquam vel ante mattisplacerat orci idvehicula quam.quis eros cursusviverra urna sedcommodo mauris.Cras diam arcufringilla a sem condimentumviverra facilisis nunc.Curabitur orci id nulla maximus maximus.Nunc pulvinar sollicitudin molestie</p></div> ",
                             Desc = "LoremIpsum360 ° pulsuz online generator saxta mətn. Bu modellər üçün əvəz mətn və ya alternativ mətn yaratmaq üçün tam mətn simulator edir. Bu müxtəlif dillərdə mətnlərin nümunələri yaratmaq üçün latın və kiril qrafikası ilə müxtəlif təsadüfi mətnlər edir.",
                             LanguageId = 2,
+                            Slug = "seyahet-paylasimi",
                             Title = "Səyahət Paylaşımı"
                         },
                         new
                         {
                             Id = 25,
                             BlogId = 8,
-                            Content = "<p>Bəzi orqanları 90 sarı tramvay və ya sarı metro adlı mətn yayılan həssas content daha müasir bir görünüş vermək üçün Lorem Ipsum dəyişin. Fransız və ya İngilis dili idi, lakin bir çox insanlar, istədiyiniz təsiri nail olunmayıb mətn oxumaq üçün axtarırdılar. Distractions səbəb ola bilər istiqamətləri olan, oxunaqlı mətn İş və bu layout diqqət kömək edə bilər.</ p < p Suspendisse turpis ipsumtempus in nulla euposuere pharetra nibh.dignissim vitae lorem non mollis.Praesent pretium tellus in viverra condimentum.Nullam dignissim facilisis nislaccumsan justo ultricies vel.Vivamus finibus mi a neque pretiumut dui lacinia.Morbi a rutrum velit.Curabitur sagittis quam consectetur mattis.Aenean sit amet quam vel turpis interdum sagittis eget neque.Nunc ante quamluctus et neque ainterdum iaculis metusAliquam vel ante mattisplacerat orci idvehicula quam.quis eros cursusviverra urna sedcommodo mauris.Cras diam arcufringilla a sem condimentumviverra facilisis nunc.Curabitur orci id nulla maximus maximus.Nunc pulvinar sollicitudin molestie</ p </ div > ",
+                            Content = "<p>Bəzi orqanları 90 sarı tramvay və ya sarı metro adlı mətn yayılan həssas content daha müasir bir görünüş vermək üçün Lorem Ipsum dəyişin. Fransız və ya İngilis dili idi, lakin bir çox insanlar, istədiyiniz təsiri nail olunmayıb mətn oxumaq üçün axtarırdılar. Distractions səbəb ola bilər istiqamətləri olan, oxunaqlı mətn İş və bu layout diqqət kömək edə bilər.</p><p>Suspendisse turpis ipsumtempus in nulla euposuere pharetra nibh.dignissim vitae lorem non mollis.Praesent pretium tellus in viverra condimentum.Nullam dignissim facilisis nislaccumsan justo ultricies vel.Vivamus finibus mi a neque pretiumut dui lacinia.Morbi a rutrum velit.Curabitur sagittis quam consectetur mattis.Aenean sit amet quam vel turpis interdum sagittis eget neque.Nunc ante quamluctus et neque ainterdum iaculis metusAliquam vel ante mattisplacerat orci idvehicula quam.quis eros cursusviverra urna sedcommodo mauris.Cras diam arcufringilla a sem condimentumviverra facilisis nunc.Curabitur orci id nulla maximus maximus.Nunc pulvinar sollicitudin molestie</p></div> ",
                             Desc = "LoremIpsum360 ° pulsuz online generator saxta mətn. Bu modellər üçün əvəz mətn və ya alternativ mətn yaratmaq üçün tam mətn simulator edir. Bu müxtəlif dillərdə mətnlərin nümunələri yaratmaq üçün latın və kiril qrafikası ilə müxtəlif təsadüfi mətnlər edir.",
                             LanguageId = 2,
+                            Slug = "sirketler",
                             Title = "Şirkətlər"
                         },
                         new
                         {
                             Id = 26,
                             BlogId = 9,
-                            Content = "<p>Bəzi orqanları 90 sarı tramvay və ya sarı metro adlı mətn yayılan həssas content daha müasir bir görünüş vermək üçün Lorem Ipsum dəyişin. Fransız və ya İngilis dili idi, lakin bir çox insanlar, istədiyiniz təsiri nail olunmayıb mətn oxumaq üçün axtarırdılar. Distractions səbəb ola bilər istiqamətləri olan, oxunaqlı mətn İş və bu layout diqqət kömək edə bilər.</ p < p Suspendisse turpis ipsumtempus in nulla euposuere pharetra nibh.dignissim vitae lorem non mollis.Praesent pretium tellus in viverra condimentum.Nullam dignissim facilisis nislaccumsan justo ultricies vel.Vivamus finibus mi a neque pretiumut dui lacinia.Morbi a rutrum velit.Curabitur sagittis quam consectetur mattis.Aenean sit amet quam vel turpis interdum sagittis eget neque.Nunc ante quamluctus et neque ainterdum iaculis metusAliquam vel ante mattisplacerat orci idvehicula quam.quis eros cursusviverra urna sedcommodo mauris.Cras diam arcufringilla a sem condimentumviverra facilisis nunc.Curabitur orci id nulla maximus maximus.Nunc pulvinar sollicitudin molestie</ p </ div > ",
+                            Content = "<p>Bəzi orqanları 90 sarı tramvay və ya sarı metro adlı mətn yayılan həssas content daha müasir bir görünüş vermək üçün Lorem Ipsum dəyişin. Fransız və ya İngilis dili idi, lakin bir çox insanlar, istədiyiniz təsiri nail olunmayıb mətn oxumaq üçün axtarırdılar. Distractions səbəb ola bilər istiqamətləri olan, oxunaqlı mətn İş və bu layout diqqət kömək edə bilər.</p><p>Suspendisse turpis ipsumtempus in nulla euposuere pharetra nibh.dignissim vitae lorem non mollis.Praesent pretium tellus in viverra condimentum.Nullam dignissim facilisis nislaccumsan justo ultricies vel.Vivamus finibus mi a neque pretiumut dui lacinia.Morbi a rutrum velit.Curabitur sagittis quam consectetur mattis.Aenean sit amet quam vel turpis interdum sagittis eget neque.Nunc ante quamluctus et neque ainterdum iaculis metusAliquam vel ante mattisplacerat orci idvehicula quam.quis eros cursusviverra urna sedcommodo mauris.Cras diam arcufringilla a sem condimentumviverra facilisis nunc.Curabitur orci id nulla maximus maximus.Nunc pulvinar sollicitudin molestie</p></div> ",
                             Desc = "LoremIpsum360 ° pulsuz online generator saxta mətn. Bu modellər üçün əvəz mətn və ya alternativ mətn yaratmaq üçün tam mətn simulator edir. Bu müxtəlif dillərdə mətnlərin nümunələri yaratmaq üçün latın və kiril qrafikası ilə müxtəlif təsadüfi mətnlər edir.",
                             LanguageId = 2,
+                            Slug = "yeni-trendler",
                             Title = "Yeni trendlər"
                         },
                         new
                         {
                             Id = 27,
                             BlogId = 10,
-                            Content = "<p>Bəzi orqanları 90 sarı tramvay və ya sarı metro adlı mətn yayılan həssas content daha müasir bir görünüş vermək üçün Lorem Ipsum dəyişin. Fransız və ya İngilis dili idi, lakin bir çox insanlar, istədiyiniz təsiri nail olunmayıb mətn oxumaq üçün axtarırdılar. Distractions səbəb ola bilər istiqamətləri olan, oxunaqlı mətn İş və bu layout diqqət kömək edə bilər.</ p < p Suspendisse turpis ipsumtempus in nulla euposuere pharetra nibh.dignissim vitae lorem non mollis.Praesent pretium tellus in viverra condimentum.Nullam dignissim facilisis nislaccumsan justo ultricies vel.Vivamus finibus mi a neque pretiumut dui lacinia.Morbi a rutrum velit.Curabitur sagittis quam consectetur mattis.Aenean sit amet quam vel turpis interdum sagittis eget neque.Nunc ante quamluctus et neque ainterdum iaculis metusAliquam vel ante mattisplacerat orci idvehicula quam.quis eros cursusviverra urna sedcommodo mauris.Cras diam arcufringilla a sem condimentumviverra facilisis nunc.Curabitur orci id nulla maximus maximus.Nunc pulvinar sollicitudin molestie</ p </ div > ",
+                            Content = "<p>Bəzi orqanları 90 sarı tramvay və ya sarı metro adlı mətn yayılan həssas content daha müasir bir görünüş vermək üçün Lorem Ipsum dəyişin. Fransız və ya İngilis dili idi, lakin bir çox insanlar, istədiyiniz təsiri nail olunmayıb mətn oxumaq üçün axtarırdılar. Distractions səbəb ola bilər istiqamətləri olan, oxunaqlı mətn İş və bu layout diqqət kömək edə bilər.</p><p>Suspendisse turpis ipsumtempus in nulla euposuere pharetra nibh.dignissim vitae lorem non mollis.Praesent pretium tellus in viverra condimentum.Nullam dignissim facilisis nislaccumsan justo ultricies vel.Vivamus finibus mi a neque pretiumut dui lacinia.Morbi a rutrum velit.Curabitur sagittis quam consectetur mattis.Aenean sit amet quam vel turpis interdum sagittis eget neque.Nunc ante quamluctus et neque ainterdum iaculis metusAliquam vel ante mattisplacerat orci idvehicula quam.quis eros cursusviverra urna sedcommodo mauris.Cras diam arcufringilla a sem condimentumviverra facilisis nunc.Curabitur orci id nulla maximus maximus.Nunc pulvinar sollicitudin molestie</p></div> ",
                             Desc = "LoremIpsum360 ° pulsuz online generator saxta mətn. Bu modellər üçün əvəz mətn və ya alternativ mətn yaratmaq üçün tam mətn simulator edir. Bu müxtəlif dillərdə mətnlərin nümunələri yaratmaq üçün latın və kiril qrafikası ilə müxtəlif təsadüfi mətnlər edir.",
                             LanguageId = 2,
+                            Slug = "diger-paylasim",
                             Title = "Digər Paylaşım"
                         },
                         new
                         {
                             Id = 28,
                             BlogId = 11,
-                            Content = "<p>Bəzi orqanları 90 sarı tramvay və ya sarı metro adlı mətn yayılan həssas content daha müasir bir görünüş vermək üçün Lorem Ipsum dəyişin. Fransız və ya İngilis dili idi, lakin bir çox insanlar, istədiyiniz təsiri nail olunmayıb mətn oxumaq üçün axtarırdılar. Distractions səbəb ola bilər istiqamətləri olan, oxunaqlı mətn İş və bu layout diqqət kömək edə bilər.</ p < p Suspendisse turpis ipsumtempus in nulla euposuere pharetra nibh.dignissim vitae lorem non mollis.Praesent pretium tellus in viverra condimentum.Nullam dignissim facilisis nislaccumsan justo ultricies vel.Vivamus finibus mi a neque pretiumut dui lacinia.Morbi a rutrum velit.Curabitur sagittis quam consectetur mattis.Aenean sit amet quam vel turpis interdum sagittis eget neque.Nunc ante quamluctus et neque ainterdum iaculis metusAliquam vel ante mattisplacerat orci idvehicula quam.quis eros cursusviverra urna sedcommodo mauris.Cras diam arcufringilla a sem condimentumviverra facilisis nunc.Curabitur orci id nulla maximus maximus.Nunc pulvinar sollicitudin molestie</ p </ div > ",
+                            Content = "<p>Bəzi orqanları 90 sarı tramvay və ya sarı metro adlı mətn yayılan həssas content daha müasir bir görünüş vermək üçün Lorem Ipsum dəyişin. Fransız və ya İngilis dili idi, lakin bir çox insanlar, istədiyiniz təsiri nail olunmayıb mətn oxumaq üçün axtarırdılar. Distractions səbəb ola bilər istiqamətləri olan, oxunaqlı mətn İş və bu layout diqqət kömək edə bilər.</p><p>Suspendisse turpis ipsumtempus in nulla euposuere pharetra nibh.dignissim vitae lorem non mollis.Praesent pretium tellus in viverra condimentum.Nullam dignissim facilisis nislaccumsan justo ultricies vel.Vivamus finibus mi a neque pretiumut dui lacinia.Morbi a rutrum velit.Curabitur sagittis quam consectetur mattis.Aenean sit amet quam vel turpis interdum sagittis eget neque.Nunc ante quamluctus et neque ainterdum iaculis metusAliquam vel ante mattisplacerat orci idvehicula quam.quis eros cursusviverra urna sedcommodo mauris.Cras diam arcufringilla a sem condimentumviverra facilisis nunc.Curabitur orci id nulla maximus maximus.Nunc pulvinar sollicitudin molestie</p></div> ",
                             Desc = "LoremIpsum360 ° pulsuz online generator saxta mətn. Bu modellər üçün əvəz mətn və ya alternativ mətn yaratmaq üçün tam mətn simulator edir. Bu müxtəlif dillərdə mətnlərin nümunələri yaratmaq üçün latın və kiril qrafikası ilə müxtəlif təsadüfi mətnlər edir.",
                             LanguageId = 2,
+                            Slug = "robot-istehsali",
                             Title = "Robot istehsalı"
                         },
                         new
                         {
                             Id = 29,
                             BlogId = 12,
-                            Content = "<p>Bəzi orqanları 90 sarı tramvay və ya sarı metro adlı mətn yayılan həssas content daha müasir bir görünüş vermək üçün Lorem Ipsum dəyişin. Fransız və ya İngilis dili idi, lakin bir çox insanlar, istədiyiniz təsiri nail olunmayıb mətn oxumaq üçün axtarırdılar. Distractions səbəb ola bilər istiqamətləri olan, oxunaqlı mətn İş və bu layout diqqət kömək edə bilər.</ p < p Suspendisse turpis ipsumtempus in nulla euposuere pharetra nibh.dignissim vitae lorem non mollis.Praesent pretium tellus in viverra condimentum.Nullam dignissim facilisis nislaccumsan justo ultricies vel.Vivamus finibus mi a neque pretiumut dui lacinia.Morbi a rutrum velit.Curabitur sagittis quam consectetur mattis.Aenean sit amet quam vel turpis interdum sagittis eget neque.Nunc ante quamluctus et neque ainterdum iaculis metusAliquam vel ante mattisplacerat orci idvehicula quam.quis eros cursusviverra urna sedcommodo mauris.Cras diam arcufringilla a sem condimentumviverra facilisis nunc.Curabitur orci id nulla maximus maximus.Nunc pulvinar sollicitudin molestie</ p </ div > ",
+                            Content = "<p>Bəzi orqanları 90 sarı tramvay və ya sarı metro adlı mətn yayılan həssas content daha müasir bir görünüş vermək üçün Lorem Ipsum dəyişin. Fransız və ya İngilis dili idi, lakin bir çox insanlar, istədiyiniz təsiri nail olunmayıb mətn oxumaq üçün axtarırdılar. Distractions səbəb ola bilər istiqamətləri olan, oxunaqlı mətn İş və bu layout diqqət kömək edə bilər.</p><p>Suspendisse turpis ipsumtempus in nulla euposuere pharetra nibh.dignissim vitae lorem non mollis.Praesent pretium tellus in viverra condimentum.Nullam dignissim facilisis nislaccumsan justo ultricies vel.Vivamus finibus mi a neque pretiumut dui lacinia.Morbi a rutrum velit.Curabitur sagittis quam consectetur mattis.Aenean sit amet quam vel turpis interdum sagittis eget neque.Nunc ante quamluctus et neque ainterdum iaculis metusAliquam vel ante mattisplacerat orci idvehicula quam.quis eros cursusviverra urna sedcommodo mauris.Cras diam arcufringilla a sem condimentumviverra facilisis nunc.Curabitur orci id nulla maximus maximus.Nunc pulvinar sollicitudin molestie</p></div> ",
                             Desc = "LoremIpsum360 ° pulsuz online generator saxta mətn. Bu modellər üçün əvəz mətn və ya alternativ mətn yaratmaq üçün tam mətn simulator edir. Bu müxtəlif dillərdə mətnlərin nümunələri yaratmaq üçün latın və kiril qrafikası ilə müxtəlif təsadüfi mətnlər edir.",
                             LanguageId = 2,
-                            Title = "Acadanlıqlar"
+                            Slug = "avadanliqlar",
+                            Title = "Avadanlıqlar"
                         },
                         new
                         {
                             Id = 30,
                             BlogId = 13,
-                            Content = "<p>Bəzi orqanları 90 sarı tramvay və ya sarı metro adlı mətn yayılan həssas content daha müasir bir görünüş vermək üçün Lorem Ipsum dəyişin. Fransız və ya İngilis dili idi, lakin bir çox insanlar, istədiyiniz təsiri nail olunmayıb mətn oxumaq üçün axtarırdılar. Distractions səbəb ola bilər istiqamətləri olan, oxunaqlı mətn İş və bu layout diqqət kömək edə bilər.</ p < p Suspendisse turpis ipsumtempus in nulla euposuere pharetra nibh.dignissim vitae lorem non mollis.Praesent pretium tellus in viverra condimentum.Nullam dignissim facilisis nislaccumsan justo ultricies vel.Vivamus finibus mi a neque pretiumut dui lacinia.Morbi a rutrum velit.Curabitur sagittis quam consectetur mattis.Aenean sit amet quam vel turpis interdum sagittis eget neque.Nunc ante quamluctus et neque ainterdum iaculis metusAliquam vel ante mattisplacerat orci idvehicula quam.quis eros cursusviverra urna sedcommodo mauris.Cras diam arcufringilla a sem condimentumviverra facilisis nunc.Curabitur orci id nulla maximus maximus.Nunc pulvinar sollicitudin molestie</ p </ div > ",
+                            Content = "<p>Bəzi orqanları 90 sarı tramvay və ya sarı metro adlı mətn yayılan həssas content daha müasir bir görünüş vermək üçün Lorem Ipsum dəyişin. Fransız və ya İngilis dili idi, lakin bir çox insanlar, istədiyiniz təsiri nail olunmayıb mətn oxumaq üçün axtarırdılar. Distractions səbəb ola bilər istiqamətləri olan, oxunaqlı mətn İş və bu layout diqqət kömək edə bilər.</p><p>Suspendisse turpis ipsumtempus in nulla euposuere pharetra nibh.dignissim vitae lorem non mollis.Praesent pretium tellus in viverra condimentum.Nullam dignissim facilisis nislaccumsan justo ultricies vel.Vivamus finibus mi a neque pretiumut dui lacinia.Morbi a rutrum velit.Curabitur sagittis quam consectetur mattis.Aenean sit amet quam vel turpis interdum sagittis eget neque.Nunc ante quamluctus et neque ainterdum iaculis metusAliquam vel ante mattisplacerat orci idvehicula quam.quis eros cursusviverra urna sedcommodo mauris.Cras diam arcufringilla a sem condimentumviverra facilisis nunc.Curabitur orci id nulla maximus maximus.Nunc pulvinar sollicitudin molestie</p></div> ",
                             Desc = "LoremIpsum360 ° pulsuz online generator saxta mətn. Bu modellər üçün əvəz mətn və ya alternativ mətn yaratmaq üçün tam mətn simulator edir. Bu müxtəlif dillərdə mətnlərin nümunələri yaratmaq üçün latın və kiril qrafikası ilə müxtəlif təsadüfi mətnlər edir.",
                             LanguageId = 2,
+                            Slug = "aksesuarlar",
                             Title = "Aksesuarlar"
                         },
                         new
                         {
                             Id = 31,
                             BlogId = 14,
-                            Content = "<p>Bəzi orqanları 90 sarı tramvay və ya sarı metro adlı mətn yayılan həssas content daha müasir bir görünüş vermək üçün Lorem Ipsum dəyişin. Fransız və ya İngilis dili idi, lakin bir çox insanlar, istədiyiniz təsiri nail olunmayıb mətn oxumaq üçün axtarırdılar. Distractions səbəb ola bilər istiqamətləri olan, oxunaqlı mətn İş və bu layout diqqət kömək edə bilər.</ p < p Suspendisse turpis ipsumtempus in nulla euposuere pharetra nibh.dignissim vitae lorem non mollis.Praesent pretium tellus in viverra condimentum.Nullam dignissim facilisis nislaccumsan justo ultricies vel.Vivamus finibus mi a neque pretiumut dui lacinia.Morbi a rutrum velit.Curabitur sagittis quam consectetur mattis.Aenean sit amet quam vel turpis interdum sagittis eget neque.Nunc ante quamluctus et neque ainterdum iaculis metusAliquam vel ante mattisplacerat orci idvehicula quam.quis eros cursusviverra urna sedcommodo mauris.Cras diam arcufringilla a sem condimentumviverra facilisis nunc.Curabitur orci id nulla maximus maximus.Nunc pulvinar sollicitudin molestie</ p </ div > ",
+                            Content = "<p>Bəzi orqanları 90 sarı tramvay və ya sarı metro adlı mətn yayılan həssas content daha müasir bir görünüş vermək üçün Lorem Ipsum dəyişin. Fransız və ya İngilis dili idi, lakin bir çox insanlar, istədiyiniz təsiri nail olunmayıb mətn oxumaq üçün axtarırdılar. Distractions səbəb ola bilər istiqamətləri olan, oxunaqlı mətn İş və bu layout diqqət kömək edə bilər.</p><p>Suspendisse turpis ipsumtempus in nulla euposuere pharetra nibh.dignissim vitae lorem non mollis.Praesent pretium tellus in viverra condimentum.Nullam dignissim facilisis nislaccumsan justo ultricies vel.Vivamus finibus mi a neque pretiumut dui lacinia.Morbi a rutrum velit.Curabitur sagittis quam consectetur mattis.Aenean sit amet quam vel turpis interdum sagittis eget neque.Nunc ante quamluctus et neque ainterdum iaculis metusAliquam vel ante mattisplacerat orci idvehicula quam.quis eros cursusviverra urna sedcommodo mauris.Cras diam arcufringilla a sem condimentumviverra facilisis nunc.Curabitur orci id nulla maximus maximus.Nunc pulvinar sollicitudin molestie</p></div> ",
                             Desc = "LoremIpsum360 ° pulsuz online generator saxta mətn. Bu modellər üçün əvəz mətn və ya alternativ mətn yaratmaq üçün tam mətn simulator edir. Bu müxtəlif dillərdə mətnlərin nümunələri yaratmaq üçün latın və kiril qrafikası ilə müxtəlif təsadüfi mətnlər edir.",
                             LanguageId = 2,
+                            Slug = "yeni-tozsoram",
                             Title = "Yeni Tozsoran"
                         },
                         new
                         {
                             Id = 32,
                             BlogId = 15,
-                            Content = "<p>Bəzi orqanları 90 sarı tramvay və ya sarı metro adlı mətn yayılan həssas content daha müasir bir görünüş vermək üçün Lorem Ipsum dəyişin. Fransız və ya İngilis dili idi, lakin bir çox insanlar, istədiyiniz təsiri nail olunmayıb mətn oxumaq üçün axtarırdılar. Distractions səbəb ola bilər istiqamətləri olan, oxunaqlı mətn İş və bu layout diqqət kömək edə bilər.</ p < p Suspendisse turpis ipsumtempus in nulla euposuere pharetra nibh.dignissim vitae lorem non mollis.Praesent pretium tellus in viverra condimentum.Nullam dignissim facilisis nislaccumsan justo ultricies vel.Vivamus finibus mi a neque pretiumut dui lacinia.Morbi a rutrum velit.Curabitur sagittis quam consectetur mattis.Aenean sit amet quam vel turpis interdum sagittis eget neque.Nunc ante quamluctus et neque ainterdum iaculis metusAliquam vel ante mattisplacerat orci idvehicula quam.quis eros cursusviverra urna sedcommodo mauris.Cras diam arcufringilla a sem condimentumviverra facilisis nunc.Curabitur orci id nulla maximus maximus.Nunc pulvinar sollicitudin molestie</ p </ div > ",
+                            Content = "<p>Bəzi orqanları 90 sarı tramvay və ya sarı metro adlı mətn yayılan həssas content daha müasir bir görünüş vermək üçün Lorem Ipsum dəyişin. Fransız və ya İngilis dili idi, lakin bir çox insanlar, istədiyiniz təsiri nail olunmayıb mətn oxumaq üçün axtarırdılar. Distractions səbəb ola bilər istiqamətləri olan, oxunaqlı mətn İş və bu layout diqqət kömək edə bilər.</p><p>Suspendisse turpis ipsumtempus in nulla euposuere pharetra nibh.dignissim vitae lorem non mollis.Praesent pretium tellus in viverra condimentum.Nullam dignissim facilisis nislaccumsan justo ultricies vel.Vivamus finibus mi a neque pretiumut dui lacinia.Morbi a rutrum velit.Curabitur sagittis quam consectetur mattis.Aenean sit amet quam vel turpis interdum sagittis eget neque.Nunc ante quamluctus et neque ainterdum iaculis metusAliquam vel ante mattisplacerat orci idvehicula quam.quis eros cursusviverra urna sedcommodo mauris.Cras diam arcufringilla a sem condimentumviverra facilisis nunc.Curabitur orci id nulla maximus maximus.Nunc pulvinar sollicitudin molestie</p></div> ",
                             Desc = "LoremIpsum360 ° pulsuz online generator saxta mətn. Bu modellər üçün əvəz mətn və ya alternativ mətn yaratmaq üçün tam mətn simulator edir. Bu müxtəlif dillərdə mətnlərin nümunələri yaratmaq üçün latın və kiril qrafikası ilə müxtəlif təsadüfi mətnlər edir.",
                             LanguageId = 2,
+                            Slug = "yeni-paylasim",
                             Title = "Yeni paylaşım"
+                        });
+                });
+
+            modelBuilder.Entity("Junko.ModelTranslate.FaqTranslate", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Answer")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(500)")
+                        .HasMaxLength(500);
+
+                    b.Property<int>("FaqId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("LanguageeId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Question")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(100)")
+                        .HasMaxLength(100);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("FaqId");
+
+                    b.HasIndex("LanguageeId");
+
+                    b.ToTable("FaqTranslates");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Answer = "Donec mattis finibus elit ut tristique.Nullam tempus nunc eget vulputateeu porttitor tellus commodo.Aliquam erat volutpat.consectetur lorem eu viverra lobortis.Morbi gravidanisi id ultricieselit lorem eleifend ",
+                            FaqId = 1,
+                            LanguageeId = 1,
+                            Question = "Donec mattis finibus elit ut tristique?"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Answer = "Donec mattis finibus elit ut tristique.Nullam tempus nunc eget vulputateeu porttitor tellus commodo.Aliquam erat volutpat.consectetur lorem eu viverra lobortis.Morbi gravidanisi id ultricieselit lorem eleifend ",
+                            FaqId = 2,
+                            LanguageeId = 1,
+                            Question = "mattis finibus elit ut tristique?"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Answer = "Donec mattis finibus elit ut tristique.Nullam tempus nunc eget vulputateeu porttitor tellus commodo.Aliquam erat volutpat.consectetur lorem eu viverra lobortis.Morbi gravidanisi id ultricieselit lorem eleifend ",
+                            FaqId = 3,
+                            LanguageeId = 1,
+                            Question = "finibus elit ut tristique?"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Answer = "Donec mattis finibus elit ut tristique.Nullam tempus nunc eget vulputateeu porttitor tellus commodo.Aliquam erat volutpat.consectetur lorem eu viverra lobortis.Morbi gravidanisi id ultricieselit lorem eleifend ",
+                            FaqId = 4,
+                            LanguageeId = 1,
+                            Question = "elit mattis finibus elit ut tristique?"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Answer = "Donec mattis finibus elit ut tristique.Nullam tempus nunc eget vulputateeu porttitor tellus commodo.Aliquam erat volutpat.consectetur lorem eu viverra lobortis.Morbi gravidanisi id ultricieselit lorem eleifend ",
+                            FaqId = 5,
+                            LanguageeId = 1,
+                            Question = "ut Donec mattis finibus elit ut tristique?"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Answer = "Donec mattis finibus elit ut tristique.Nullam tempus nunc eget vulputateeu porttitor tellus commodo.Aliquam erat volutpat.consectetur lorem eu viverra lobortis.Morbi gravidanisi id ultricieselit lorem eleifend ",
+                            FaqId = 6,
+                            LanguageeId = 1,
+                            Question = "Trist mattis finibus elit ut tristique?"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Answer = "Donec mattis finibus elit ut tristique.Nullam tempus nunc eget vulputateeu porttitor tellus commodo.Aliquam erat volutpat.consectetur lorem eu viverra lobortis.Morbi gravidanisi id ultricieselit lorem eleifend ",
+                            FaqId = 7,
+                            LanguageeId = 1,
+                            Question = "Donec tristique?"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Answer = "Nullam tempus nunc eget vulputateeu porttitor tellus commodo.Aliquam erat volutpat.consectetur ",
+                            FaqId = 1,
+                            LanguageeId = 2,
+                            Question = "Saytda hansı ödəmə vasitələri var?"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Answer = "Nullam tempus nunc eget vulputateeu porttitor tellus commodo.Aliquam erat volutpat.consectetur ",
+                            FaqId = 2,
+                            LanguageeId = 2,
+                            Question = "Çatdırılma necə həyata keçir?"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            Answer = "Nullam tempus nunc eget vulputateeu porttitor tellus commodo.Aliquam erat volutpat.consectetur ",
+                            FaqId = 3,
+                            LanguageeId = 2,
+                            Question = "Vakansiyalar ne vaxt olacaq?"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            Answer = "Nullam tempus nunc eget vulputateeu porttitor tellus commodo.Aliquam erat volutpat.consectetur ",
+                            FaqId = 4,
+                            LanguageeId = 2,
+                            Question = "Mobil tetbiqi də hazırlanırmı?"
+                        },
+                        new
+                        {
+                            Id = 12,
+                            Answer = "Nullam tempus nunc eget vulputateeu porttitor tellus commodo.Aliquam erat volutpat.consectetur ",
+                            FaqId = 5,
+                            LanguageeId = 2,
+                            Question = "Digərlərindən fərqi nədir?"
+                        },
+                        new
+                        {
+                            Id = 13,
+                            Answer = "Nullam tempus nunc eget vulputateeu porttitor tellus commodo.Aliquam erat volutpat.consectetur ",
+                            FaqId = 6,
+                            LanguageeId = 2,
+                            Question = "Nə üstünlüklər verilir?"
+                        },
+                        new
+                        {
+                            Id = 14,
+                            Answer = "Nullam tempus nunc eget vulputateeu porttitor tellus commodo.Aliquam erat volutpat.consectetur ",
+                            FaqId = 7,
+                            LanguageeId = 2,
+                            Question = "ikinci əl satılırmı?"
+                        });
+                });
+
+            modelBuilder.Entity("Junko.ModelTranslate.OurServiceTranslate", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Desc")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(300)")
+                        .HasMaxLength(300);
+
+                    b.Property<int>("LanguageId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("OurServiceId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(200)")
+                        .HasMaxLength(200);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("LanguageId");
+
+                    b.HasIndex("OurServiceId");
+
+                    b.ToTable("OurServiceTranslates");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Desc = "Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem.",
+                            LanguageId = 1,
+                            OurServiceId = 1,
+                            Title = "BRANDING"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Desc = "Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem.",
+                            LanguageId = 1,
+                            OurServiceId = 2,
+                            Title = "WEB DESIGN"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Desc = "Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem.",
+                            LanguageId = 1,
+                            OurServiceId = 3,
+                            Title = "PHOTOGRAPHY"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Desc = "Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem.",
+                            LanguageId = 1,
+                            OurServiceId = 4,
+                            Title = "WEB DEVELOPMENT"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Desc = "Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem.",
+                            LanguageId = 1,
+                            OurServiceId = 5,
+                            Title = "CODING"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Desc = "Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem.",
+                            LanguageId = 1,
+                            OurServiceId = 6,
+                            Title = "MARKETING"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Desc = "Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem.",
+                            LanguageId = 1,
+                            OurServiceId = 7,
+                            Title = "SUPPORT"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Desc = "Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem.",
+                            LanguageId = 1,
+                            OurServiceId = 8,
+                            Title = "GRAPHIC DESIGN"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Desc = "Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem.",
+                            LanguageId = 2,
+                            OurServiceId = 1,
+                            Title = "Brendinq"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            Desc = "Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem.",
+                            LanguageId = 2,
+                            OurServiceId = 2,
+                            Title = "Web Dizayn"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            Desc = "Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem.",
+                            LanguageId = 2,
+                            OurServiceId = 3,
+                            Title = "Potoqrafiya"
+                        },
+                        new
+                        {
+                            Id = 12,
+                            Desc = "Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem.",
+                            LanguageId = 2,
+                            OurServiceId = 4,
+                            Title = "Web proqranlaşdırma"
+                        },
+                        new
+                        {
+                            Id = 13,
+                            Desc = "Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem.",
+                            LanguageId = 2,
+                            OurServiceId = 5,
+                            Title = "Kod"
+                        },
+                        new
+                        {
+                            Id = 14,
+                            Desc = "Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem.",
+                            LanguageId = 2,
+                            OurServiceId = 6,
+                            Title = "Marketinq"
+                        },
+                        new
+                        {
+                            Id = 15,
+                            Desc = "Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem.",
+                            LanguageId = 2,
+                            OurServiceId = 7,
+                            Title = "Təchizat"
+                        },
+                        new
+                        {
+                            Id = 16,
+                            Desc = "Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem.",
+                            LanguageId = 2,
+                            OurServiceId = 8,
+                            Title = "Qrafik Dizayn"
+                        });
+                });
+
+            modelBuilder.Entity("Junko.ModelTranslate.ServicesCoverTranslate", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Desc")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(500)")
+                        .HasMaxLength(500);
+
+                    b.Property<int>("LanguageId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ServicesCoverId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(100)")
+                        .HasMaxLength(100);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("LanguageId");
+
+                    b.HasIndex("ServicesCoverId");
+
+                    b.ToTable("ServicesCoverTranslates");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Desc = "Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima.",
+                            LanguageId = 1,
+                            ServicesCoverId = 1,
+                            Title = "DESIGN THE COVER"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Desc = "Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima.",
+                            LanguageId = 1,
+                            ServicesCoverId = 2,
+                            Title = "DESIGN THE COVER"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Desc = "Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima.",
+                            LanguageId = 1,
+                            ServicesCoverId = 3,
+                            Title = "DESIGN THE COVER"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Desc = "Usuf öy usuf həncərsən ayna durinan beyjə öy yağlaşoy, sumsux qredit siyəndər vızqırt yağlaşoy qağa basırıx mamoa bimürvət dayna aya siyəndər anarıdan-bəri ölüm.",
+                            LanguageId = 2,
+                            ServicesCoverId = 1,
+                            Title = "ƏSAS DİZAYN"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Desc = "Usuf öy usuf həncərsən ayna durinan beyjə öy yağlaşoy, sumsux qredit siyəndər vızqırt yağlaşoy qağa basırıx mamoa bimürvət dayna aya siyəndər anarıdan-bəri ölüm.",
+                            LanguageId = 2,
+                            ServicesCoverId = 2,
+                            Title = "ƏSAS DİZAYN"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Desc = "Usuf öy usuf həncərsən ayna durinan beyjə öy yağlaşoy, sumsux qredit siyəndər vızqırt yağlaşoy qağa basırıx mamoa bimürvət dayna aya siyəndər anarıdan-bəri ölüm.",
+                            LanguageId = 2,
+                            ServicesCoverId = 3,
+                            Title = "ƏSAS DİZAYN"
+                        });
+                });
+
+            modelBuilder.Entity("Junko.ModelTranslate.WhatDoTranslate", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Desc")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(600)")
+                        .HasMaxLength(600);
+
+                    b.Property<int>("LanguageId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(200)")
+                        .HasMaxLength(200);
+
+                    b.Property<int>("WhatDoId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("LanguageId");
+
+                    b.HasIndex("WhatDoId");
+
+                    b.ToTable("WhatDosTranslates");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Desc = "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using ‘Content here, content here’, making it look like readable English.",
+                            LanguageId = 1,
+                            Title = "What Do We Do?",
+                            WhatDoId = 1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Desc = "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using ‘Content here, content here’, making it look like readable English.",
+                            LanguageId = 1,
+                            Title = "History Of Us",
+                            WhatDoId = 2
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Desc = "Beyjə murtta səni yağlaşoy səni göyüz xışdıyaram, qağa ciji qayır öy a qıvlasız mamoğlu dığlatdın, eşiy anarıdan-bəri səni öy qayır. Çırtımına yiyə dursan? ayna durinan suruxvat ayna durinan dayna sülöymən kiri a qıvlasız səni, ciji siyəndər qalet murtta dığlatdın dınqı anarıdan-bəri, qavağında ölöm döyğa tutaşmıyın mamoğlu a bimürvət ayna durinan mığı.",
+                            LanguageId = 2,
+                            Title = "Fəaliyyətimiz Nədir?",
+                            WhatDoId = 1
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Desc = "Beyjə murtta səni yağlaşoy səni göyüz xışdıyaram, qağa ciji qayır öy a qıvlasız mamoğlu dığlatdın, eşiy anarıdan-bəri səni öy qayır. Çırtımına yiyə dursan? ayna durinan suruxvat ayna durinan dayna sülöymən kiri a qıvlasız səni, ciji siyəndər qalet murtta dığlatdın dınqı anarıdan-bəri, qavağında ölöm döyğa tutaşmıyın mamoğlu a bimürvət ayna durinan mığı.",
+                            LanguageId = 2,
+                            Title = "Tariximiz",
+                            WhatDoId = 2
+                        });
+                });
+
+            modelBuilder.Entity("Junko.Models.AboutSetting", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("AdminManagerId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("ModifiedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Photo")
+                        .HasColumnType("nvarchar(250)")
+                        .HasMaxLength(250);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AdminManagerId");
+
+                    b.ToTable("AboutSettings");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            AdminManagerId = 1,
+                            ModifiedAt = new DateTime(2019, 12, 25, 20, 15, 56, 502, DateTimeKind.Local).AddTicks(8264),
+                            Photo = "about/about1.jpg"
                         });
                 });
 
@@ -501,6 +1117,21 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 1,
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 4,
                             Status = true
                         });
                 });
@@ -567,13 +1198,52 @@ namespace Junko.Migrations
                         {
                             Id = 1,
                             AdminCategoryId = 1,
-                            CreatedAt = new DateTime(2019, 12, 23, 21, 32, 24, 433, DateTimeKind.Local).AddTicks(9934),
+                            CreatedAt = new DateTime(2019, 12, 25, 20, 15, 56, 498, DateTimeKind.Local).AddTicks(7545),
                             Email = "Huseynia@code.edu.az",
                             Firstname = "Huseyn",
                             Lastname = "Asadov",
                             Password = "AGFkhc5OoWZDrhVUgtfONApKOIJtIZyZZTc93zg1bpihQMs6UrndQXnCgZ6K5Qg8hA==",
                             Phone = "+994507870181",
-                            Photo = "download.jpeg",
+                            Photo = "about/about-us-person1.png",
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 2,
+                            AdminCategoryId = 2,
+                            CreatedAt = new DateTime(2019, 12, 25, 20, 15, 56, 499, DateTimeKind.Local).AddTicks(3593),
+                            Email = "Mary@code.edu.az",
+                            Firstname = "Marilyn",
+                            Lastname = "monroe",
+                            Password = "AGFkhc5OoWZDrhVUgtfONApKOIJtIZyZZTc93zg1bpihQMs6UrndQXnCgZ6K5Qg8hA==",
+                            Phone = "+994507870181",
+                            Photo = "about/about-us-person2.png",
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 3,
+                            AdminCategoryId = 3,
+                            CreatedAt = new DateTime(2019, 12, 25, 20, 15, 56, 499, DateTimeKind.Local).AddTicks(3798),
+                            Email = "Michael@code.edu.az",
+                            Firstname = "Michael",
+                            Lastname = "Monroe",
+                            Password = "AGFkhc5OoWZDrhVUgtfONApKOIJtIZyZZTc93zg1bpihQMs6UrndQXnCgZ6K5Qg8hA==",
+                            Phone = "+994507870181",
+                            Photo = "about/about-us-person3.png",
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 4,
+                            AdminCategoryId = 4,
+                            CreatedAt = new DateTime(2019, 12, 25, 20, 15, 56, 499, DateTimeKind.Local).AddTicks(3804),
+                            Email = "James@code.edu.az",
+                            Firstname = "James",
+                            Lastname = "James",
+                            Password = "AGFkhc5OoWZDrhVUgtfONApKOIJtIZyZZTc93zg1bpihQMs6UrndQXnCgZ6K5Qg8hA==",
+                            Phone = "+994507870181",
+                            Photo = "about/about-us-person4.png",
                             Status = true
                         });
                 });
@@ -612,8 +1282,8 @@ namespace Junko.Migrations
                         {
                             Id = 1,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2019, 12, 23, 21, 32, 24, 435, DateTimeKind.Local).AddTicks(3843),
-                            ModifiedAt = new DateTime(2019, 12, 23, 21, 32, 24, 435, DateTimeKind.Local).AddTicks(3832),
+                            CreatedAt = new DateTime(2019, 12, 25, 20, 15, 56, 500, DateTimeKind.Local).AddTicks(1749),
+                            ModifiedAt = new DateTime(2019, 12, 25, 20, 15, 56, 500, DateTimeKind.Local).AddTicks(1738),
                             Photo = "blog/blog1.jpg",
                             Status = true
                         },
@@ -621,8 +1291,8 @@ namespace Junko.Migrations
                         {
                             Id = 2,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2019, 12, 23, 21, 32, 24, 435, DateTimeKind.Local).AddTicks(5917),
-                            ModifiedAt = new DateTime(2019, 12, 23, 21, 32, 24, 435, DateTimeKind.Local).AddTicks(5906),
+                            CreatedAt = new DateTime(2019, 12, 25, 20, 15, 56, 500, DateTimeKind.Local).AddTicks(3936),
+                            ModifiedAt = new DateTime(2019, 12, 25, 20, 15, 56, 500, DateTimeKind.Local).AddTicks(3925),
                             Photo = "blog/blog2.jpg",
                             Status = true
                         },
@@ -630,8 +1300,8 @@ namespace Junko.Migrations
                         {
                             Id = 3,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2019, 12, 23, 21, 32, 24, 435, DateTimeKind.Local).AddTicks(5952),
-                            ModifiedAt = new DateTime(2019, 12, 23, 21, 32, 24, 435, DateTimeKind.Local).AddTicks(5950),
+                            CreatedAt = new DateTime(2019, 12, 25, 20, 15, 56, 500, DateTimeKind.Local).AddTicks(3968),
+                            ModifiedAt = new DateTime(2019, 12, 25, 20, 15, 56, 500, DateTimeKind.Local).AddTicks(3966),
                             Photo = "blog/blog3.jpg",
                             Status = true
                         },
@@ -639,8 +1309,8 @@ namespace Junko.Migrations
                         {
                             Id = 4,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2019, 12, 23, 21, 32, 24, 435, DateTimeKind.Local).AddTicks(5956),
-                            ModifiedAt = new DateTime(2019, 12, 23, 21, 32, 24, 435, DateTimeKind.Local).AddTicks(5955),
+                            CreatedAt = new DateTime(2019, 12, 25, 20, 15, 56, 500, DateTimeKind.Local).AddTicks(3972),
+                            ModifiedAt = new DateTime(2019, 12, 25, 20, 15, 56, 500, DateTimeKind.Local).AddTicks(3970),
                             Photo = "blog/blog4.jpg",
                             Status = true
                         },
@@ -648,8 +1318,8 @@ namespace Junko.Migrations
                         {
                             Id = 5,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2019, 12, 23, 21, 32, 24, 435, DateTimeKind.Local).AddTicks(5960),
-                            ModifiedAt = new DateTime(2019, 12, 23, 21, 32, 24, 435, DateTimeKind.Local).AddTicks(5958),
+                            CreatedAt = new DateTime(2019, 12, 25, 20, 15, 56, 500, DateTimeKind.Local).AddTicks(4047),
+                            ModifiedAt = new DateTime(2019, 12, 25, 20, 15, 56, 500, DateTimeKind.Local).AddTicks(4045),
                             Photo = "blog/blog5.jpg",
                             Status = true
                         },
@@ -657,90 +1327,90 @@ namespace Junko.Migrations
                         {
                             Id = 6,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2019, 12, 23, 21, 32, 24, 435, DateTimeKind.Local).AddTicks(5964),
-                            ModifiedAt = new DateTime(2019, 12, 23, 21, 32, 24, 435, DateTimeKind.Local).AddTicks(5962),
-                            Photo = "blog/blog6.jpg",
+                            CreatedAt = new DateTime(2019, 12, 25, 20, 15, 56, 500, DateTimeKind.Local).AddTicks(4051),
+                            ModifiedAt = new DateTime(2019, 12, 25, 20, 15, 56, 500, DateTimeKind.Local).AddTicks(4049),
+                            Photo = "blog/blog1.jpg",
                             Status = true
                         },
                         new
                         {
                             Id = 7,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2019, 12, 23, 21, 32, 24, 435, DateTimeKind.Local).AddTicks(5968),
-                            ModifiedAt = new DateTime(2019, 12, 23, 21, 32, 24, 435, DateTimeKind.Local).AddTicks(5966),
-                            Photo = "blog/blog7.jpg",
+                            CreatedAt = new DateTime(2019, 12, 25, 20, 15, 56, 500, DateTimeKind.Local).AddTicks(4055),
+                            ModifiedAt = new DateTime(2019, 12, 25, 20, 15, 56, 500, DateTimeKind.Local).AddTicks(4053),
+                            Photo = "blog/blog2.jpg",
                             Status = true
                         },
                         new
                         {
                             Id = 8,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2019, 12, 23, 21, 32, 24, 435, DateTimeKind.Local).AddTicks(5971),
-                            ModifiedAt = new DateTime(2019, 12, 23, 21, 32, 24, 435, DateTimeKind.Local).AddTicks(5969),
-                            Photo = "blog/blog1.jpg",
+                            CreatedAt = new DateTime(2019, 12, 25, 20, 15, 56, 500, DateTimeKind.Local).AddTicks(4058),
+                            ModifiedAt = new DateTime(2019, 12, 25, 20, 15, 56, 500, DateTimeKind.Local).AddTicks(4057),
+                            Photo = "blog/blog3.jpg",
                             Status = true
                         },
                         new
                         {
                             Id = 9,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2019, 12, 23, 21, 32, 24, 435, DateTimeKind.Local).AddTicks(5975),
-                            ModifiedAt = new DateTime(2019, 12, 23, 21, 32, 24, 435, DateTimeKind.Local).AddTicks(5973),
-                            Photo = "blog/blog9.jpg",
+                            CreatedAt = new DateTime(2019, 12, 25, 20, 15, 56, 500, DateTimeKind.Local).AddTicks(4062),
+                            ModifiedAt = new DateTime(2019, 12, 25, 20, 15, 56, 500, DateTimeKind.Local).AddTicks(4060),
+                            Photo = "blog/blog4.jpg",
                             Status = true
                         },
                         new
                         {
                             Id = 10,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2019, 12, 23, 21, 32, 24, 435, DateTimeKind.Local).AddTicks(5978),
-                            ModifiedAt = new DateTime(2019, 12, 23, 21, 32, 24, 435, DateTimeKind.Local).AddTicks(5977),
-                            Photo = "blog/blog10.jpg",
+                            CreatedAt = new DateTime(2019, 12, 25, 20, 15, 56, 500, DateTimeKind.Local).AddTicks(4065),
+                            ModifiedAt = new DateTime(2019, 12, 25, 20, 15, 56, 500, DateTimeKind.Local).AddTicks(4064),
+                            Photo = "blog/blog5.jpg",
                             Status = true
                         },
                         new
                         {
                             Id = 11,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2019, 12, 23, 21, 32, 24, 435, DateTimeKind.Local).AddTicks(5982),
-                            ModifiedAt = new DateTime(2019, 12, 23, 21, 32, 24, 435, DateTimeKind.Local).AddTicks(5980),
-                            Photo = "blog/blog11.jpg",
+                            CreatedAt = new DateTime(2019, 12, 25, 20, 15, 56, 500, DateTimeKind.Local).AddTicks(4069),
+                            ModifiedAt = new DateTime(2019, 12, 25, 20, 15, 56, 500, DateTimeKind.Local).AddTicks(4067),
+                            Photo = "blog/blog1.jpg",
                             Status = true
                         },
                         new
                         {
                             Id = 12,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2019, 12, 23, 21, 32, 24, 435, DateTimeKind.Local).AddTicks(5985),
-                            ModifiedAt = new DateTime(2019, 12, 23, 21, 32, 24, 435, DateTimeKind.Local).AddTicks(5984),
-                            Photo = "blog/blog12.jpg",
+                            CreatedAt = new DateTime(2019, 12, 25, 20, 15, 56, 500, DateTimeKind.Local).AddTicks(4073),
+                            ModifiedAt = new DateTime(2019, 12, 25, 20, 15, 56, 500, DateTimeKind.Local).AddTicks(4071),
+                            Photo = "blog/blog2.jpg",
                             Status = true
                         },
                         new
                         {
                             Id = 13,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2019, 12, 23, 21, 32, 24, 435, DateTimeKind.Local).AddTicks(5989),
-                            ModifiedAt = new DateTime(2019, 12, 23, 21, 32, 24, 435, DateTimeKind.Local).AddTicks(5987),
-                            Photo = "blog/blog13.jpg",
+                            CreatedAt = new DateTime(2019, 12, 25, 20, 15, 56, 500, DateTimeKind.Local).AddTicks(4077),
+                            ModifiedAt = new DateTime(2019, 12, 25, 20, 15, 56, 500, DateTimeKind.Local).AddTicks(4075),
+                            Photo = "blog/blog3.jpg",
                             Status = true
                         },
                         new
                         {
                             Id = 14,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2019, 12, 23, 21, 32, 24, 435, DateTimeKind.Local).AddTicks(5993),
-                            ModifiedAt = new DateTime(2019, 12, 23, 21, 32, 24, 435, DateTimeKind.Local).AddTicks(5991),
-                            Photo = "blog/blog14.jpg",
+                            CreatedAt = new DateTime(2019, 12, 25, 20, 15, 56, 500, DateTimeKind.Local).AddTicks(4080),
+                            ModifiedAt = new DateTime(2019, 12, 25, 20, 15, 56, 500, DateTimeKind.Local).AddTicks(4079),
+                            Photo = "blog/blog4.jpg",
                             Status = true
                         },
                         new
                         {
                             Id = 15,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2019, 12, 23, 21, 32, 24, 435, DateTimeKind.Local).AddTicks(5996),
-                            ModifiedAt = new DateTime(2019, 12, 23, 21, 32, 24, 435, DateTimeKind.Local).AddTicks(5995),
-                            Photo = "blog/blog15.jpg",
+                            CreatedAt = new DateTime(2019, 12, 25, 20, 15, 56, 500, DateTimeKind.Local).AddTicks(4084),
+                            ModifiedAt = new DateTime(2019, 12, 25, 20, 15, 56, 500, DateTimeKind.Local).AddTicks(4082),
+                            Photo = "blog/blog5.jpg",
                             Status = true
                         });
                 });
@@ -772,12 +1442,13 @@ namespace Junko.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("BlogCategory");
+                    b.ToTable("BlogCategories");
 
                     b.HasData(
                         new
                         {
                             Id = 1,
+                            AdminManagerId = 1,
                             BlogId = 1,
                             CategoryId = 1,
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -785,6 +1456,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 2,
+                            AdminManagerId = 1,
                             BlogId = 1,
                             CategoryId = 2,
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -792,6 +1464,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 3,
+                            AdminManagerId = 1,
                             BlogId = 1,
                             CategoryId = 3,
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -799,6 +1472,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 4,
+                            AdminManagerId = 1,
                             BlogId = 2,
                             CategoryId = 4,
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -806,6 +1480,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 5,
+                            AdminManagerId = 1,
                             BlogId = 2,
                             CategoryId = 5,
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -813,6 +1488,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 6,
+                            AdminManagerId = 1,
                             BlogId = 2,
                             CategoryId = 6,
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -820,6 +1496,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 7,
+                            AdminManagerId = 1,
                             BlogId = 3,
                             CategoryId = 1,
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -827,6 +1504,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 8,
+                            AdminManagerId = 1,
                             BlogId = 3,
                             CategoryId = 3,
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -834,6 +1512,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 9,
+                            AdminManagerId = 1,
                             BlogId = 3,
                             CategoryId = 5,
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -841,6 +1520,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 10,
+                            AdminManagerId = 1,
                             BlogId = 4,
                             CategoryId = 1,
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -848,6 +1528,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 11,
+                            AdminManagerId = 1,
                             BlogId = 5,
                             CategoryId = 2,
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -855,6 +1536,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 12,
+                            AdminManagerId = 1,
                             BlogId = 6,
                             CategoryId = 3,
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -862,6 +1544,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 13,
+                            AdminManagerId = 1,
                             BlogId = 7,
                             CategoryId = 4,
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -869,6 +1552,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 14,
+                            AdminManagerId = 1,
                             BlogId = 8,
                             CategoryId = 5,
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -876,6 +1560,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 15,
+                            AdminManagerId = 1,
                             BlogId = 9,
                             CategoryId = 6,
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -883,6 +1568,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 16,
+                            AdminManagerId = 1,
                             BlogId = 10,
                             CategoryId = 1,
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -890,6 +1576,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 17,
+                            AdminManagerId = 1,
                             BlogId = 11,
                             CategoryId = 2,
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -897,6 +1584,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 18,
+                            AdminManagerId = 1,
                             BlogId = 12,
                             CategoryId = 3,
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -904,6 +1592,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 19,
+                            AdminManagerId = 1,
                             BlogId = 13,
                             CategoryId = 4,
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -911,6 +1600,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 20,
+                            AdminManagerId = 1,
                             BlogId = 14,
                             CategoryId = 5,
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -918,6 +1608,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 21,
+                            AdminManagerId = 1,
                             BlogId = 15,
                             CategoryId = 6,
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -954,48 +1645,132 @@ namespace Junko.Migrations
                         {
                             Id = 1,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2019, 12, 23, 21, 32, 24, 434, DateTimeKind.Local).AddTicks(7789),
-                            ModifiedAt = new DateTime(2019, 12, 23, 21, 32, 24, 434, DateTimeKind.Local).AddTicks(7043),
+                            CreatedAt = new DateTime(2019, 12, 25, 20, 15, 56, 499, DateTimeKind.Local).AddTicks(5729),
+                            ModifiedAt = new DateTime(2019, 12, 25, 20, 15, 56, 499, DateTimeKind.Local).AddTicks(4974),
                             Status = true
                         },
                         new
                         {
                             Id = 2,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2019, 12, 23, 21, 32, 24, 434, DateTimeKind.Local).AddTicks(9187),
-                            ModifiedAt = new DateTime(2019, 12, 23, 21, 32, 24, 434, DateTimeKind.Local).AddTicks(9166),
+                            CreatedAt = new DateTime(2019, 12, 25, 20, 15, 56, 499, DateTimeKind.Local).AddTicks(7108),
+                            ModifiedAt = new DateTime(2019, 12, 25, 20, 15, 56, 499, DateTimeKind.Local).AddTicks(7089),
                             Status = true
                         },
                         new
                         {
                             Id = 3,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2019, 12, 23, 21, 32, 24, 434, DateTimeKind.Local).AddTicks(9208),
-                            ModifiedAt = new DateTime(2019, 12, 23, 21, 32, 24, 434, DateTimeKind.Local).AddTicks(9205),
+                            CreatedAt = new DateTime(2019, 12, 25, 20, 15, 56, 499, DateTimeKind.Local).AddTicks(7132),
+                            ModifiedAt = new DateTime(2019, 12, 25, 20, 15, 56, 499, DateTimeKind.Local).AddTicks(7130),
                             Status = true
                         },
                         new
                         {
                             Id = 4,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2019, 12, 23, 21, 32, 24, 434, DateTimeKind.Local).AddTicks(9211),
-                            ModifiedAt = new DateTime(2019, 12, 23, 21, 32, 24, 434, DateTimeKind.Local).AddTicks(9210),
+                            CreatedAt = new DateTime(2019, 12, 25, 20, 15, 56, 499, DateTimeKind.Local).AddTicks(7135),
+                            ModifiedAt = new DateTime(2019, 12, 25, 20, 15, 56, 499, DateTimeKind.Local).AddTicks(7134),
                             Status = true
                         },
                         new
                         {
                             Id = 5,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2019, 12, 23, 21, 32, 24, 434, DateTimeKind.Local).AddTicks(9215),
-                            ModifiedAt = new DateTime(2019, 12, 23, 21, 32, 24, 434, DateTimeKind.Local).AddTicks(9214),
+                            CreatedAt = new DateTime(2019, 12, 25, 20, 15, 56, 499, DateTimeKind.Local).AddTicks(7139),
+                            ModifiedAt = new DateTime(2019, 12, 25, 20, 15, 56, 499, DateTimeKind.Local).AddTicks(7137),
                             Status = true
                         },
                         new
                         {
                             Id = 6,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2019, 12, 23, 21, 32, 24, 434, DateTimeKind.Local).AddTicks(9219),
-                            ModifiedAt = new DateTime(2019, 12, 23, 21, 32, 24, 434, DateTimeKind.Local).AddTicks(9217),
+                            CreatedAt = new DateTime(2019, 12, 25, 20, 15, 56, 499, DateTimeKind.Local).AddTicks(7142),
+                            ModifiedAt = new DateTime(2019, 12, 25, 20, 15, 56, 499, DateTimeKind.Local).AddTicks(7141),
+                            Status = true
+                        });
+                });
+
+            modelBuilder.Entity("Junko.Models.Faq", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("AdminManagerId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("ModifiedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("Order")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AdminManagerId");
+
+                    b.ToTable("Faqs");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            AdminManagerId = 1,
+                            ModifiedAt = new DateTime(2019, 12, 25, 20, 15, 56, 504, DateTimeKind.Local).AddTicks(1087),
+                            Order = 1,
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 2,
+                            AdminManagerId = 1,
+                            ModifiedAt = new DateTime(2019, 12, 25, 20, 15, 56, 504, DateTimeKind.Local).AddTicks(2515),
+                            Order = 2,
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 3,
+                            AdminManagerId = 1,
+                            ModifiedAt = new DateTime(2019, 12, 25, 20, 15, 56, 504, DateTimeKind.Local).AddTicks(2545),
+                            Order = 3,
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 4,
+                            AdminManagerId = 1,
+                            ModifiedAt = new DateTime(2019, 12, 25, 20, 15, 56, 504, DateTimeKind.Local).AddTicks(2548),
+                            Order = 4,
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 5,
+                            AdminManagerId = 1,
+                            ModifiedAt = new DateTime(2019, 12, 25, 20, 15, 56, 504, DateTimeKind.Local).AddTicks(2550),
+                            Order = 5,
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 6,
+                            AdminManagerId = 1,
+                            ModifiedAt = new DateTime(2019, 12, 25, 20, 15, 56, 504, DateTimeKind.Local).AddTicks(2552),
+                            Order = 6,
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 7,
+                            AdminManagerId = 1,
+                            ModifiedAt = new DateTime(2019, 12, 25, 20, 15, 56, 504, DateTimeKind.Local).AddTicks(2554),
+                            Order = 7,
                             Status = true
                         });
                 });
@@ -1029,6 +1804,170 @@ namespace Junko.Migrations
                             Id = 2,
                             LanguageCode = "az-Latn-AZ",
                             Name = "Azerbaijan"
+                        });
+                });
+
+            modelBuilder.Entity("Junko.Models.OurService", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("AdminManagerId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Icon")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(100)")
+                        .HasMaxLength(100);
+
+                    b.Property<DateTime>("ModifiedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Order")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AdminManagerId");
+
+                    b.ToTable("OurServices");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            AdminManagerId = 1,
+                            Icon = "fa fa-sliders",
+                            ModifiedAt = new DateTime(2019, 12, 25, 20, 15, 56, 502, DateTimeKind.Local).AddTicks(254),
+                            Order = 1,
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 2,
+                            AdminManagerId = 1,
+                            Icon = "fa fa-umbrella",
+                            ModifiedAt = new DateTime(2019, 12, 25, 20, 15, 56, 502, DateTimeKind.Local).AddTicks(2167),
+                            Order = 2,
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 3,
+                            AdminManagerId = 1,
+                            Icon = "fa fa-camera",
+                            ModifiedAt = new DateTime(2019, 12, 25, 20, 15, 56, 502, DateTimeKind.Local).AddTicks(2211),
+                            Order = 3,
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 4,
+                            AdminManagerId = 1,
+                            Icon = "fa fa-cog",
+                            ModifiedAt = new DateTime(2019, 12, 25, 20, 15, 56, 502, DateTimeKind.Local).AddTicks(2215),
+                            Order = 4,
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 5,
+                            AdminManagerId = 1,
+                            Icon = "fa fa-file-code-o",
+                            ModifiedAt = new DateTime(2019, 12, 25, 20, 15, 56, 502, DateTimeKind.Local).AddTicks(2217),
+                            Order = 5,
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 6,
+                            AdminManagerId = 1,
+                            Icon = "fa fa-bar-chart",
+                            ModifiedAt = new DateTime(2019, 12, 25, 20, 15, 56, 502, DateTimeKind.Local).AddTicks(2219),
+                            Order = 6,
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 7,
+                            AdminManagerId = 1,
+                            Icon = "fa fa-headphones",
+                            ModifiedAt = new DateTime(2019, 12, 25, 20, 15, 56, 502, DateTimeKind.Local).AddTicks(2221),
+                            Order = 7,
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 8,
+                            AdminManagerId = 1,
+                            Icon = "fa fa-leaf",
+                            ModifiedAt = new DateTime(2019, 12, 25, 20, 15, 56, 502, DateTimeKind.Local).AddTicks(2223),
+                            Order = 8,
+                            Status = true
+                        });
+                });
+
+            modelBuilder.Entity("Junko.Models.ServicesCover", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("AdminManagerId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("ModifiedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Order")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Photo")
+                        .HasColumnType("nvarchar(250)")
+                        .HasMaxLength(250);
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AdminManagerId");
+
+                    b.ToTable("ServicesCovers");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            AdminManagerId = 1,
+                            ModifiedAt = new DateTime(2019, 12, 25, 20, 15, 56, 501, DateTimeKind.Local).AddTicks(2875),
+                            Order = 1,
+                            Photo = "service/services1.jpg",
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 2,
+                            AdminManagerId = 1,
+                            ModifiedAt = new DateTime(2019, 12, 25, 20, 15, 56, 501, DateTimeKind.Local).AddTicks(4989),
+                            Order = 2,
+                            Photo = "service/services2.jpg",
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 3,
+                            AdminManagerId = 1,
+                            ModifiedAt = new DateTime(2019, 12, 25, 20, 15, 56, 501, DateTimeKind.Local).AddTicks(5025),
+                            Order = 3,
+                            Photo = "service/services3.jpg",
+                            Status = true
                         });
                 });
 
@@ -1082,7 +2021,7 @@ namespace Junko.Migrations
                             Email = "Junko@mail.com",
                             Location = "Code Academy",
                             Logo = "Junko",
-                            ModifiedAt = new DateTime(2019, 12, 23, 21, 32, 24, 431, DateTimeKind.Local).AddTicks(1317),
+                            ModifiedAt = new DateTime(2019, 12, 25, 20, 15, 56, 495, DateTimeKind.Local).AddTicks(8118),
                             Phone = "+994 50 787 01 81",
                             PhotoLogo = "logo/logo.png"
                         });
@@ -1116,6 +2055,9 @@ namespace Junko.Migrations
                     b.Property<DateTime>("ModifiedAt")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Privacy")
+                        .HasColumnType("ntext");
+
                     b.Property<int>("SettingId")
                         .HasColumnType("int");
 
@@ -1137,7 +2079,8 @@ namespace Junko.Migrations
                             FAQContent = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec id erat sagittis, faucibus metus malesuada, eleifend turpis. Mauris semper augue id nisl aliquet, a porta lectus mattis. Nulla at tortor augue. In eget enim diam. Donec gravida tortor sem, ac fermentum nibh rutrum sit amet. Nulla convallis mauris vitae congue consequat. Donec interdum nunc purus, vitae vulputate arcu fringilla quis. Vivamus iaculis euismod dui.",
                             FAQTitle = "Below are frequently asked questions, you may find the answer for yourself",
                             LanguageId = 1,
-                            ModifiedAt = new DateTime(2019, 12, 23, 21, 32, 24, 432, DateTimeKind.Local).AddTicks(8481),
+                            ModifiedAt = new DateTime(2019, 12, 25, 20, 15, 56, 497, DateTimeKind.Local).AddTicks(5720),
+                            Privacy = "<div class='privacy_content section_1'> <h2>Who we are</h2> <p>Our website address is: <a href='http://1.envato.market/9LbxW'>http://1.envato.market/9LbxW</a></p> </div> <div class='privacy_content section_2'> <h2>What personal data we collect and why we collect it</h2> <h3>Comments</h3> <p>When visitors leave comments on the site we collect the data shown in the comments form, and also the visitor’s IP address and browser user agent string to help spam detection.</p> <p>An anonymized string created from your email address (also called a hash) may be provided to the Gravatar service to see if you are using it. The Gravatar service privacy policy is available here: https://automattic.com/privacy/. After approval of your comment, your profile picture is visible to the public in the context of your comment.</p> <h3>Media</h3> <p>If you upload images to the website, you should avoid uploading images with embedded location data (EXIF GPS) included. Visitors to the website can download and extract any location data from images on the website.</p> <h3>Cookies</h3> <p>If you leave a comment on our site you may opt-in to saving your name, email address and website in cookies. These are for your convenience so that you do not have to fill in your details again when you leave another comment. These cookies will last for one year.</p> <p>If you have an account and you log in to this site, we will set a temporary cookie to determine if your browser accepts cookies. This cookie contains no personal data and is discarded when you close your browser.</p> <p>When you log in, we will also set up several cookies to save your login information and your screen display choices. Login cookies last for two days, and screen options cookies last for a year. If you select “Remember Me”, your login will persist for two weeks. If you log out of your account, the login cookies will be removed.</p> <p>If you edit or publish an article, an additional cookie will be saved in your browser. This cookie includes no personal data and simply indicates the post ID of the article you just edited. It expires after 1 day.</p> <h3>Embedded content from other websites</h3> <p>Articles on this site may include embedded content (e.g. videos, images, articles, etc.). Embedded content from other websites behaves in the exact same way as if the visitor has visited the other website.</p> <p>These websites may collect data about you, use cookies, embed additional third-party tracking, and monitor your interaction with that embedded content, including tracking your interaction with the embedded content if you have an account and are logged in to that website.</p> </div> <div class='privacy_content section_3'> <h2>How long we retain your data</h2> <p>If you leave a comment, the comment and its metadata are retained indefinitely. This is so we can recognize and approve any follow-up comments automatically instead of holding them in a moderation queue.</p> <p>For users that register on our website (if any), we also store the personal information they provide in their user profile. All users can see, edit, or delete their personal information at any time (except they cannot change their username). Website administrators can also see and edit that information.</p> </div> <div class='privacy_content section_3'> <h2>What rights you have over your data</h2> <p>If you have an account on this site, or have left comments, you can request to receive an exported file of the personal data we hold about you, including any data you have provided to us. You can also request that we erase any personal data we hold about you. This does not include any data we are obliged to keep for administrative, legal, or security purposes.</p> </div> <div class='privacy_content section_3'> <h2>Where we send your data</h2> <p>Visitor comments may be checked through an automated spam detection service.</p> </div>",
                             SettingId = 1
                         },
                         new
@@ -1147,7 +2090,8 @@ namespace Junko.Migrations
                             FAQContent = "",
                             FAQTitle = "Aşağıda tez-tez verilən suallarla özünüz üçün cavab tapa bilərsiniz",
                             LanguageId = 2,
-                            ModifiedAt = new DateTime(2019, 12, 23, 21, 32, 24, 432, DateTimeKind.Local).AddTicks(8588),
+                            ModifiedAt = new DateTime(2019, 12, 25, 20, 15, 56, 497, DateTimeKind.Local).AddTicks(6517),
+                            Privacy = "<div class='privacy_content section_1'> <h2>Biz kimik</h2> <p>Veb saytımızın ünvanı: <a href='http://1.envato.market/9LbxW'>http://1.envato.market/9LbxW</a></p> </div> <div class='privacy_content section_2'> <h2>Hansı şəxsi məlumatları toplayırıq və niyə toplayırıq</h2> <h3>Şərhlər</h3> <p>Saytda şərhlər buraxdıqda, şərh şəklində göstərilən məlumatları, həmçinin spamın aşkarlanmasına kömək etmək üçün ziyarətçinin IP ünvanı və brauzer istifadəçi agenti simini toplayırıq.Elektron poçtunuzun adından yaradılan bir anonim simli (hash adlanır) istifadə etdiyinizi görmək üçün Gravatar xidmətinə verilə bilər. Gravatar xidmətinin məxfilik siyasəti ilə burada tanış olmaq mümkündür: https://automattic.com/privacy/. Şərhiniz təsdiqləndikdən sonra profil şəkliniz şərhiniz daxilində ictimaiyyətə görünəcəkdir.</p> <h3>Media</h3> <p>Şəkilləri veb saytına yükləsəniz, daxil edilmiş məlumat məlumatları (EXIF GPS) daxil edilmiş şəkilləri yükləməkdən çəkinməlisiniz. Veb saytına daxil olanlar veb saytdakı şəkillərdən hər hansı bir yer məlumatını yükləyə və çıxara bilər.</p> <h3>Cookies</h3> <p>Saytımızda bir rəy yazsanız, adınızı, e-poçt adresinizi və veb saytınızı çərəzlərdə saxlamaq üçün iştirak edə bilərsiniz. Bunlar sizin rahatlığınız üçündür ki, başqa bir şərh yazanda yenidən məlumatlarınızı doldurmamalısınız. Bu peçenye bir il davam edəcəkdir.Bir hesabınız varsa və bu sayta daxil olsanız, brauzerinizin çerezləri qəbul edib etmədiyini müəyyənləşdirmək üçün müvəqqəti bir çərəz hazırlayacağıq. Bu çerezdə şəxsi məlumat yoxdur və brauzerinizi bağladığınız zaman atılır.Giriş etdiyiniz zaman giriş məlumatlarınızı və ekrandakı seçimlərinizi saxlamaq üçün bir neçə çərəz hazırlayacağıq. Giriş peçenye iki gün davam edir və ekran seçimləri peçenye bir il davam edir. 'Məni yadda saxla' seçsəniz, girişiniz iki həftə davam edəcəkdir. Hesabınızdan çıxsanız, giriş cookies-ləri silinəcəkdir.Bir məqaləni redaktə etsəniz və ya dərc etsəniz, əlavə bir çərəz brauzerinizdə saxlanacaqdır. Bu çerez heç bir şəxsi məlumatı ehtiva etmir və sadəcə redaktə etdiyiniz məqalənin poçt nömrəsini göstərir. 1 gündən sonra bitəcək.</p> <h3>Digər veb saytlardan daxil edilmiş məzmun</h3> <p>Bu saytdakı məqalələr əlaqədar məzmunu ehtiva edə bilər (məsələn, video, şəkillər, məqalələr və s.). Digər veb saytlardan daxil edilmiş məzmun, qonaq digər veb saytı ziyarət etdiyi kimi eyni şəkildə davranır.Bu veb saytlar sizin haqqınızda məlumat toplaya bilər, peçenye istifadə edə bilər, əlavə üçüncü tərəf izləmə əlavə edə bilər və daxil edilmiş məzmunla qarşılıqlı əlaqənizi, habelə hesabınız varsa və həmin veb sayta daxil olmağınızla əlaqəli əlaqənizi izləyə bilər.</p> </div> <div class='privacy_content section_3'> <h2>Verilənlərinizi necə saxlayırıq?</h2> <p>Bir şərh buraxsanız, şərh və onun metadatası qeyri-müəyyən olaraq saxlanılır. Bu, hər hansı bir izləmə şərhlərini moderasiya növbəsində saxlamaq əvəzinə avtomatik olaraq tanıya və təsdiqləyə biləcəyimizdir.Veb saytımızda (əgər varsa) qeydiyyatdan keçən istifadəçilər üçün təqdim etdikləri şəxsi məlumatları istifadəçi profilində saxlayırıq. Bütün istifadəçilər istənilən vaxt şəxsi məlumatlarını görə bilər, redaktə edə və ya silə bilər (istifadəçi adlarını dəyişə bilməyincə). Veb sayt rəhbərləri də həmin məlumatları görə və redaktə edə bilərlər.</p> </div> <div class='privacy_content section_3'> <h2>Məlumatlarınız üzərində hansı hüquqlara sahibsiniz</h2> <p>Bu saytda bir hesabınız varsa və ya şərhlər buraxmısınızsa, sizə təqdim etdiyiniz hər hansı bir məlumat daxil olmaqla, sizin haqqımızda saxladığımız fərdi məlumatların ixrac edilmiş sənədini tələb edə bilərsiniz. Ayrıca, sizin haqqınızda saxladığımız şəxsi məlumatlarınızı silməyimizi tələb edə bilərsiniz. Buraya inzibati, qanuni və ya təhlükəsizlik məqsədləri üçün saxlamalı olduğumuz hər hansı bir məlumat daxil deyil.</p> </div> <div class='privacy_content section_3'> <h2>Məlumatlarınızı hara göndəririk</h2> <p>Ziyarətçilərin şərhləri avtomatlaşdırılmış spam aşkarlama xidməti vasitəsilə yoxlanıla bilər..</p> </div>",
                             SettingId = 1
                         });
                 });
@@ -1229,6 +2173,76 @@ namespace Junko.Migrations
                         });
                 });
 
+            modelBuilder.Entity("Junko.Models.WhatDo", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("AdminManagerId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("LanguageId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("ModifiedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Photo")
+                        .HasColumnType("nvarchar(300)")
+                        .HasMaxLength(300);
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
+
+                    b.Property<int?>("WhatDoId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AdminManagerId");
+
+                    b.HasIndex("LanguageId");
+
+                    b.HasIndex("WhatDoId");
+
+                    b.ToTable("WhatDos");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            AdminManagerId = 1,
+                            ModifiedAt = new DateTime(2019, 12, 25, 20, 15, 56, 503, DateTimeKind.Local).AddTicks(4338),
+                            Photo = "about/about2.jpg",
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 2,
+                            AdminManagerId = 1,
+                            ModifiedAt = new DateTime(2019, 12, 25, 20, 15, 56, 503, DateTimeKind.Local).AddTicks(5754),
+                            Photo = "about/about3.jpg",
+                            Status = true
+                        });
+                });
+
+            modelBuilder.Entity("Junko.ModelTranslate.AboutSettingTranslate", b =>
+                {
+                    b.HasOne("Junko.Models.AboutSetting", "AboutSetting")
+                        .WithMany("AboutSettingTranslates")
+                        .HasForeignKey("AboutSettingId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Junko.Models.Language", "Language")
+                        .WithMany("AboutSettingTranslates")
+                        .HasForeignKey("LanguageId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("Junko.ModelTranslate.AdminCategoryTranslate", b =>
                 {
                     b.HasOne("Junko.Models.AdminCategory", "AdminCategory")
@@ -1274,6 +2288,73 @@ namespace Junko.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("Junko.ModelTranslate.FaqTranslate", b =>
+                {
+                    b.HasOne("Junko.Models.Faq", "Faq")
+                        .WithMany("FaqTranslates")
+                        .HasForeignKey("FaqId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Junko.Models.Language", "Language")
+                        .WithMany("FaqTranslates")
+                        .HasForeignKey("LanguageeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Junko.ModelTranslate.OurServiceTranslate", b =>
+                {
+                    b.HasOne("Junko.Models.Language", "Language")
+                        .WithMany("OurServiceTranslates")
+                        .HasForeignKey("LanguageId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Junko.Models.OurService", "OurService")
+                        .WithMany("OurServiceTranslates")
+                        .HasForeignKey("OurServiceId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Junko.ModelTranslate.ServicesCoverTranslate", b =>
+                {
+                    b.HasOne("Junko.Models.Language", "Language")
+                        .WithMany("ServicesCoverTranslates")
+                        .HasForeignKey("LanguageId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Junko.Models.ServicesCover", "ServicesCover")
+                        .WithMany("ServicesCoverTranslates")
+                        .HasForeignKey("ServicesCoverId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Junko.ModelTranslate.WhatDoTranslate", b =>
+                {
+                    b.HasOne("Junko.Models.Language", "Language")
+                        .WithMany()
+                        .HasForeignKey("LanguageId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Junko.Models.WhatDo", "WhatDo")
+                        .WithMany()
+                        .HasForeignKey("WhatDoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Junko.Models.AboutSetting", b =>
+                {
+                    b.HasOne("Junko.Models.AdminManager", "AdminManager")
+                        .WithMany("AboutSettings")
+                        .HasForeignKey("AdminManagerId");
+                });
+
             modelBuilder.Entity("Junko.Models.AdminManager", b =>
                 {
                     b.HasOne("Junko.Models.AdminCategory", "Category")
@@ -1316,6 +2397,27 @@ namespace Junko.Migrations
                         .HasForeignKey("AdminManagerId");
                 });
 
+            modelBuilder.Entity("Junko.Models.Faq", b =>
+                {
+                    b.HasOne("Junko.Models.AdminManager", "AdminManager")
+                        .WithMany("Faqs")
+                        .HasForeignKey("AdminManagerId");
+                });
+
+            modelBuilder.Entity("Junko.Models.OurService", b =>
+                {
+                    b.HasOne("Junko.Models.AdminManager", "AdminManager")
+                        .WithMany("OurServices")
+                        .HasForeignKey("AdminManagerId");
+                });
+
+            modelBuilder.Entity("Junko.Models.ServicesCover", b =>
+                {
+                    b.HasOne("Junko.Models.AdminManager", "AdminManager")
+                        .WithMany("ServicesCovers")
+                        .HasForeignKey("AdminManagerId");
+                });
+
             modelBuilder.Entity("Junko.Models.Setting", b =>
                 {
                     b.HasOne("Junko.Models.AdminManager", "AdminManager")
@@ -1353,6 +2455,21 @@ namespace Junko.Migrations
                         .HasForeignKey("SettingId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Junko.Models.WhatDo", b =>
+                {
+                    b.HasOne("Junko.Models.AdminManager", "AdminManager")
+                        .WithMany("WhatDos")
+                        .HasForeignKey("AdminManagerId");
+
+                    b.HasOne("Junko.Models.Language", null)
+                        .WithMany("WhatDos")
+                        .HasForeignKey("LanguageId");
+
+                    b.HasOne("Junko.Models.WhatDo", null)
+                        .WithMany("WhatDos")
+                        .HasForeignKey("WhatDoId");
                 });
 #pragma warning restore 612, 618
         }
