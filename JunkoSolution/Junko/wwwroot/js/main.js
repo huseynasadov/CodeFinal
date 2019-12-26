@@ -1,5 +1,8 @@
+
+
 (function ($) {
     "use strict";
+    
 
     new WOW().init();  
 
@@ -16,7 +19,6 @@
     $(window).on('load', function () {
         dataBackgroundImage();
     });
-    
     /*---stickey menu---*/
     $(window).on('scroll',function() {    
            var scroll = $(window).scrollTop();
@@ -45,7 +47,10 @@
         items: 1,
         dots:true,
     });
+
+       
     
+
     /*---product column5 activation---*/
        $('.product_column5').on('changed.owl.carousel initialized.owl.carousel', function (event) {
         $(event.target).find('.owl-item').removeClass('last').eq(event.item.index + event.page.size - 1).addClass('last')}).owlCarousel({
@@ -75,8 +80,6 @@
             1200:{
 				items:5,
 			},
-
-
 		  }
     });
     

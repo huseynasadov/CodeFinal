@@ -1,11 +1,17 @@
-﻿
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer _localizer
+@model ContactVM
 @{
     ViewData["Title"] = "Contact";
 }
 
 <!--breadcrumbs area start-->
 
-@await Html.PartialAsync("~/Views/Shared/_Breadcrumb.cshtml")
+@await Html.PartialAsync("~/Views/Shared/_Breadcrumb.cshtml", model: Model.Breadcrumb)
+@{
+    string location = Model.SettingTranslate.Setting.Location.ToLower().Trim().Replace(' ', '+');
+}
+ }
 <!--breadcrumbs area end-->
 <!--Main Start-->
 <main>
@@ -14,7 +20,7 @@
         <div style="max-width:100%;list-style:none; transition: none;overflow:hidden;width:100%;height:500px;">
             <div id="embedmap-display" style="height:100%; width:100%;max-width:100%;">
                 <iframe style="height:100%;width:100%;border:0;" frameborder="0"
-                        src="https://www.google.com/maps/embed/v1/place?q=baku+qiz+qalasi&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8">
+                        src="https://www.google.com/maps/embed/v1/place?q=@(location)&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8">
                 </iframe>
             </div>
             <a class="googlemaps-code" href="https://www.embed-map.com"
@@ -35,23 +41,18 @@
             <div class="row">
                 <div class="col-lg-6 col-md-12">
                     <div class="contact_message content">
-                        <h3>contact us</h3>
-                        <p>
-                            Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum.
-                            Mirum est notare quam littera gothica, quam nunc putamus parum claram anteposuerit
-                            litterarum formas human. qui sequitur mutationem consuetudium lectorum. Mirum est notare
-                            quam
-                        </p>
+                        <h3>@_localizer["Contact Us"]</h3>
+                        
                         <ul>
-                            <li><i class="fa fa-fax"></i> Address : No 40 Baria Sreet 133/2 NewYork City</li>
-                            <li><i class="fa fa-phone"></i> <a href="#">Infor@roadthemes.com</a></li>
-                            <li><i class="fa fa-envelope-o"></i> 0(1234) 567 890</li>
+                            <li><i class="fa fa-fax"></i> @_localizer["Address"] : @Model.SettingTranslate.Address</li>
+                            <li><i class="fa fa-phone"></i> <a href="#">@Model.SettingTranslate.Setting.Email</a></li>
+                            <li><i class="fa fa-envelope-o"></i>@Model.SettingTranslate.Setting.Phone</li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-12">
                     <div class="contact_message form">
-                        <h3>Tell us your project</h3>
+                        <h3>@_localizer["Tell us your project"]</h3>
                         <form id="contact-form" method="POST"
                               action="https://demo.hasthemes.com/junko-preview/junko/assets/mail.php">
                             <p>
@@ -70,7 +71,7 @@
                                 <label> Your Message</label>
                                 <textarea placeholder="Message *" name="message" class="form-control2"></textarea>
                             </div>
-                            <button type="submit"> Send</button>
+                            <button type="submit"> @_localizer["Send"]</button>
                             <p class="form-messege"></p>
                         </form>
 

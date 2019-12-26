@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Junko.ViewModels
 {
-    public enum Page {Home,Shop,ShopDetail,Blog,BlogDetail,About,Service,FAQ,Privacy,Account,Wishlist,Login,Cart,Checkout }
+    public enum Page {Home,Shop,ShopDetail,Blog,BlogDetail,About,Contact,Service,FAQ,Privacy,Account,Wishlist,Login,Cart,Checkout }
     public class Breadcrumb
     {
         public Dictionary<string, string> Path { get; set; }

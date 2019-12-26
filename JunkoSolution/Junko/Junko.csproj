@@ -33,6 +33,9 @@
     <EmbeddedResource Update="Resources\Views\Blog\Index.az-Latn-AZ.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Views\Contact\Index.az-Latn-AZ.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Resources\Views\Home\Index.az-Latn-AZ.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
     </EmbeddedResource>

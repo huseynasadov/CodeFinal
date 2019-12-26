@@ -208,28 +208,28 @@
                             <nav>
                                 <ul>
                                     <li>
-                                        <a class="active" asp-controller="home" asp-action="index">@_localizer["home"]</a>
+                                        <a  is-active-route asp-controller="home" asp-action="index">@_localizer["home"]</a>
 
                                     </li>
                                     <li class="mega_items">
-                                        <a asp-controller="shop" asp-action="index">@_localizer["Shop"]</a>
+                                        <a is-active-route asp-controller="shop" asp-action="index">@_localizer["Shop"]</a>
                                     </li>
                                     <li>
-                                        <a asp-controller="blog" asp-action="index">@_localizer["Blogs"]</a>
+                                        <a is-active-route asp-controller="blog" asp-action="index">@_localizer["Blogs"]</a>
                                     </li>
                                     <li>
-                                        <a asp-controller="service" asp-action="index">@_localizer["Services"]</a>
+                                        <a is-active-route asp-controller="service" asp-action="index">@_localizer["Services"]</a>
                                     </li>
                                     <li>
                                         <a href="#">@_localizer["Pages"]<i class="fa fa-angle-down"></i></a>
                                         <ul class="sub_menu pages">
-                                            <li><a asp-controller="about" asp-action="index">@_localizer["About Us"]</a></li>
-                                            <li><a asp-controller="faq" asp-action="index">@_localizer["Frequently Questions"]</a></li>
-                                            <li><a asp-controller="privacy" asp-action="index">@_localizer["Privacy Policy"]</a></li>
-                                            <li><a asp-controller="login" asp-action="index">@_localizer["Login"]</a></li>
+                                            <li><a is-active-route asp-controller="about" asp-action="index">@_localizer["About Us"]</a></li>
+                                            <li><a is-active-route asp-controller="faq" asp-action="index">@_localizer["Frequently Questions"]</a></li>
+                                            <li><a is-active-route asp-controller="privacy" asp-action="index">@_localizer["Privacy Policy"]</a></li>
+                                            <li><a is-active-route asp-controller="login" asp-action="index">@_localizer["Login"]</a></li>
                                         </ul>
                                     </li>
-                                    <li><a asp-controller="contact" asp-action="index">@_localizer["Contact Us"]</a></li>
+                                    <li><a is-active-route asp-controller="contact" asp-action="index">@_localizer["Contact Us"]</a></li>
                                 </ul>
                             </nav>
                         </div>

@@ -41,7 +41,7 @@ using Microsoft.AspNetCore.Mvc.Localization;
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"d81e3fc5e71c088079667519aa7ab812a52d71f6", @"/Views/Privacy/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"647784e740503e2fb74681806ace87bccba35145", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"4ce0bfaa4b60413cd42f3d5b8bb79b5b0da005ee", @"/Views/_ViewImports.cshtml")]
     public class Views_Privacy_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<PrivacyVM>
     {
         #pragma warning disable 1998
