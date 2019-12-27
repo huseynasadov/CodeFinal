@@ -20,6 +20,8 @@ namespace Junko.Models
         public ICollection<AboutSettingTranslate> AboutSettingTranslates { get; set; }
         public ICollection<WhatDo> WhatDos { get; set; }
         public ICollection<FaqTranslate> FaqTranslates { get; set; }
+        public ICollection<ProductCategoryTranslate> ProductCategoryTranslate { get; set; }
+        public ICollection<ProductSubCategoryTranslate> ProductSubCategoryTranslate { get; set; }
 
     }
 }

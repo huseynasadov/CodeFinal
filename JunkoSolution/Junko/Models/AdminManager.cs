@@ -39,5 +39,8 @@ namespace Junko.Models
         public ICollection<AboutSetting> AboutSettings { get; set; }
         public ICollection<WhatDo> WhatDos { get; set; }
         public ICollection<Faq> Faqs { get; set; }
+        public ICollection<Brand> Brands { get; set; }
+        public ICollection<ProductSubCategory> ProductSubCategory { get; set; }
+        public ICollection<ProductCategory> ProductCategories { get; set; }
     }
 }

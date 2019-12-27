@@ -918,6 +918,1012 @@ namespace Junko.Migrations
                         });
                 });
 
+            modelBuilder.Entity("Junko.ModelTranslate.ProductCategoryTranslate", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("LanguageId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(100)")
+                        .HasMaxLength(100);
+
+                    b.Property<int>("ProductCategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Slug")
+                        .HasColumnType("nvarchar(150)")
+                        .HasMaxLength(150);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("LanguageId");
+
+                    b.HasIndex("ProductCategoryId");
+
+                    b.ToTable("ProductCategoryTranslates");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            LanguageId = 1,
+                            Name = "Telephone and tablets",
+                            ProductCategoryId = 1,
+                            Slug = "Telephones-and-tablets"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            LanguageId = 1,
+                            Name = "Household Items",
+                            ProductCategoryId = 2,
+                            Slug = "Household-Items"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            LanguageId = 1,
+                            Name = "Computers and office equipment",
+                            ProductCategoryId = 3,
+                            Slug = "Computers-and-office-equipment"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            LanguageId = 1,
+                            Name = "TV and Audio Systems",
+                            ProductCategoryId = 4,
+                            Slug = "TV-and-Audio-Systems"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            LanguageId = 1,
+                            Name = "Game consoles",
+                            ProductCategoryId = 5,
+                            Slug = "Game-consoles"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            LanguageId = 1,
+                            Name = "Small household items",
+                            ProductCategoryId = 6,
+                            Slug = "Small-household-items"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            LanguageId = 1,
+                            Name = "Accessories",
+                            ProductCategoryId = 7,
+                            Slug = "Accessories"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            LanguageId = 1,
+                            Name = "Numbers",
+                            ProductCategoryId = 8,
+                            Slug = "Numbers"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            LanguageId = 1,
+                            Name = "İROBOT",
+                            ProductCategoryId = 9,
+                            Slug = "İROBOT"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            LanguageId = 1,
+                            Name = "Office Equipment",
+                            ProductCategoryId = 10,
+                            Slug = "Office-Equipment"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            LanguageId = 2,
+                            Name = "Telefon və planşetlər",
+                            ProductCategoryId = 1,
+                            Slug = "telefon-ve-plansetler"
+                        },
+                        new
+                        {
+                            Id = 12,
+                            LanguageId = 2,
+                            Name = "Məişət əşyaları",
+                            ProductCategoryId = 2,
+                            Slug = "meiset-esyalari"
+                        },
+                        new
+                        {
+                            Id = 13,
+                            LanguageId = 2,
+                            Name = "Kompüterlər və ofis avadanlıqları",
+                            ProductCategoryId = 3,
+                            Slug = "koputer-ve-ofis-avadanliqlari"
+                        },
+                        new
+                        {
+                            Id = 14,
+                            LanguageId = 2,
+                            Name = "TV və Audio sistemlər",
+                            ProductCategoryId = 4,
+                            Slug = "tv-ve-audio-sistemler"
+                        },
+                        new
+                        {
+                            Id = 15,
+                            LanguageId = 2,
+                            Name = "Oyun konsolları",
+                            ProductCategoryId = 5,
+                            Slug = "oyun-konsollari"
+                        },
+                        new
+                        {
+                            Id = 16,
+                            LanguageId = 2,
+                            Name = "Kiçik ev əşyaları",
+                            ProductCategoryId = 6,
+                            Slug = "kicik-ev-esyalari"
+                        },
+                        new
+                        {
+                            Id = 17,
+                            LanguageId = 2,
+                            Name = "Aksessuarlar",
+                            ProductCategoryId = 7,
+                            Slug = "Aksessuarlar"
+                        },
+                        new
+                        {
+                            Id = 18,
+                            LanguageId = 2,
+                            Name = "Nömrələr",
+                            ProductCategoryId = 8,
+                            Slug = "Nomreler"
+                        },
+                        new
+                        {
+                            Id = 19,
+                            LanguageId = 2,
+                            Name = "İROBOT",
+                            ProductCategoryId = 9,
+                            Slug = "İROBOT"
+                        },
+                        new
+                        {
+                            Id = 20,
+                            LanguageId = 2,
+                            Name = "Ofis Avadanlıqları",
+                            ProductCategoryId = 10,
+                            Slug = "Ofis Avadanlıqları"
+                        });
+                });
+
+            modelBuilder.Entity("Junko.ModelTranslate.ProductSubCategoryTranslate", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("LanguageId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(100)")
+                        .HasMaxLength(100);
+
+                    b.Property<int>("ProductSubCategoryId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("LanguageId");
+
+                    b.HasIndex("ProductSubCategoryId");
+
+                    b.ToTable("ProductSubCategoryTranslate");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            LanguageId = 1,
+                            Name = "Mobile Phone",
+                            ProductSubCategoryId = 1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            LanguageId = 1,
+                            Name = "Tablets",
+                            ProductSubCategoryId = 2
+                        },
+                        new
+                        {
+                            Id = 3,
+                            LanguageId = 1,
+                            Name = "SmartWatch",
+                            ProductSubCategoryId = 3
+                        },
+                        new
+                        {
+                            Id = 4,
+                            LanguageId = 1,
+                            Name = "Second hand mobile phones",
+                            ProductSubCategoryId = 4
+                        },
+                        new
+                        {
+                            Id = 5,
+                            LanguageId = 1,
+                            Name = "Refrigerator",
+                            ProductSubCategoryId = 5
+                        },
+                        new
+                        {
+                            Id = 6,
+                            LanguageId = 1,
+                            Name = "Air conditioning",
+                            ProductSubCategoryId = 6
+                        },
+                        new
+                        {
+                            Id = 7,
+                            LanguageId = 1,
+                            Name = "Washing machine",
+                            ProductSubCategoryId = 7
+                        },
+                        new
+                        {
+                            Id = 8,
+                            LanguageId = 1,
+                            Name = "KitchenAid",
+                            ProductSubCategoryId = 8
+                        },
+                        new
+                        {
+                            Id = 9,
+                            LanguageId = 1,
+                            Name = "Plates",
+                            ProductSubCategoryId = 9
+                        },
+                        new
+                        {
+                            Id = 10,
+                            LanguageId = 1,
+                            Name = "Ovens",
+                            ProductSubCategoryId = 10
+                        },
+                        new
+                        {
+                            Id = 11,
+                            LanguageId = 1,
+                            Name = "Notebook",
+                            ProductSubCategoryId = 11
+                        },
+                        new
+                        {
+                            Id = 12,
+                            LanguageId = 1,
+                            Name = "Desktop computer",
+                            ProductSubCategoryId = 12
+                        },
+                        new
+                        {
+                            Id = 13,
+                            LanguageId = 1,
+                            Name = "Monoblok ",
+                            ProductSubCategoryId = 13
+                        },
+                        new
+                        {
+                            Id = 14,
+                            LanguageId = 1,
+                            Name = "Printer",
+                            ProductSubCategoryId = 14
+                        },
+                        new
+                        {
+                            Id = 15,
+                            LanguageId = 1,
+                            Name = "Monitor",
+                            ProductSubCategoryId = 15
+                        },
+                        new
+                        {
+                            Id = 16,
+                            LanguageId = 1,
+                            Name = "TV",
+                            ProductSubCategoryId = 16
+                        },
+                        new
+                        {
+                            Id = 17,
+                            LanguageId = 1,
+                            Name = "Home Cinema",
+                            ProductSubCategoryId = 17
+                        },
+                        new
+                        {
+                            Id = 18,
+                            LanguageId = 1,
+                            Name = "Soundbar",
+                            ProductSubCategoryId = 18
+                        },
+                        new
+                        {
+                            Id = 19,
+                            LanguageId = 1,
+                            Name = "DVD player",
+                            ProductSubCategoryId = 19
+                        },
+                        new
+                        {
+                            Id = 20,
+                            LanguageId = 1,
+                            Name = "Projector",
+                            ProductSubCategoryId = 20
+                        },
+                        new
+                        {
+                            Id = 21,
+                            LanguageId = 1,
+                            Name = "PlayStation",
+                            ProductSubCategoryId = 21
+                        },
+                        new
+                        {
+                            Id = 22,
+                            LanguageId = 1,
+                            Name = "Games",
+                            ProductSubCategoryId = 22
+                        },
+                        new
+                        {
+                            Id = 23,
+                            LanguageId = 1,
+                            Name = "Microsof Box ",
+                            ProductSubCategoryId = 23
+                        },
+                        new
+                        {
+                            Id = 24,
+                            LanguageId = 1,
+                            Name = "Game Manipulators",
+                            ProductSubCategoryId = 24
+                        },
+                        new
+                        {
+                            Id = 25,
+                            LanguageId = 1,
+                            Name = "Vacuum cleaners",
+                            ProductSubCategoryId = 25
+                        },
+                        new
+                        {
+                            Id = 26,
+                            LanguageId = 1,
+                            Name = "Subjects",
+                            ProductSubCategoryId = 26
+                        },
+                        new
+                        {
+                            Id = 27,
+                            LanguageId = 1,
+                            Name = "Irons",
+                            ProductSubCategoryId = 27
+                        },
+                        new
+                        {
+                            Id = 28,
+                            LanguageId = 1,
+                            Name = "Grinders",
+                            ProductSubCategoryId = 28
+                        },
+                        new
+                        {
+                            Id = 29,
+                            LanguageId = 1,
+                            Name = "Kettles",
+                            ProductSubCategoryId = 29
+                        },
+                        new
+                        {
+                            Id = 30,
+                            LanguageId = 1,
+                            Name = "Juicers",
+                            ProductSubCategoryId = 30
+                        },
+                        new
+                        {
+                            Id = 31,
+                            LanguageId = 1,
+                            Name = "Blenders",
+                            ProductSubCategoryId = 31
+                        },
+                        new
+                        {
+                            Id = 32,
+                            LanguageId = 1,
+                            Name = "Toasts",
+                            ProductSubCategoryId = 32
+                        },
+                        new
+                        {
+                            Id = 33,
+                            LanguageId = 1,
+                            Name = "Mixers",
+                            ProductSubCategoryId = 33
+                        },
+                        new
+                        {
+                            Id = 34,
+                            LanguageId = 1,
+                            Name = "Screen Protector",
+                            ProductSubCategoryId = 34
+                        },
+                        new
+                        {
+                            Id = 35,
+                            LanguageId = 1,
+                            Name = "Apple Accessories",
+                            ProductSubCategoryId = 35
+                        },
+                        new
+                        {
+                            Id = 36,
+                            LanguageId = 1,
+                            Name = "Amplifier",
+                            ProductSubCategoryId = 36
+                        },
+                        new
+                        {
+                            Id = 37,
+                            LanguageId = 1,
+                            Name = "DECT Phones",
+                            ProductSubCategoryId = 37
+                        },
+                        new
+                        {
+                            Id = 38,
+                            LanguageId = 1,
+                            Name = "Car accessories",
+                            ProductSubCategoryId = 38
+                        },
+                        new
+                        {
+                            Id = 39,
+                            LanguageId = 1,
+                            Name = "Adapters",
+                            ProductSubCategoryId = 39
+                        },
+                        new
+                        {
+                            Id = 40,
+                            LanguageId = 1,
+                            Name = "Phone Cases",
+                            ProductSubCategoryId = 40
+                        },
+                        new
+                        {
+                            Id = 41,
+                            LanguageId = 1,
+                            Name = "Bags",
+                            ProductSubCategoryId = 41
+                        },
+                        new
+                        {
+                            Id = 42,
+                            LanguageId = 1,
+                            Name = "Modems",
+                            ProductSubCategoryId = 42
+                        },
+                        new
+                        {
+                            Id = 43,
+                            LanguageId = 1,
+                            Name = "Mouse",
+                            ProductSubCategoryId = 43
+                        },
+                        new
+                        {
+                            Id = 44,
+                            LanguageId = 1,
+                            Name = "Memory Cards",
+                            ProductSubCategoryId = 44
+                        },
+                        new
+                        {
+                            Id = 45,
+                            LanguageId = 1,
+                            Name = "Headphones",
+                            ProductSubCategoryId = 45
+                        },
+                        new
+                        {
+                            Id = 46,
+                            LanguageId = 1,
+                            Name = "Power Bank",
+                            ProductSubCategoryId = 46
+                        },
+                        new
+                        {
+                            Id = 47,
+                            LanguageId = 1,
+                            Name = "Monopod",
+                            ProductSubCategoryId = 47
+                        },
+                        new
+                        {
+                            Id = 48,
+                            LanguageId = 1,
+                            Name = "USB Flash",
+                            ProductSubCategoryId = 48
+                        },
+                        new
+                        {
+                            Id = 49,
+                            LanguageId = 1,
+                            Name = "Bakcell",
+                            ProductSubCategoryId = 49
+                        },
+                        new
+                        {
+                            Id = 50,
+                            LanguageId = 1,
+                            Name = "Azercell",
+                            ProductSubCategoryId = 50
+                        },
+                        new
+                        {
+                            Id = 51,
+                            LanguageId = 1,
+                            Name = "Nar",
+                            ProductSubCategoryId = 51
+                        },
+                        new
+                        {
+                            Id = 52,
+                            LanguageId = 1,
+                            Name = "İROBOT",
+                            ProductSubCategoryId = 52
+                        },
+                        new
+                        {
+                            Id = 53,
+                            LanguageId = 1,
+                            Name = "Barcode Reader",
+                            ProductSubCategoryId = 53
+                        },
+                        new
+                        {
+                            Id = 54,
+                            LanguageId = 1,
+                            Name = "Barcode Printer",
+                            ProductSubCategoryId = 54
+                        },
+                        new
+                        {
+                            Id = 55,
+                            LanguageId = 1,
+                            Name = "Check Printer",
+                            ProductSubCategoryId = 55
+                        },
+                        new
+                        {
+                            Id = 56,
+                            LanguageId = 1,
+                            Name = "Price Reader",
+                            ProductSubCategoryId = 56
+                        },
+                        new
+                        {
+                            Id = 57,
+                            LanguageId = 2,
+                            Name = "Mobil Telefonlar",
+                            ProductSubCategoryId = 1
+                        },
+                        new
+                        {
+                            Id = 58,
+                            LanguageId = 2,
+                            Name = "Planşetlər",
+                            ProductSubCategoryId = 2
+                        },
+                        new
+                        {
+                            Id = 59,
+                            LanguageId = 2,
+                            Name = "SmartWatch",
+                            ProductSubCategoryId = 3
+                        },
+                        new
+                        {
+                            Id = 60,
+                            LanguageId = 2,
+                            Name = "İkinci əl mobil telefonlar",
+                            ProductSubCategoryId = 4
+                        },
+                        new
+                        {
+                            Id = 61,
+                            LanguageId = 2,
+                            Name = "Soyuducu",
+                            ProductSubCategoryId = 5
+                        },
+                        new
+                        {
+                            Id = 62,
+                            LanguageId = 2,
+                            Name = "Kondisioner",
+                            ProductSubCategoryId = 6
+                        },
+                        new
+                        {
+                            Id = 63,
+                            LanguageId = 2,
+                            Name = "Paltaryuyan",
+                            ProductSubCategoryId = 7
+                        },
+                        new
+                        {
+                            Id = 64,
+                            LanguageId = 2,
+                            Name = "KitchenAid",
+                            ProductSubCategoryId = 8
+                        },
+                        new
+                        {
+                            Id = 65,
+                            LanguageId = 2,
+                            Name = "Plitələr",
+                            ProductSubCategoryId = 9
+                        },
+                        new
+                        {
+                            Id = 66,
+                            LanguageId = 2,
+                            Name = "Sobalar",
+                            ProductSubCategoryId = 10
+                        },
+                        new
+                        {
+                            Id = 67,
+                            LanguageId = 2,
+                            Name = "Noutbuk",
+                            ProductSubCategoryId = 11
+                        },
+                        new
+                        {
+                            Id = 68,
+                            LanguageId = 2,
+                            Name = "Masaüstü kompüter",
+                            ProductSubCategoryId = 12
+                        },
+                        new
+                        {
+                            Id = 69,
+                            LanguageId = 2,
+                            Name = "Monoblok",
+                            ProductSubCategoryId = 13
+                        },
+                        new
+                        {
+                            Id = 70,
+                            LanguageId = 2,
+                            Name = "Printer",
+                            ProductSubCategoryId = 14
+                        },
+                        new
+                        {
+                            Id = 71,
+                            LanguageId = 2,
+                            Name = "Monitor",
+                            ProductSubCategoryId = 15
+                        },
+                        new
+                        {
+                            Id = 72,
+                            LanguageId = 2,
+                            Name = "Televizor",
+                            ProductSubCategoryId = 16
+                        },
+                        new
+                        {
+                            Id = 73,
+                            LanguageId = 2,
+                            Name = "Ev kinoteatrı",
+                            ProductSubCategoryId = 17
+                        },
+                        new
+                        {
+                            Id = 74,
+                            LanguageId = 2,
+                            Name = "Soundbar",
+                            ProductSubCategoryId = 18
+                        },
+                        new
+                        {
+                            Id = 75,
+                            LanguageId = 2,
+                            Name = "DVD player",
+                            ProductSubCategoryId = 19
+                        },
+                        new
+                        {
+                            Id = 76,
+                            LanguageId = 2,
+                            Name = "Projektor",
+                            ProductSubCategoryId = 20
+                        },
+                        new
+                        {
+                            Id = 77,
+                            LanguageId = 2,
+                            Name = "PlayStation",
+                            ProductSubCategoryId = 21
+                        },
+                        new
+                        {
+                            Id = 78,
+                            LanguageId = 2,
+                            Name = "Oyunlar",
+                            ProductSubCategoryId = 22
+                        },
+                        new
+                        {
+                            Id = 79,
+                            LanguageId = 2,
+                            Name = "Microsof Box",
+                            ProductSubCategoryId = 23
+                        },
+                        new
+                        {
+                            Id = 80,
+                            LanguageId = 2,
+                            Name = "Oyun Manipulyatorları",
+                            ProductSubCategoryId = 24
+                        },
+                        new
+                        {
+                            Id = 81,
+                            LanguageId = 2,
+                            Name = "Tozsoranlar",
+                            ProductSubCategoryId = 25
+                        },
+                        new
+                        {
+                            Id = 82,
+                            LanguageId = 2,
+                            Name = "Fenlər ",
+                            ProductSubCategoryId = 26
+                        },
+                        new
+                        {
+                            Id = 83,
+                            LanguageId = 2,
+                            Name = "Ütülər",
+                            ProductSubCategoryId = 27
+                        },
+                        new
+                        {
+                            Id = 84,
+                            LanguageId = 2,
+                            Name = "Ətçəkənlər",
+                            ProductSubCategoryId = 28
+                        },
+                        new
+                        {
+                            Id = 85,
+                            LanguageId = 2,
+                            Name = "Çaydanlar",
+                            ProductSubCategoryId = 29
+                        },
+                        new
+                        {
+                            Id = 86,
+                            LanguageId = 2,
+                            Name = "Şirəçəkənlər",
+                            ProductSubCategoryId = 30
+                        },
+                        new
+                        {
+                            Id = 87,
+                            LanguageId = 2,
+                            Name = "Blenderlər",
+                            ProductSubCategoryId = 31
+                        },
+                        new
+                        {
+                            Id = 88,
+                            LanguageId = 2,
+                            Name = "Tosterlər",
+                            ProductSubCategoryId = 32
+                        },
+                        new
+                        {
+                            Id = 89,
+                            LanguageId = 2,
+                            Name = "Mikserlər",
+                            ProductSubCategoryId = 33
+                        },
+                        new
+                        {
+                            Id = 90,
+                            LanguageId = 2,
+                            Name = "Screen Protector",
+                            ProductSubCategoryId = 34
+                        },
+                        new
+                        {
+                            Id = 91,
+                            LanguageId = 2,
+                            Name = "Apple Aksessuarları",
+                            ProductSubCategoryId = 35
+                        },
+                        new
+                        {
+                            Id = 92,
+                            LanguageId = 2,
+                            Name = "Səs gücləndirici",
+                            ProductSubCategoryId = 36
+                        },
+                        new
+                        {
+                            Id = 93,
+                            LanguageId = 2,
+                            Name = "DECT Telefonlar",
+                            ProductSubCategoryId = 37
+                        },
+                        new
+                        {
+                            Id = 94,
+                            LanguageId = 2,
+                            Name = "Avtomobil aksessuarları",
+                            ProductSubCategoryId = 38
+                        },
+                        new
+                        {
+                            Id = 95,
+                            LanguageId = 2,
+                            Name = "Adapterlər",
+                            ProductSubCategoryId = 39
+                        },
+                        new
+                        {
+                            Id = 96,
+                            LanguageId = 2,
+                            Name = "Telefon Qabları",
+                            ProductSubCategoryId = 40
+                        },
+                        new
+                        {
+                            Id = 97,
+                            LanguageId = 2,
+                            Name = "Çantalar",
+                            ProductSubCategoryId = 41
+                        },
+                        new
+                        {
+                            Id = 98,
+                            LanguageId = 2,
+                            Name = "Modemlər",
+                            ProductSubCategoryId = 42
+                        },
+                        new
+                        {
+                            Id = 99,
+                            LanguageId = 2,
+                            Name = "Mouse",
+                            ProductSubCategoryId = 43
+                        },
+                        new
+                        {
+                            Id = 100,
+                            LanguageId = 2,
+                            Name = "Yaddaş Kartları",
+                            ProductSubCategoryId = 44
+                        },
+                        new
+                        {
+                            Id = 101,
+                            LanguageId = 2,
+                            Name = "Qulaqcıqlar",
+                            ProductSubCategoryId = 45
+                        },
+                        new
+                        {
+                            Id = 102,
+                            LanguageId = 2,
+                            Name = "Power Bank",
+                            ProductSubCategoryId = 46
+                        },
+                        new
+                        {
+                            Id = 103,
+                            LanguageId = 2,
+                            Name = "Monopod ",
+                            ProductSubCategoryId = 47
+                        },
+                        new
+                        {
+                            Id = 104,
+                            LanguageId = 2,
+                            Name = "USB Flash",
+                            ProductSubCategoryId = 48
+                        },
+                        new
+                        {
+                            Id = 105,
+                            LanguageId = 2,
+                            Name = "Bakcell",
+                            ProductSubCategoryId = 49
+                        },
+                        new
+                        {
+                            Id = 106,
+                            LanguageId = 2,
+                            Name = "Azercell",
+                            ProductSubCategoryId = 50
+                        },
+                        new
+                        {
+                            Id = 107,
+                            LanguageId = 2,
+                            Name = "Nar",
+                            ProductSubCategoryId = 51
+                        },
+                        new
+                        {
+                            Id = 108,
+                            LanguageId = 2,
+                            Name = "İRobot",
+                            ProductSubCategoryId = 52
+                        },
+                        new
+                        {
+                            Id = 109,
+                            LanguageId = 2,
+                            Name = "Barkod Oxuyucu",
+                            ProductSubCategoryId = 53
+                        },
+                        new
+                        {
+                            Id = 110,
+                            LanguageId = 2,
+                            Name = "Barkod Printer",
+                            ProductSubCategoryId = 54
+                        },
+                        new
+                        {
+                            Id = 111,
+                            LanguageId = 2,
+                            Name = "Çek Printe",
+                            ProductSubCategoryId = 55
+                        },
+                        new
+                        {
+                            Id = 112,
+                            LanguageId = 2,
+                            Name = "Qiymət Oxuyucu",
+                            ProductSubCategoryId = 56
+                        });
+                });
+
             modelBuilder.Entity("Junko.ModelTranslate.ServicesCoverTranslate", b =>
                 {
                     b.Property<int>("Id")
@@ -1094,7 +2100,7 @@ namespace Junko.Migrations
                         {
                             Id = 1,
                             AdminManagerId = 1,
-                            ModifiedAt = new DateTime(2019, 12, 25, 20, 15, 56, 502, DateTimeKind.Local).AddTicks(8264),
+                            ModifiedAt = new DateTime(2019, 12, 27, 20, 8, 23, 136, DateTimeKind.Local).AddTicks(6037),
                             Photo = "about/about1.jpg"
                         });
                 });
@@ -1198,7 +2204,7 @@ namespace Junko.Migrations
                         {
                             Id = 1,
                             AdminCategoryId = 1,
-                            CreatedAt = new DateTime(2019, 12, 25, 20, 15, 56, 498, DateTimeKind.Local).AddTicks(7545),
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 132, DateTimeKind.Local).AddTicks(2297),
                             Email = "Huseynia@code.edu.az",
                             Firstname = "Huseyn",
                             Lastname = "Asadov",
@@ -1211,7 +2217,7 @@ namespace Junko.Migrations
                         {
                             Id = 2,
                             AdminCategoryId = 2,
-                            CreatedAt = new DateTime(2019, 12, 25, 20, 15, 56, 499, DateTimeKind.Local).AddTicks(3593),
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 132, DateTimeKind.Local).AddTicks(8624),
                             Email = "Mary@code.edu.az",
                             Firstname = "Marilyn",
                             Lastname = "monroe",
@@ -1224,7 +2230,7 @@ namespace Junko.Migrations
                         {
                             Id = 3,
                             AdminCategoryId = 3,
-                            CreatedAt = new DateTime(2019, 12, 25, 20, 15, 56, 499, DateTimeKind.Local).AddTicks(3798),
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 132, DateTimeKind.Local).AddTicks(8746),
                             Email = "Michael@code.edu.az",
                             Firstname = "Michael",
                             Lastname = "Monroe",
@@ -1237,7 +2243,7 @@ namespace Junko.Migrations
                         {
                             Id = 4,
                             AdminCategoryId = 4,
-                            CreatedAt = new DateTime(2019, 12, 25, 20, 15, 56, 499, DateTimeKind.Local).AddTicks(3804),
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 132, DateTimeKind.Local).AddTicks(8752),
                             Email = "James@code.edu.az",
                             Firstname = "James",
                             Lastname = "James",
@@ -1282,8 +2288,8 @@ namespace Junko.Migrations
                         {
                             Id = 1,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2019, 12, 25, 20, 15, 56, 500, DateTimeKind.Local).AddTicks(1749),
-                            ModifiedAt = new DateTime(2019, 12, 25, 20, 15, 56, 500, DateTimeKind.Local).AddTicks(1738),
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 133, DateTimeKind.Local).AddTicks(7720),
+                            ModifiedAt = new DateTime(2019, 12, 27, 20, 8, 23, 133, DateTimeKind.Local).AddTicks(7691),
                             Photo = "blog/blog1.jpg",
                             Status = true
                         },
@@ -1291,8 +2297,8 @@ namespace Junko.Migrations
                         {
                             Id = 2,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2019, 12, 25, 20, 15, 56, 500, DateTimeKind.Local).AddTicks(3936),
-                            ModifiedAt = new DateTime(2019, 12, 25, 20, 15, 56, 500, DateTimeKind.Local).AddTicks(3925),
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 134, DateTimeKind.Local).AddTicks(18),
+                            ModifiedAt = new DateTime(2019, 12, 27, 20, 8, 23, 134, DateTimeKind.Local).AddTicks(7),
                             Photo = "blog/blog2.jpg",
                             Status = true
                         },
@@ -1300,8 +2306,8 @@ namespace Junko.Migrations
                         {
                             Id = 3,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2019, 12, 25, 20, 15, 56, 500, DateTimeKind.Local).AddTicks(3968),
-                            ModifiedAt = new DateTime(2019, 12, 25, 20, 15, 56, 500, DateTimeKind.Local).AddTicks(3966),
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 134, DateTimeKind.Local).AddTicks(53),
+                            ModifiedAt = new DateTime(2019, 12, 27, 20, 8, 23, 134, DateTimeKind.Local).AddTicks(51),
                             Photo = "blog/blog3.jpg",
                             Status = true
                         },
@@ -1309,8 +2315,8 @@ namespace Junko.Migrations
                         {
                             Id = 4,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2019, 12, 25, 20, 15, 56, 500, DateTimeKind.Local).AddTicks(3972),
-                            ModifiedAt = new DateTime(2019, 12, 25, 20, 15, 56, 500, DateTimeKind.Local).AddTicks(3970),
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 134, DateTimeKind.Local).AddTicks(58),
+                            ModifiedAt = new DateTime(2019, 12, 27, 20, 8, 23, 134, DateTimeKind.Local).AddTicks(56),
                             Photo = "blog/blog4.jpg",
                             Status = true
                         },
@@ -1318,8 +2324,8 @@ namespace Junko.Migrations
                         {
                             Id = 5,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2019, 12, 25, 20, 15, 56, 500, DateTimeKind.Local).AddTicks(4047),
-                            ModifiedAt = new DateTime(2019, 12, 25, 20, 15, 56, 500, DateTimeKind.Local).AddTicks(4045),
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 134, DateTimeKind.Local).AddTicks(63),
+                            ModifiedAt = new DateTime(2019, 12, 27, 20, 8, 23, 134, DateTimeKind.Local).AddTicks(60),
                             Photo = "blog/blog5.jpg",
                             Status = true
                         },
@@ -1327,8 +2333,8 @@ namespace Junko.Migrations
                         {
                             Id = 6,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2019, 12, 25, 20, 15, 56, 500, DateTimeKind.Local).AddTicks(4051),
-                            ModifiedAt = new DateTime(2019, 12, 25, 20, 15, 56, 500, DateTimeKind.Local).AddTicks(4049),
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 134, DateTimeKind.Local).AddTicks(67),
+                            ModifiedAt = new DateTime(2019, 12, 27, 20, 8, 23, 134, DateTimeKind.Local).AddTicks(65),
                             Photo = "blog/blog1.jpg",
                             Status = true
                         },
@@ -1336,8 +2342,8 @@ namespace Junko.Migrations
                         {
                             Id = 7,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2019, 12, 25, 20, 15, 56, 500, DateTimeKind.Local).AddTicks(4055),
-                            ModifiedAt = new DateTime(2019, 12, 25, 20, 15, 56, 500, DateTimeKind.Local).AddTicks(4053),
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 134, DateTimeKind.Local).AddTicks(71),
+                            ModifiedAt = new DateTime(2019, 12, 27, 20, 8, 23, 134, DateTimeKind.Local).AddTicks(69),
                             Photo = "blog/blog2.jpg",
                             Status = true
                         },
@@ -1345,8 +2351,8 @@ namespace Junko.Migrations
                         {
                             Id = 8,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2019, 12, 25, 20, 15, 56, 500, DateTimeKind.Local).AddTicks(4058),
-                            ModifiedAt = new DateTime(2019, 12, 25, 20, 15, 56, 500, DateTimeKind.Local).AddTicks(4057),
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 134, DateTimeKind.Local).AddTicks(74),
+                            ModifiedAt = new DateTime(2019, 12, 27, 20, 8, 23, 134, DateTimeKind.Local).AddTicks(73),
                             Photo = "blog/blog3.jpg",
                             Status = true
                         },
@@ -1354,8 +2360,8 @@ namespace Junko.Migrations
                         {
                             Id = 9,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2019, 12, 25, 20, 15, 56, 500, DateTimeKind.Local).AddTicks(4062),
-                            ModifiedAt = new DateTime(2019, 12, 25, 20, 15, 56, 500, DateTimeKind.Local).AddTicks(4060),
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 134, DateTimeKind.Local).AddTicks(78),
+                            ModifiedAt = new DateTime(2019, 12, 27, 20, 8, 23, 134, DateTimeKind.Local).AddTicks(76),
                             Photo = "blog/blog4.jpg",
                             Status = true
                         },
@@ -1363,8 +2369,8 @@ namespace Junko.Migrations
                         {
                             Id = 10,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2019, 12, 25, 20, 15, 56, 500, DateTimeKind.Local).AddTicks(4065),
-                            ModifiedAt = new DateTime(2019, 12, 25, 20, 15, 56, 500, DateTimeKind.Local).AddTicks(4064),
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 134, DateTimeKind.Local).AddTicks(82),
+                            ModifiedAt = new DateTime(2019, 12, 27, 20, 8, 23, 134, DateTimeKind.Local).AddTicks(80),
                             Photo = "blog/blog5.jpg",
                             Status = true
                         },
@@ -1372,8 +2378,8 @@ namespace Junko.Migrations
                         {
                             Id = 11,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2019, 12, 25, 20, 15, 56, 500, DateTimeKind.Local).AddTicks(4069),
-                            ModifiedAt = new DateTime(2019, 12, 25, 20, 15, 56, 500, DateTimeKind.Local).AddTicks(4067),
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 134, DateTimeKind.Local).AddTicks(86),
+                            ModifiedAt = new DateTime(2019, 12, 27, 20, 8, 23, 134, DateTimeKind.Local).AddTicks(84),
                             Photo = "blog/blog1.jpg",
                             Status = true
                         },
@@ -1381,8 +2387,8 @@ namespace Junko.Migrations
                         {
                             Id = 12,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2019, 12, 25, 20, 15, 56, 500, DateTimeKind.Local).AddTicks(4073),
-                            ModifiedAt = new DateTime(2019, 12, 25, 20, 15, 56, 500, DateTimeKind.Local).AddTicks(4071),
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 134, DateTimeKind.Local).AddTicks(91),
+                            ModifiedAt = new DateTime(2019, 12, 27, 20, 8, 23, 134, DateTimeKind.Local).AddTicks(88),
                             Photo = "blog/blog2.jpg",
                             Status = true
                         },
@@ -1390,8 +2396,8 @@ namespace Junko.Migrations
                         {
                             Id = 13,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2019, 12, 25, 20, 15, 56, 500, DateTimeKind.Local).AddTicks(4077),
-                            ModifiedAt = new DateTime(2019, 12, 25, 20, 15, 56, 500, DateTimeKind.Local).AddTicks(4075),
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 134, DateTimeKind.Local).AddTicks(95),
+                            ModifiedAt = new DateTime(2019, 12, 27, 20, 8, 23, 134, DateTimeKind.Local).AddTicks(93),
                             Photo = "blog/blog3.jpg",
                             Status = true
                         },
@@ -1399,8 +2405,8 @@ namespace Junko.Migrations
                         {
                             Id = 14,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2019, 12, 25, 20, 15, 56, 500, DateTimeKind.Local).AddTicks(4080),
-                            ModifiedAt = new DateTime(2019, 12, 25, 20, 15, 56, 500, DateTimeKind.Local).AddTicks(4079),
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 134, DateTimeKind.Local).AddTicks(100),
+                            ModifiedAt = new DateTime(2019, 12, 27, 20, 8, 23, 134, DateTimeKind.Local).AddTicks(98),
                             Photo = "blog/blog4.jpg",
                             Status = true
                         },
@@ -1408,8 +2414,8 @@ namespace Junko.Migrations
                         {
                             Id = 15,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2019, 12, 25, 20, 15, 56, 500, DateTimeKind.Local).AddTicks(4084),
-                            ModifiedAt = new DateTime(2019, 12, 25, 20, 15, 56, 500, DateTimeKind.Local).AddTicks(4082),
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 134, DateTimeKind.Local).AddTicks(104),
+                            ModifiedAt = new DateTime(2019, 12, 27, 20, 8, 23, 134, DateTimeKind.Local).AddTicks(102),
                             Photo = "blog/blog5.jpg",
                             Status = true
                         });
@@ -1615,6 +2621,1518 @@ namespace Junko.Migrations
                         });
                 });
 
+            modelBuilder.Entity("Junko.Models.Brand", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("AdminManagerId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("ModifiedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(100)")
+                        .HasMaxLength(100);
+
+                    b.Property<string>("Slug")
+                        .HasColumnType("nvarchar(200)")
+                        .HasMaxLength(200);
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AdminManagerId");
+
+                    b.ToTable("Brands");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 138, DateTimeKind.Local).AddTicks(6989),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Apple",
+                            Slug = "apple",
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 2,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 139, DateTimeKind.Local).AddTicks(10),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Samsung",
+                            Slug = "Samsung",
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 3,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 139, DateTimeKind.Local).AddTicks(55),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Huawei",
+                            Slug = "Huawei",
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 4,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 139, DateTimeKind.Local).AddTicks(58),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Xiaomi",
+                            Slug = "Xiaomi",
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 5,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 139, DateTimeKind.Local).AddTicks(61),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Meizu",
+                            Slug = "Meizu",
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 6,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 139, DateTimeKind.Local).AddTicks(63),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Nokia",
+                            Slug = "Nokia",
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 7,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 139, DateTimeKind.Local).AddTicks(65),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "FLY",
+                            Slug = "FLY",
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 8,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 139, DateTimeKind.Local).AddTicks(67),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "UleFone",
+                            Slug = "UleFone",
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 9,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 139, DateTimeKind.Local).AddTicks(69),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Honor",
+                            Slug = "Honor",
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 10,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 139, DateTimeKind.Local).AddTicks(72),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Lenovo",
+                            Slug = "Lenovo",
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 11,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 139, DateTimeKind.Local).AddTicks(75),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Balafon",
+                            Slug = "Balafon",
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 12,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 139, DateTimeKind.Local).AddTicks(78),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "LG",
+                            Slug = "LG",
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 13,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 139, DateTimeKind.Local).AddTicks(80),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "HTC",
+                            Slug = "HTC",
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 14,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 139, DateTimeKind.Local).AddTicks(83),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Hitachi",
+                            Slug = "Hitachi",
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 15,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 139, DateTimeKind.Local).AddTicks(85),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Zanussi",
+                            Slug = "Zanussi",
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 16,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 139, DateTimeKind.Local).AddTicks(87),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Bosch",
+                            Slug = "Bosch",
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 17,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 139, DateTimeKind.Local).AddTicks(89),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Vestel",
+                            Slug = "Vestel",
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 18,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 139, DateTimeKind.Local).AddTicks(92),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Mitsubishi",
+                            Slug = "Mitsubishi",
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 19,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 139, DateTimeKind.Local).AddTicks(94),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Gree",
+                            Slug = "Gree",
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 20,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 139, DateTimeKind.Local).AddTicks(152),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "AUX",
+                            Slug = "AUX",
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 21,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 139, DateTimeKind.Local).AddTicks(156),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "İndesit",
+                            Slug = "İndesit",
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 22,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 139, DateTimeKind.Local).AddTicks(159),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Gorenje",
+                            Slug = "Gorenje",
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 23,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 139, DateTimeKind.Local).AddTicks(161),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Asus",
+                            Slug = "Asus",
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 24,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 139, DateTimeKind.Local).AddTicks(163),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Acer",
+                            Slug = "Acer",
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 25,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 139, DateTimeKind.Local).AddTicks(165),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Dell",
+                            Slug = "Dell",
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 26,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 139, DateTimeKind.Local).AddTicks(168),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "HP",
+                            Slug = "HP",
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 27,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 139, DateTimeKind.Local).AddTicks(171),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Canon",
+                            Slug = "Canon",
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 28,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 139, DateTimeKind.Local).AddTicks(177),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Epson ",
+                            Slug = "Epson ",
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 29,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 139, DateTimeKind.Local).AddTicks(179),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Philips ",
+                            Slug = "Philips ",
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 30,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 139, DateTimeKind.Local).AddTicks(183),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Aiwa ",
+                            Slug = "Aiwa ",
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 31,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 139, DateTimeKind.Local).AddTicks(185),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Shivaki ",
+                            Slug = "Shivaki ",
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 32,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 139, DateTimeKind.Local).AddTicks(188),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Sony ",
+                            Slug = "Sony ",
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 33,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 139, DateTimeKind.Local).AddTicks(190),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Xbox ",
+                            Slug = "Xbox ",
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 34,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 139, DateTimeKind.Local).AddTicks(192),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Logitech ",
+                            Slug = "Logitech ",
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 35,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 139, DateTimeKind.Local).AddTicks(194),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Oculus ",
+                            Slug = "Oculus ",
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 36,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 139, DateTimeKind.Local).AddTicks(197),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Panasonic ",
+                            Slug = "Panasonic ",
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 37,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 139, DateTimeKind.Local).AddTicks(200),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Rowenta ",
+                            Slug = "Rowenta ",
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 38,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 139, DateTimeKind.Local).AddTicks(202),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Tefal ",
+                            Slug = "Tefal ",
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 39,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 139, DateTimeKind.Local).AddTicks(204),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Vitek ",
+                            Slug = "Vitek ",
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 40,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 139, DateTimeKind.Local).AddTicks(206),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Braun ",
+                            Slug = "Braun ",
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 41,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 139, DateTimeKind.Local).AddTicks(208),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "F&D ",
+                            Slug = "F&D ",
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 42,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 139, DateTimeKind.Local).AddTicks(210),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Genius ",
+                            Slug = "Genius ",
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 43,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 139, DateTimeKind.Local).AddTicks(213),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "JBL ",
+                            Slug = "JBL ",
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 44,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 139, DateTimeKind.Local).AddTicks(216),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Gigaset ",
+                            Slug = "Gigaset ",
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 45,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 139, DateTimeKind.Local).AddTicks(218),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Remax ",
+                            Slug = "Remax ",
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 46,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 139, DateTimeKind.Local).AddTicks(221),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Rock ",
+                            Slug = "Rock ",
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 47,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 139, DateTimeKind.Local).AddTicks(223),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Baseus ",
+                            Slug = "Baseus ",
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 48,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 139, DateTimeKind.Local).AddTicks(226),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "A4Tech ",
+                            Slug = "A4Tech ",
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 49,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 139, DateTimeKind.Local).AddTicks(228),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "SanDisk ",
+                            Slug = "SanDisk ",
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 50,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 139, DateTimeKind.Local).AddTicks(231),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Beats ",
+                            Slug = "Beats ",
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 51,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 139, DateTimeKind.Local).AddTicks(233),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Jabra ",
+                            Slug = "Jabra ",
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 52,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 139, DateTimeKind.Local).AddTicks(236),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Roman ",
+                            Slug = "Roman ",
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 53,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 139, DateTimeKind.Local).AddTicks(238),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Proda ",
+                            Slug = "Proda ",
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 54,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 139, DateTimeKind.Local).AddTicks(241),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "WK ",
+                            Slug = "WK ",
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 55,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 139, DateTimeKind.Local).AddTicks(243),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Aspor ",
+                            Slug = "Aspor ",
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 56,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 139, DateTimeKind.Local).AddTicks(246),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Bilitong ",
+                            Slug = "Bilitong ",
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 57,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 139, DateTimeKind.Local).AddTicks(248),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Adata ",
+                            Slug = "Adata ",
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 58,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 139, DateTimeKind.Local).AddTicks(251),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "BAKCELL ",
+                            Slug = "bakcell ",
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 59,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 139, DateTimeKind.Local).AddTicks(253),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "AZERCELL ",
+                            Slug = "AZERCELL ",
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 60,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 139, DateTimeKind.Local).AddTicks(260),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "NAR ",
+                            Slug = "NAR ",
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 61,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 139, DateTimeKind.Local).AddTicks(263),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "İROBOT ",
+                            Slug = "İROBOT ",
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 62,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 139, DateTimeKind.Local).AddTicks(266),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Symbol ",
+                            Slug = "Symbol ",
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 63,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 139, DateTimeKind.Local).AddTicks(268),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Argox ",
+                            Slug = "Argox ",
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 64,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 139, DateTimeKind.Local).AddTicks(270),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Datalogic ",
+                            Slug = "Datalogic ",
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 65,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 139, DateTimeKind.Local).AddTicks(273),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "ACLAS ",
+                            Slug = "ACLAS ",
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 66,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 139, DateTimeKind.Local).AddTicks(275),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Star ",
+                            Slug = "Star ",
+                            Status = true
+                        });
+                });
+
+            modelBuilder.Entity("Junko.Models.BrandProductCategory", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("BrandId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ProductCategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProductSubCategoryId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BrandId");
+
+                    b.HasIndex("ProductCategoryId");
+
+                    b.HasIndex("ProductSubCategoryId");
+
+                    b.ToTable("BrandProductCategories");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            BrandId = 1,
+                            ProductSubCategoryId = 1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            BrandId = 1,
+                            ProductSubCategoryId = 2
+                        },
+                        new
+                        {
+                            Id = 3,
+                            BrandId = 1,
+                            ProductSubCategoryId = 3
+                        },
+                        new
+                        {
+                            Id = 4,
+                            BrandId = 1,
+                            ProductSubCategoryId = 4
+                        },
+                        new
+                        {
+                            Id = 5,
+                            BrandId = 1,
+                            ProductSubCategoryId = 11
+                        },
+                        new
+                        {
+                            Id = 6,
+                            BrandId = 1,
+                            ProductSubCategoryId = 34
+                        },
+                        new
+                        {
+                            Id = 7,
+                            BrandId = 1,
+                            ProductSubCategoryId = 35
+                        },
+                        new
+                        {
+                            Id = 8,
+                            BrandId = 1,
+                            ProductSubCategoryId = 39
+                        },
+                        new
+                        {
+                            Id = 9,
+                            BrandId = 1,
+                            ProductSubCategoryId = 40
+                        },
+                        new
+                        {
+                            Id = 10,
+                            BrandId = 2,
+                            ProductSubCategoryId = 1
+                        },
+                        new
+                        {
+                            Id = 11,
+                            BrandId = 2,
+                            ProductSubCategoryId = 2
+                        },
+                        new
+                        {
+                            Id = 12,
+                            BrandId = 2,
+                            ProductSubCategoryId = 3
+                        },
+                        new
+                        {
+                            Id = 13,
+                            BrandId = 2,
+                            ProductSubCategoryId = 4
+                        },
+                        new
+                        {
+                            Id = 14,
+                            BrandId = 2,
+                            ProductSubCategoryId = 5
+                        },
+                        new
+                        {
+                            Id = 15,
+                            BrandId = 2,
+                            ProductSubCategoryId = 7
+                        },
+                        new
+                        {
+                            Id = 16,
+                            BrandId = 2,
+                            ProductSubCategoryId = 16
+                        },
+                        new
+                        {
+                            Id = 17,
+                            BrandId = 2,
+                            ProductSubCategoryId = 34
+                        },
+                        new
+                        {
+                            Id = 18,
+                            BrandId = 2,
+                            ProductSubCategoryId = 39
+                        },
+                        new
+                        {
+                            Id = 19,
+                            BrandId = 2,
+                            ProductSubCategoryId = 40
+                        },
+                        new
+                        {
+                            Id = 20,
+                            BrandId = 2,
+                            ProductSubCategoryId = 45
+                        },
+                        new
+                        {
+                            Id = 21,
+                            BrandId = 3,
+                            ProductSubCategoryId = 1
+                        },
+                        new
+                        {
+                            Id = 22,
+                            BrandId = 3,
+                            ProductSubCategoryId = 2
+                        },
+                        new
+                        {
+                            Id = 23,
+                            BrandId = 4,
+                            ProductSubCategoryId = 1
+                        },
+                        new
+                        {
+                            Id = 24,
+                            BrandId = 4,
+                            ProductSubCategoryId = 3
+                        },
+                        new
+                        {
+                            Id = 25,
+                            BrandId = 4,
+                            ProductSubCategoryId = 4
+                        },
+                        new
+                        {
+                            Id = 26,
+                            BrandId = 4,
+                            ProductSubCategoryId = 34
+                        },
+                        new
+                        {
+                            Id = 27,
+                            BrandId = 4,
+                            ProductSubCategoryId = 46
+                        },
+                        new
+                        {
+                            Id = 28,
+                            BrandId = 5,
+                            ProductSubCategoryId = 1
+                        },
+                        new
+                        {
+                            Id = 29,
+                            BrandId = 6,
+                            ProductSubCategoryId = 1
+                        },
+                        new
+                        {
+                            Id = 30,
+                            BrandId = 7,
+                            ProductSubCategoryId = 1
+                        },
+                        new
+                        {
+                            Id = 31,
+                            BrandId = 8,
+                            ProductSubCategoryId = 1
+                        },
+                        new
+                        {
+                            Id = 32,
+                            BrandId = 8,
+                            ProductSubCategoryId = 4
+                        },
+                        new
+                        {
+                            Id = 33,
+                            BrandId = 9,
+                            ProductSubCategoryId = 1
+                        },
+                        new
+                        {
+                            Id = 34,
+                            BrandId = 10,
+                            ProductSubCategoryId = 2
+                        },
+                        new
+                        {
+                            Id = 35,
+                            BrandId = 10,
+                            ProductSubCategoryId = 11
+                        },
+                        new
+                        {
+                            Id = 36,
+                            BrandId = 11,
+                            ProductSubCategoryId = 3
+                        },
+                        new
+                        {
+                            Id = 37,
+                            BrandId = 12,
+                            ProductSubCategoryId = 4
+                        },
+                        new
+                        {
+                            Id = 38,
+                            BrandId = 12,
+                            ProductSubCategoryId = 5
+                        },
+                        new
+                        {
+                            Id = 39,
+                            BrandId = 12,
+                            ProductSubCategoryId = 7
+                        },
+                        new
+                        {
+                            Id = 40,
+                            BrandId = 12,
+                            ProductSubCategoryId = 16
+                        },
+                        new
+                        {
+                            Id = 41,
+                            BrandId = 13,
+                            ProductSubCategoryId = 4
+                        },
+                        new
+                        {
+                            Id = 42,
+                            BrandId = 14,
+                            ProductSubCategoryId = 5
+                        },
+                        new
+                        {
+                            Id = 43,
+                            BrandId = 15,
+                            ProductSubCategoryId = 5
+                        },
+                        new
+                        {
+                            Id = 44,
+                            BrandId = 16,
+                            ProductSubCategoryId = 5
+                        },
+                        new
+                        {
+                            Id = 45,
+                            BrandId = 16,
+                            ProductSubCategoryId = 9
+                        },
+                        new
+                        {
+                            Id = 46,
+                            BrandId = 16,
+                            ProductSubCategoryId = 10
+                        },
+                        new
+                        {
+                            Id = 47,
+                            BrandId = 16,
+                            ProductSubCategoryId = 25
+                        },
+                        new
+                        {
+                            Id = 48,
+                            BrandId = 16,
+                            ProductSubCategoryId = 27
+                        },
+                        new
+                        {
+                            Id = 49,
+                            BrandId = 16,
+                            ProductSubCategoryId = 30
+                        },
+                        new
+                        {
+                            Id = 51,
+                            BrandId = 16,
+                            ProductSubCategoryId = 31
+                        },
+                        new
+                        {
+                            Id = 52,
+                            BrandId = 16,
+                            ProductSubCategoryId = 32
+                        },
+                        new
+                        {
+                            Id = 53,
+                            BrandId = 16,
+                            ProductSubCategoryId = 33
+                        },
+                        new
+                        {
+                            Id = 54,
+                            BrandId = 17,
+                            ProductSubCategoryId = 5
+                        },
+                        new
+                        {
+                            Id = 55,
+                            BrandId = 18,
+                            ProductSubCategoryId = 6
+                        },
+                        new
+                        {
+                            Id = 56,
+                            BrandId = 19,
+                            ProductSubCategoryId = 6
+                        },
+                        new
+                        {
+                            Id = 57,
+                            BrandId = 20,
+                            ProductSubCategoryId = 6
+                        },
+                        new
+                        {
+                            Id = 58,
+                            BrandId = 21,
+                            ProductSubCategoryId = 7
+                        },
+                        new
+                        {
+                            Id = 59,
+                            BrandId = 22,
+                            ProductSubCategoryId = 7
+                        },
+                        new
+                        {
+                            Id = 60,
+                            BrandId = 23,
+                            ProductSubCategoryId = 11
+                        },
+                        new
+                        {
+                            Id = 61,
+                            BrandId = 24,
+                            ProductSubCategoryId = 11
+                        },
+                        new
+                        {
+                            Id = 62,
+                            BrandId = 25,
+                            ProductSubCategoryId = 11
+                        },
+                        new
+                        {
+                            Id = 63,
+                            BrandId = 26,
+                            ProductSubCategoryId = 11
+                        },
+                        new
+                        {
+                            Id = 64,
+                            BrandId = 26,
+                            ProductSubCategoryId = 13
+                        },
+                        new
+                        {
+                            Id = 65,
+                            BrandId = 26,
+                            ProductSubCategoryId = 14
+                        },
+                        new
+                        {
+                            Id = 66,
+                            BrandId = 26,
+                            ProductSubCategoryId = 15
+                        },
+                        new
+                        {
+                            Id = 67,
+                            BrandId = 26,
+                            ProductSubCategoryId = 43
+                        },
+                        new
+                        {
+                            Id = 68,
+                            BrandId = 26,
+                            ProductSubCategoryId = 48
+                        },
+                        new
+                        {
+                            Id = 69,
+                            BrandId = 27,
+                            ProductSubCategoryId = 14
+                        },
+                        new
+                        {
+                            Id = 70,
+                            BrandId = 28,
+                            ProductSubCategoryId = 14
+                        },
+                        new
+                        {
+                            Id = 71,
+                            BrandId = 29,
+                            ProductSubCategoryId = 16
+                        },
+                        new
+                        {
+                            Id = 72,
+                            BrandId = 29,
+                            ProductSubCategoryId = 25
+                        },
+                        new
+                        {
+                            Id = 73,
+                            BrandId = 29,
+                            ProductSubCategoryId = 26
+                        },
+                        new
+                        {
+                            Id = 74,
+                            BrandId = 29,
+                            ProductSubCategoryId = 27
+                        },
+                        new
+                        {
+                            Id = 75,
+                            BrandId = 29,
+                            ProductSubCategoryId = 28
+                        },
+                        new
+                        {
+                            Id = 76,
+                            BrandId = 29,
+                            ProductSubCategoryId = 29
+                        },
+                        new
+                        {
+                            Id = 77,
+                            BrandId = 29,
+                            ProductSubCategoryId = 30
+                        },
+                        new
+                        {
+                            Id = 78,
+                            BrandId = 29,
+                            ProductSubCategoryId = 31
+                        },
+                        new
+                        {
+                            Id = 79,
+                            BrandId = 29,
+                            ProductSubCategoryId = 32
+                        },
+                        new
+                        {
+                            Id = 80,
+                            BrandId = 30,
+                            ProductSubCategoryId = 16
+                        },
+                        new
+                        {
+                            Id = 81,
+                            BrandId = 30,
+                            ProductSubCategoryId = 45
+                        },
+                        new
+                        {
+                            Id = 82,
+                            BrandId = 31,
+                            ProductSubCategoryId = 16
+                        },
+                        new
+                        {
+                            Id = 83,
+                            BrandId = 32,
+                            ProductSubCategoryId = 21
+                        },
+                        new
+                        {
+                            Id = 84,
+                            BrandId = 32,
+                            ProductSubCategoryId = 22
+                        },
+                        new
+                        {
+                            Id = 85,
+                            BrandId = 32,
+                            ProductSubCategoryId = 24
+                        },
+                        new
+                        {
+                            Id = 86,
+                            BrandId = 33,
+                            ProductSubCategoryId = 23
+                        },
+                        new
+                        {
+                            Id = 87,
+                            BrandId = 33,
+                            ProductSubCategoryId = 24
+                        },
+                        new
+                        {
+                            Id = 88,
+                            BrandId = 34,
+                            ProductSubCategoryId = 24
+                        },
+                        new
+                        {
+                            Id = 89,
+                            BrandId = 34,
+                            ProductSubCategoryId = 43
+                        },
+                        new
+                        {
+                            Id = 90,
+                            BrandId = 35,
+                            ProductSubCategoryId = 24
+                        },
+                        new
+                        {
+                            Id = 91,
+                            BrandId = 36,
+                            ProductSubCategoryId = 25
+                        },
+                        new
+                        {
+                            Id = 92,
+                            BrandId = 36,
+                            ProductSubCategoryId = 37
+                        },
+                        new
+                        {
+                            Id = 93,
+                            BrandId = 37,
+                            ProductSubCategoryId = 26
+                        },
+                        new
+                        {
+                            Id = 94,
+                            BrandId = 38,
+                            ProductSubCategoryId = 27
+                        },
+                        new
+                        {
+                            Id = 95,
+                            BrandId = 38,
+                            ProductSubCategoryId = 28
+                        },
+                        new
+                        {
+                            Id = 96,
+                            BrandId = 38,
+                            ProductSubCategoryId = 29
+                        },
+                        new
+                        {
+                            Id = 97,
+                            BrandId = 38,
+                            ProductSubCategoryId = 30
+                        },
+                        new
+                        {
+                            Id = 98,
+                            BrandId = 38,
+                            ProductSubCategoryId = 31
+                        },
+                        new
+                        {
+                            Id = 99,
+                            BrandId = 38,
+                            ProductSubCategoryId = 33
+                        },
+                        new
+                        {
+                            Id = 100,
+                            BrandId = 39,
+                            ProductSubCategoryId = 27
+                        },
+                        new
+                        {
+                            Id = 101,
+                            BrandId = 40,
+                            ProductSubCategoryId = 27
+                        },
+                        new
+                        {
+                            Id = 102,
+                            BrandId = 41,
+                            ProductSubCategoryId = 36
+                        },
+                        new
+                        {
+                            Id = 103,
+                            BrandId = 42,
+                            ProductSubCategoryId = 36
+                        },
+                        new
+                        {
+                            Id = 104,
+                            BrandId = 42,
+                            ProductSubCategoryId = 43
+                        },
+                        new
+                        {
+                            Id = 105,
+                            BrandId = 43,
+                            ProductSubCategoryId = 36
+                        },
+                        new
+                        {
+                            Id = 106,
+                            BrandId = 44,
+                            ProductSubCategoryId = 37
+                        },
+                        new
+                        {
+                            Id = 107,
+                            BrandId = 45,
+                            ProductSubCategoryId = 39
+                        },
+                        new
+                        {
+                            Id = 108,
+                            BrandId = 45,
+                            ProductSubCategoryId = 45
+                        },
+                        new
+                        {
+                            Id = 109,
+                            BrandId = 45,
+                            ProductSubCategoryId = 46
+                        },
+                        new
+                        {
+                            Id = 110,
+                            BrandId = 46,
+                            ProductSubCategoryId = 39
+                        },
+                        new
+                        {
+                            Id = 111,
+                            BrandId = 47,
+                            ProductSubCategoryId = 40
+                        },
+                        new
+                        {
+                            Id = 112,
+                            BrandId = 48,
+                            ProductSubCategoryId = 43
+                        },
+                        new
+                        {
+                            Id = 113,
+                            BrandId = 49,
+                            ProductSubCategoryId = 44
+                        },
+                        new
+                        {
+                            Id = 114,
+                            BrandId = 49,
+                            ProductSubCategoryId = 48
+                        },
+                        new
+                        {
+                            Id = 115,
+                            BrandId = 50,
+                            ProductSubCategoryId = 45
+                        },
+                        new
+                        {
+                            Id = 116,
+                            BrandId = 51,
+                            ProductSubCategoryId = 45
+                        },
+                        new
+                        {
+                            Id = 117,
+                            BrandId = 52,
+                            ProductSubCategoryId = 45
+                        },
+                        new
+                        {
+                            Id = 118,
+                            BrandId = 53,
+                            ProductSubCategoryId = 46
+                        },
+                        new
+                        {
+                            Id = 119,
+                            BrandId = 54,
+                            ProductSubCategoryId = 46
+                        },
+                        new
+                        {
+                            Id = 120,
+                            BrandId = 55,
+                            ProductSubCategoryId = 46
+                        },
+                        new
+                        {
+                            Id = 121,
+                            BrandId = 56,
+                            ProductSubCategoryId = 46
+                        },
+                        new
+                        {
+                            Id = 122,
+                            BrandId = 57,
+                            ProductSubCategoryId = 48
+                        },
+                        new
+                        {
+                            Id = 123,
+                            BrandId = 58,
+                            ProductSubCategoryId = 49
+                        },
+                        new
+                        {
+                            Id = 124,
+                            BrandId = 59,
+                            ProductSubCategoryId = 50
+                        },
+                        new
+                        {
+                            Id = 125,
+                            BrandId = 60,
+                            ProductSubCategoryId = 51
+                        },
+                        new
+                        {
+                            Id = 126,
+                            BrandId = 61,
+                            ProductSubCategoryId = 52
+                        },
+                        new
+                        {
+                            Id = 127,
+                            BrandId = 62,
+                            ProductSubCategoryId = 53
+                        },
+                        new
+                        {
+                            Id = 128,
+                            BrandId = 63,
+                            ProductSubCategoryId = 53
+                        },
+                        new
+                        {
+                            Id = 129,
+                            BrandId = 63,
+                            ProductSubCategoryId = 54
+                        },
+                        new
+                        {
+                            Id = 130,
+                            BrandId = 64,
+                            ProductSubCategoryId = 53
+                        },
+                        new
+                        {
+                            Id = 131,
+                            BrandId = 65,
+                            ProductSubCategoryId = 55
+                        },
+                        new
+                        {
+                            Id = 132,
+                            BrandId = 66,
+                            ProductSubCategoryId = 55
+                        });
+                });
+
             modelBuilder.Entity("Junko.Models.Category", b =>
                 {
                     b.Property<int>("Id")
@@ -1645,48 +4163,48 @@ namespace Junko.Migrations
                         {
                             Id = 1,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2019, 12, 25, 20, 15, 56, 499, DateTimeKind.Local).AddTicks(5729),
-                            ModifiedAt = new DateTime(2019, 12, 25, 20, 15, 56, 499, DateTimeKind.Local).AddTicks(4974),
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 133, DateTimeKind.Local).AddTicks(686),
+                            ModifiedAt = new DateTime(2019, 12, 27, 20, 8, 23, 132, DateTimeKind.Local).AddTicks(9864),
                             Status = true
                         },
                         new
                         {
                             Id = 2,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2019, 12, 25, 20, 15, 56, 499, DateTimeKind.Local).AddTicks(7108),
-                            ModifiedAt = new DateTime(2019, 12, 25, 20, 15, 56, 499, DateTimeKind.Local).AddTicks(7089),
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 133, DateTimeKind.Local).AddTicks(2197),
+                            ModifiedAt = new DateTime(2019, 12, 27, 20, 8, 23, 133, DateTimeKind.Local).AddTicks(2173),
                             Status = true
                         },
                         new
                         {
                             Id = 3,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2019, 12, 25, 20, 15, 56, 499, DateTimeKind.Local).AddTicks(7132),
-                            ModifiedAt = new DateTime(2019, 12, 25, 20, 15, 56, 499, DateTimeKind.Local).AddTicks(7130),
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 133, DateTimeKind.Local).AddTicks(2223),
+                            ModifiedAt = new DateTime(2019, 12, 27, 20, 8, 23, 133, DateTimeKind.Local).AddTicks(2220),
                             Status = true
                         },
                         new
                         {
                             Id = 4,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2019, 12, 25, 20, 15, 56, 499, DateTimeKind.Local).AddTicks(7135),
-                            ModifiedAt = new DateTime(2019, 12, 25, 20, 15, 56, 499, DateTimeKind.Local).AddTicks(7134),
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 133, DateTimeKind.Local).AddTicks(2227),
+                            ModifiedAt = new DateTime(2019, 12, 27, 20, 8, 23, 133, DateTimeKind.Local).AddTicks(2225),
                             Status = true
                         },
                         new
                         {
                             Id = 5,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2019, 12, 25, 20, 15, 56, 499, DateTimeKind.Local).AddTicks(7139),
-                            ModifiedAt = new DateTime(2019, 12, 25, 20, 15, 56, 499, DateTimeKind.Local).AddTicks(7137),
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 133, DateTimeKind.Local).AddTicks(2231),
+                            ModifiedAt = new DateTime(2019, 12, 27, 20, 8, 23, 133, DateTimeKind.Local).AddTicks(2230),
                             Status = true
                         },
                         new
                         {
                             Id = 6,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2019, 12, 25, 20, 15, 56, 499, DateTimeKind.Local).AddTicks(7142),
-                            ModifiedAt = new DateTime(2019, 12, 25, 20, 15, 56, 499, DateTimeKind.Local).AddTicks(7141),
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 133, DateTimeKind.Local).AddTicks(2235),
+                            ModifiedAt = new DateTime(2019, 12, 27, 20, 8, 23, 133, DateTimeKind.Local).AddTicks(2233),
                             Status = true
                         });
                 });
@@ -1721,7 +4239,7 @@ namespace Junko.Migrations
                         {
                             Id = 1,
                             AdminManagerId = 1,
-                            ModifiedAt = new DateTime(2019, 12, 25, 20, 15, 56, 504, DateTimeKind.Local).AddTicks(1087),
+                            ModifiedAt = new DateTime(2019, 12, 27, 20, 8, 23, 137, DateTimeKind.Local).AddTicks(9198),
                             Order = 1,
                             Status = true
                         },
@@ -1729,7 +4247,7 @@ namespace Junko.Migrations
                         {
                             Id = 2,
                             AdminManagerId = 1,
-                            ModifiedAt = new DateTime(2019, 12, 25, 20, 15, 56, 504, DateTimeKind.Local).AddTicks(2515),
+                            ModifiedAt = new DateTime(2019, 12, 27, 20, 8, 23, 138, DateTimeKind.Local).AddTicks(855),
                             Order = 2,
                             Status = true
                         },
@@ -1737,7 +4255,7 @@ namespace Junko.Migrations
                         {
                             Id = 3,
                             AdminManagerId = 1,
-                            ModifiedAt = new DateTime(2019, 12, 25, 20, 15, 56, 504, DateTimeKind.Local).AddTicks(2545),
+                            ModifiedAt = new DateTime(2019, 12, 27, 20, 8, 23, 138, DateTimeKind.Local).AddTicks(889),
                             Order = 3,
                             Status = true
                         },
@@ -1745,7 +4263,7 @@ namespace Junko.Migrations
                         {
                             Id = 4,
                             AdminManagerId = 1,
-                            ModifiedAt = new DateTime(2019, 12, 25, 20, 15, 56, 504, DateTimeKind.Local).AddTicks(2548),
+                            ModifiedAt = new DateTime(2019, 12, 27, 20, 8, 23, 138, DateTimeKind.Local).AddTicks(893),
                             Order = 4,
                             Status = true
                         },
@@ -1753,7 +4271,7 @@ namespace Junko.Migrations
                         {
                             Id = 5,
                             AdminManagerId = 1,
-                            ModifiedAt = new DateTime(2019, 12, 25, 20, 15, 56, 504, DateTimeKind.Local).AddTicks(2550),
+                            ModifiedAt = new DateTime(2019, 12, 27, 20, 8, 23, 138, DateTimeKind.Local).AddTicks(897),
                             Order = 5,
                             Status = true
                         },
@@ -1761,7 +4279,7 @@ namespace Junko.Migrations
                         {
                             Id = 6,
                             AdminManagerId = 1,
-                            ModifiedAt = new DateTime(2019, 12, 25, 20, 15, 56, 504, DateTimeKind.Local).AddTicks(2552),
+                            ModifiedAt = new DateTime(2019, 12, 27, 20, 8, 23, 138, DateTimeKind.Local).AddTicks(899),
                             Order = 6,
                             Status = true
                         },
@@ -1769,7 +4287,7 @@ namespace Junko.Migrations
                         {
                             Id = 7,
                             AdminManagerId = 1,
-                            ModifiedAt = new DateTime(2019, 12, 25, 20, 15, 56, 504, DateTimeKind.Local).AddTicks(2554),
+                            ModifiedAt = new DateTime(2019, 12, 27, 20, 8, 23, 138, DateTimeKind.Local).AddTicks(902),
                             Order = 7,
                             Status = true
                         });
@@ -1843,7 +4361,7 @@ namespace Junko.Migrations
                             Id = 1,
                             AdminManagerId = 1,
                             Icon = "fa fa-sliders",
-                            ModifiedAt = new DateTime(2019, 12, 25, 20, 15, 56, 502, DateTimeKind.Local).AddTicks(254),
+                            ModifiedAt = new DateTime(2019, 12, 27, 20, 8, 23, 135, DateTimeKind.Local).AddTicks(8329),
                             Order = 1,
                             Status = true
                         },
@@ -1852,7 +4370,7 @@ namespace Junko.Migrations
                             Id = 2,
                             AdminManagerId = 1,
                             Icon = "fa fa-umbrella",
-                            ModifiedAt = new DateTime(2019, 12, 25, 20, 15, 56, 502, DateTimeKind.Local).AddTicks(2167),
+                            ModifiedAt = new DateTime(2019, 12, 27, 20, 8, 23, 136, DateTimeKind.Local).AddTicks(305),
                             Order = 2,
                             Status = true
                         },
@@ -1861,7 +4379,7 @@ namespace Junko.Migrations
                             Id = 3,
                             AdminManagerId = 1,
                             Icon = "fa fa-camera",
-                            ModifiedAt = new DateTime(2019, 12, 25, 20, 15, 56, 502, DateTimeKind.Local).AddTicks(2211),
+                            ModifiedAt = new DateTime(2019, 12, 27, 20, 8, 23, 136, DateTimeKind.Local).AddTicks(350),
                             Order = 3,
                             Status = true
                         },
@@ -1870,7 +4388,7 @@ namespace Junko.Migrations
                             Id = 4,
                             AdminManagerId = 1,
                             Icon = "fa fa-cog",
-                            ModifiedAt = new DateTime(2019, 12, 25, 20, 15, 56, 502, DateTimeKind.Local).AddTicks(2215),
+                            ModifiedAt = new DateTime(2019, 12, 27, 20, 8, 23, 136, DateTimeKind.Local).AddTicks(354),
                             Order = 4,
                             Status = true
                         },
@@ -1879,7 +4397,7 @@ namespace Junko.Migrations
                             Id = 5,
                             AdminManagerId = 1,
                             Icon = "fa fa-file-code-o",
-                            ModifiedAt = new DateTime(2019, 12, 25, 20, 15, 56, 502, DateTimeKind.Local).AddTicks(2217),
+                            ModifiedAt = new DateTime(2019, 12, 27, 20, 8, 23, 136, DateTimeKind.Local).AddTicks(356),
                             Order = 5,
                             Status = true
                         },
@@ -1888,7 +4406,7 @@ namespace Junko.Migrations
                             Id = 6,
                             AdminManagerId = 1,
                             Icon = "fa fa-bar-chart",
-                            ModifiedAt = new DateTime(2019, 12, 25, 20, 15, 56, 502, DateTimeKind.Local).AddTicks(2219),
+                            ModifiedAt = new DateTime(2019, 12, 27, 20, 8, 23, 136, DateTimeKind.Local).AddTicks(359),
                             Order = 6,
                             Status = true
                         },
@@ -1897,7 +4415,7 @@ namespace Junko.Migrations
                             Id = 7,
                             AdminManagerId = 1,
                             Icon = "fa fa-headphones",
-                            ModifiedAt = new DateTime(2019, 12, 25, 20, 15, 56, 502, DateTimeKind.Local).AddTicks(2221),
+                            ModifiedAt = new DateTime(2019, 12, 27, 20, 8, 23, 136, DateTimeKind.Local).AddTicks(361),
                             Order = 7,
                             Status = true
                         },
@@ -1906,8 +4424,726 @@ namespace Junko.Migrations
                             Id = 8,
                             AdminManagerId = 1,
                             Icon = "fa fa-leaf",
-                            ModifiedAt = new DateTime(2019, 12, 25, 20, 15, 56, 502, DateTimeKind.Local).AddTicks(2223),
+                            ModifiedAt = new DateTime(2019, 12, 27, 20, 8, 23, 136, DateTimeKind.Local).AddTicks(363),
                             Order = 8,
+                            Status = true
+                        });
+                });
+
+            modelBuilder.Entity("Junko.Models.ProductCategory", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("AdminManagerId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("ModifiedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Photo")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AdminManagerId");
+
+                    b.ToTable("ProductCategories");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 139, DateTimeKind.Local).AddTicks(1298),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Photo = "category/e7132-telefon.png",
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 2,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 139, DateTimeKind.Local).AddTicks(3612),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Photo = "category/73913-meiset-esyalari.png",
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 3,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 139, DateTimeKind.Local).AddTicks(3651),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Photo = "category/44444-ofis-mehsullari.png",
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 4,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 139, DateTimeKind.Local).AddTicks(3654),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Photo = "category/ee515-televior.png",
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 5,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 139, DateTimeKind.Local).AddTicks(3656),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Photo = "category/9c45c-game-blue-.png",
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 6,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 139, DateTimeKind.Local).AddTicks(3658),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Photo = "9ca97-kicik-meiset-esyalari.png",
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 7,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 139, DateTimeKind.Local).AddTicks(3661),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Photo = "category/90694-dasinabilen.png",
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 8,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 139, DateTimeKind.Local).AddTicks(3663),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Photo = "0427b-simcart.png",
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 9,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 139, DateTimeKind.Local).AddTicks(3665),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Photo = "6e7e5-icon.png",
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 10,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 139, DateTimeKind.Local).AddTicks(3667),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Photo = "581ea-barcode_scanner.png",
+                            Status = true
+                        });
+                });
+
+            modelBuilder.Entity("Junko.Models.ProductSubCategory", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("AdminManagerId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("ModifiedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Photo")
+                        .HasColumnType("nvarchar(250)")
+                        .HasMaxLength(250);
+
+                    b.Property<int>("ProductCategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AdminManagerId");
+
+                    b.HasIndex("ProductCategoryId");
+
+                    b.ToTable("ProductSubCategory");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 140, DateTimeKind.Local).AddTicks(381),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Photo = "category/6fe81-ceptelefon.jpg",
+                            ProductCategoryId = 1,
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 2,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 140, DateTimeKind.Local).AddTicks(1730),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Photo = "category/5f28a-tabletler.jpg",
+                            ProductCategoryId = 1,
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 3,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 140, DateTimeKind.Local).AddTicks(1811),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Photo = "category/3d444-akillisaatler.jpg",
+                            ProductCategoryId = 1,
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 4,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 140, DateTimeKind.Local).AddTicks(1815),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Photo = "category/c6c32-4c725ea90ea12cefddd054328870a61f-online-mobile-second-hand.jpg",
+                            ProductCategoryId = 1,
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 5,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 140, DateTimeKind.Local).AddTicks(1818),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Photo = "category/37bcc-soyuducu.png",
+                            ProductCategoryId = 2,
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 6,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 140, DateTimeKind.Local).AddTicks(1820),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Photo = "category/5818a-klima.jpg",
+                            ProductCategoryId = 2,
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 7,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 140, DateTimeKind.Local).AddTicks(1822),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Photo = "category/531d2-paltaryuyan.png",
+                            ProductCategoryId = 2,
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 8,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 140, DateTimeKind.Local).AddTicks(1824),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Photo = "category/a79f3-kitchenaid-logo.jpg",
+                            ProductCategoryId = 2,
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 9,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 140, DateTimeKind.Local).AddTicks(1827),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Photo = "category/bccf0-pilte.png",
+                            ProductCategoryId = 2,
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 10,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 140, DateTimeKind.Local).AddTicks(1829),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Photo = "category/63377-mikrodalga.jpg",
+                            ProductCategoryId = 2,
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 11,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 140, DateTimeKind.Local).AddTicks(1831),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Photo = "category/ddf24-notebook.jpg",
+                            ProductCategoryId = 3,
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 12,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 140, DateTimeKind.Local).AddTicks(1833),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Photo = "category/9b6f3-masaustu.jpg",
+                            ProductCategoryId = 3,
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 13,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 140, DateTimeKind.Local).AddTicks(1835),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Photo = "category/bd8b6-notebook.jpg",
+                            ProductCategoryId = 3,
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 14,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 140, DateTimeKind.Local).AddTicks(1838),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Photo = "category/d6ad6-yazicilar.jpg",
+                            ProductCategoryId = 3,
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 15,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 140, DateTimeKind.Local).AddTicks(1840),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Photo = "category/70f58-monitorkatr.jpg",
+                            ProductCategoryId = 3,
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 16,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 140, DateTimeKind.Local).AddTicks(1842),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Photo = "category/900d4-televizyonlar.jpg",
+                            ProductCategoryId = 4,
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 17,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 140, DateTimeKind.Local).AddTicks(1844),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Photo = "category/ec35f-ses_ev.png",
+                            ProductCategoryId = 4,
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 18,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 140, DateTimeKind.Local).AddTicks(1846),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Photo = "category/a6cf0-soundbar.png",
+                            ProductCategoryId = 4,
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 19,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 140, DateTimeKind.Local).AddTicks(1849),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Photo = "category/a9a78-evsinema.jpg",
+                            ProductCategoryId = 4,
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 20,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 140, DateTimeKind.Local).AddTicks(1852),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Photo = "category/d73ad-projeksiyon.jpg",
+                            ProductCategoryId = 4,
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 21,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 140, DateTimeKind.Local).AddTicks(1854),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Photo = "category/712b6-ps4.jpg",
+                            ProductCategoryId = 5,
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 22,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 140, DateTimeKind.Local).AddTicks(1857),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Photo = "category/8b3c4-unnamed.jpg",
+                            ProductCategoryId = 5,
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 23,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 140, DateTimeKind.Local).AddTicks(1859),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Photo = "category/47bfc-xbox-logo_318-9975.jpg",
+                            ProductCategoryId = 5,
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 24,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 140, DateTimeKind.Local).AddTicks(1862),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Photo = "category/7e1df-37229008_21039398.jpeg",
+                            ProductCategoryId = 5,
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 25,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 140, DateTimeKind.Local).AddTicks(1864),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Photo = "category/00858-a4726b678f87bd94ea880eeef0ecdfcb-silhouette-black-white-vacuum-cleaner.png",
+                            ProductCategoryId = 6,
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 26,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 140, DateTimeKind.Local).AddTicks(1866),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Photo = "category/6a0f2-pngtree-vector-hair-dryer-icon-png-image_701315.jpg",
+                            ProductCategoryId = 6,
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 27,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 140, DateTimeKind.Local).AddTicks(1868),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Photo = "category/a7af1-electric-iron-icon-simple-style-vector-21484883.jpg",
+                            ProductCategoryId = 6,
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 28,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 140, DateTimeKind.Local).AddTicks(1870),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Photo = "category/560ee-meat-grinder-machine-icon-simple-style-vector-22276672.jpg",
+                            ProductCategoryId = 6,
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 29,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 140, DateTimeKind.Local).AddTicks(1872),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Photo = "category/ae188-electric-kettle-household-appliance-icon-vector-8275057.jpg",
+                            ProductCategoryId = 6,
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 30,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 140, DateTimeKind.Local).AddTicks(1875),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Photo = "category/d879f-juicer-icon-simple-style-vector-10155704.jpg",
+                            ProductCategoryId = 6,
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 31,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 140, DateTimeKind.Local).AddTicks(1877),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Photo = "category/11f7a-a-gray-stationary-blender-icon-vector-13417582.jpg",
+                            ProductCategoryId = 6,
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 32,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 140, DateTimeKind.Local).AddTicks(1879),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Photo = "category/cea64-toaster-icon-simple-black-style-vector-18839754.jpg",
+                            ProductCategoryId = 6,
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 33,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 140, DateTimeKind.Local).AddTicks(1881),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Photo = "category/4f398-90652265-stock-vector-mixer-kitchen-icon-simple-illustration-of-mixer-kitchen-vector-icon-for-web.jpg",
+                            ProductCategoryId = 6,
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 34,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 140, DateTimeKind.Local).AddTicks(1883),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Photo = "category/7b5b8-ekran-koruyucu.jpg",
+                            ProductCategoryId = 7,
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 35,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 140, DateTimeKind.Local).AddTicks(1886),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Photo = "category/9a881-iphonea.png",
+                            ProductCategoryId = 7,
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 36,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 140, DateTimeKind.Local).AddTicks(1888),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Photo = "category/eee1f-003386-glossy-black-icon-media-music-speaker.png",
+                            ProductCategoryId = 7,
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 37,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 140, DateTimeKind.Local).AddTicks(1891),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Photo = "category/6d65f-86666-cordless-phone.png",
+                            ProductCategoryId = 7,
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 38,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 140, DateTimeKind.Local).AddTicks(1894),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Photo = "category/74601-car-flat-icon-01-.jpg",
+                            ProductCategoryId = 7,
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 39,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 140, DateTimeKind.Local).AddTicks(1896),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Photo = "category/8ebb1-kablo.jpg",
+                            ProductCategoryId = 7,
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 40,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 140, DateTimeKind.Local).AddTicks(1898),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Photo = "category/03ba9-telefonkilif.jpg",
+                            ProductCategoryId = 7,
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 41,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 140, DateTimeKind.Local).AddTicks(1901),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Photo = "category/b1347-business-suitcase-bag-icon.jpg",
+                            ProductCategoryId = 7,
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 42,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 140, DateTimeKind.Local).AddTicks(1903),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Photo = "category/b40b8-network.jpg",
+                            ProductCategoryId = 7,
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 43,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 140, DateTimeKind.Local).AddTicks(1905),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Photo = "category/6d0d5-mouse.jpg",
+                            ProductCategoryId = 7,
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 44,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 140, DateTimeKind.Local).AddTicks(1907),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Photo = "category/f3ba8-sdcard.png",
+                            ProductCategoryId = 7,
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 45,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 140, DateTimeKind.Local).AddTicks(1909),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Photo = "category/b813a-kulaklikkategori.png",
+                            ProductCategoryId = 7,
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 46,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 140, DateTimeKind.Local).AddTicks(1912),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Photo = "category/2ed8d-tasinabilirsarj.jpg",
+                            ProductCategoryId = 7,
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 47,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 140, DateTimeKind.Local).AddTicks(1914),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Photo = "category/528ea-monopad.png",
+                            ProductCategoryId = 7,
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 48,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 140, DateTimeKind.Local).AddTicks(1916),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Photo = "category/c1af5-usb-bellek.jpg",
+                            ProductCategoryId = 7,
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 49,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 140, DateTimeKind.Local).AddTicks(1918),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Photo = "category/b3323-bakcell.png",
+                            ProductCategoryId = 8,
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 50,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 140, DateTimeKind.Local).AddTicks(1920),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Photo = "category/6fb9a-azercell.png",
+                            ProductCategoryId = 8,
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 51,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 140, DateTimeKind.Local).AddTicks(1922),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Photo = "category/bdd2e-nar.png",
+                            ProductCategoryId = 8,
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 52,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 140, DateTimeKind.Local).AddTicks(1924),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Photo = "category/d9046-81sbl3t77zl._sl1500_.jpg",
+                            ProductCategoryId = 9,
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 53,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 140, DateTimeKind.Local).AddTicks(1926),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Photo = "category/b3747-bar-code.png",
+                            ProductCategoryId = 10,
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 54,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 140, DateTimeKind.Local).AddTicks(1930),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Photo = "category/3a824-intermec_pc42d_icon_1.jpg",
+                            ProductCategoryId = 10,
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 55,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 140, DateTimeKind.Local).AddTicks(1932),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Photo = "category/09a3c-xprinter-thermal-barcode-printer-80mm-xp-350b-.jpg",
+                            ProductCategoryId = 10,
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 56,
+                            AdminManagerId = 1,
+                            CreatedAt = new DateTime(2019, 12, 27, 20, 8, 23, 140, DateTimeKind.Local).AddTicks(1982),
+                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Photo = "category/eaf6d-sk50-1.png",
+                            ProductCategoryId = 10,
                             Status = true
                         });
                 });
@@ -1946,7 +5182,7 @@ namespace Junko.Migrations
                         {
                             Id = 1,
                             AdminManagerId = 1,
-                            ModifiedAt = new DateTime(2019, 12, 25, 20, 15, 56, 501, DateTimeKind.Local).AddTicks(2875),
+                            ModifiedAt = new DateTime(2019, 12, 27, 20, 8, 23, 135, DateTimeKind.Local).AddTicks(764),
                             Order = 1,
                             Photo = "service/services1.jpg",
                             Status = true
@@ -1955,7 +5191,7 @@ namespace Junko.Migrations
                         {
                             Id = 2,
                             AdminManagerId = 1,
-                            ModifiedAt = new DateTime(2019, 12, 25, 20, 15, 56, 501, DateTimeKind.Local).AddTicks(4989),
+                            ModifiedAt = new DateTime(2019, 12, 27, 20, 8, 23, 135, DateTimeKind.Local).AddTicks(2788),
                             Order = 2,
                             Photo = "service/services2.jpg",
                             Status = true
@@ -1964,7 +5200,7 @@ namespace Junko.Migrations
                         {
                             Id = 3,
                             AdminManagerId = 1,
-                            ModifiedAt = new DateTime(2019, 12, 25, 20, 15, 56, 501, DateTimeKind.Local).AddTicks(5025),
+                            ModifiedAt = new DateTime(2019, 12, 27, 20, 8, 23, 135, DateTimeKind.Local).AddTicks(2827),
                             Order = 3,
                             Photo = "service/services3.jpg",
                             Status = true
@@ -2021,7 +5257,7 @@ namespace Junko.Migrations
                             Email = "Junko@mail.com",
                             Location = "Code Academy",
                             Logo = "Junko",
-                            ModifiedAt = new DateTime(2019, 12, 25, 20, 15, 56, 495, DateTimeKind.Local).AddTicks(8118),
+                            ModifiedAt = new DateTime(2019, 12, 27, 20, 8, 23, 129, DateTimeKind.Local).AddTicks(351),
                             Phone = "+994 50 787 01 81",
                             PhotoLogo = "logo/logo.png"
                         });
@@ -2079,7 +5315,7 @@ namespace Junko.Migrations
                             FAQContent = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec id erat sagittis, faucibus metus malesuada, eleifend turpis. Mauris semper augue id nisl aliquet, a porta lectus mattis. Nulla at tortor augue. In eget enim diam. Donec gravida tortor sem, ac fermentum nibh rutrum sit amet. Nulla convallis mauris vitae congue consequat. Donec interdum nunc purus, vitae vulputate arcu fringilla quis. Vivamus iaculis euismod dui.",
                             FAQTitle = "Below are frequently asked questions, you may find the answer for yourself",
                             LanguageId = 1,
-                            ModifiedAt = new DateTime(2019, 12, 25, 20, 15, 56, 497, DateTimeKind.Local).AddTicks(5720),
+                            ModifiedAt = new DateTime(2019, 12, 27, 20, 8, 23, 130, DateTimeKind.Local).AddTicks(9467),
                             Privacy = "<div class='privacy_content section_1'> <h2>Who we are</h2> <p>Our website address is: <a href='http://1.envato.market/9LbxW'>http://1.envato.market/9LbxW</a></p> </div> <div class='privacy_content section_2'> <h2>What personal data we collect and why we collect it</h2> <h3>Comments</h3> <p>When visitors leave comments on the site we collect the data shown in the comments form, and also the visitor’s IP address and browser user agent string to help spam detection.</p> <p>An anonymized string created from your email address (also called a hash) may be provided to the Gravatar service to see if you are using it. The Gravatar service privacy policy is available here: https://automattic.com/privacy/. After approval of your comment, your profile picture is visible to the public in the context of your comment.</p> <h3>Media</h3> <p>If you upload images to the website, you should avoid uploading images with embedded location data (EXIF GPS) included. Visitors to the website can download and extract any location data from images on the website.</p> <h3>Cookies</h3> <p>If you leave a comment on our site you may opt-in to saving your name, email address and website in cookies. These are for your convenience so that you do not have to fill in your details again when you leave another comment. These cookies will last for one year.</p> <p>If you have an account and you log in to this site, we will set a temporary cookie to determine if your browser accepts cookies. This cookie contains no personal data and is discarded when you close your browser.</p> <p>When you log in, we will also set up several cookies to save your login information and your screen display choices. Login cookies last for two days, and screen options cookies last for a year. If you select “Remember Me”, your login will persist for two weeks. If you log out of your account, the login cookies will be removed.</p> <p>If you edit or publish an article, an additional cookie will be saved in your browser. This cookie includes no personal data and simply indicates the post ID of the article you just edited. It expires after 1 day.</p> <h3>Embedded content from other websites</h3> <p>Articles on this site may include embedded content (e.g. videos, images, articles, etc.). Embedded content from other websites behaves in the exact same way as if the visitor has visited the other website.</p> <p>These websites may collect data about you, use cookies, embed additional third-party tracking, and monitor your interaction with that embedded content, including tracking your interaction with the embedded content if you have an account and are logged in to that website.</p> </div> <div class='privacy_content section_3'> <h2>How long we retain your data</h2> <p>If you leave a comment, the comment and its metadata are retained indefinitely. This is so we can recognize and approve any follow-up comments automatically instead of holding them in a moderation queue.</p> <p>For users that register on our website (if any), we also store the personal information they provide in their user profile. All users can see, edit, or delete their personal information at any time (except they cannot change their username). Website administrators can also see and edit that information.</p> </div> <div class='privacy_content section_3'> <h2>What rights you have over your data</h2> <p>If you have an account on this site, or have left comments, you can request to receive an exported file of the personal data we hold about you, including any data you have provided to us. You can also request that we erase any personal data we hold about you. This does not include any data we are obliged to keep for administrative, legal, or security purposes.</p> </div> <div class='privacy_content section_3'> <h2>Where we send your data</h2> <p>Visitor comments may be checked through an automated spam detection service.</p> </div>",
                             SettingId = 1
                         },
@@ -2090,7 +5326,7 @@ namespace Junko.Migrations
                             FAQContent = "",
                             FAQTitle = "Aşağıda tez-tez verilən suallarla özünüz üçün cavab tapa bilərsiniz",
                             LanguageId = 2,
-                            ModifiedAt = new DateTime(2019, 12, 25, 20, 15, 56, 497, DateTimeKind.Local).AddTicks(6517),
+                            ModifiedAt = new DateTime(2019, 12, 27, 20, 8, 23, 131, DateTimeKind.Local).AddTicks(353),
                             Privacy = "<div class='privacy_content section_1'> <h2>Biz kimik</h2> <p>Veb saytımızın ünvanı: <a href='http://1.envato.market/9LbxW'>http://1.envato.market/9LbxW</a></p> </div> <div class='privacy_content section_2'> <h2>Hansı şəxsi məlumatları toplayırıq və niyə toplayırıq</h2> <h3>Şərhlər</h3> <p>Saytda şərhlər buraxdıqda, şərh şəklində göstərilən məlumatları, həmçinin spamın aşkarlanmasına kömək etmək üçün ziyarətçinin IP ünvanı və brauzer istifadəçi agenti simini toplayırıq.Elektron poçtunuzun adından yaradılan bir anonim simli (hash adlanır) istifadə etdiyinizi görmək üçün Gravatar xidmətinə verilə bilər. Gravatar xidmətinin məxfilik siyasəti ilə burada tanış olmaq mümkündür: https://automattic.com/privacy/. Şərhiniz təsdiqləndikdən sonra profil şəkliniz şərhiniz daxilində ictimaiyyətə görünəcəkdir.</p> <h3>Media</h3> <p>Şəkilləri veb saytına yükləsəniz, daxil edilmiş məlumat məlumatları (EXIF GPS) daxil edilmiş şəkilləri yükləməkdən çəkinməlisiniz. Veb saytına daxil olanlar veb saytdakı şəkillərdən hər hansı bir yer məlumatını yükləyə və çıxara bilər.</p> <h3>Cookies</h3> <p>Saytımızda bir rəy yazsanız, adınızı, e-poçt adresinizi və veb saytınızı çərəzlərdə saxlamaq üçün iştirak edə bilərsiniz. Bunlar sizin rahatlığınız üçündür ki, başqa bir şərh yazanda yenidən məlumatlarınızı doldurmamalısınız. Bu peçenye bir il davam edəcəkdir.Bir hesabınız varsa və bu sayta daxil olsanız, brauzerinizin çerezləri qəbul edib etmədiyini müəyyənləşdirmək üçün müvəqqəti bir çərəz hazırlayacağıq. Bu çerezdə şəxsi məlumat yoxdur və brauzerinizi bağladığınız zaman atılır.Giriş etdiyiniz zaman giriş məlumatlarınızı və ekrandakı seçimlərinizi saxlamaq üçün bir neçə çərəz hazırlayacağıq. Giriş peçenye iki gün davam edir və ekran seçimləri peçenye bir il davam edir. 'Məni yadda saxla' seçsəniz, girişiniz iki həftə davam edəcəkdir. Hesabınızdan çıxsanız, giriş cookies-ləri silinəcəkdir.Bir məqaləni redaktə etsəniz və ya dərc etsəniz, əlavə bir çərəz brauzerinizdə saxlanacaqdır. Bu çerez heç bir şəxsi məlumatı ehtiva etmir və sadəcə redaktə etdiyiniz məqalənin poçt nömrəsini göstərir. 1 gündən sonra bitəcək.</p> <h3>Digər veb saytlardan daxil edilmiş məzmun</h3> <p>Bu saytdakı məqalələr əlaqədar məzmunu ehtiva edə bilər (məsələn, video, şəkillər, məqalələr və s.). Digər veb saytlardan daxil edilmiş məzmun, qonaq digər veb saytı ziyarət etdiyi kimi eyni şəkildə davranır.Bu veb saytlar sizin haqqınızda məlumat toplaya bilər, peçenye istifadə edə bilər, əlavə üçüncü tərəf izləmə əlavə edə bilər və daxil edilmiş məzmunla qarşılıqlı əlaqənizi, habelə hesabınız varsa və həmin veb sayta daxil olmağınızla əlaqəli əlaqənizi izləyə bilər.</p> </div> <div class='privacy_content section_3'> <h2>Verilənlərinizi necə saxlayırıq?</h2> <p>Bir şərh buraxsanız, şərh və onun metadatası qeyri-müəyyən olaraq saxlanılır. Bu, hər hansı bir izləmə şərhlərini moderasiya növbəsində saxlamaq əvəzinə avtomatik olaraq tanıya və təsdiqləyə biləcəyimizdir.Veb saytımızda (əgər varsa) qeydiyyatdan keçən istifadəçilər üçün təqdim etdikləri şəxsi məlumatları istifadəçi profilində saxlayırıq. Bütün istifadəçilər istənilən vaxt şəxsi məlumatlarını görə bilər, redaktə edə və ya silə bilər (istifadəçi adlarını dəyişə bilməyincə). Veb sayt rəhbərləri də həmin məlumatları görə və redaktə edə bilərlər.</p> </div> <div class='privacy_content section_3'> <h2>Məlumatlarınız üzərində hansı hüquqlara sahibsiniz</h2> <p>Bu saytda bir hesabınız varsa və ya şərhlər buraxmısınızsa, sizə təqdim etdiyiniz hər hansı bir məlumat daxil olmaqla, sizin haqqımızda saxladığımız fərdi məlumatların ixrac edilmiş sənədini tələb edə bilərsiniz. Ayrıca, sizin haqqınızda saxladığımız şəxsi məlumatlarınızı silməyimizi tələb edə bilərsiniz. Buraya inzibati, qanuni və ya təhlükəsizlik məqsədləri üçün saxlamalı olduğumuz hər hansı bir məlumat daxil deyil.</p> </div> <div class='privacy_content section_3'> <h2>Məlumatlarınızı hara göndəririk</h2> <p>Ziyarətçilərin şərhləri avtomatlaşdırılmış spam aşkarlama xidməti vasitəsilə yoxlanıla bilər..</p> </div>",
                             SettingId = 1
                         });
@@ -2214,7 +5450,7 @@ namespace Junko.Migrations
                         {
                             Id = 1,
                             AdminManagerId = 1,
-                            ModifiedAt = new DateTime(2019, 12, 25, 20, 15, 56, 503, DateTimeKind.Local).AddTicks(4338),
+                            ModifiedAt = new DateTime(2019, 12, 27, 20, 8, 23, 137, DateTimeKind.Local).AddTicks(2290),
                             Photo = "about/about2.jpg",
                             Status = true
                         },
@@ -2222,7 +5458,7 @@ namespace Junko.Migrations
                         {
                             Id = 2,
                             AdminManagerId = 1,
-                            ModifiedAt = new DateTime(2019, 12, 25, 20, 15, 56, 503, DateTimeKind.Local).AddTicks(5754),
+                            ModifiedAt = new DateTime(2019, 12, 27, 20, 8, 23, 137, DateTimeKind.Local).AddTicks(3676),
                             Photo = "about/about3.jpg",
                             Status = true
                         });
@@ -2318,6 +5554,36 @@ namespace Junko.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("Junko.ModelTranslate.ProductCategoryTranslate", b =>
+                {
+                    b.HasOne("Junko.Models.Language", "Language")
+                        .WithMany("ProductCategoryTranslate")
+                        .HasForeignKey("LanguageId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Junko.Models.ProductCategory", "ProductCategory")
+                        .WithMany("ProductCategoryTranslate")
+                        .HasForeignKey("ProductCategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Junko.ModelTranslate.ProductSubCategoryTranslate", b =>
+                {
+                    b.HasOne("Junko.Models.Language", "Language")
+                        .WithMany("ProductSubCategoryTranslate")
+                        .HasForeignKey("LanguageId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Junko.Models.ProductSubCategory", "ProductSubCategory")
+                        .WithMany("ProductSubCategoryTranslate")
+                        .HasForeignKey("ProductSubCategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("Junko.ModelTranslate.ServicesCoverTranslate", b =>
                 {
                     b.HasOne("Junko.Models.Language", "Language")
@@ -2390,6 +5656,32 @@ namespace Junko.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("Junko.Models.Brand", b =>
+                {
+                    b.HasOne("Junko.Models.AdminManager", "AdminManager")
+                        .WithMany("Brands")
+                        .HasForeignKey("AdminManagerId");
+                });
+
+            modelBuilder.Entity("Junko.Models.BrandProductCategory", b =>
+                {
+                    b.HasOne("Junko.Models.Brand", "Brand")
+                        .WithMany("BrandProductCategories")
+                        .HasForeignKey("BrandId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Junko.Models.ProductCategory", null)
+                        .WithMany("BrandProductCategories")
+                        .HasForeignKey("ProductCategoryId");
+
+                    b.HasOne("Junko.Models.ProductSubCategory", "ProductSubCategory")
+                        .WithMany()
+                        .HasForeignKey("ProductSubCategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("Junko.Models.Category", b =>
                 {
                     b.HasOne("Junko.Models.AdminManager", "AdminManager")
@@ -2409,6 +5701,26 @@ namespace Junko.Migrations
                     b.HasOne("Junko.Models.AdminManager", "AdminManager")
                         .WithMany("OurServices")
                         .HasForeignKey("AdminManagerId");
+                });
+
+            modelBuilder.Entity("Junko.Models.ProductCategory", b =>
+                {
+                    b.HasOne("Junko.Models.AdminManager", "AdminManager")
+                        .WithMany("ProductCategories")
+                        .HasForeignKey("AdminManagerId");
+                });
+
+            modelBuilder.Entity("Junko.Models.ProductSubCategory", b =>
+                {
+                    b.HasOne("Junko.Models.AdminManager", "AdminManager")
+                        .WithMany("ProductSubCategory")
+                        .HasForeignKey("AdminManagerId");
+
+                    b.HasOne("Junko.Models.ProductCategory", "ProductCategory")
+                        .WithMany("ProductSubCategories")
+                        .HasForeignKey("ProductCategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Junko.Models.ServicesCover", b =>

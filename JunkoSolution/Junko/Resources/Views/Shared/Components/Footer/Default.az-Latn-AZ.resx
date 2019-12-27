@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="100% Money Back" xml:space="preserve">
+    <value>Pulun 100%-in geri qayıdımı </value>
+  </data>
   <data name="About Us" xml:space="preserve">
     <value>Haqqımızda</value>
   </data>
@@ -132,17 +135,29 @@
   <data name="Contact Us" xml:space="preserve">
     <value>Əlaqə</value>
   </data>
+  <data name="Contact us 24 hours a day" xml:space="preserve">
+    <value>Günün 24 saatı bizimlə əlaqə saxla</value>
+  </data>
   <data name="FAQ" xml:space="preserve">
     <value>FAQ</value>
   </data>
   <data name="Follow Us" xml:space="preserve">
     <value>Bizi İzlə</value>
   </data>
+  <data name="Free Shipping" xml:space="preserve">
+    <value>Pulsuz çatdırılma</value>
+  </data>
+  <data name="Free shipping on all Azerbaijan order" xml:space="preserve">
+    <value>Ölkədaxili sifariçlərin pulsuz çatdırılması</value>
+  </data>
   <data name="Join Our Newsletter Now" xml:space="preserve">
     <value>Yenilikliklər üçün daxil ol</value>
   </data>
   <data name="My Account" xml:space="preserve">
     <value>Hesabım</value>
+  </data>
+  <data name="Payment Secure" xml:space="preserve">
+    <value>Ödəniş Təminatı</value>
   </data>
   <data name="Privacy Policy" xml:space="preserve">
     <value>Gizlilik</value>
@@ -159,6 +174,9 @@
   <data name="Support" xml:space="preserve">
     <value>Texniki Dəstək</value>
   </data>
+  <data name="Support 24/7" xml:space="preserve">
+    <value>7/24 Texniki Dəstək</value>
+  </data>
   <data name="Telephone" xml:space="preserve">
     <value>Telefon</value>
   </data>
@@ -168,8 +186,14 @@
   <data name="View Cart" xml:space="preserve">
     <value>Səbət</value>
   </data>
+  <data name="We ensure secure payment" xml:space="preserve">
+    <value>Təhlükəsiz ödəməni təmin edirik</value>
+  </data>
   <data name="Wish List" xml:space="preserve">
     <value>Bəyənilənlər</value>
+  </data>
+  <data name="You have 30 days to Return" xml:space="preserve">
+    <value>Qayıtmaq üçün 30 gününüz var</value>
   </data>
   <data name="Your email address" xml:space="preserve">
     <value>E-Poçt adresin</value>
