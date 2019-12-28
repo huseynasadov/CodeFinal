@@ -23,6 +23,7 @@ namespace Junko.Models
         public ICollection<ProductCategoryTranslate> ProductCategoryTranslates { get; set; }
         public ICollection<ProductSubCategoryTranslate> ProductSubCategoryTranslates { get; set; }
         public ICollection<ProperityTranslate> ProperityTranslates { get; set; }
+        public ICollection<ProductTranslate> ProductTranslates { get; set; }
 
     }
 }

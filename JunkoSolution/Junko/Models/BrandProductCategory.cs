@@ -15,5 +15,6 @@ namespace Junko.Models
         public int ProductSubCategoryId { get; set; }
         public Brand Brand { get; set; }
         public ProductSubCategory ProductSubCategory { get; set; }
+        public ICollection<Product> Products { get; set; }
     }
 }

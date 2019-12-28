@@ -15,6 +15,8 @@ namespace Junko.Models
         public int ProductCategoryId { get; set; }
         [MaxLength(250)]
         public string Photo { get; set; }
+        public byte? Discount { get; set; }
+        public int? DiscountDate { get; set; }
         [NotMapped]
         public IFormFile PhotoUpload { get; set; }
         public bool Status { get; set; }
