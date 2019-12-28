@@ -16,7 +16,6 @@ namespace Junko.Models
         public IFormFile PhotoUpload { get; set; }
         public ICollection<ProductCategoryTranslate> ProductCategoryTranslate { get; set; }
         public ICollection<ProductSubCategory> ProductSubCategories { get; set; }
-        public ICollection<BrandProductCategory> BrandProductCategories { get; set; }
         public DateTime CreatedAt { get; set; }
         public bool Status { get; set; }
     }

@@ -21,5 +21,7 @@ namespace Junko.Models
         public DateTime CreatedAt { get; set; }
         public ProductCategory ProductCategory { get; set; }
         public ICollection<ProductSubCategoryTranslate> ProductSubCategoryTranslate { get; set; }
+        public ICollection<BrandProductCategory> BrandProductCategories { get; set; }
+        public ICollection<ProperityCategory> ProperityCategories { get; set; }
     }
 }
