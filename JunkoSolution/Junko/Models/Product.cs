@@ -20,6 +20,8 @@ namespace Junko.Models
         public decimal? FollowCount { get; set; }
         public BrandProductCategory BrandProductCategory { get; set; }
         public ICollection<ProductTranslate> ProductTranslates { get; set; }
+        public ICollection<ProductPhoto> ProductPhotos { get; set; }
+        public ICollection<Color> Colors { get; set; }
 
     }
 }
