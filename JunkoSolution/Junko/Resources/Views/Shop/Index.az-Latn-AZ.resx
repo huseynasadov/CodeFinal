@@ -117,6 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Add to cart" xml:space="preserve">
+    <value>Karta əlavə et</value>
+  </data>
+  <data name="Add to Wishlist" xml:space="preserve">
+    <value>Favorilərə Əlavə Et</value>
+  </data>
   <data name="high to low" xml:space="preserve">
     <value>aşağı</value>
   </data>
@@ -132,8 +138,14 @@
   <data name="preview" xml:space="preserve">
     <value>əvvəlki</value>
   </data>
+  <data name="Product categories" xml:space="preserve">
+    <value>Məhsul Kateqoriyaları</value>
+  </data>
   <data name="Product Name" xml:space="preserve">
     <value>Məhsula görə sırala</value>
+  </data>
+  <data name="Quick View" xml:space="preserve">
+    <value>Favoriləri Gör</value>
   </data>
   <data name="results" xml:space="preserve">
     <value>Nəticələr</value>

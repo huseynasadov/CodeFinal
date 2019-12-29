@@ -755,7 +755,9 @@ textarea:-ms-input-placeholder {
 .header_middle {
     padding: 25px 0;
 }
-
+.ProductList {
+    display:contents!important;
+}
 .middel_right {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -3255,7 +3257,13 @@ textarea:-ms-input-placeholder {
 .sidebar_widget .single_banner {
     border: 0;
 }
-
+.widget-succategory {
+    padding-bottom: 0px;
+    padding: 10px 0;
+}
+.widget-succategory-card {
+    background-color: #f8f8f8;
+}
 .widget_list {
     margin-bottom: 56px;
 }
@@ -5370,12 +5378,12 @@ textarea:-ms-input-placeholder {
         }
 
         .card-header.card_accor button.btn-link {
-            border: 1px solid #0063d1;
+            border: 1px solid #ebebeb;
             width: 100%;
             text-align: left;
             font-size: 14px;
             font-weight: 500;
-            color: #ffffff;
+            color: #252525;
         }
 
             .card-header.card_accor button.btn-link.collapsed {
