@@ -13,7 +13,7 @@ namespace Junko.ViewComponents
 {
     public class FooterViewComponent: ViewComponent
     {
-        JunkoDBContext _db;
+       private readonly JunkoDBContext _db;
         public FooterViewComponent(JunkoDBContext context)
         {
             _db = context;
@@ -23,8 +23,8 @@ namespace Junko.ViewComponents
             var rqf = Request.HttpContext.Features.Get<IRequestCultureFeature>();
             var culture = rqf.RequestCulture.Culture;
             SettingVM model = new SettingVM {
-                Setting=_db.Setting.Include("SocialActivities").FirstOrDefault(),
-                SettingTranslate=_db.SettingTranslates.FirstOrDefault(a=>a.Language.LanguageCode==culture.ToString())
+                Setting= await _db.Setting.Include("SocialActivities").FirstOrDefaultAsync(),
+                SettingTranslate=await _db.SettingTranslates.FirstOrDefaultAsync(a=>a.Language.LanguageCode==culture.ToString())
             };
             return View(model);
         }

@@ -15,6 +15,6 @@ namespace Junko.Models
         public string Code { get; set; }
         public bool Status { get; set; }
         public DateTime CreatedAt { get; set; }
-        public ICollection<Color> Colors { get; set; }
+        public ICollection<ProductColor> ProductColors { get; set; }
     }
 }

@@ -42,7 +42,7 @@
                                                         <ul >
                                                             @foreach (var subcat in cat.ProductCategory.ProductSubCategories)
                                                             {
-                                                                <li class="widget-succategory"><a href="#">@subcat.ProductSubCategoryTranslate.FirstOrDefault(s => s.LanguageId == cat.LanguageId).Name</a></li>
+                                                                <li class="widget-succategory"><a asp-controller="shop" asp-action="index" asp-route-category="@subcat.Id">@subcat.ProductSubCategoryTranslate.FirstOrDefault(s => s.LanguageId == cat.LanguageId).Name</a></li>
                                                             }
                                                         </ul>
                                                     </div>
@@ -54,11 +54,10 @@
                             </div>
                             <div class="widget_list widget_filter">
                                 <h2>Filter by price</h2>
-                                <form action="#">
+                                <form action="#" id="FilterProduct">
                                     <div id="slider-range"></div>
                                     <button type="submit">Filter</button>
-                                    <input type="text" name="text" id="amount" />
-
+                                    <input type="text" name="filter" id="amount" />
                                 </form>
                             </div>
                             <div class="widget_list">
@@ -151,15 +150,48 @@
 
                             <button data-role="grid_list" type="button" class="btn-list" data-toggle="tooltip" title="List"></button>
                         </div>
-                        <div class=" niceselect_option">
-                            <form class="select_option" action="#">
-                                <select name="orderby" id="short">
-                                    <option selected value="1">@_localizer["Sort by average rating"]</option>
-                                    <option value="2">@_localizer["Sort by newness"]</option>
-
-                                    <option value="3">@_localizer["Sort by price"]: @_localizer["low to high"]</option>
-                                    <option value="4">@_localizer["Sort by price"]: @_localizer["high to low"]</option>
-                                    <option value="5">@_localizer["Sort by Product Name"]: Z</option>
+                        <div class="sortable-form">
+                            <form method="get" role="form"  asp-controller="shop" asp-action="index" asp-route-category=@(Model.Pagination.CategoryId !=null? Model.Pagination.CategoryId:null )>
+                                <select onchange="this.form.submit();" name="orderby" class="custom-select custom-select-md">
+                                    @if (Model.Pagination.OrderBy == 1)
+                                    {
+                                        <option selected value="1">@_localizer["Sort by newness"]</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="1">@_localizer["Sort by newness"]</option>
+                                    }
+                                    @if (Model.Pagination.OrderBy == 2)
+                                    {
+                                        <option selected value="2">@_localizer["Sort by average rating"]</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="2">@_localizer["Sort by average rating"]</option>
+                                    }
+                                    @if (Model.Pagination.OrderBy == 3)
+                                    {
+                                        <option selected value="3">@_localizer["Sort by price"]: @_localizer["low to high"]</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="3">@_localizer["Sort by price"]: @_localizer["low to high"]</option>
+                                    }@if (Model.Pagination.OrderBy == 4)
+                                    {
+                                        <option selected value="4">@_localizer["Sort by price"]: @_localizer["high to low"]</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="4">@_localizer["Sort by price"]: @_localizer["high to low"]</option>
+                                    }
+                                    @if (Model.Pagination.OrderBy == 5)
+                                    {
+                                        <option selected value="5">@_localizer["Sort by Product Name"]: Z</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="5">@_localizer["Sort by Product Name"]: Z</option>
+                                    }
                                 </select>
                             </form>
                         </div>
@@ -175,8 +207,8 @@
                                 <article class="single_product">
                                     <figure class="ProductList">
                                         <div class="product_thumb">
-                                            <a class="primary_img" asp-controller="shop" asp-action="detail"><img style="height:200px; object-fit:contain" src="~/images/@(product.ProductPhotos.FirstOrDefault()==null?"product/product-default.png":product.ProductPhotos.FirstOrDefault().Photo) " alt="@product.Name"></a>
-                                            <a class="secondary_img" asp-controller="shop" asp-action="detail"><img style="height:200px; object-fit:contain" src="~/images/@(product.ProductPhotos.FirstOrDefault()==null ?"product/product-default.png":product.ProductPhotos.Count==1?product.ProductPhotos.FirstOrDefault().Photo:product.ProductPhotos.Skip(1).FirstOrDefault().Photo)" alt="@product.Name"></a>
+                                            <a class="primary_img" asp-controller="shop" asp-action="detail" asp-route-slug="@product.Slug"><img style="height:200px; object-fit:contain" src="~/images/@(product.ProductPhotos.FirstOrDefault()==null?"product/product-default.png":product.ProductPhotos.FirstOrDefault().Photo) " alt="@product.Name"></a>
+                                            <a class="secondary_img" asp-controller="shop" asp-action="detail" asp-route-slug="@product.Slug"><img style="height:200px; object-fit:contain" src="~/images/@(product.ProductPhotos.FirstOrDefault()==null ?"product/product-default.png":product.ProductPhotos.Count==1?product.ProductPhotos.FirstOrDefault().Photo:product.ProductPhotos.Skip(1).FirstOrDefault().Photo)" alt="@product.Name"></a>
                                             @if (product.Discount!=0 )
                                             {
                                                 <div class="label_product">
@@ -195,14 +227,9 @@
                                             </div>
                                         </div>
                                         <div class="product_content grid_content">
+ 
+                                            <price price="@product.Price" discount-price="@product.Discount" language-id="@Model.ProductCategoryTranslates.FirstOrDefault().LanguageId"></price>
 
-                                            <div class="price_box">
-                                                <span class="@(product.Discount!=0?"old_price":"current_price")"> @product.Price.ToString("C")</span>
-                                                @if (product.Discount!=0)
-                                                {
-                                            <span class="current_price">@((product.Price-product.Price * product.Discount / 100)?.ToString("C"))</span>
-                                                }
-                                            </div>
                                             <div class="product_ratings">
                                                 <ul>
                                                     <li><a href="#"><i class="ion-android-star-outline"></i></a></li>
@@ -212,18 +239,13 @@
                                                     <li><a href="#"><i class="ion-android-star-outline"></i></a></li>
                                                 </ul>
                                             </div>
-                                            <h3 class="product_name grid_name"><a style="font-weight:bold;font-size:medium;color:dimgray" asp-controller="shop" asp-action="detail">@product.Name</a></h3>
+                                            <h3 class="product_name grid_name"><a style="font-weight:bold;font-size:medium;color:dimgray" asp-controller="shop" asp-action="detail" asp-route-slug="@product.Slug">@product.Name</a></h3>
                                         </div>
                                         <div class="product_content list_content">
                                             <div class="left_caption">
-                                                <div class="price_box">
-                                                    <span class="@(product.Discount!=0?"old_price":"current_price")">@product.Price.ToString("C")</span>
-                                                    @if (product.Discount != 0)
-                                                    {
-                                                        <span class="current_price">@((product.Price * product.Discount / 100)?.ToString("C"))</span>
-                                                    }
-                                                </div>
-                                                <h3 class="product_name"><a style="font-weight:bold;font-size:medium;color:dimgray" href="product-detail.html">@product.Name</a></h3>
+                                                <price price="@product.Price" discount-price="@product.Discount" language-id="@Model.ProductCategoryTranslates.FirstOrDefault().LanguageId"></price>
+                                               
+                                                <h3 class="product_name"><a style="font-weight:bold;font-size:medium;color:dimgray" asp-controller="shop" asp-action="detail" asp-route-slug="@product.Slug">@product.Name</a></h3>
                                                 <div class="product_ratings">
                                                     <ul>
                                                         <li><a href="#"><i class="ion-android-star-outline"></i></a></li>

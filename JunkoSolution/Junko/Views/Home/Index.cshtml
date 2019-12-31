@@ -1,5 +1,6 @@
 ﻿@using Microsoft.AspNetCore.Mvc.Localization
 @inject IViewLocalizer _localizer
+@model  HomeVM
 <!--Main Start-->
 @{
 
@@ -9,49 +10,24 @@
         <!--slider start-->
         <section class="slider_section slider_section_two mb-70">
             <div class="slider_area owl-carousel">
-                <div class="single_slider d-flex align-items-center" data-bgimg="/images/slider/slider1.jpg">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="slider_content">
-                                    <h1>best skin</h1>
-                                    <h2>qled 75 inch q7f</h2>
-                                    <p>exclusive offer <span>20% off </span> this week</p>
-                                    <a class="button" href="shop.html">@_localizer["shopping now"]</a>
+                @foreach (var product in Model.HomeHeaders)
+                {
+                    <div class="single_slider d-flex align-items-center" style="background-size:contain;background-position:right;" data-bgimg="/images/@(product.Product.ProductPhotos.FirstOrDefault()!=null?product.Product.ProductPhotos.FirstOrDefault().Photo:"product/product-default.png")">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="slider_content">
+                                        <h1>@product.HomeHeaderTranslates.FirstOrDefault(t=>t.LanguageId==Model.LanguageId).Title</h1>
+                                        <h2>@product.Product.Name</h2>
+                                        <p>@_localizer["exclusive offer"] <span>@(product.Product.Discount)% @_localizer["sale"] </span>@(product.Product.DiscountDate<=7?  _localizer["this week"].Value :_localizer["this month"].Value)</p>
+                                        <a class="button" asp-controller="shop" asp-action="detail" asp-route-slug="@product.Product.Slug">@_localizer["shopping now"]</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                </div>
-                <div class="single_slider d-flex align-items-center" data-bgimg="/images/slider/slider2.jpg">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="slider_content">
-                                    <h1>Dual Front</h1>
-                                    <h2>camera 20mp</h2>
-                                    <p>exclusive offer <span> 20% off </span> this week</p>
-                                    <a class="button" href="shop.html">@_localizer["shopping now"]</a>
-                                </div>
-                            </div>
-                        </div>
                     </div>
-                </div>
-                <div class="single_slider d-flex align-items-center" data-bgimg="/images/slider/slider3.jpg">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="slider_content">
-                                    <h1>Hurry Up!</h1>
-                                    <h2>IN THE WORD 2019</h2>
-                                    <p>exclusive offer <span> 20% off </span> this week</p>
-                                    <a class="button" href="shop.html">@_localizer["shopping now"]</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                }
             </div>
         </section>
         <!--slider end-->
@@ -63,83 +39,26 @@
                         <div class="top_category_header">
                             <h3>@_localizer["Top Categories This Week"]</h3>
                             <p>@_localizer["The most visited categories this week"]</p>
-                            <a href="shop.html">@_localizer["Show All Categories"]</a>
+                            <a asp-action="index" asp-controller="shop">@_localizer["Show All Categories"]</a>
                         </div>
                     </div>
                     <div class="col-lg-10 col-md-9">
                         <div class="top_category_container category_column5 owl-carousel">
+                            @foreach (var cat in Model.BestCategory)
+                            {
                             <div class="col-lg-2">
                                 <article class="single_category">
                                     <figure>
                                         <div class="category_thumb">
-                                            <a href="shop.html"><img src="~/images/s-product/category1.jpg" alt=""></a>
+                                            <a asp-controller="shop" asp-action="index" asp-route-category="@cat.ProductSubCategories.FirstOrDefault().Id"><img style="height:100px" src="~/images/@cat.Photo" alt="@cat.ProductCategoryTranslate.FirstOrDefault(a=>a.LanguageId==Model.LanguageId).Name"></a>
                                         </div>
                                         <figcaption class="category_name">
-                                            <h3><a href="shop.html">Games & Consoles </a></h3>
+                                            <h3><a asp-controller="shop" asp-action="index" asp-route-category="@cat.ProductSubCategories.FirstOrDefault().Id">@cat.ProductCategoryTranslate.FirstOrDefault(a => a.LanguageId == Model.LanguageId).Name</a></h3>
                                         </figcaption>
                                     </figure>
                                 </article>
                             </div>
-                            <div class="col-lg-2">
-                                <article class="single_category">
-                                    <figure>
-                                        <div class="category_thumb">
-                                            <a href="shop.html"><img src="~/images/s-product/category2.jpg" alt=""></a>
-                                        </div>
-                                        <figcaption class="category_name">
-                                            <h3><a href="shop.html">Home Accessories</a></h3>
-                                        </figcaption>
-                                    </figure>
-                                </article>
-                            </div>
-                            <div class="col-lg-2">
-                                <article class="single_category">
-                                    <figure>
-                                        <div class="category_thumb">
-                                            <a href="shop.html"><img src="~/images/s-product/category3.jpg" alt=""></a>
-                                        </div>
-                                        <figcaption class="category_name">
-                                            <h3><a href="shop.html">TV & Audio</a></h3>
-                                        </figcaption>
-                                    </figure>
-                                </article>
-                            </div>
-                            <div class="col-lg-2">
-                                <article class="single_category">
-                                    <figure>
-                                        <div class="category_thumb">
-                                            <a href="shop.html"><img src="~/images/s-product/category4.jpg" alt=""></a>
-                                        </div>
-                                        <figcaption class="category_name">
-                                            <h3><a href="shop.html">Games & Consoles </a></h3>
-                                        </figcaption>
-                                    </figure>
-                                </article>
-                            </div>
-                            <div class="col-lg-2">
-                                <article class="single_category">
-                                    <figure>
-                                        <div class="category_thumb">
-                                            <a href="shop.html"><img src="~/images/s-product/category5.jpg" alt=""></a>
-                                        </div>
-                                        <figcaption class="category_name">
-                                            <h3><a href="shop.html">Laptop & Tablets </a></h3>
-                                        </figcaption>
-                                    </figure>
-                                </article>
-                            </div>
-                            <div class="col-lg-2">
-                                <article class="single_category">
-                                    <figure>
-                                        <div class="category_thumb">
-                                            <a href="shop.html"><img src="~/images/s-product/category2.jpg" alt=""></a>
-                                        </div>
-                                        <figcaption class="category_name">
-                                            <h3><a href="shop.html">Home Accessories</a></h3>
-                                        </figcaption>
-                                    </figure>
-                                </article>
-                            </div>
+                            }
                         </div>
                     </div>
                 </div>
@@ -148,7 +67,7 @@
         <!-- category  end-->
         <!--product start-->
 
-        @await Html.PartialAsync("~/Views/Shared/_MostSaled.cshtml")
+        @await Html.PartialAsync("~/Views/Shared/_MostSaled.cshtml",model:Model.MostSaleds)
         <!--product end-->
         <!--banner start-->
         <div class="banner_area banner_two mb-40">

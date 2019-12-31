@@ -60,7 +60,7 @@
         autoplay: false,
         autoplayTimeout: 8000,
         items: 5,
-        margin:20,
+            margin: 20,
         dots:false,
         navText: ['<i class="ion-ios-arrow-left"></i>','<i class="ion-ios-arrow-right"></i>'],
         responsiveClass:true,
@@ -271,7 +271,8 @@
         autoplayTimeout: 8000,
         items: 5,
         dots:false,
-        responsiveClass:true,
+            responsiveClass: true,
+            autoHeight: true,
 		responsive:{
 				0:{
 				items:1,
@@ -475,7 +476,7 @@
         nav: true,
         autoplay: false,
         autoplayTimeout: 8000,
-        items: 4,
+        items: 3,
         margin:15,
         dots:false,
         navText: ['<i class="fa fa-angle-left"></i>','<i class="fa fa-angle-right"></i>'],
@@ -491,7 +492,7 @@
 				items:3,
 			},
             1200:{
-				items:4,
+				items:3,
 			},
 
 
@@ -566,8 +567,7 @@
             container: 'body'
     });
     
-    /*--- niceSelect---*/
-     $('.select_option').niceSelect();
+   
     
     /*---  Accordion---*/
     $(".faequently-accordion").collapse({
@@ -608,15 +608,14 @@
     $( "#slider-range" ).slider({
         range: true,
         min: 0,
-        max: 500,
-        values: [ 0, 500 ],
+        max: 5000,
+        values: [ 0, 5000 ],
         slide: function( event, ui ) {
-        $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+            $("#amount").val(ui.values[0]+"-"+ui.values[ 1 ] );
        }
     });
-    $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
-       " - $" + $( "#slider-range" ).slider( "values", 1 ) );
-    
+    $("#amount").val($("#slider-range").slider("values", 0) + "-" + $("#slider-range").slider("values", 1));
+   
     /*---niceSelect---*/
      $('.niceselect_option').niceSelect();
     

@@ -117,7 +117,19 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Add to cart" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Add to Wishlist" xml:space="preserve">
+    <value />
+  </data>
   <data name="Hot Deals Products" xml:space="preserve">
     <value>Ən Çox Satılan Məhsullar</value>
+  </data>
+  <data name="quick view" xml:space="preserve">
+    <value />
+  </data>
+  <data name="sale" xml:space="preserve">
+    <value />
   </data>
 </root>

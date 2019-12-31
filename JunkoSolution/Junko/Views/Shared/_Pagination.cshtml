@@ -6,7 +6,7 @@
                 @if (Model.CurrentPage != 1)
                 {
                     <li class="page-item">
-                        <a class="page-link" href="@Url.Action("index", $"{Model.Page}", new { page = (Model.CurrentPage-1)})" tabindex="-1" aria-disabled="true">&lt; &lt;</a>
+                        <a class="page-link" href="@Url.Action("index", $"{Model.Page}", new { page = (Model.CurrentPage-1),category=(Model.CategoryId !=null? Model.CategoryId:null )})" tabindex="-1" aria-disabled="true">&lt; &lt;</a>
                     </li>
                 }
 
@@ -20,13 +20,13 @@
                     }
                     else
                     {
-                        <li class="page-item"><a class="page-link" href="@Url.Action("index", $"{Model.Page}", new { page = i})">@i</a></li>
+                        <li class="page-item"><a class="page-link" href="@Url.Action("index", $"{Model.Page}", new { page = i,category=(Model.CategoryId !=null? Model.CategoryId:null )})">@i</a></li>
                     }
                 }
                 @if (Model.CurrentPage != (Model.PageCount))
                 {
                     <li class="page-item">
-                        <a class="page-link" href="@Url.Action("index", $"{Model.Page}", new { page = (Model.CurrentPage+1)})">
+                        <a class="page-link" href="@Url.Action("index", $"{Model.Page}", new { page = (Model.CurrentPage+1),category=(Model.CategoryId !=null? Model.CategoryId:null )})">
                             >>
                         </a>
                     </li>

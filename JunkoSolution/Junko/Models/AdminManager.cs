@@ -44,5 +44,6 @@ namespace Junko.Models
         public ICollection<ProductCategory> ProductCategories { get; set; }
         public ICollection<Properity> Properities { get; set; }
         public ICollection<Product> Products { get; set; }
+        public ICollection<Partner> Partners { get; set; }
     }
 }

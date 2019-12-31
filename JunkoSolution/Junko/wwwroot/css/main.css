@@ -6632,10 +6632,10 @@ textarea:-ms-input-placeholder {
     line-height: 20px;
 }
 
-.variants_size.mb-15,
-.mb-15.variants_color {
-    margin-bottom: 24px;
-}
+    .variants_size.mb-15,
+    .mb-15.variants_color {
+        margin-bottom: 24px;
+    }
 
 .variants_size .select_option,
 .variants_color .select_option {
@@ -6643,7 +6643,9 @@ textarea:-ms-input-placeholder {
     border-radius: 0;
     margin-bottom: 25px;
 }
-
+.custom-select option.selected {
+    font-weight:bold;
+}
     .variants_size .select_option .list,
     .variants_color .select_option .list {
         width: 100%;

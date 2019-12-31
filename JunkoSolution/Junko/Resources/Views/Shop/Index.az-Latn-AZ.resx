@@ -168,4 +168,7 @@
   <data name="Sort by price" xml:space="preserve">
     <value>Qiymətə görə sırala</value>
   </data>
+  <data name="Sort by Product Name" xml:space="preserve">
+    <value>Ada görə sırala</value>
+  </data>
 </root>

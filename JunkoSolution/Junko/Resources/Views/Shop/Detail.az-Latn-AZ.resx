@@ -138,6 +138,12 @@
   <data name="home" xml:space="preserve">
     <value>Ana səhifə</value>
   </data>
+  <data name="Like Products" xml:space="preserve">
+    <value>Oxşar Məhsullar</value>
+  </data>
+  <data name="Most Saled Products" xml:space="preserve">
+    <value>Ən Çox Satılan Məhsullar</value>
+  </data>
   <data name="Product Detail" xml:space="preserve">
     <value>Məhsul haqqında</value>
   </data>

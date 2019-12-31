@@ -10,5 +10,7 @@ namespace Junko.ViewModels
         public int PageCount { get; set; }
         public int CurrentPage { get; set; }
         public Page Page { get; set; }
+        public int? CategoryId { get; set; }
+        public int? OrderBy { get; set; }
     }
 }

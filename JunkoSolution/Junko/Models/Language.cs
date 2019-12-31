@@ -24,6 +24,7 @@ namespace Junko.Models
         public ICollection<ProductSubCategoryTranslate> ProductSubCategoryTranslates { get; set; }
         public ICollection<ProperityTranslate> ProperityTranslates { get; set; }
         public ICollection<ProductTranslate> ProductTranslates { get; set; }
+        public ICollection<HomeHeaderTranslate> HomeHeaderTranslates { get; set; }
 
     }
 }

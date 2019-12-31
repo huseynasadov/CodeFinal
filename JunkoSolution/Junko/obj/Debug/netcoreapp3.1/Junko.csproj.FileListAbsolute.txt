@@ -278,8 +278,8 @@ C:\Users\Huseyn\Desktop\CodeFinal\JunkoSolution\Junko\obj\Debug\netcoreapp3.1\Ju
 C:\Users\Huseyn\Desktop\CodeFinal\JunkoSolution\Junko\obj\Debug\netcoreapp3.1\Junko.csproj.CopyComplete
 C:\Users\Huseyn\Desktop\CodeFinal\JunkoSolution\Junko\obj\Debug\netcoreapp3.1\Junko.dll
 C:\Users\Huseyn\Desktop\CodeFinal\JunkoSolution\Junko\obj\Debug\netcoreapp3.1\Junko.pdb
-C:\Users\Huseyn\Desktop\CodeFinal\JunkoSolution\Junko\obj\Debug\netcoreapp3.1\Junko.csprojAssemblyReference.cache
 C:\Users\Huseyn\Desktop\CodeFinal\JunkoSolution\Junko\obj\Debug\netcoreapp3.1\Junko.Resources.Views.About.Index.az-Latn-AZ.resources
 C:\Users\Huseyn\Desktop\CodeFinal\JunkoSolution\Junko\obj\Debug\netcoreapp3.1\Junko.Resources.Views.Shared._SelectLanguagePartial.az-Latn-AZ.resources
 C:\Users\Huseyn\Desktop\CodeFinal\JunkoSolution\Junko\bin\Debug\netcoreapp3.1\libman.json
 C:\Users\Huseyn\Desktop\CodeFinal\JunkoSolution\Junko\obj\Debug\netcoreapp3.1\Junko.Resources.Views.Contact.Index.az-Latn-AZ.resources
+C:\Users\Huseyn\Desktop\CodeFinal\JunkoSolution\Junko\obj\Debug\netcoreapp3.1\Junko.csprojAssemblyReference.cache

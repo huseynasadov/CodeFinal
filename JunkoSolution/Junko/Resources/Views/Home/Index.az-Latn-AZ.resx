@@ -126,6 +126,9 @@
   <data name="Electronics eCommerce" xml:space="preserve">
     <value>Elektronika məhsulları</value>
   </data>
+  <data name="exclusive offer" xml:space="preserve">
+    <value>eksklüziv təklif</value>
+  </data>
   <data name="Hot Deals Products" xml:space="preserve">
     <value>Ən çox satılan məhsullar</value>
   </data>
@@ -149,6 +152,12 @@
   </data>
   <data name="The most visited categories this week" xml:space="preserve">
     <value>Bu həftə ərzində ən çox daxil olunan kateqoriyalar</value>
+  </data>
+  <data name="this month" xml:space="preserve">
+    <value>Bu ay</value>
+  </data>
+  <data name="this week" xml:space="preserve">
+    <value>Bu həftə</value>
   </data>
   <data name="Top Categories This Week" xml:space="preserve">
     <value>Həftənin Kateqoriyaları</value>
