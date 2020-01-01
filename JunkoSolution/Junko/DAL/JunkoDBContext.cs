@@ -1741,9 +1741,12 @@ namespace Junko.DAL
 
             // Home Header
             modelBuilder.Entity<HomeHeader>().HasData(
-                new HomeHeader {Id=1, ProductId=32, Order=1, ModifiedAt=DateTime.Now},
-                new HomeHeader {Id=2, ProductId=1, Order=2, ModifiedAt=DateTime.Now},
-                new HomeHeader {Id=3, ProductId=33, Order=3, ModifiedAt=DateTime.Now}
+                new HomeHeader {Id=1,Photo="slider/slider4.jpg",ProductId=56, Order=1, ModifiedAt=DateTime.Now},
+                new HomeHeader {Id=2,Photo= "slider/slider5.jpg", ProductId=24,Order=2, ModifiedAt =DateTime.Now},
+                new HomeHeader {Id=3, Photo= "slider/slider6.jpg", ProductId=77, Order =3, ModifiedAt=DateTime.Now},
+                new HomeHeader {Id=5, Photo= "slider/slider2.jpg", ProductId=43, Order =4, ModifiedAt=DateTime.Now},
+                new HomeHeader {Id=6, Photo= "slider/slider17.jpg", ProductId=75, Order =5, ModifiedAt=DateTime.Now},
+                new HomeHeader {Id=7, Photo= "slider/slider1.jpg", ProductId=34, Order =6, ModifiedAt=DateTime.Now}
                 );
 
             // Home Header Translate
@@ -1751,9 +1754,15 @@ namespace Junko.DAL
                 new HomeHeaderTranslate { Id = 1, HomeHeaderId=1, LanguageId =1, Title = "best skin" },
                 new HomeHeaderTranslate { Id = 2, HomeHeaderId=2, LanguageId =1, Title = "dual front" },
                 new HomeHeaderTranslate { Id = 3, HomeHeaderId=3, LanguageId =1, Title = "Hurry Up!" },
+                new HomeHeaderTranslate { Id = 7, HomeHeaderId = 5, LanguageId = 1, Title = "New 2019" },
+                new HomeHeaderTranslate { Id = 8, HomeHeaderId = 6, LanguageId = 1, Title = "Sale Off Laptop" },
+                new HomeHeaderTranslate { Id = 11, HomeHeaderId = 7, LanguageId = 1, Title = "Sale Off Laptop" },
                 new HomeHeaderTranslate { Id = 4, HomeHeaderId=1, LanguageId =2, Title = "Əla Dizayn" },
                 new HomeHeaderTranslate { Id = 5, HomeHeaderId=2, LanguageId =2, Title = "2 kameralı" },
-                new HomeHeaderTranslate { Id = 6, HomeHeaderId=3, LanguageId =2, Title = "Tələsin!" }
+                new HomeHeaderTranslate { Id = 6, HomeHeaderId=3, LanguageId =2, Title = "Tələsin!" },
+                new HomeHeaderTranslate { Id = 9, HomeHeaderId=5, LanguageId =2, Title = "Yeni 2019" },
+                new HomeHeaderTranslate { Id = 10, HomeHeaderId=6, LanguageId =2, Title = "Endirimli" },
+                new HomeHeaderTranslate { Id = 12, HomeHeaderId=7, LanguageId =2, Title = "Endirimli" }
                 );
 
             // Partners

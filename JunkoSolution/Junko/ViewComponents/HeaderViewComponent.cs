@@ -25,7 +25,8 @@ namespace Junko.ViewComponents
             SettingVM model = new SettingVM
             {
                 Setting = await _db.Setting.Include("SocialActivities").FirstOrDefaultAsync(),
-                SettingTranslate = await  _db.SettingTranslates.FirstOrDefaultAsync(a => a.Language.LanguageCode == culture.ToString())
+                SettingTranslate = await  _db.SettingTranslates.FirstOrDefaultAsync(a => a.Language.LanguageCode == culture.ToString()),
+                ProductCategories=await _db.ProductCategories.Where(p=>p.Status==true).ToListAsync()
             };
             return View( model);
         }

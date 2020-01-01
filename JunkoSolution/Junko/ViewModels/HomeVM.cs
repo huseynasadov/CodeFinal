@@ -14,6 +14,7 @@ namespace Junko.ViewModels
         public ICollection<Product> SaledProducts { get; set; }
         public ICollection<Product> MostFollowProducts { get; set; }
         public ICollection<ProductCategory> BestCategory { get; set; }
+        public ICollection<ProductCategory> NewProductsCategory { get; set; }
         public Product BestFollow { get; set; }
         public ICollection<Partner> Partners { get; set; }
         public int LanguageId { get; set; }

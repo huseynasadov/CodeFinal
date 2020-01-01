@@ -18,7 +18,7 @@
                     <div class="product-details-tab">
                         <div id="img-1" class="zoomWrapper single-zoom d-flex justify-content-center align-items-center">
                             <a href="#">
-                                <img style="height:400px" id="zoom1" src="~/images/@(Model.Product.ProductPhotos.FirstOrDefault()==null?"product/product-default.png":Model.Product.ProductPhotos.FirstOrDefault().Photo)"
+                                <img style="height:400px;object-fit:contain" id="zoom1" src="~/images/@(Model.Product.ProductPhotos.FirstOrDefault()==null?"product/product-default.png":Model.Product.ProductPhotos.FirstOrDefault().Photo)"
                                      data-zoom-image="../images/@(Model.Product.ProductPhotos.FirstOrDefault()==null?"product/product-default.png":Model.Product.ProductPhotos.FirstOrDefault().Photo)" alt="@Model.Product.Name">
                             </a>
                         </div>

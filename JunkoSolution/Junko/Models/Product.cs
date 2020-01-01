@@ -22,7 +22,6 @@ namespace Junko.Models
         public ICollection<ProductTranslate> ProductTranslates { get; set; }
         public ICollection<ProductPhoto> ProductPhotos { get; set; }
         public ICollection<ProductColor> ProductColors { get; set; }
-        public ICollection<HomeHeader> HomeHeaders { get; set; }
 
 
     }
