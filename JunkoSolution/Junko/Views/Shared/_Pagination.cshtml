@@ -20,10 +20,10 @@
                     }
                     else
                     {
-                        <li class="page-item"><a class="page-link" href="@Url.Action("index", $"{Model.Page}", new { page = i,category=(Model.CategoryId !=null? Model.CategoryId:null )})">@i</a></li>
+                        <li class="page-item"><a class="page-link" href="@Url.Action("index", $"{Model.Page}", new { page = i,brand=Model.BrandId!=null?Model.BrandId:null, category=(Model.CategoryId !=null? Model.CategoryId:null )})">@i</a></li>
                     }
                 }
-                @if (Model.CurrentPage != (Model.PageCount))
+                @if (Model.CurrentPage != (Model.PageCount) && Model.PageCount != 0)
                 {
                     <li class="page-item">
                         <a class="page-link" href="@Url.Action("index", $"{Model.Page}", new { page = (Model.CurrentPage+1),category=(Model.CategoryId !=null? Model.CategoryId:null )})">

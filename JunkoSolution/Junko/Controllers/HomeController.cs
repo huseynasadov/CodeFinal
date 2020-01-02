@@ -18,11 +18,9 @@ namespace Junko.Controllers
     public class HomeController : Controller
     {
 
-        private readonly IStringLocalizer<HomeController> _localizer;
         private readonly JunkoDBContext _db;
-        public HomeController(IStringLocalizer<HomeController> localizer, JunkoDBContext context)
+        public HomeController(JunkoDBContext context)
         {
-            _localizer = localizer;
             _db = context;
         }
 

@@ -1,70 +1,32 @@
 ﻿@using Microsoft.AspNetCore.Mvc.Localization
 @inject IViewLocalizer _localizer
+@model LoginVM
 @{
     ViewData["Title"] = _localizer["Login"];
 }
 
-<!--breadcrumbs area start-->
 
-@await Html.PartialAsync("~/Views/Shared/_Breadcrumb.cshtml")
-<!--breadcrumbs area end-->
-<!--Main Start-->
-<main>
+@await Html.PartialAsync("~/Views/Shared/_Breadcrumb.cshtml", model: Model.Breadcrumb)
+<div class="customer_login mt-60">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-6">
+                <div class="account_form register">
+                    <h2>@_localizer["Login"]</h2>
+                    <form asp-controller="login" asp-action="index" method="post" asp-route-returnUrl="@Model.ReturnUrl">
+                        <div asp-validation-summary="ModelOnly"></div>
 
-    <!-- customer login start -->
-    <div class="customer_login mt-60">
-        <div class="container">
-            <div class="row">
-                <!--login area start-->
-                <div class="col-lg-6 col-md-6">
-                    <div class="account_form">
-                        <h2>@_localizer["Login"]</h2>
-                        <form action="#">
-                            <p>
-                                <label>Username or email <span>*</span></label>
-                                <input type="text">
-                            </p>
-                            <p>
-                                <label>Passwords <span>*</span></label>
-                                <input type="password">
-                            </p>
-                            <div class="login_submit">
-                                <a href="#">@_localizer["Lost your password"]?</a>
-                                <label for="remember">
-                                    <input id="remember" type="checkbox">
-                                    @_localizer["Remember me"]
-                                </label>
-                                <button type="submit">@_localizer["Login"]</button>
+                        @_localizer["Email"]:  <input asp-for="Login.Email" /> <br />
+                        <span class="text-danger" asp-validation-for="Login.Email"></span><br />
 
-                            </div>
 
-                        </form>
-                    </div>
+                        @_localizer["Password"]: <input asp-for="Login.Password" /><br />
+                        <span class="text-danger" asp-validation-for="Login.Password"></span><br />
+                        <button type="submit">@_localizer["Login"]</button>
+                    </form>
                 </div>
-                <!--login area start-->
-                <!--register area start-->
-                <div class="col-lg-6 col-md-6">
-                    <div class="account_form register">
-                        <h2>@_localizer["Register"]</h2>
-                        <form action="#">
-                            <p>
-                                <label>Email address  <span>*</span></label>
-                                <input type="text">
-                            </p>
-                            <p>
-                                <label>Passwords <span>*</span></label>
-                                <input type="password">
-                            </p>
-                            <div class="login_submit">
-                                <button type="submit">@_localizer["Register"]</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <!--register area end-->
             </div>
+            <!--register area end-->
         </div>
     </div>
-    <!-- customer login end -->
-</main>
-<!--Main End-->
+</div>

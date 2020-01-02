@@ -12,7 +12,7 @@ namespace Junko.Controllers
 {
     public class AboutController : Controller
     {
-        JunkoDBContext _db;
+       private readonly JunkoDBContext _db;
         public AboutController(JunkoDBContext context)
         {
             _db = context;

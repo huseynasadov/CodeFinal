@@ -8,11 +8,12 @@ using System.Threading.Tasks;
 
 namespace Junko.Models
 {
-    public class Properity:BaseAuditClass
+    public class Properity : BaseAuditClass
     {
         public bool Status { get; set; }
         public DateTime CreatedAt { get; set; }
         public ICollection<ProperityTranslate> ProperityTranslates { get; set; }
         public ICollection<ProperityCategory> ProperityCategories { get; set; }
+        public ICollection<ProperityProduct> ProperityProducts { get; set; }
     }
 }

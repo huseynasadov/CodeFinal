@@ -95,7 +95,7 @@
                                 <div class="product_timing">
                                     <div data-countdown="@DateTime.Now.AddDays((double)Model.Product.DiscountDate).ToString("yyyy'/'MM'/'dd")"></div>
                                 </div>
-                            } 
+                            }
                             <div class="product_variant color">
                                 <h3>@_localizer["Available Options"]</h3>
                                 <label>
@@ -177,10 +177,13 @@
                                     <a class="active" data-toggle="tab" href="#info" role="tab" aria-controls="info"
                                        aria-selected="false">@_localizer["Description"]</a>
                                 </li>
-                                <li>
-                                    <a data-toggle="tab" href="#sheet" role="tab" aria-controls="sheet"
-                                       aria-selected="false">@_localizer["Specification"]</a>
-                                </li>
+                                @if (Model.Product.ProperityProducts.Where(p => p.ProductId == Model.Product.Id).Count() > 0)
+                                {
+                                    <li>
+                                        <a data-toggle="tab" href="#sheet" role="tab" aria-controls="sheet"
+                                           aria-selected="false">@_localizer["Specification"]</a>
+                                    </li>
+                                }
                                 <li>
                                     <a data-toggle="tab" href="#reviews" role="tab" aria-controls="reviews"
                                        aria-selected="false">@_localizer["Reviews"] (1)</a>
@@ -196,21 +199,30 @@
                                     }
                                 </div>
                             </div>
-                            <div class="tab-pane fade" id="sheet" role="tabpanel">
-                                <div class="product_d_table">
-                                    <form action="#">
-                                        <table>
-                                            <tbody>
-                                                <tr>
-                                                    <td class="first_child">Compositions</td>
-                                                    <td>Polyester</td>
-                                                </tr>
+                            @if (Model.Product.ProperityProducts.Where(p => p.ProductId == Model.Product.Id).Count() > 0)
+                            {
+                                <div class="tab-pane fade" id="sheet" role="tabpanel">
+                                    <div class="product_d_table">
+                                        <form action="#">
+                                            <table>
+                                                <tbody>
 
-                                            </tbody>
-                                        </table>
-                                    </form>
+                                                    @foreach (var prop in Model.Product.ProperityProducts.Where(p => p.ProductId == Model.Product.Id))
+                                                    {
+                                                        <tr>
+                                                            <td class="first_child">@prop.Properity.ProperityTranslates.FirstOrDefault(prop => prop.LanguageId == Model.LanguageId).Name</td>
+                                                            <td>@prop.Key</td>
+                                                        </tr>
+                                                    }
+
+
+                                                </tbody>
+                                            </table>
+                                        </form>
+                                    </div>
                                 </div>
-                            </div>
+                            }
+
 
                             <div class="tab-pane fade" id="reviews" role="tabpanel">
                                 <div class="reviews_wrapper">

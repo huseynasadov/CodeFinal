@@ -13,7 +13,7 @@ namespace Junko.ViewComponents
 {
     public class HeaderViewComponent : ViewComponent
     {
-       private readonly JunkoDBContext _db;
+        private readonly JunkoDBContext _db;
         public HeaderViewComponent(JunkoDBContext context)
         {
             _db = context;
@@ -25,10 +25,10 @@ namespace Junko.ViewComponents
             SettingVM model = new SettingVM
             {
                 Setting = await _db.Setting.Include("SocialActivities").FirstOrDefaultAsync(),
-                SettingTranslate = await  _db.SettingTranslates.FirstOrDefaultAsync(a => a.Language.LanguageCode == culture.ToString()),
-                ProductCategories=await _db.ProductCategories.Where(p=>p.Status==true).ToListAsync()
+                SettingTranslate = await _db.SettingTranslates.FirstOrDefaultAsync(a => a.Language.LanguageCode == culture.ToString()),
+                ProductCategories = await _db.ProductCategories.Include("ProductCategoryTranslate").Include("ProductSubCategories.ProductSubCategoryTranslate").Include("ProductSubCategories.BrandProductCategories.Brand").Where(p => p.Status == true).ToListAsync()
             };
-            return View( model);
+            return View(model);
         }
     }
 }

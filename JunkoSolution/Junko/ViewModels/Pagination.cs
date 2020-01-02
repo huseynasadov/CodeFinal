@@ -12,5 +12,6 @@ namespace Junko.ViewModels
         public Page Page { get; set; }
         public int? CategoryId { get; set; }
         public int? OrderBy { get; set; }
+        public int? BrandId { get; set; }
     }
 }

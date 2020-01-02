@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Junko.Models
 {
-    public class Product:BaseAuditClass
+    public class Product : BaseAuditClass
     {
         public string Name { get; set; }
         public string Slug { get; set; }
@@ -22,6 +22,7 @@ namespace Junko.Models
         public ICollection<ProductTranslate> ProductTranslates { get; set; }
         public ICollection<ProductPhoto> ProductPhotos { get; set; }
         public ICollection<ProductColor> ProductColors { get; set; }
+        public ICollection<ProperityProduct> ProperityProducts { get; set; }
 
 
     }

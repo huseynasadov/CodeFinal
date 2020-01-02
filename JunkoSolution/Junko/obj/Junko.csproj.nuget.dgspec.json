@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Huseyn\\Desktop\\CodeFinal\\JunkoSolution\\Junko\\Junko.csproj": {}
+    "C:\\Users\\Huseyn\\Desktop\\Code Academy\\Final\\CodeFinal\\JunkoSolution\\Junko\\Junko.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Huseyn\\Desktop\\CodeFinal\\JunkoSolution\\Junko\\Junko.csproj": {
+    "C:\\Users\\Huseyn\\Desktop\\Code Academy\\Final\\CodeFinal\\JunkoSolution\\Junko\\Junko.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Huseyn\\Desktop\\CodeFinal\\JunkoSolution\\Junko\\Junko.csproj",
+        "projectUniqueName": "C:\\Users\\Huseyn\\Desktop\\Code Academy\\Final\\CodeFinal\\JunkoSolution\\Junko\\Junko.csproj",
         "projectName": "Junko",
-        "projectPath": "C:\\Users\\Huseyn\\Desktop\\CodeFinal\\JunkoSolution\\Junko\\Junko.csproj",
+        "projectPath": "C:\\Users\\Huseyn\\Desktop\\Code Academy\\Final\\CodeFinal\\JunkoSolution\\Junko\\Junko.csproj",
         "packagesPath": "C:\\Users\\Huseyn\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Huseyn\\Desktop\\CodeFinal\\JunkoSolution\\Junko\\obj\\",
+        "outputPath": "C:\\Users\\Huseyn\\Desktop\\Code Academy\\Final\\CodeFinal\\JunkoSolution\\Junko\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -44,6 +44,10 @@
             "FluentValidation.AspNetCore": {
               "target": "Package",
               "version": "[8.6.0, )"
+            },
+            "Microsoft.AspNet.WebPages": {
+              "target": "Package",
+              "version": "[3.2.7, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",

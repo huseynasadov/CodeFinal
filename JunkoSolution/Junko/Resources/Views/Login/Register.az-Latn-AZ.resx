@@ -117,16 +117,25 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Login" xml:space="preserve">
-    <value>Daxil ol</value>
+  <data name="Birthday" xml:space="preserve">
+    <value>Doğum günü</value>
   </data>
-  <data name="Lost your password" xml:space="preserve">
-    <value>Parolunu unudmusan</value>
+  <data name="Email" xml:space="preserve">
+    <value>E-Poçt</value>
+  </data>
+  <data name="Firstname" xml:space="preserve">
+    <value>Ad</value>
+  </data>
+  <data name="Gender" xml:space="preserve">
+    <value>Cinsiyyət</value>
+  </data>
+  <data name="Lastname" xml:space="preserve">
+    <value>Soyad</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Parol</value>
   </data>
   <data name="Register" xml:space="preserve">
     <value>Qeydiyyat</value>
-  </data>
-  <data name="Remember me" xml:space="preserve">
-    <value>Yadda saxla</value>
   </data>
 </root>

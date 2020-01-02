@@ -725,8 +725,7 @@ textarea:-ms-input-placeholder {
         background: #1b1b1b;
         top: 50%;
         right: 0px;
-        -webkit-transform: translatey(-50%);
-        transform: translatey(-50%);
+        transform: translateY(-50%);
     }
 
     .top_right > ul > li:last-child::before {
@@ -755,9 +754,11 @@ textarea:-ms-input-placeholder {
 .header_middle {
     padding: 25px 0;
 }
+
 .ProductList {
-    display:contents!important;
+    display: contents !important;
 }
+
 .middel_right {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -1348,8 +1349,8 @@ textarea:-ms-input-placeholder {
         line-height: 0px;
         right: 20px;
         top: 50%;
-        -webkit-transform: translatey(-50%);
-        transform: translatey(-50%);
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
     }
 
     .categories_title h2 {
@@ -1369,7 +1370,7 @@ textarea:-ms-input-placeholder {
     border-bottom: 1px solid #ddd;
     background: #fff;
     position: absolute;
-    width: 100%;
+    width: 152%;
     top: 100%;
     display: none;
     z-index: 9;
@@ -1487,7 +1488,6 @@ textarea:-ms-input-placeholder {
     position: absolute;
     width: 101%;
     left: -1px;
-    border: lef;
     border-left: 1px solid #ddd;
     border-right: 1px solid #ddd;
     border-bottom: 1px solid #ddd;
@@ -1602,8 +1602,8 @@ textarea:-ms-input-placeholder {
     bottom: 20px;
     text-align: center;
     left: 50%;
-    -webkit-transform: translatex(-50%);
-    transform: translatex(-50%);
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
     display: block;
 }
 
@@ -1809,8 +1809,8 @@ textarea:-ms-input-placeholder {
     visibility: hidden;
     position: absolute;
     top: 50%;
-    -webkit-transform: translatey(-50%);
-    transform: translatey(-50%);
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
     left: -35px;
     font-size: 40px;
     -webkit-transition: 0.3s;
@@ -2163,8 +2163,8 @@ textarea:-ms-input-placeholder {
     visibility: hidden;
     position: absolute;
     top: 50%;
-    -webkit-transform: translatey(-50%);
-    transform: translatey(-50%);
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
     left: -35px;
     font-size: 40px;
     border: 0;
@@ -2196,8 +2196,8 @@ textarea:-ms-input-placeholder {
     visibility: hidden;
     position: absolute;
     top: 50%;
-    -webkit-transform: translatey(-50%);
-    transform: translatey(-50%);
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
     left: -35px;
     font-size: 40px;
     -webkit-transition: 0.3s;
@@ -2350,8 +2350,8 @@ textarea:-ms-input-placeholder {
             height: 21px;
             right: 0;
             top: 50%;
-            -webkit-transform: translatey(-50%);
-            transform: translatey(-50%);
+            -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
         }
 
         .product_tab_btn3 ul li:last-child {
@@ -2501,8 +2501,8 @@ textarea:-ms-input-placeholder {
     visibility: hidden;
     position: absolute;
     top: 50%;
-    -webkit-transform: translatey(-50%);
-    transform: translatey(-50%);
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
     left: -25px;
     font-size: 40px;
     -webkit-transition: 0.3s;
@@ -2849,8 +2849,8 @@ textarea:-ms-input-placeholder {
     visibility: hidden;
     position: absolute;
     top: 50%;
-    -webkit-transform: translatey(-50%);
-    transform: translatey(-50%);
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
     left: -35px;
     font-size: 40px;
     -webkit-transition: 0.3s;
@@ -3140,8 +3140,8 @@ textarea:-ms-input-placeholder {
     position: absolute;
     top: 50%;
     right: 50px;
-    -webkit-transform: translatey(-50%);
-    transform: translatey(-50%);
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
 }
 
     .categories_content h4 {
@@ -3229,8 +3229,8 @@ textarea:-ms-input-placeholder {
         content: "/";
         right: 0;
         top: 50%;
-        -webkit-transform: translatey(-50%);
-        transform: translatey(-50%);
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
     }
 
     .breadcrumb_content ul li:last-child {
@@ -3257,13 +3257,16 @@ textarea:-ms-input-placeholder {
 .sidebar_widget .single_banner {
     border: 0;
 }
+
 .widget-succategory {
     padding-bottom: 0px;
     padding: 10px 0;
 }
+
 .widget-succategory-card {
     background-color: #f8f8f8;
 }
+
 .widget_list {
     margin-bottom: 56px;
 }
@@ -3311,8 +3314,8 @@ textarea:-ms-input-placeholder {
                 position: absolute;
                 right: 0;
                 top: 50%;
-                -webkit-transform: translatey(-50%);
-                transform: translatey(-50%);
+                -webkit-transform: translateY(-50%);
+                transform: translateY(-50%);
             }
 
             .widget_list > ul > li.widget_sub_categories > a.active::before {
@@ -3323,8 +3326,8 @@ textarea:-ms-input-placeholder {
                 position: absolute;
                 right: 0;
                 top: 50%;
-                -webkit-transform: translatey(-50%);
-                transform: translatey(-50%);
+                -webkit-transform: translateY(-50%);
+                transform: translateY(-50%);
             }
 
         .widget_list > ul > li ul {
@@ -3786,7 +3789,6 @@ textarea:-ms-input-placeholder {
     -webkit-box-flex: 0;
     -ms-flex: 0 0 20%;
     flex: 0 0 20%;
-    max-width: max-width;
     padding-right: 15px;
     padding-left: 15px;
 }
@@ -4328,8 +4330,8 @@ textarea:-ms-input-placeholder {
         border-radius: 3px;
         height: 32px;
         top: 50%;
-        -webkit-transform: translatey(-50%);
-        transform: translatey(-50%);
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
         width: 32px;
         text-align: center;
         line-height: 32px;
@@ -5372,8 +5374,8 @@ textarea:-ms-input-placeholder {
         .card-header.card_accor button i {
             position: absolute;
             top: 50%;
-            -webkit-transform: translatey(-50%);
-            transform: translatey(-50%);
+            -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
             right: 20px;
         }
 
@@ -5597,8 +5599,8 @@ textarea:-ms-input-placeholder {
 }
 
     .single_chose:hover .chose_icone {
-        -webkit-transform: rotatey(180deg);
-        transform: rotatey(180deg);
+        -webkit-transform: rotateY(180deg);
+        transform: rotateY(180deg);
     }
 
 .chose_icone {
@@ -5663,8 +5665,8 @@ textarea:-ms-input-placeholder {
         background: #0063d1;
         bottom: 0;
         left: 50%;
-        -webkit-transform: translatex(-50%);
-        transform: translatex(-50%);
+        -webkit-transform: translateX(-50%);
+        transform: translateX(-50%);
     }
 
 .team_content p {
@@ -6152,8 +6154,8 @@ textarea:-ms-input-placeholder {
 .blog_thumb_active .owl-nav > div {
     position: absolute;
     top: 50%;
-    -webkit-transform: translatey(-50%);
-    transform: translatey(-50%);
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
     background: rgba(0, 99, 209, 0.6);
     width: 30px;
     height: 30px;
@@ -6632,10 +6634,10 @@ textarea:-ms-input-placeholder {
     line-height: 20px;
 }
 
-    .variants_size.mb-15,
-    .mb-15.variants_color {
-        margin-bottom: 24px;
-    }
+.variants_size.mb-15,
+.mb-15.variants_color {
+    margin-bottom: 24px;
+}
 
 .variants_size .select_option,
 .variants_color .select_option {
@@ -6643,14 +6645,16 @@ textarea:-ms-input-placeholder {
     border-radius: 0;
     margin-bottom: 25px;
 }
+
 .custom-select option.selected {
-    font-weight:bold;
+    font-weight: bold;
 }
-    .variants_size .select_option .list,
-    .variants_color .select_option .list {
-        width: 100%;
-        border-radius: 0;
-    }
+
+.variants_size .select_option .list,
+.variants_color .select_option .list {
+    width: 100%;
+    border-radius: 0;
+}
 
 .modal_add_to_cart {
     margin-bottom: 25px;
@@ -6738,8 +6742,8 @@ textarea:-ms-input-placeholder {
         color: #333;
         height: 32px;
         top: 50%;
-        -webkit-transform: translatey(-50%);
-        transform: translatey(-50%);
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
         width: 32px;
         text-align: center;
         line-height: 32px;
