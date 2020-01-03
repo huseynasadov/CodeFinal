@@ -4,14 +4,16 @@ using Junko.DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Junko.Migrations
 {
     [DbContext(typeof(JunkoDBContext))]
-    partial class JunkoDBContextModelSnapshot : ModelSnapshot
+    [Migration("20200103114116_BlogReviewAdded")]
+    partial class BlogReviewAdded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -3400,7 +3402,7 @@ namespace Junko.Migrations
                         {
                             Id = 1,
                             AdminManagerId = 1,
-                            ModifiedAt = new DateTime(2020, 1, 3, 17, 22, 4, 261, DateTimeKind.Local).AddTicks(444),
+                            ModifiedAt = new DateTime(2020, 1, 3, 15, 41, 12, 959, DateTimeKind.Local).AddTicks(6260),
                             Photo = "about/about1.jpg"
                         });
                 });
@@ -3504,7 +3506,7 @@ namespace Junko.Migrations
                         {
                             Id = 1,
                             AdminCategoryId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 255, DateTimeKind.Local).AddTicks(6939),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 955, DateTimeKind.Local).AddTicks(963),
                             Email = "Huseynia@code.edu.az",
                             Firstname = "Huseyn",
                             Lastname = "Asadov",
@@ -3517,7 +3519,7 @@ namespace Junko.Migrations
                         {
                             Id = 2,
                             AdminCategoryId = 2,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 256, DateTimeKind.Local).AddTicks(3657),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 955, DateTimeKind.Local).AddTicks(7022),
                             Email = "Mary@code.edu.az",
                             Firstname = "Marilyn",
                             Lastname = "monroe",
@@ -3530,7 +3532,7 @@ namespace Junko.Migrations
                         {
                             Id = 3,
                             AdminCategoryId = 3,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 256, DateTimeKind.Local).AddTicks(3903),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 955, DateTimeKind.Local).AddTicks(7139),
                             Email = "Michael@code.edu.az",
                             Firstname = "Michael",
                             Lastname = "Monroe",
@@ -3543,7 +3545,7 @@ namespace Junko.Migrations
                         {
                             Id = 4,
                             AdminCategoryId = 4,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 256, DateTimeKind.Local).AddTicks(3910),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 955, DateTimeKind.Local).AddTicks(7144),
                             Email = "James@code.edu.az",
                             Firstname = "James",
                             Lastname = "James",
@@ -3588,8 +3590,8 @@ namespace Junko.Migrations
                         {
                             Id = 1,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 257, DateTimeKind.Local).AddTicks(3269),
-                            ModifiedAt = new DateTime(2020, 1, 3, 17, 22, 4, 257, DateTimeKind.Local).AddTicks(3253),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 956, DateTimeKind.Local).AddTicks(4960),
+                            ModifiedAt = new DateTime(2020, 1, 3, 15, 41, 12, 956, DateTimeKind.Local).AddTicks(4949),
                             Photo = "blog/blog1.jpg",
                             Status = true
                         },
@@ -3597,8 +3599,8 @@ namespace Junko.Migrations
                         {
                             Id = 2,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 257, DateTimeKind.Local).AddTicks(5526),
-                            ModifiedAt = new DateTime(2020, 1, 3, 17, 22, 4, 257, DateTimeKind.Local).AddTicks(5516),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 956, DateTimeKind.Local).AddTicks(7029),
+                            ModifiedAt = new DateTime(2020, 1, 3, 15, 41, 12, 956, DateTimeKind.Local).AddTicks(7018),
                             Photo = "blog/blog2.jpg",
                             Status = true
                         },
@@ -3606,8 +3608,8 @@ namespace Junko.Migrations
                         {
                             Id = 3,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 257, DateTimeKind.Local).AddTicks(5561),
-                            ModifiedAt = new DateTime(2020, 1, 3, 17, 22, 4, 257, DateTimeKind.Local).AddTicks(5559),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 956, DateTimeKind.Local).AddTicks(7064),
+                            ModifiedAt = new DateTime(2020, 1, 3, 15, 41, 12, 956, DateTimeKind.Local).AddTicks(7062),
                             Photo = "blog/blog3.jpg",
                             Status = true
                         },
@@ -3615,8 +3617,8 @@ namespace Junko.Migrations
                         {
                             Id = 4,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 257, DateTimeKind.Local).AddTicks(5566),
-                            ModifiedAt = new DateTime(2020, 1, 3, 17, 22, 4, 257, DateTimeKind.Local).AddTicks(5565),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 956, DateTimeKind.Local).AddTicks(7069),
+                            ModifiedAt = new DateTime(2020, 1, 3, 15, 41, 12, 956, DateTimeKind.Local).AddTicks(7067),
                             Photo = "blog/blog4.jpg",
                             Status = true
                         },
@@ -3624,8 +3626,8 @@ namespace Junko.Migrations
                         {
                             Id = 5,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 257, DateTimeKind.Local).AddTicks(5571),
-                            ModifiedAt = new DateTime(2020, 1, 3, 17, 22, 4, 257, DateTimeKind.Local).AddTicks(5569),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 956, DateTimeKind.Local).AddTicks(7074),
+                            ModifiedAt = new DateTime(2020, 1, 3, 15, 41, 12, 956, DateTimeKind.Local).AddTicks(7071),
                             Photo = "blog/blog5.jpg",
                             Status = true
                         },
@@ -3633,8 +3635,8 @@ namespace Junko.Migrations
                         {
                             Id = 6,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 257, DateTimeKind.Local).AddTicks(5574),
-                            ModifiedAt = new DateTime(2020, 1, 3, 17, 22, 4, 257, DateTimeKind.Local).AddTicks(5573),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 956, DateTimeKind.Local).AddTicks(7078),
+                            ModifiedAt = new DateTime(2020, 1, 3, 15, 41, 12, 956, DateTimeKind.Local).AddTicks(7076),
                             Photo = "blog/blog1.jpg",
                             Status = true
                         },
@@ -3642,8 +3644,8 @@ namespace Junko.Migrations
                         {
                             Id = 7,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 257, DateTimeKind.Local).AddTicks(5581),
-                            ModifiedAt = new DateTime(2020, 1, 3, 17, 22, 4, 257, DateTimeKind.Local).AddTicks(5579),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 956, DateTimeKind.Local).AddTicks(7081),
+                            ModifiedAt = new DateTime(2020, 1, 3, 15, 41, 12, 956, DateTimeKind.Local).AddTicks(7080),
                             Photo = "blog/blog2.jpg",
                             Status = true
                         },
@@ -3651,8 +3653,8 @@ namespace Junko.Migrations
                         {
                             Id = 8,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 257, DateTimeKind.Local).AddTicks(5584),
-                            ModifiedAt = new DateTime(2020, 1, 3, 17, 22, 4, 257, DateTimeKind.Local).AddTicks(5583),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 956, DateTimeKind.Local).AddTicks(7086),
+                            ModifiedAt = new DateTime(2020, 1, 3, 15, 41, 12, 956, DateTimeKind.Local).AddTicks(7084),
                             Photo = "blog/blog3.jpg",
                             Status = true
                         },
@@ -3660,8 +3662,8 @@ namespace Junko.Migrations
                         {
                             Id = 9,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 257, DateTimeKind.Local).AddTicks(5588),
-                            ModifiedAt = new DateTime(2020, 1, 3, 17, 22, 4, 257, DateTimeKind.Local).AddTicks(5587),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 956, DateTimeKind.Local).AddTicks(7090),
+                            ModifiedAt = new DateTime(2020, 1, 3, 15, 41, 12, 956, DateTimeKind.Local).AddTicks(7088),
                             Photo = "blog/blog4.jpg",
                             Status = true
                         },
@@ -3669,8 +3671,8 @@ namespace Junko.Migrations
                         {
                             Id = 10,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 257, DateTimeKind.Local).AddTicks(5593),
-                            ModifiedAt = new DateTime(2020, 1, 3, 17, 22, 4, 257, DateTimeKind.Local).AddTicks(5591),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 956, DateTimeKind.Local).AddTicks(7094),
+                            ModifiedAt = new DateTime(2020, 1, 3, 15, 41, 12, 956, DateTimeKind.Local).AddTicks(7092),
                             Photo = "blog/blog5.jpg",
                             Status = true
                         },
@@ -3678,8 +3680,8 @@ namespace Junko.Migrations
                         {
                             Id = 11,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 257, DateTimeKind.Local).AddTicks(5597),
-                            ModifiedAt = new DateTime(2020, 1, 3, 17, 22, 4, 257, DateTimeKind.Local).AddTicks(5595),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 956, DateTimeKind.Local).AddTicks(7097),
+                            ModifiedAt = new DateTime(2020, 1, 3, 15, 41, 12, 956, DateTimeKind.Local).AddTicks(7096),
                             Photo = "blog/blog1.jpg",
                             Status = true
                         },
@@ -3687,8 +3689,8 @@ namespace Junko.Migrations
                         {
                             Id = 12,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 257, DateTimeKind.Local).AddTicks(5602),
-                            ModifiedAt = new DateTime(2020, 1, 3, 17, 22, 4, 257, DateTimeKind.Local).AddTicks(5599),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 956, DateTimeKind.Local).AddTicks(7102),
+                            ModifiedAt = new DateTime(2020, 1, 3, 15, 41, 12, 956, DateTimeKind.Local).AddTicks(7099),
                             Photo = "blog/blog2.jpg",
                             Status = true
                         },
@@ -3696,8 +3698,8 @@ namespace Junko.Migrations
                         {
                             Id = 13,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 257, DateTimeKind.Local).AddTicks(5606),
-                            ModifiedAt = new DateTime(2020, 1, 3, 17, 22, 4, 257, DateTimeKind.Local).AddTicks(5604),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 956, DateTimeKind.Local).AddTicks(7107),
+                            ModifiedAt = new DateTime(2020, 1, 3, 15, 41, 12, 956, DateTimeKind.Local).AddTicks(7105),
                             Photo = "blog/blog3.jpg",
                             Status = true
                         },
@@ -3705,8 +3707,8 @@ namespace Junko.Migrations
                         {
                             Id = 14,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 257, DateTimeKind.Local).AddTicks(5612),
-                            ModifiedAt = new DateTime(2020, 1, 3, 17, 22, 4, 257, DateTimeKind.Local).AddTicks(5610),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 956, DateTimeKind.Local).AddTicks(7112),
+                            ModifiedAt = new DateTime(2020, 1, 3, 15, 41, 12, 956, DateTimeKind.Local).AddTicks(7110),
                             Photo = "blog/blog4.jpg",
                             Status = true
                         },
@@ -3714,8 +3716,8 @@ namespace Junko.Migrations
                         {
                             Id = 15,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 257, DateTimeKind.Local).AddTicks(5616),
-                            ModifiedAt = new DateTime(2020, 1, 3, 17, 22, 4, 257, DateTimeKind.Local).AddTicks(5615),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 956, DateTimeKind.Local).AddTicks(7115),
+                            ModifiedAt = new DateTime(2020, 1, 3, 15, 41, 12, 956, DateTimeKind.Local).AddTicks(7114),
                             Photo = "blog/blog5.jpg",
                             Status = true
                         });
@@ -3960,7 +3962,7 @@ namespace Junko.Migrations
                             Id = 1,
                             BlogId = 1,
                             Content = "But I must explain to you how all this mistaken idea of denouncing pleasure",
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 258, DateTimeKind.Local).AddTicks(57),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 957, DateTimeKind.Local).AddTicks(1100),
                             UserId = 1
                         },
                         new
@@ -3968,7 +3970,7 @@ namespace Junko.Migrations
                             Id = 2,
                             BlogId = 1,
                             Content = "Quisque semper nunc vitae erat pellentesque, ac placerat arcu consectetur",
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 258, DateTimeKind.Local).AddTicks(1021),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 957, DateTimeKind.Local).AddTicks(1918),
                             UserId = 1
                         },
                         new
@@ -3977,14 +3979,14 @@ namespace Junko.Migrations
                             AdminManagerId = 1,
                             BlogId = 1,
                             Content = "Vnunc vitae erat pellentesque, ac placerat arcu consectetur",
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 258, DateTimeKind.Local).AddTicks(1863)
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 957, DateTimeKind.Local).AddTicks(2669)
                         },
                         new
                         {
                             Id = 4,
                             BlogId = 2,
                             Content = "But I must explain to you how all this mistaken idea of denouncing pleasure",
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 258, DateTimeKind.Local).AddTicks(1877),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 957, DateTimeKind.Local).AddTicks(2682),
                             UserId = 1
                         },
                         new
@@ -3992,7 +3994,7 @@ namespace Junko.Migrations
                             Id = 5,
                             BlogId = 3,
                             Content = "But I must explain to you how all this mistaken idea of denouncing pleasure",
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 258, DateTimeKind.Local).AddTicks(1880),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 957, DateTimeKind.Local).AddTicks(2685),
                             UserId = 1
                         },
                         new
@@ -4000,7 +4002,7 @@ namespace Junko.Migrations
                             Id = 6,
                             BlogId = 4,
                             Content = "But I must explain to you how all this mistaken idea of denouncing pleasure",
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 258, DateTimeKind.Local).AddTicks(1883),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 957, DateTimeKind.Local).AddTicks(2688),
                             UserId = 1
                         },
                         new
@@ -4008,7 +4010,7 @@ namespace Junko.Migrations
                             Id = 7,
                             BlogId = 5,
                             Content = "But I must explain to you how all this mistaken idea of denouncing pleasure",
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 258, DateTimeKind.Local).AddTicks(1886),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 957, DateTimeKind.Local).AddTicks(2690),
                             UserId = 1
                         },
                         new
@@ -4016,7 +4018,7 @@ namespace Junko.Migrations
                             Id = 8,
                             BlogId = 6,
                             Content = "But I must explain to you how all this mistaken idea of denouncing pleasure",
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 258, DateTimeKind.Local).AddTicks(1997),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 957, DateTimeKind.Local).AddTicks(2693),
                             UserId = 1
                         },
                         new
@@ -4024,7 +4026,7 @@ namespace Junko.Migrations
                             Id = 9,
                             BlogId = 7,
                             Content = "But I must explain to you how all this mistaken idea of denouncing pleasure",
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 258, DateTimeKind.Local).AddTicks(2001),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 957, DateTimeKind.Local).AddTicks(2695),
                             UserId = 1
                         },
                         new
@@ -4032,7 +4034,7 @@ namespace Junko.Migrations
                             Id = 10,
                             BlogId = 8,
                             Content = "But I must explain to you how all this mistaken idea of denouncing pleasure",
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 258, DateTimeKind.Local).AddTicks(2004),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 957, DateTimeKind.Local).AddTicks(2697),
                             UserId = 1
                         },
                         new
@@ -4040,7 +4042,7 @@ namespace Junko.Migrations
                             Id = 11,
                             BlogId = 9,
                             Content = "But I must explain to you how all this mistaken idea of denouncing pleasure",
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 258, DateTimeKind.Local).AddTicks(2006),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 957, DateTimeKind.Local).AddTicks(2700),
                             UserId = 1
                         },
                         new
@@ -4048,7 +4050,7 @@ namespace Junko.Migrations
                             Id = 12,
                             BlogId = 10,
                             Content = "But I must explain to you how all this mistaken idea of denouncing pleasure",
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 258, DateTimeKind.Local).AddTicks(2009),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 957, DateTimeKind.Local).AddTicks(2702),
                             UserId = 1
                         });
                 });
@@ -4092,7 +4094,7 @@ namespace Junko.Migrations
                         {
                             Id = 1,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 263, DateTimeKind.Local).AddTicks(2136),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 961, DateTimeKind.Local).AddTicks(5126),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Apple",
                             Slug = "apple",
@@ -4102,7 +4104,7 @@ namespace Junko.Migrations
                         {
                             Id = 2,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 263, DateTimeKind.Local).AddTicks(5041),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 961, DateTimeKind.Local).AddTicks(7689),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Samsung",
                             Slug = "Samsung",
@@ -4112,7 +4114,7 @@ namespace Junko.Migrations
                         {
                             Id = 3,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 263, DateTimeKind.Local).AddTicks(5098),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 961, DateTimeKind.Local).AddTicks(7742),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Huawei",
                             Slug = "Huawei",
@@ -4122,7 +4124,7 @@ namespace Junko.Migrations
                         {
                             Id = 4,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 263, DateTimeKind.Local).AddTicks(5102),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 961, DateTimeKind.Local).AddTicks(7746),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Xiaomi",
                             Slug = "Xiaomi",
@@ -4132,7 +4134,7 @@ namespace Junko.Migrations
                         {
                             Id = 5,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 263, DateTimeKind.Local).AddTicks(5104),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 961, DateTimeKind.Local).AddTicks(7749),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Meizu",
                             Slug = "Meizu",
@@ -4142,7 +4144,7 @@ namespace Junko.Migrations
                         {
                             Id = 6,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 263, DateTimeKind.Local).AddTicks(5107),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 961, DateTimeKind.Local).AddTicks(7752),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Nokia",
                             Slug = "Nokia",
@@ -4152,7 +4154,7 @@ namespace Junko.Migrations
                         {
                             Id = 7,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 263, DateTimeKind.Local).AddTicks(5110),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 961, DateTimeKind.Local).AddTicks(7754),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "FLY",
                             Slug = "FLY",
@@ -4162,7 +4164,7 @@ namespace Junko.Migrations
                         {
                             Id = 8,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 263, DateTimeKind.Local).AddTicks(5112),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 961, DateTimeKind.Local).AddTicks(7757),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "UleFone",
                             Slug = "UleFone",
@@ -4172,7 +4174,7 @@ namespace Junko.Migrations
                         {
                             Id = 9,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 263, DateTimeKind.Local).AddTicks(5115),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 961, DateTimeKind.Local).AddTicks(7806),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Honor",
                             Slug = "Honor",
@@ -4182,7 +4184,7 @@ namespace Junko.Migrations
                         {
                             Id = 10,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 263, DateTimeKind.Local).AddTicks(5118),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 961, DateTimeKind.Local).AddTicks(7810),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Lenovo",
                             Slug = "Lenovo",
@@ -4192,7 +4194,7 @@ namespace Junko.Migrations
                         {
                             Id = 11,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 263, DateTimeKind.Local).AddTicks(5121),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 961, DateTimeKind.Local).AddTicks(7813),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Balafon",
                             Slug = "Balafon",
@@ -4202,7 +4204,7 @@ namespace Junko.Migrations
                         {
                             Id = 12,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 263, DateTimeKind.Local).AddTicks(5124),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 961, DateTimeKind.Local).AddTicks(7815),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "LG",
                             Slug = "LG",
@@ -4212,7 +4214,7 @@ namespace Junko.Migrations
                         {
                             Id = 13,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 263, DateTimeKind.Local).AddTicks(5127),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 961, DateTimeKind.Local).AddTicks(7818),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "HTC",
                             Slug = "HTC",
@@ -4222,7 +4224,7 @@ namespace Junko.Migrations
                         {
                             Id = 14,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 263, DateTimeKind.Local).AddTicks(5130),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 961, DateTimeKind.Local).AddTicks(7821),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Hitachi",
                             Slug = "Hitachi",
@@ -4232,7 +4234,7 @@ namespace Junko.Migrations
                         {
                             Id = 15,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 263, DateTimeKind.Local).AddTicks(5134),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 961, DateTimeKind.Local).AddTicks(7825),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Zanussi",
                             Slug = "Zanussi",
@@ -4242,7 +4244,7 @@ namespace Junko.Migrations
                         {
                             Id = 16,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 263, DateTimeKind.Local).AddTicks(5136),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 961, DateTimeKind.Local).AddTicks(7827),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Bosch",
                             Slug = "Bosch",
@@ -4252,7 +4254,7 @@ namespace Junko.Migrations
                         {
                             Id = 17,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 263, DateTimeKind.Local).AddTicks(5139),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 961, DateTimeKind.Local).AddTicks(7829),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Vestel",
                             Slug = "Vestel",
@@ -4262,7 +4264,7 @@ namespace Junko.Migrations
                         {
                             Id = 18,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 263, DateTimeKind.Local).AddTicks(5141),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 961, DateTimeKind.Local).AddTicks(7832),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Mitsubishi",
                             Slug = "Mitsubishi",
@@ -4272,7 +4274,7 @@ namespace Junko.Migrations
                         {
                             Id = 19,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 263, DateTimeKind.Local).AddTicks(5144),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 961, DateTimeKind.Local).AddTicks(7835),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Gree",
                             Slug = "Gree",
@@ -4282,7 +4284,7 @@ namespace Junko.Migrations
                         {
                             Id = 20,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 263, DateTimeKind.Local).AddTicks(5146),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 961, DateTimeKind.Local).AddTicks(7837),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "AUX",
                             Slug = "AUX",
@@ -4292,7 +4294,7 @@ namespace Junko.Migrations
                         {
                             Id = 21,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 263, DateTimeKind.Local).AddTicks(5209),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 961, DateTimeKind.Local).AddTicks(7840),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "İndesit",
                             Slug = "İndesit",
@@ -4302,7 +4304,7 @@ namespace Junko.Migrations
                         {
                             Id = 22,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 263, DateTimeKind.Local).AddTicks(5213),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 961, DateTimeKind.Local).AddTicks(7842),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Gorenje",
                             Slug = "Gorenje",
@@ -4312,7 +4314,7 @@ namespace Junko.Migrations
                         {
                             Id = 23,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 263, DateTimeKind.Local).AddTicks(5216),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 961, DateTimeKind.Local).AddTicks(7844),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Asus",
                             Slug = "Asus",
@@ -4322,7 +4324,7 @@ namespace Junko.Migrations
                         {
                             Id = 24,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 263, DateTimeKind.Local).AddTicks(5218),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 961, DateTimeKind.Local).AddTicks(7847),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Acer",
                             Slug = "Acer",
@@ -4332,7 +4334,7 @@ namespace Junko.Migrations
                         {
                             Id = 25,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 263, DateTimeKind.Local).AddTicks(5221),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 961, DateTimeKind.Local).AddTicks(7850),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Dell",
                             Slug = "Dell",
@@ -4342,7 +4344,7 @@ namespace Junko.Migrations
                         {
                             Id = 26,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 263, DateTimeKind.Local).AddTicks(5224),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 961, DateTimeKind.Local).AddTicks(7852),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "HP",
                             Slug = "HP",
@@ -4352,7 +4354,7 @@ namespace Junko.Migrations
                         {
                             Id = 27,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 263, DateTimeKind.Local).AddTicks(5226),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 961, DateTimeKind.Local).AddTicks(7855),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Canon",
                             Slug = "Canon",
@@ -4362,7 +4364,7 @@ namespace Junko.Migrations
                         {
                             Id = 28,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 263, DateTimeKind.Local).AddTicks(5230),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 961, DateTimeKind.Local).AddTicks(7858),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Epson ",
                             Slug = "Epson ",
@@ -4372,7 +4374,7 @@ namespace Junko.Migrations
                         {
                             Id = 29,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 263, DateTimeKind.Local).AddTicks(5234),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 961, DateTimeKind.Local).AddTicks(7861),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Philips ",
                             Slug = "Philips ",
@@ -4382,7 +4384,7 @@ namespace Junko.Migrations
                         {
                             Id = 30,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 263, DateTimeKind.Local).AddTicks(5237),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 961, DateTimeKind.Local).AddTicks(7864),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Aiwa ",
                             Slug = "Aiwa ",
@@ -4392,7 +4394,7 @@ namespace Junko.Migrations
                         {
                             Id = 31,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 263, DateTimeKind.Local).AddTicks(5240),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 961, DateTimeKind.Local).AddTicks(7866),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Shivaki ",
                             Slug = "Shivaki ",
@@ -4402,7 +4404,7 @@ namespace Junko.Migrations
                         {
                             Id = 32,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 263, DateTimeKind.Local).AddTicks(5242),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 961, DateTimeKind.Local).AddTicks(7868),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Sony ",
                             Slug = "Sony ",
@@ -4412,7 +4414,7 @@ namespace Junko.Migrations
                         {
                             Id = 33,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 263, DateTimeKind.Local).AddTicks(5245),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 961, DateTimeKind.Local).AddTicks(7870),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Xbox ",
                             Slug = "Xbox ",
@@ -4422,7 +4424,7 @@ namespace Junko.Migrations
                         {
                             Id = 34,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 263, DateTimeKind.Local).AddTicks(5248),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 961, DateTimeKind.Local).AddTicks(7872),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Logitech ",
                             Slug = "Logitech ",
@@ -4432,7 +4434,7 @@ namespace Junko.Migrations
                         {
                             Id = 35,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 263, DateTimeKind.Local).AddTicks(5251),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 961, DateTimeKind.Local).AddTicks(7875),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Oculus ",
                             Slug = "Oculus ",
@@ -4442,7 +4444,7 @@ namespace Junko.Migrations
                         {
                             Id = 36,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 263, DateTimeKind.Local).AddTicks(5253),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 961, DateTimeKind.Local).AddTicks(7877),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Panasonic ",
                             Slug = "Panasonic ",
@@ -4452,7 +4454,7 @@ namespace Junko.Migrations
                         {
                             Id = 37,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 263, DateTimeKind.Local).AddTicks(5256),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 961, DateTimeKind.Local).AddTicks(7879),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Rowenta ",
                             Slug = "Rowenta ",
@@ -4462,7 +4464,7 @@ namespace Junko.Migrations
                         {
                             Id = 38,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 263, DateTimeKind.Local).AddTicks(5258),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 961, DateTimeKind.Local).AddTicks(7882),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Tefal ",
                             Slug = "Tefal ",
@@ -4472,7 +4474,7 @@ namespace Junko.Migrations
                         {
                             Id = 39,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 263, DateTimeKind.Local).AddTicks(5261),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 961, DateTimeKind.Local).AddTicks(7884),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Vitek ",
                             Slug = "Vitek ",
@@ -4482,7 +4484,7 @@ namespace Junko.Migrations
                         {
                             Id = 40,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 263, DateTimeKind.Local).AddTicks(5263),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 961, DateTimeKind.Local).AddTicks(7886),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Braun ",
                             Slug = "Braun ",
@@ -4492,7 +4494,7 @@ namespace Junko.Migrations
                         {
                             Id = 41,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 263, DateTimeKind.Local).AddTicks(5265),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 961, DateTimeKind.Local).AddTicks(7888),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "F&D ",
                             Slug = "F&D ",
@@ -4502,7 +4504,7 @@ namespace Junko.Migrations
                         {
                             Id = 42,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 263, DateTimeKind.Local).AddTicks(5268),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 961, DateTimeKind.Local).AddTicks(7890),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Genius ",
                             Slug = "Genius ",
@@ -4512,7 +4514,7 @@ namespace Junko.Migrations
                         {
                             Id = 43,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 263, DateTimeKind.Local).AddTicks(5271),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 961, DateTimeKind.Local).AddTicks(7894),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "JBL ",
                             Slug = "JBL ",
@@ -4522,7 +4524,7 @@ namespace Junko.Migrations
                         {
                             Id = 44,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 263, DateTimeKind.Local).AddTicks(5275),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 961, DateTimeKind.Local).AddTicks(7897),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Gigaset ",
                             Slug = "Gigaset ",
@@ -4532,7 +4534,7 @@ namespace Junko.Migrations
                         {
                             Id = 45,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 263, DateTimeKind.Local).AddTicks(5278),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 961, DateTimeKind.Local).AddTicks(7900),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Remax ",
                             Slug = "Remax ",
@@ -4542,7 +4544,7 @@ namespace Junko.Migrations
                         {
                             Id = 46,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 263, DateTimeKind.Local).AddTicks(5280),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 961, DateTimeKind.Local).AddTicks(7902),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Rock ",
                             Slug = "Rock ",
@@ -4552,7 +4554,7 @@ namespace Junko.Migrations
                         {
                             Id = 47,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 263, DateTimeKind.Local).AddTicks(5283),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 961, DateTimeKind.Local).AddTicks(7904),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Baseus ",
                             Slug = "Baseus ",
@@ -4562,7 +4564,7 @@ namespace Junko.Migrations
                         {
                             Id = 48,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 263, DateTimeKind.Local).AddTicks(5286),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 961, DateTimeKind.Local).AddTicks(7907),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "A4Tech ",
                             Slug = "A4Tech ",
@@ -4572,7 +4574,7 @@ namespace Junko.Migrations
                         {
                             Id = 49,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 263, DateTimeKind.Local).AddTicks(5288),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 961, DateTimeKind.Local).AddTicks(7909),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "SanDisk ",
                             Slug = "SanDisk ",
@@ -4582,7 +4584,7 @@ namespace Junko.Migrations
                         {
                             Id = 50,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 263, DateTimeKind.Local).AddTicks(5290),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 961, DateTimeKind.Local).AddTicks(7911),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Beats ",
                             Slug = "Beats ",
@@ -4592,7 +4594,7 @@ namespace Junko.Migrations
                         {
                             Id = 51,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 263, DateTimeKind.Local).AddTicks(5294),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 961, DateTimeKind.Local).AddTicks(7913),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Jabra ",
                             Slug = "Jabra ",
@@ -4602,7 +4604,7 @@ namespace Junko.Migrations
                         {
                             Id = 52,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 263, DateTimeKind.Local).AddTicks(5297),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 961, DateTimeKind.Local).AddTicks(7915),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Roman ",
                             Slug = "Roman ",
@@ -4612,7 +4614,7 @@ namespace Junko.Migrations
                         {
                             Id = 53,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 263, DateTimeKind.Local).AddTicks(5299),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 961, DateTimeKind.Local).AddTicks(7917),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Proda ",
                             Slug = "Proda ",
@@ -4622,7 +4624,7 @@ namespace Junko.Migrations
                         {
                             Id = 54,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 263, DateTimeKind.Local).AddTicks(5301),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 961, DateTimeKind.Local).AddTicks(7920),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "WK ",
                             Slug = "WK ",
@@ -4632,7 +4634,7 @@ namespace Junko.Migrations
                         {
                             Id = 55,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 263, DateTimeKind.Local).AddTicks(5304),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 961, DateTimeKind.Local).AddTicks(7922),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Aspor ",
                             Slug = "Aspor ",
@@ -4642,7 +4644,7 @@ namespace Junko.Migrations
                         {
                             Id = 56,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 263, DateTimeKind.Local).AddTicks(5306),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 961, DateTimeKind.Local).AddTicks(7925),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Bilitong ",
                             Slug = "Bilitong ",
@@ -4652,7 +4654,7 @@ namespace Junko.Migrations
                         {
                             Id = 57,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 263, DateTimeKind.Local).AddTicks(5309),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 961, DateTimeKind.Local).AddTicks(7927),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Adata ",
                             Slug = "Adata ",
@@ -4662,7 +4664,7 @@ namespace Junko.Migrations
                         {
                             Id = 58,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 263, DateTimeKind.Local).AddTicks(5312),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 961, DateTimeKind.Local).AddTicks(7930),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "BAKCELL ",
                             Slug = "bakcell ",
@@ -4672,7 +4674,7 @@ namespace Junko.Migrations
                         {
                             Id = 59,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 263, DateTimeKind.Local).AddTicks(5315),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 961, DateTimeKind.Local).AddTicks(7933),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "AZERCELL ",
                             Slug = "AZERCELL ",
@@ -4682,7 +4684,7 @@ namespace Junko.Migrations
                         {
                             Id = 60,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 263, DateTimeKind.Local).AddTicks(5319),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 961, DateTimeKind.Local).AddTicks(7936),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "NAR ",
                             Slug = "NAR ",
@@ -4692,7 +4694,7 @@ namespace Junko.Migrations
                         {
                             Id = 61,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 263, DateTimeKind.Local).AddTicks(5321),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 961, DateTimeKind.Local).AddTicks(7938),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "İROBOT ",
                             Slug = "İROBOT ",
@@ -4702,7 +4704,7 @@ namespace Junko.Migrations
                         {
                             Id = 62,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 263, DateTimeKind.Local).AddTicks(5324),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 961, DateTimeKind.Local).AddTicks(7941),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Symbol ",
                             Slug = "Symbol ",
@@ -4712,7 +4714,7 @@ namespace Junko.Migrations
                         {
                             Id = 63,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 263, DateTimeKind.Local).AddTicks(5326),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 961, DateTimeKind.Local).AddTicks(7943),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Argox ",
                             Slug = "Argox ",
@@ -4722,7 +4724,7 @@ namespace Junko.Migrations
                         {
                             Id = 64,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 263, DateTimeKind.Local).AddTicks(5329),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 961, DateTimeKind.Local).AddTicks(7945),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Datalogic ",
                             Slug = "Datalogic ",
@@ -4732,7 +4734,7 @@ namespace Junko.Migrations
                         {
                             Id = 65,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 263, DateTimeKind.Local).AddTicks(5331),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 961, DateTimeKind.Local).AddTicks(7947),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "ACLAS ",
                             Slug = "ACLAS ",
@@ -4742,7 +4744,7 @@ namespace Junko.Migrations
                         {
                             Id = 66,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 263, DateTimeKind.Local).AddTicks(5334),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 961, DateTimeKind.Local).AddTicks(7949),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Star ",
                             Slug = "Star ",
@@ -5590,48 +5592,48 @@ namespace Junko.Migrations
                         {
                             Id = 1,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 256, DateTimeKind.Local).AddTicks(6205),
-                            ModifiedAt = new DateTime(2020, 1, 3, 17, 22, 4, 256, DateTimeKind.Local).AddTicks(5335),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 955, DateTimeKind.Local).AddTicks(9009),
+                            ModifiedAt = new DateTime(2020, 1, 3, 15, 41, 12, 955, DateTimeKind.Local).AddTicks(8280),
                             Status = true
                         },
                         new
                         {
                             Id = 2,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 256, DateTimeKind.Local).AddTicks(7738),
-                            ModifiedAt = new DateTime(2020, 1, 3, 17, 22, 4, 256, DateTimeKind.Local).AddTicks(7713),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 956, DateTimeKind.Local).AddTicks(344),
+                            ModifiedAt = new DateTime(2020, 1, 3, 15, 41, 12, 956, DateTimeKind.Local).AddTicks(317),
                             Status = true
                         },
                         new
                         {
                             Id = 3,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 256, DateTimeKind.Local).AddTicks(7767),
-                            ModifiedAt = new DateTime(2020, 1, 3, 17, 22, 4, 256, DateTimeKind.Local).AddTicks(7765),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 956, DateTimeKind.Local).AddTicks(366),
+                            ModifiedAt = new DateTime(2020, 1, 3, 15, 41, 12, 956, DateTimeKind.Local).AddTicks(364),
                             Status = true
                         },
                         new
                         {
                             Id = 4,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 256, DateTimeKind.Local).AddTicks(7772),
-                            ModifiedAt = new DateTime(2020, 1, 3, 17, 22, 4, 256, DateTimeKind.Local).AddTicks(7770),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 956, DateTimeKind.Local).AddTicks(370),
+                            ModifiedAt = new DateTime(2020, 1, 3, 15, 41, 12, 956, DateTimeKind.Local).AddTicks(368),
                             Status = true
                         },
                         new
                         {
                             Id = 5,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 256, DateTimeKind.Local).AddTicks(7776),
-                            ModifiedAt = new DateTime(2020, 1, 3, 17, 22, 4, 256, DateTimeKind.Local).AddTicks(7774),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 956, DateTimeKind.Local).AddTicks(374),
+                            ModifiedAt = new DateTime(2020, 1, 3, 15, 41, 12, 956, DateTimeKind.Local).AddTicks(372),
                             Status = true
                         },
                         new
                         {
                             Id = 6,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 256, DateTimeKind.Local).AddTicks(7780),
-                            ModifiedAt = new DateTime(2020, 1, 3, 17, 22, 4, 256, DateTimeKind.Local).AddTicks(7778),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 956, DateTimeKind.Local).AddTicks(378),
+                            ModifiedAt = new DateTime(2020, 1, 3, 15, 41, 12, 956, DateTimeKind.Local).AddTicks(376),
                             Status = true
                         });
                 });
@@ -5668,7 +5670,7 @@ namespace Junko.Migrations
                         {
                             Id = 1,
                             Code = "#000000",
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(9786),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(9160),
                             Name = "Black",
                             Status = true
                         },
@@ -5676,7 +5678,7 @@ namespace Junko.Migrations
                         {
                             Id = 2,
                             Code = "#bebebe",
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 270, DateTimeKind.Local).AddTicks(1282),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 967, DateTimeKind.Local).AddTicks(484),
                             Name = "Grey",
                             Status = true
                         },
@@ -5684,7 +5686,7 @@ namespace Junko.Migrations
                         {
                             Id = 3,
                             Code = "#fe0000",
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 270, DateTimeKind.Local).AddTicks(1313),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 967, DateTimeKind.Local).AddTicks(515),
                             Name = "Red",
                             Status = true
                         },
@@ -5692,7 +5694,7 @@ namespace Junko.Migrations
                         {
                             Id = 4,
                             Code = "#ffff01",
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 270, DateTimeKind.Local).AddTicks(1316),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 967, DateTimeKind.Local).AddTicks(519),
                             Name = "Yellow",
                             Status = true
                         },
@@ -5700,7 +5702,7 @@ namespace Junko.Migrations
                         {
                             Id = 5,
                             Code = "#fff",
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 270, DateTimeKind.Local).AddTicks(1318),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 967, DateTimeKind.Local).AddTicks(521),
                             Name = "White",
                             Status = true
                         });
@@ -5736,7 +5738,7 @@ namespace Junko.Migrations
                         {
                             Id = 1,
                             AdminManagerId = 1,
-                            ModifiedAt = new DateTime(2020, 1, 3, 17, 22, 4, 262, DateTimeKind.Local).AddTicks(4511),
+                            ModifiedAt = new DateTime(2020, 1, 3, 15, 41, 12, 960, DateTimeKind.Local).AddTicks(8537),
                             Order = 1,
                             Status = true
                         },
@@ -5744,7 +5746,7 @@ namespace Junko.Migrations
                         {
                             Id = 2,
                             AdminManagerId = 1,
-                            ModifiedAt = new DateTime(2020, 1, 3, 17, 22, 4, 262, DateTimeKind.Local).AddTicks(6073),
+                            ModifiedAt = new DateTime(2020, 1, 3, 15, 41, 12, 960, DateTimeKind.Local).AddTicks(9929),
                             Order = 2,
                             Status = true
                         },
@@ -5752,7 +5754,7 @@ namespace Junko.Migrations
                         {
                             Id = 3,
                             AdminManagerId = 1,
-                            ModifiedAt = new DateTime(2020, 1, 3, 17, 22, 4, 262, DateTimeKind.Local).AddTicks(6106),
+                            ModifiedAt = new DateTime(2020, 1, 3, 15, 41, 12, 960, DateTimeKind.Local).AddTicks(9959),
                             Order = 3,
                             Status = true
                         },
@@ -5760,7 +5762,7 @@ namespace Junko.Migrations
                         {
                             Id = 4,
                             AdminManagerId = 1,
-                            ModifiedAt = new DateTime(2020, 1, 3, 17, 22, 4, 262, DateTimeKind.Local).AddTicks(6109),
+                            ModifiedAt = new DateTime(2020, 1, 3, 15, 41, 12, 960, DateTimeKind.Local).AddTicks(9963),
                             Order = 4,
                             Status = true
                         },
@@ -5768,7 +5770,7 @@ namespace Junko.Migrations
                         {
                             Id = 5,
                             AdminManagerId = 1,
-                            ModifiedAt = new DateTime(2020, 1, 3, 17, 22, 4, 262, DateTimeKind.Local).AddTicks(6112),
+                            ModifiedAt = new DateTime(2020, 1, 3, 15, 41, 12, 960, DateTimeKind.Local).AddTicks(9967),
                             Order = 5,
                             Status = true
                         },
@@ -5776,7 +5778,7 @@ namespace Junko.Migrations
                         {
                             Id = 6,
                             AdminManagerId = 1,
-                            ModifiedAt = new DateTime(2020, 1, 3, 17, 22, 4, 262, DateTimeKind.Local).AddTicks(6115),
+                            ModifiedAt = new DateTime(2020, 1, 3, 15, 41, 12, 960, DateTimeKind.Local).AddTicks(9969),
                             Order = 6,
                             Status = true
                         },
@@ -5784,7 +5786,7 @@ namespace Junko.Migrations
                         {
                             Id = 7,
                             AdminManagerId = 1,
-                            ModifiedAt = new DateTime(2020, 1, 3, 17, 22, 4, 262, DateTimeKind.Local).AddTicks(6117),
+                            ModifiedAt = new DateTime(2020, 1, 3, 15, 41, 12, 960, DateTimeKind.Local).AddTicks(9972),
                             Order = 7,
                             Status = true
                         });
@@ -5820,7 +5822,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 1,
-                            ModifiedAt = new DateTime(2020, 1, 3, 17, 22, 4, 270, DateTimeKind.Local).AddTicks(8817),
+                            ModifiedAt = new DateTime(2020, 1, 3, 15, 41, 12, 967, DateTimeKind.Local).AddTicks(7317),
                             Order = 1,
                             Photo = "slider/slider4.jpg",
                             ProductId = 56
@@ -5828,7 +5830,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 2,
-                            ModifiedAt = new DateTime(2020, 1, 3, 17, 22, 4, 270, DateTimeKind.Local).AddTicks(9641),
+                            ModifiedAt = new DateTime(2020, 1, 3, 15, 41, 12, 967, DateTimeKind.Local).AddTicks(8125),
                             Order = 2,
                             Photo = "slider/slider5.jpg",
                             ProductId = 24
@@ -5836,7 +5838,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 3,
-                            ModifiedAt = new DateTime(2020, 1, 3, 17, 22, 4, 270, DateTimeKind.Local).AddTicks(9662),
+                            ModifiedAt = new DateTime(2020, 1, 3, 15, 41, 12, 967, DateTimeKind.Local).AddTicks(8147),
                             Order = 3,
                             Photo = "slider/slider6.jpg",
                             ProductId = 77
@@ -5844,7 +5846,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 5,
-                            ModifiedAt = new DateTime(2020, 1, 3, 17, 22, 4, 270, DateTimeKind.Local).AddTicks(9665),
+                            ModifiedAt = new DateTime(2020, 1, 3, 15, 41, 12, 967, DateTimeKind.Local).AddTicks(8150),
                             Order = 4,
                             Photo = "slider/slider2.jpg",
                             ProductId = 43
@@ -5852,7 +5854,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 6,
-                            ModifiedAt = new DateTime(2020, 1, 3, 17, 22, 4, 270, DateTimeKind.Local).AddTicks(9668),
+                            ModifiedAt = new DateTime(2020, 1, 3, 15, 41, 12, 967, DateTimeKind.Local).AddTicks(8152),
                             Order = 5,
                             Photo = "slider/slider17.jpg",
                             ProductId = 75
@@ -5860,7 +5862,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 7,
-                            ModifiedAt = new DateTime(2020, 1, 3, 17, 22, 4, 270, DateTimeKind.Local).AddTicks(9671),
+                            ModifiedAt = new DateTime(2020, 1, 3, 15, 41, 12, 967, DateTimeKind.Local).AddTicks(8155),
                             Order = 6,
                             Photo = "slider/slider1.jpg",
                             ProductId = 34
@@ -5935,7 +5937,7 @@ namespace Junko.Migrations
                             Id = 1,
                             AdminManagerId = 1,
                             Icon = "fa fa-sliders",
-                            ModifiedAt = new DateTime(2020, 1, 3, 17, 22, 4, 260, DateTimeKind.Local).AddTicks(2175),
+                            ModifiedAt = new DateTime(2020, 1, 3, 15, 41, 12, 958, DateTimeKind.Local).AddTicks(9230),
                             Order = 1,
                             Status = true
                         },
@@ -5944,7 +5946,7 @@ namespace Junko.Migrations
                             Id = 2,
                             AdminManagerId = 1,
                             Icon = "fa fa-umbrella",
-                            ModifiedAt = new DateTime(2020, 1, 3, 17, 22, 4, 260, DateTimeKind.Local).AddTicks(4296),
+                            ModifiedAt = new DateTime(2020, 1, 3, 15, 41, 12, 959, DateTimeKind.Local).AddTicks(1089),
                             Order = 2,
                             Status = true
                         },
@@ -5953,7 +5955,7 @@ namespace Junko.Migrations
                             Id = 3,
                             AdminManagerId = 1,
                             Icon = "fa fa-camera",
-                            ModifiedAt = new DateTime(2020, 1, 3, 17, 22, 4, 260, DateTimeKind.Local).AddTicks(4336),
+                            ModifiedAt = new DateTime(2020, 1, 3, 15, 41, 12, 959, DateTimeKind.Local).AddTicks(1130),
                             Order = 3,
                             Status = true
                         },
@@ -5962,7 +5964,7 @@ namespace Junko.Migrations
                             Id = 4,
                             AdminManagerId = 1,
                             Icon = "fa fa-cog",
-                            ModifiedAt = new DateTime(2020, 1, 3, 17, 22, 4, 260, DateTimeKind.Local).AddTicks(4342),
+                            ModifiedAt = new DateTime(2020, 1, 3, 15, 41, 12, 959, DateTimeKind.Local).AddTicks(1134),
                             Order = 4,
                             Status = true
                         },
@@ -5971,7 +5973,7 @@ namespace Junko.Migrations
                             Id = 5,
                             AdminManagerId = 1,
                             Icon = "fa fa-file-code-o",
-                            ModifiedAt = new DateTime(2020, 1, 3, 17, 22, 4, 260, DateTimeKind.Local).AddTicks(4345),
+                            ModifiedAt = new DateTime(2020, 1, 3, 15, 41, 12, 959, DateTimeKind.Local).AddTicks(1138),
                             Order = 5,
                             Status = true
                         },
@@ -5980,7 +5982,7 @@ namespace Junko.Migrations
                             Id = 6,
                             AdminManagerId = 1,
                             Icon = "fa fa-bar-chart",
-                            ModifiedAt = new DateTime(2020, 1, 3, 17, 22, 4, 260, DateTimeKind.Local).AddTicks(4347),
+                            ModifiedAt = new DateTime(2020, 1, 3, 15, 41, 12, 959, DateTimeKind.Local).AddTicks(1140),
                             Order = 6,
                             Status = true
                         },
@@ -5989,7 +5991,7 @@ namespace Junko.Migrations
                             Id = 7,
                             AdminManagerId = 1,
                             Icon = "fa fa-headphones",
-                            ModifiedAt = new DateTime(2020, 1, 3, 17, 22, 4, 260, DateTimeKind.Local).AddTicks(4349),
+                            ModifiedAt = new DateTime(2020, 1, 3, 15, 41, 12, 959, DateTimeKind.Local).AddTicks(1142),
                             Order = 7,
                             Status = true
                         },
@@ -5998,7 +6000,7 @@ namespace Junko.Migrations
                             Id = 8,
                             AdminManagerId = 1,
                             Icon = "fa fa-leaf",
-                            ModifiedAt = new DateTime(2020, 1, 3, 17, 22, 4, 260, DateTimeKind.Local).AddTicks(4352),
+                            ModifiedAt = new DateTime(2020, 1, 3, 15, 41, 12, 959, DateTimeKind.Local).AddTicks(1145),
                             Order = 8,
                             Status = true
                         });
@@ -6036,7 +6038,7 @@ namespace Junko.Migrations
                         {
                             Id = 1,
                             AdminManagerId = 1,
-                            ModifiedAt = new DateTime(2020, 1, 3, 17, 22, 4, 271, DateTimeKind.Local).AddTicks(6423),
+                            ModifiedAt = new DateTime(2020, 1, 3, 15, 41, 12, 968, DateTimeKind.Local).AddTicks(4730),
                             Name = "Designers",
                             Photo = "brand/brand1.jpg"
                         },
@@ -6044,7 +6046,7 @@ namespace Junko.Migrations
                         {
                             Id = 2,
                             AdminManagerId = 1,
-                            ModifiedAt = new DateTime(2020, 1, 3, 17, 22, 4, 271, DateTimeKind.Local).AddTicks(6483),
+                            ModifiedAt = new DateTime(2020, 1, 3, 15, 41, 12, 968, DateTimeKind.Local).AddTicks(4786),
                             Name = "Shopname",
                             Photo = "brand/brand2.jpg"
                         },
@@ -6052,7 +6054,7 @@ namespace Junko.Migrations
                         {
                             Id = 3,
                             AdminManagerId = 1,
-                            ModifiedAt = new DateTime(2020, 1, 3, 17, 22, 4, 271, DateTimeKind.Local).AddTicks(6486),
+                            ModifiedAt = new DateTime(2020, 1, 3, 15, 41, 12, 968, DateTimeKind.Local).AddTicks(4791),
                             Name = "Prestige",
                             Photo = "brand/brand3.jpg"
                         },
@@ -6060,7 +6062,7 @@ namespace Junko.Migrations
                         {
                             Id = 4,
                             AdminManagerId = 1,
-                            ModifiedAt = new DateTime(2020, 1, 3, 17, 22, 4, 271, DateTimeKind.Local).AddTicks(6489),
+                            ModifiedAt = new DateTime(2020, 1, 3, 15, 41, 12, 968, DateTimeKind.Local).AddTicks(4794),
                             Name = "Prestiges",
                             Photo = "brand/brand4.jpg"
                         },
@@ -6068,7 +6070,7 @@ namespace Junko.Migrations
                         {
                             Id = 5,
                             AdminManagerId = 1,
-                            ModifiedAt = new DateTime(2020, 1, 3, 17, 22, 4, 271, DateTimeKind.Local).AddTicks(6491),
+                            ModifiedAt = new DateTime(2020, 1, 3, 15, 41, 12, 968, DateTimeKind.Local).AddTicks(4796),
                             Name = "Okeandor",
                             Photo = "brand/brand5.jpg"
                         },
@@ -6076,7 +6078,7 @@ namespace Junko.Migrations
                         {
                             Id = 6,
                             AdminManagerId = 1,
-                            ModifiedAt = new DateTime(2020, 1, 3, 17, 22, 4, 271, DateTimeKind.Local).AddTicks(6494),
+                            ModifiedAt = new DateTime(2020, 1, 3, 15, 41, 12, 968, DateTimeKind.Local).AddTicks(4799),
                             Name = "Retrobrand",
                             Photo = "brand/brand6.jpg"
                         },
@@ -6084,7 +6086,7 @@ namespace Junko.Migrations
                         {
                             Id = 7,
                             AdminManagerId = 1,
-                            ModifiedAt = new DateTime(2020, 1, 3, 17, 22, 4, 271, DateTimeKind.Local).AddTicks(6497),
+                            ModifiedAt = new DateTime(2020, 1, 3, 15, 41, 12, 968, DateTimeKind.Local).AddTicks(4801),
                             Name = "Business",
                             Photo = "brand/brand7.jpg"
                         },
@@ -6092,7 +6094,7 @@ namespace Junko.Migrations
                         {
                             Id = 8,
                             AdminManagerId = 1,
-                            ModifiedAt = new DateTime(2020, 1, 3, 17, 22, 4, 271, DateTimeKind.Local).AddTicks(6499),
+                            ModifiedAt = new DateTime(2020, 1, 3, 15, 41, 12, 968, DateTimeKind.Local).AddTicks(4804),
                             Name = "Photograph",
                             Photo = "brand/brand8.jpg"
                         });
@@ -6155,7 +6157,7 @@ namespace Junko.Migrations
                             Id = 1,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(2814),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(758),
                             Discount = (byte)10,
                             DiscountDate = 10,
                             FollowCount = 1m,
@@ -6171,7 +6173,7 @@ namespace Junko.Migrations
                             Id = 2,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(5364),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(2983),
                             Discount = (byte)10,
                             DiscountDate = 10,
                             FollowCount = 1m,
@@ -6187,7 +6189,7 @@ namespace Junko.Migrations
                             Id = 3,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(5412),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3023),
                             Discount = (byte)10,
                             DiscountDate = 10,
                             FollowCount = 17m,
@@ -6203,7 +6205,7 @@ namespace Junko.Migrations
                             Id = 4,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(5417),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3028),
                             Discount = (byte)10,
                             DiscountDate = 10,
                             FollowCount = 1m,
@@ -6219,7 +6221,7 @@ namespace Junko.Migrations
                             Id = 5,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(5421),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3032),
                             Discount = (byte)10,
                             DiscountDate = 10,
                             FollowCount = 1m,
@@ -6235,7 +6237,7 @@ namespace Junko.Migrations
                             Id = 6,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(5425),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3035),
                             Discount = (byte)10,
                             DiscountDate = 10,
                             FollowCount = 1m,
@@ -6251,7 +6253,7 @@ namespace Junko.Migrations
                             Id = 7,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(5429),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3038),
                             Discount = (byte)10,
                             DiscountDate = 10,
                             FollowCount = 1m,
@@ -6267,7 +6269,7 @@ namespace Junko.Migrations
                             Id = 8,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(5434),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3043),
                             Discount = (byte)10,
                             DiscountDate = 10,
                             FollowCount = 1m,
@@ -6283,7 +6285,7 @@ namespace Junko.Migrations
                             Id = 9,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(5439),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3047),
                             Discount = (byte)10,
                             DiscountDate = 10,
                             FollowCount = 1m,
@@ -6299,7 +6301,7 @@ namespace Junko.Migrations
                             Id = 10,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 2,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(5444),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3051),
                             Discount = (byte)0,
                             DiscountDate = 0,
                             FollowCount = 12m,
@@ -6315,7 +6317,7 @@ namespace Junko.Migrations
                             Id = 11,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 2,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(5447),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3054),
                             Discount = (byte)0,
                             DiscountDate = 0,
                             FollowCount = 1m,
@@ -6331,7 +6333,7 @@ namespace Junko.Migrations
                             Id = 12,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 3,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(5451),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3058),
                             Discount = (byte)0,
                             DiscountDate = 0,
                             FollowCount = 1m,
@@ -6347,7 +6349,7 @@ namespace Junko.Migrations
                             Id = 13,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 3,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(5455),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3062),
                             Discount = (byte)0,
                             DiscountDate = 0,
                             FollowCount = 1m,
@@ -6363,7 +6365,7 @@ namespace Junko.Migrations
                             Id = 14,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 4,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(5459),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3067),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -6379,7 +6381,7 @@ namespace Junko.Migrations
                             Id = 15,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 4,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(5463),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3072),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -6395,7 +6397,7 @@ namespace Junko.Migrations
                             Id = 16,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 5,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(5467),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3075),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -6411,7 +6413,7 @@ namespace Junko.Migrations
                             Id = 17,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 6,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(5471),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3078),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -6427,7 +6429,7 @@ namespace Junko.Migrations
                             Id = 18,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 7,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(5475),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3082),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -6443,7 +6445,7 @@ namespace Junko.Migrations
                             Id = 19,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 8,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(5479),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3085),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -6459,7 +6461,7 @@ namespace Junko.Migrations
                             Id = 20,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 9,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(5482),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3088),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 4m,
@@ -6475,7 +6477,7 @@ namespace Junko.Migrations
                             Id = 21,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 10,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(5488),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3093),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -6491,7 +6493,7 @@ namespace Junko.Migrations
                             Id = 22,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 10,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(5492),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3096),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -6507,7 +6509,7 @@ namespace Junko.Migrations
                             Id = 23,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 10,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(5495),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3099),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -6523,7 +6525,7 @@ namespace Junko.Migrations
                             Id = 24,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 10,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(5499),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3102),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -6539,7 +6541,7 @@ namespace Junko.Migrations
                             Id = 25,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 10,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(5502),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3105),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -6555,7 +6557,7 @@ namespace Junko.Migrations
                             Id = 26,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 10,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(5505),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3154),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -6571,7 +6573,7 @@ namespace Junko.Migrations
                             Id = 27,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 11,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(5510),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3160),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 15m,
@@ -6587,7 +6589,7 @@ namespace Junko.Migrations
                             Id = 28,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 11,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(5514),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3163),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -6603,7 +6605,7 @@ namespace Junko.Migrations
                             Id = 29,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 11,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(5517),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3166),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -6619,7 +6621,7 @@ namespace Junko.Migrations
                             Id = 30,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 12,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(5520),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3169),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -6635,7 +6637,7 @@ namespace Junko.Migrations
                             Id = 31,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 13,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(5656),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3172),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -6651,7 +6653,7 @@ namespace Junko.Migrations
                             Id = 32,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 14,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(5661),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3176),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -6667,7 +6669,7 @@ namespace Junko.Migrations
                             Id = 33,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 15,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(5665),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3180),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -6683,7 +6685,7 @@ namespace Junko.Migrations
                             Id = 34,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 16,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(5672),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3183),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -6699,7 +6701,7 @@ namespace Junko.Migrations
                             Id = 35,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 17,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(5675),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3186),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -6715,7 +6717,7 @@ namespace Junko.Migrations
                             Id = 36,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 18,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(5678),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3189),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -6731,7 +6733,7 @@ namespace Junko.Migrations
                             Id = 37,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 19,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(5681),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3192),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -6747,7 +6749,7 @@ namespace Junko.Migrations
                             Id = 38,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 20,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(5684),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3195),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -6763,7 +6765,7 @@ namespace Junko.Migrations
                             Id = 39,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 21,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(5688),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3198),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -6779,7 +6781,7 @@ namespace Junko.Migrations
                             Id = 40,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 22,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(5693),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3203),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -6795,7 +6797,7 @@ namespace Junko.Migrations
                             Id = 41,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 23,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(5697),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3206),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -6811,7 +6813,7 @@ namespace Junko.Migrations
                             Id = 42,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 24,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(5700),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3210),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -6827,7 +6829,7 @@ namespace Junko.Migrations
                             Id = 43,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 25,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(5704),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3212),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -6843,7 +6845,7 @@ namespace Junko.Migrations
                             Id = 44,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 26,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(5707),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3216),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -6859,7 +6861,7 @@ namespace Junko.Migrations
                             Id = 45,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 27,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(5710),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3219),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -6875,7 +6877,7 @@ namespace Junko.Migrations
                             Id = 46,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 28,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(5714),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3223),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -6891,7 +6893,7 @@ namespace Junko.Migrations
                             Id = 47,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 29,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(5720),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3228),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -6907,7 +6909,7 @@ namespace Junko.Migrations
                             Id = 48,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 30,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(5723),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3232),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -6923,7 +6925,7 @@ namespace Junko.Migrations
                             Id = 49,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 31,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(5728),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3235),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -6939,7 +6941,7 @@ namespace Junko.Migrations
                             Id = 50,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 32,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(5732),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3238),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -6955,7 +6957,7 @@ namespace Junko.Migrations
                             Id = 51,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 33,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(5736),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3241),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -6971,7 +6973,7 @@ namespace Junko.Migrations
                             Id = 52,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 34,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(5739),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3244),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -6987,7 +6989,7 @@ namespace Junko.Migrations
                             Id = 53,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 35,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(5744),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3249),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -7003,7 +7005,7 @@ namespace Junko.Migrations
                             Id = 54,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 36,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(5748),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3252),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -7019,7 +7021,7 @@ namespace Junko.Migrations
                             Id = 55,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 38,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(5751),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3255),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -7035,7 +7037,7 @@ namespace Junko.Migrations
                             Id = 56,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 39,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(5754),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3258),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -7051,7 +7053,7 @@ namespace Junko.Migrations
                             Id = 57,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 40,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(5758),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3261),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -7067,7 +7069,7 @@ namespace Junko.Migrations
                             Id = 58,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 41,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(5763),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3265),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -7083,7 +7085,7 @@ namespace Junko.Migrations
                             Id = 59,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 42,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(5768),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3269),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -7099,7 +7101,7 @@ namespace Junko.Migrations
                             Id = 60,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 43,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(5773),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3274),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -7115,7 +7117,7 @@ namespace Junko.Migrations
                             Id = 61,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 44,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(5776),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3277),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -7131,7 +7133,7 @@ namespace Junko.Migrations
                             Id = 62,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 45,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(5781),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3282),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -7147,7 +7149,7 @@ namespace Junko.Migrations
                             Id = 63,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 46,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(5784),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3285),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -7163,7 +7165,7 @@ namespace Junko.Migrations
                             Id = 64,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 47,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(5788),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3288),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -7179,7 +7181,7 @@ namespace Junko.Migrations
                             Id = 65,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 48,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(5791),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3292),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -7195,7 +7197,7 @@ namespace Junko.Migrations
                             Id = 66,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 49,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(5798),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3297),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -7211,7 +7213,7 @@ namespace Junko.Migrations
                             Id = 67,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 51,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(5801),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3300),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -7227,7 +7229,7 @@ namespace Junko.Migrations
                             Id = 68,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 52,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(5805),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3303),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -7243,7 +7245,7 @@ namespace Junko.Migrations
                             Id = 69,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 53,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(5808),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3306),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -7259,7 +7261,7 @@ namespace Junko.Migrations
                             Id = 70,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 54,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(5811),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3310),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -7275,7 +7277,7 @@ namespace Junko.Migrations
                             Id = 71,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 55,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(5814),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3313),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -7291,7 +7293,7 @@ namespace Junko.Migrations
                             Id = 72,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 56,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(5819),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3317),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -7307,7 +7309,7 @@ namespace Junko.Migrations
                             Id = 73,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 57,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(5823),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3357),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -7323,7 +7325,7 @@ namespace Junko.Migrations
                             Id = 74,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 59,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(5827),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3361),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -7339,7 +7341,7 @@ namespace Junko.Migrations
                             Id = 75,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 60,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(5919),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3364),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -7355,7 +7357,7 @@ namespace Junko.Migrations
                             Id = 76,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 61,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(5924),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3367),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -7371,7 +7373,7 @@ namespace Junko.Migrations
                             Id = 77,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 62,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(5928),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3370),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -7387,7 +7389,7 @@ namespace Junko.Migrations
                             Id = 78,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 63,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(5932),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3375),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -7403,7 +7405,7 @@ namespace Junko.Migrations
                             Id = 79,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 64,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(5936),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3378),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -7419,7 +7421,7 @@ namespace Junko.Migrations
                             Id = 80,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 65,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(5940),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3381),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -7435,7 +7437,7 @@ namespace Junko.Migrations
                             Id = 81,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 66,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(5943),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3384),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -7451,7 +7453,7 @@ namespace Junko.Migrations
                             Id = 82,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 67,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(5946),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3387),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -7467,7 +7469,7 @@ namespace Junko.Migrations
                             Id = 83,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 68,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(5951),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3391),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -7483,7 +7485,7 @@ namespace Junko.Migrations
                             Id = 84,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 69,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(5955),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3394),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -7499,7 +7501,7 @@ namespace Junko.Migrations
                             Id = 85,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 70,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(5960),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3398),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -7515,7 +7517,7 @@ namespace Junko.Migrations
                             Id = 86,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 72,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(5964),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3401),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -7531,7 +7533,7 @@ namespace Junko.Migrations
                             Id = 87,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 73,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(5967),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3404),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -7547,7 +7549,7 @@ namespace Junko.Migrations
                             Id = 88,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 74,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(5971),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3407),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -7563,7 +7565,7 @@ namespace Junko.Migrations
                             Id = 89,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 75,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(5974),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3410),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -7579,7 +7581,7 @@ namespace Junko.Migrations
                             Id = 90,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 76,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(5978),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3413),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -7595,7 +7597,7 @@ namespace Junko.Migrations
                             Id = 91,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 77,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(5983),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3419),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -7611,7 +7613,7 @@ namespace Junko.Migrations
                             Id = 92,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 78,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(5987),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3422),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -7627,7 +7629,7 @@ namespace Junko.Migrations
                             Id = 93,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 79,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(5991),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3425),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -7643,7 +7645,7 @@ namespace Junko.Migrations
                             Id = 94,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 80,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(5995),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3428),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -7659,7 +7661,7 @@ namespace Junko.Migrations
                             Id = 95,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 81,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(5998),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3431),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -7675,7 +7677,7 @@ namespace Junko.Migrations
                             Id = 96,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 82,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(6002),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3434),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -7691,7 +7693,7 @@ namespace Junko.Migrations
                             Id = 97,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 83,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(6005),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3438),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -7707,7 +7709,7 @@ namespace Junko.Migrations
                             Id = 98,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 84,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(6011),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3441),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -7723,7 +7725,7 @@ namespace Junko.Migrations
                             Id = 99,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 85,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(6014),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3444),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -7739,7 +7741,7 @@ namespace Junko.Migrations
                             Id = 100,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 86,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(6017),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3447),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -7755,7 +7757,7 @@ namespace Junko.Migrations
                             Id = 101,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 87,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(6021),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3450),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -7771,7 +7773,7 @@ namespace Junko.Migrations
                             Id = 102,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 88,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(6024),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3453),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -7787,7 +7789,7 @@ namespace Junko.Migrations
                             Id = 103,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 89,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(6028),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3456),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -7803,7 +7805,7 @@ namespace Junko.Migrations
                             Id = 104,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 90,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(6033),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3460),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -7819,7 +7821,7 @@ namespace Junko.Migrations
                             Id = 105,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 91,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(6037),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3463),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -7835,7 +7837,7 @@ namespace Junko.Migrations
                             Id = 106,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 92,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(6041),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3466),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -7851,7 +7853,7 @@ namespace Junko.Migrations
                             Id = 107,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 93,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(6044),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3469),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -7867,7 +7869,7 @@ namespace Junko.Migrations
                             Id = 108,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 94,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(6047),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3473),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -7883,7 +7885,7 @@ namespace Junko.Migrations
                             Id = 109,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 95,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(6051),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3476),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -7899,7 +7901,7 @@ namespace Junko.Migrations
                             Id = 110,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 96,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(6056),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3479),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -7915,7 +7917,7 @@ namespace Junko.Migrations
                             Id = 111,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 97,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(6060),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3483),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -7931,7 +7933,7 @@ namespace Junko.Migrations
                             Id = 112,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 98,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(6063),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3486),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -7947,7 +7949,7 @@ namespace Junko.Migrations
                             Id = 113,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 99,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(6067),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3489),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -7963,7 +7965,7 @@ namespace Junko.Migrations
                             Id = 114,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 100,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(6070),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3492),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -7979,7 +7981,7 @@ namespace Junko.Migrations
                             Id = 115,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 101,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(6073),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3496),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -7995,7 +7997,7 @@ namespace Junko.Migrations
                             Id = 116,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 103,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(6076),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3499),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -8011,7 +8013,7 @@ namespace Junko.Migrations
                             Id = 117,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 104,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(6081),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3503),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -8027,7 +8029,7 @@ namespace Junko.Migrations
                             Id = 118,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 105,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(6086),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3506),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -8043,7 +8045,7 @@ namespace Junko.Migrations
                             Id = 119,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 107,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(6089),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3543),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -8059,7 +8061,7 @@ namespace Junko.Migrations
                             Id = 120,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 108,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(6129),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3547),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -8075,7 +8077,7 @@ namespace Junko.Migrations
                             Id = 121,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 109,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(6133),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3550),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -8091,7 +8093,7 @@ namespace Junko.Migrations
                             Id = 122,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 110,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(6137),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3553),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -8107,7 +8109,7 @@ namespace Junko.Migrations
                             Id = 123,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 111,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(6141),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3558),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -8123,7 +8125,7 @@ namespace Junko.Migrations
                             Id = 124,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 112,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(6144),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3561),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -8139,7 +8141,7 @@ namespace Junko.Migrations
                             Id = 125,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 113,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(6148),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3564),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -8155,7 +8157,7 @@ namespace Junko.Migrations
                             Id = 126,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 114,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(6152),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3567),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -8171,7 +8173,7 @@ namespace Junko.Migrations
                             Id = 127,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 115,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(6155),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3570),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -8187,7 +8189,7 @@ namespace Junko.Migrations
                             Id = 128,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 116,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(6159),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3573),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -8203,7 +8205,7 @@ namespace Junko.Migrations
                             Id = 129,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 117,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(6163),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3577),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -8219,7 +8221,7 @@ namespace Junko.Migrations
                             Id = 130,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 118,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(6167),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3580),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -8235,7 +8237,7 @@ namespace Junko.Migrations
                             Id = 131,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 119,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(6171),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3583),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -8251,7 +8253,7 @@ namespace Junko.Migrations
                             Id = 132,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 120,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(6174),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3586),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -8267,7 +8269,7 @@ namespace Junko.Migrations
                             Id = 133,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 121,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(6177),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3589),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -8283,7 +8285,7 @@ namespace Junko.Migrations
                             Id = 134,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 122,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(6181),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3592),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -8299,7 +8301,7 @@ namespace Junko.Migrations
                             Id = 135,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 126,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(6184),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3595),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -8315,7 +8317,7 @@ namespace Junko.Migrations
                             Id = 136,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 127,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(6188),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3599),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -8331,7 +8333,7 @@ namespace Junko.Migrations
                             Id = 137,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 128,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(6191),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3603),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -8347,7 +8349,7 @@ namespace Junko.Migrations
                             Id = 138,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 129,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(6194),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3606),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -8363,7 +8365,7 @@ namespace Junko.Migrations
                             Id = 139,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 130,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(6198),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3609),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -8379,7 +8381,7 @@ namespace Junko.Migrations
                             Id = 140,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 131,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(6201),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3612),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -8395,7 +8397,7 @@ namespace Junko.Migrations
                             Id = 141,
                             AdminManagerId = 1,
                             BrandProductCategoryId = 132,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 267, DateTimeKind.Local).AddTicks(6204),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(3615),
                             Discount = (byte)10,
                             DiscountDate = 5,
                             FollowCount = 1m,
@@ -8441,7 +8443,7 @@ namespace Junko.Migrations
                         {
                             Id = 1,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 263, DateTimeKind.Local).AddTicks(6509),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 961, DateTimeKind.Local).AddTicks(8959),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Photo = "category/e7132-telefon.png",
                             Status = true
@@ -8450,7 +8452,7 @@ namespace Junko.Migrations
                         {
                             Id = 2,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 263, DateTimeKind.Local).AddTicks(8726),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 962, DateTimeKind.Local).AddTicks(890),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Photo = "category/73913-meiset-esyalari.png",
                             Status = true
@@ -8459,7 +8461,7 @@ namespace Junko.Migrations
                         {
                             Id = 3,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 263, DateTimeKind.Local).AddTicks(8767),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 962, DateTimeKind.Local).AddTicks(929),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Photo = "category/44444-ofis-mehsullari.png",
                             Status = true
@@ -8468,7 +8470,7 @@ namespace Junko.Migrations
                         {
                             Id = 4,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 263, DateTimeKind.Local).AddTicks(8771),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 962, DateTimeKind.Local).AddTicks(933),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Photo = "category/ee515-televior.png",
                             Status = true
@@ -8477,7 +8479,7 @@ namespace Junko.Migrations
                         {
                             Id = 5,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 263, DateTimeKind.Local).AddTicks(8773),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 962, DateTimeKind.Local).AddTicks(935),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Photo = "category/9c45c-game-blue-.png",
                             Status = true
@@ -8486,7 +8488,7 @@ namespace Junko.Migrations
                         {
                             Id = 6,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 263, DateTimeKind.Local).AddTicks(8775),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 962, DateTimeKind.Local).AddTicks(981),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Photo = "category/9ca97-kicik-meiset-esyalari.png",
                             Status = true
@@ -8495,7 +8497,7 @@ namespace Junko.Migrations
                         {
                             Id = 7,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 263, DateTimeKind.Local).AddTicks(8778),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 962, DateTimeKind.Local).AddTicks(986),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Photo = "category/90694-dasinabilen.png",
                             Status = true
@@ -8504,7 +8506,7 @@ namespace Junko.Migrations
                         {
                             Id = 8,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 263, DateTimeKind.Local).AddTicks(8781),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 962, DateTimeKind.Local).AddTicks(989),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Photo = "category/0427b-simcart.png",
                             Status = true
@@ -8513,7 +8515,7 @@ namespace Junko.Migrations
                         {
                             Id = 9,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 263, DateTimeKind.Local).AddTicks(8784),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 962, DateTimeKind.Local).AddTicks(992),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Photo = "category/6e7e5-icon.png",
                             Status = true
@@ -8522,7 +8524,7 @@ namespace Junko.Migrations
                         {
                             Id = 10,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 263, DateTimeKind.Local).AddTicks(8786),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 962, DateTimeKind.Local).AddTicks(995),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Photo = "category/581ea-barcode_scanner.png",
                             Status = true
@@ -9801,7 +9803,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(4407),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(4346),
                             Photo = "product/856a5-iphone-11-pro-select-2019-family.jpg",
                             ProductId = 1,
                             Status = true
@@ -9809,7 +9811,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(5912),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5670),
                             Photo = "product/a6bc8-iPhone-11-Pro-Max-256GB-Gold-1.png",
                             ProductId = 1,
                             Status = true
@@ -9817,7 +9819,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(5944),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5698),
                             Photo = "product/48d85-221132_pjpeg.jpg",
                             ProductId = 2,
                             Status = true
@@ -9825,7 +9827,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 4,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(5947),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5701),
                             Photo = "product/a6bc8-iPhone-11-Pro-Max-256GB-Gold-1.png",
                             ProductId = 2,
                             Status = true
@@ -9833,7 +9835,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 5,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(5949),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5703),
                             Photo = "product/7920f-iPhone-XI.jpeg",
                             ProductId = 3,
                             Status = true
@@ -9841,7 +9843,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 6,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(5952),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5705),
                             Photo = "product/48d85-221132_pjpeg.jpg",
                             ProductId = 3,
                             Status = true
@@ -9849,7 +9851,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 7,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(5955),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5707),
                             Photo = "product/48d85-221132_pjpeg.jpg",
                             ProductId = 4,
                             Status = true
@@ -9857,7 +9859,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 8,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(5957),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5709),
                             Photo = "product/7920f-iPhone-XI.jpeg",
                             ProductId = 4,
                             Status = true
@@ -9865,7 +9867,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 9,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(5959),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5711),
                             Photo = "product/a0915-3ff7e-1.jpg",
                             ProductId = 5,
                             Status = true
@@ -9873,7 +9875,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 10,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(5961),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5713),
                             Photo = "product/7adc3-6e4b1-Apple-IPHONE-XS-MAX-64-GB-grey.jpg",
                             ProductId = 5,
                             Status = true
@@ -9881,7 +9883,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 11,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(5964),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5715),
                             Photo = "product/be5f7-l_10185950_001.jpg",
                             ProductId = 6,
                             Status = true
@@ -9889,7 +9891,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 12,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(5966),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5718),
                             Photo = "product/f2ddd-l_10185951_001.jpg",
                             ProductId = 6,
                             Status = true
@@ -9897,7 +9899,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 13,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(5968),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5720),
                             Photo = "product/f2ddd-l_10185951_001.jpg",
                             ProductId = 7,
                             Status = true
@@ -9905,7 +9907,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 14,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(5971),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5722),
                             Photo = "product/be5f7-l_10185950_001.jpg",
                             ProductId = 7,
                             Status = true
@@ -9913,7 +9915,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 15,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(5973),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5726),
                             Photo = "product/be5f7-l_10185950_001.jpg",
                             ProductId = 8,
                             Status = true
@@ -9921,7 +9923,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 16,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(5975),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5728),
                             Photo = "product/f2ddd-l_10185951_001.jpg",
                             ProductId = 8,
                             Status = true
@@ -9929,7 +9931,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 17,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(5977),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5731),
                             Photo = "product/f2ddd-l_10185951_001.jpg",
                             ProductId = 9,
                             Status = true
@@ -9937,7 +9939,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 18,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(5979),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5733),
                             Photo = "product/be5f7-l_10185950_001.jpg",
                             ProductId = 9,
                             Status = true
@@ -9945,7 +9947,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 19,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(5982),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5735),
                             Photo = "product/17122--------------iPad-6------------------------.jpg",
                             ProductId = 10,
                             Status = true
@@ -9953,7 +9955,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 20,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(5984),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5738),
                             Photo = "product/17122--------------iPad-6------------------------.jpg",
                             ProductId = 11,
                             Status = true
@@ -9961,7 +9963,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 21,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(5986),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5740),
                             Photo = "product/8dcf6-bb582ec8128fd58df69520834e1ab7ae.jpg",
                             ProductId = 12,
                             Status = true
@@ -9969,7 +9971,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 22,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(5989),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5742),
                             Photo = "product/00d79-MTPK2_VW_34FR-watch-44-alum-silver-nc-5s_VW_34FR_WF_CO.jpg",
                             ProductId = 12,
                             Status = true
@@ -9977,7 +9979,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 23,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(5991),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5744),
                             Photo = "product/50de3-44-alu-gold-sport-pink-sand-nc-s4-gallery1_GEO_GB.jpg",
                             ProductId = 13,
                             Status = true
@@ -9985,7 +9987,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 24,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(5994),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5746),
                             Photo = "product/00d79-MTPK2_VW_34FR-watch-44-alum-silver-nc-5s_VW_34FR_WF_CO.jpg",
                             ProductId = 13,
                             Status = true
@@ -9993,7 +9995,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 25,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(5997),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5748),
                             Photo = "product/a0915-3ff7e-1.jpg",
                             ProductId = 14,
                             Status = true
@@ -10001,7 +10003,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 26,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(5999),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5750),
                             Photo = "product/7adc3-6e4b1-Apple-IPHONE-XS-MAX-64-GB-grey.jpg",
                             ProductId = 14,
                             Status = true
@@ -10009,7 +10011,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 27,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6002),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5752),
                             Photo = "product/be5f7-l_10185950_001.jpg",
                             ProductId = 15,
                             Status = true
@@ -10017,7 +10019,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 28,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6004),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5754),
                             Photo = "product/f2ddd-l_10185951_001.jpg",
                             ProductId = 15,
                             Status = true
@@ -10025,7 +10027,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 29,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6006),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5757),
                             Photo = "product/010bd-ddsadasdsadasdasdad.jpg",
                             ProductId = 16,
                             Status = true
@@ -10033,7 +10035,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 30,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6008),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5759),
                             Photo = "product/8e3a1-apple-macbook-pro-15-retina.png",
                             ProductId = 16,
                             Status = true
@@ -10041,7 +10043,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 31,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6010),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5761),
                             Photo = "product/0c1aa-Baseus-Full-Coverage-Screen-Protector.jpg",
                             ProductId = 17,
                             Status = true
@@ -10049,7 +10051,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 32,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6013),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5763),
                             Photo = "product/43f8a-s-l1000.jpg",
                             ProductId = 18,
                             Status = true
@@ -10057,7 +10059,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 33,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6015),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5765),
                             Photo = "product/73fd6-Wholesale-for-iPhone-8-Pin-Lightning.jpg",
                             ProductId = 19,
                             Status = true
@@ -10065,7 +10067,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 34,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6017),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5769),
                             Photo = "product/1dfb4-2en_2.jpg",
                             ProductId = 20,
                             Status = true
@@ -10073,7 +10075,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 35,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6019),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5771),
                             Photo = "product/6b44f-samsung-galaxy-note10-plus-aura-black.jpg",
                             ProductId = 21,
                             Status = true
@@ -10081,7 +10083,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 36,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6022),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5773),
                             Photo = "product/90ecf-samsung-galaxy-note10-plus-aura-white.jpg",
                             ProductId = 21,
                             Status = true
@@ -10089,7 +10091,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 37,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6024),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5775),
                             Photo = "product/9de81-samsung-galaxy-note10-aura-white.jpg",
                             ProductId = 22,
                             Status = true
@@ -10097,7 +10099,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 38,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6026),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5777),
                             Photo = "product/6b44f-samsung-galaxy-note10-plus-aura-black.jpg",
                             ProductId = 22,
                             Status = true
@@ -10105,7 +10107,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 39,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6028),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5780),
                             Photo = "product/ad082-61jE22Q4J2L._SX425_.jpg",
                             ProductId = 23,
                             Status = true
@@ -10113,7 +10115,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 40,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6031),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5782),
                             Photo = "product/41928-61YVqHdFRxL._SL1322_.jpg",
                             ProductId = 23,
                             Status = true
@@ -10121,7 +10123,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 41,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6033),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5784),
                             Photo = "product/78896-Samsung-Galaxy-S10-128GB.jpg",
                             ProductId = 24,
                             Status = true
@@ -10129,7 +10131,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 42,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6035),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5787),
                             Photo = "product/a0e2e-s10_2-1.jpg",
                             ProductId = 24,
                             Status = true
@@ -10137,7 +10139,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 43,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6039),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5789),
                             Photo = "product/91e94-81vB-Irbk9L._SL1500_.jpg",
                             ProductId = 25,
                             Status = true
@@ -10145,7 +10147,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 44,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6041),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5791),
                             Photo = "product/9c9a0-samsng_note_9.jpg",
                             ProductId = 25,
                             Status = true
@@ -10153,7 +10155,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 45,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6044),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5793),
                             Photo = "product/d9d15-190202-samsung-galaxy-s10e-01.jpg",
                             ProductId = 26,
                             Status = true
@@ -10161,7 +10163,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 46,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6046),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5795),
                             Photo = "product/6afdd-samsung-galaxy-s10e-white.jpg",
                             ProductId = 26,
                             Status = true
@@ -10169,7 +10171,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 47,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6048),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5797),
                             Photo = "product/06a0b-Samsung-Galaxy-Tab-S2-VE.png",
                             ProductId = 27,
                             Status = true
@@ -10177,7 +10179,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 48,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6050),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5799),
                             Photo = "product/52832-Samsung-Galaxy-Tab-A-10.png",
                             ProductId = 27,
                             Status = true
@@ -10185,7 +10187,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 49,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6052),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5801),
                             Photo = "product/52832-Samsung-Galaxy-Tab-A-10.png",
                             ProductId = 28,
                             Status = true
@@ -10193,7 +10195,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 50,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6055),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5803),
                             Photo = "product/06a0b-Samsung-Galaxy-Tab-S2-VE.png",
                             ProductId = 28,
                             Status = true
@@ -10201,7 +10203,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 51,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6057),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5805),
                             Photo = "product/3193f-Samsung-Galaxy-Tab-A7.0-2.png",
                             ProductId = 29,
                             Status = true
@@ -10209,7 +10211,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 52,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6059),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5808),
                             Photo = "product/06a0b-Samsung-Galaxy-Tab-S2-VE.png",
                             ProductId = 29,
                             Status = true
@@ -10217,7 +10219,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 53,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6062),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5811),
                             Photo = "product/d891c-samsung_sm_r800nzsaxar_galileo_smartwatch_silver_1429263.jpg",
                             ProductId = 30,
                             Status = true
@@ -10225,7 +10227,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 54,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6064),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5814),
                             Photo = "product/21cb8-Samsung-Galaxy-S8-Plus-1.png",
                             ProductId = 31,
                             Status = true
@@ -10233,7 +10235,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 55,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6066),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5816),
                             Photo = "product/04759-Samsung-RS57K4000SAWT.jpg",
                             ProductId = 32,
                             Status = true
@@ -10241,7 +10243,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 56,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6068),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5818),
                             Photo = "product/f2e47-Samsung-RS57K4000SAWT2.jpg",
                             ProductId = 32,
                             Status = true
@@ -10249,7 +10251,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 57,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6071),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5820),
                             Photo = "product/2f980-Samsung-WW70K62E00SDLP.jpg",
                             ProductId = 33,
                             Status = true
@@ -10257,7 +10259,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 58,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6073),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5822),
                             Photo = "product/0b362-Samsung-WW70K62E00SDLP2.jpg",
                             ProductId = 33,
                             Status = true
@@ -10265,7 +10267,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 59,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6075),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5824),
                             Photo = "product/a8df2-1129201_v01_b.jpg",
                             ProductId = 34,
                             Status = true
@@ -10273,7 +10275,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 60,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6078),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5827),
                             Photo = "product/5255b-0000260_3d-curved-edge-full.jpeg",
                             ProductId = 35,
                             Status = true
@@ -10281,7 +10283,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 61,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6080),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5829),
                             Photo = "product/d17fe-SAMS8LCDSCPR83B-1000__17859.1491533735.500.750.jpg",
                             ProductId = 35,
                             Status = true
@@ -10289,7 +10291,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 62,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6083),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5831),
                             Photo = "product/d2605-travel_adapter_samsung_fast.jpg",
                             ProductId = 36,
                             Status = true
@@ -10297,7 +10299,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 63,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6086),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5833),
                             Photo = "product/db145-samsung-ep-ta20iweugin-travel-adapter_1487920932.jpeg",
                             ProductId = 36,
                             Status = true
@@ -10305,7 +10307,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 64,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6089),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5835),
                             Photo = "product/c3658-galaxy-note8-acc_standing.jpg",
                             ProductId = 37,
                             Status = true
@@ -10313,7 +10315,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 65,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6091),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5837),
                             Photo = "product/916ef-coque-etui-housse-pour-samsung.jpg",
                             ProductId = 37,
                             Status = true
@@ -10321,7 +10323,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 66,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6093),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5839),
                             Photo = "product/02457-Pdpdefault-eo-bg935cbegus-600x600-C1-052016.jpg",
                             ProductId = 38,
                             Status = true
@@ -10329,7 +10331,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 67,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6096),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5841),
                             Photo = "product/3e6c7-p30proaurorahero.jpg.4e68899253.999x600x550.jpg",
                             ProductId = 39,
                             Status = true
@@ -10337,7 +10339,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 68,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6098),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5844),
                             Photo = "product/4e434-51zDfRUUhHL._SX425_.jpg",
                             ProductId = 39,
                             Status = true
@@ -10345,7 +10347,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 69,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6100),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5846),
                             Photo = "product/a7331-41AdlRlQzRL._SY355_.jpg",
                             ProductId = 40,
                             Status = true
@@ -10353,7 +10355,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 70,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6102),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5849),
                             Photo = "product/b56fb-csm_4_zu_3_Huawei_MediaPad_T3_10_57ec177426.jpg",
                             ProductId = 40,
                             Status = true
@@ -10361,7 +10363,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 71,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6104),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5852),
                             Photo = "product/ce7aa-xiaomi-black-shark-8gb128gb-black-global.jpg",
                             ProductId = 41,
                             Status = true
@@ -10369,7 +10371,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 72,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6107),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5855),
                             Photo = "product/619ed-xiaomi-black-shark-6gb-64gb-dual-sim-black.jpg",
                             ProductId = 41,
                             Status = true
@@ -10377,7 +10379,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 73,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6109),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5857),
                             Photo = "product/258ac-1000.1000_1f9e58da626e43e9b33aafea1b061d2c.jpg",
                             ProductId = 42,
                             Status = true
@@ -10385,7 +10387,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 74,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6111),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5859),
                             Photo = "product/5ca3c-49848484.jpg",
                             ProductId = 42,
                             Status = true
@@ -10393,7 +10395,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 75,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6114),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5862),
                             Photo = "product/cb256-888888.jpg",
                             ProductId = 43,
                             Status = true
@@ -10401,7 +10403,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 76,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6116),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5864),
                             Photo = "product/ef431-707d6-Global-Version.jpg",
                             ProductId = 43,
                             Status = true
@@ -10409,7 +10411,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 77,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6118),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5866),
                             Photo = "product/872a6-MAKAVO-For-Xiaomi-Redmi-Note-5-Pro.jpg",
                             ProductId = 44,
                             Status = true
@@ -10417,7 +10419,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 78,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6120),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5868),
                             Photo = "product/be99b-gs100.jpg",
                             ProductId = 44,
                             Status = true
@@ -10425,7 +10427,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 79,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6123),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5870),
                             Photo = "product/55d3e-vneshnij-akkumulyator-xiaomi.jpg",
                             ProductId = 45,
                             Status = true
@@ -10433,7 +10435,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 80,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6126),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5872),
                             Photo = "product/14fe3-1.jpg",
                             ProductId = 45,
                             Status = true
@@ -10441,7 +10443,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 81,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6129),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5874),
                             Photo = "product/45f67-Meizu_M6T_L_1.jpg",
                             ProductId = 46,
                             Status = true
@@ -10449,7 +10451,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 82,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6131),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5876),
                             Photo = "product/4a4c1-2c4839a6cc370f5269233bffec6369e9-254x300.jpg",
                             ProductId = 46,
                             Status = true
@@ -10457,7 +10459,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 83,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6134),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5879),
                             Photo = "product/59f3a-61eGeaQ45VL._SX569_.jpg",
                             ProductId = 47,
                             Status = true
@@ -10465,7 +10467,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 84,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6136),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5881),
                             Photo = "product/ef41b-1519637855_635_nokia_6_android_one.jpg",
                             ProductId = 47,
                             Status = true
@@ -10473,7 +10475,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 85,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6139),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5884),
                             Photo = "product/31c63-FLY-NIMBUS-9.png",
                             ProductId = 48,
                             Status = true
@@ -10481,7 +10483,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 86,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6141),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5886),
                             Photo = "product/c0960-37a4c0b68c456c44742f59a38127b45f_300x300.jpg",
                             ProductId = 48,
                             Status = true
@@ -10489,7 +10491,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 87,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6143),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5888),
                             Photo = "product/4c564-s9pro.png",
                             ProductId = 49,
                             Status = true
@@ -10497,7 +10499,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 88,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6146),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5890),
                             Photo = "product/0dbb1-989.png",
                             ProductId = 49,
                             Status = true
@@ -10505,7 +10507,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 89,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6148),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5892),
                             Photo = "product/3064e-s8.jpg",
                             ProductId = 50,
                             Status = true
@@ -10513,7 +10515,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 90,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6150),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5896),
                             Photo = "product/8e3c3-428_428_1523443560490.jpg",
                             ProductId = 51,
                             Status = true
@@ -10521,7 +10523,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 91,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6153),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5898),
                             Photo = "product/c2606-lenovo-tab-p10.jpg",
                             ProductId = 52,
                             Status = true
@@ -10529,7 +10531,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 92,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6155),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5901),
                             Photo = "product/80a1d-Lenovo-Tab-M10-Tablet-600x507.jpg",
                             ProductId = 52,
                             Status = true
@@ -10537,7 +10539,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 93,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6157),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5904),
                             Photo = "product/55fe3-4zu3_Lenovo_Yoga_510_Teaser.jpg",
                             ProductId = 53,
                             Status = true
@@ -10545,7 +10547,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 94,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6159),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5906),
                             Photo = "product/a2f82-copy_lenovo_80vb005fra_587e1b47dadc1_images_1837230040.jpg",
                             ProductId = 53,
                             Status = true
@@ -10553,7 +10555,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 95,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6161),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5908),
                             Photo = "product/47220-68526_Gps-tracker-kid-safe-smart-watch.jpg",
                             ProductId = 54,
                             Status = true
@@ -10561,7 +10563,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 96,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6164),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5910),
                             Photo = "product/a3dff-refrigerators-gr-b650glpl-750x480.jpg",
                             ProductId = 55,
                             Status = true
@@ -10569,7 +10571,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 97,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6167),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5912),
                             Photo = "product/4db1f-copy-large02.jpg",
                             ProductId = 55,
                             Status = true
@@ -10577,7 +10579,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 98,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6169),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5914),
                             Photo = "product/53aaf-mega-medium.jpg",
                             ProductId = 56,
                             Status = true
@@ -10585,7 +10587,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 99,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6172),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5916),
                             Photo = "product/a7437-medium04_F12B8QD5_FrontOpen_Silver.jpg",
                             ProductId = 56,
                             Status = true
@@ -10593,7 +10595,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 100,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6241),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5918),
                             Photo = "product/26bcf-lg_oled_tv_55b8slb1-1.jpg",
                             ProductId = 57,
                             Status = true
@@ -10601,7 +10603,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 101,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6245),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5921),
                             Photo = "product/2767d-lg_oled_tv_55b8slb3.jpg",
                             ProductId = 57,
                             Status = true
@@ -10609,7 +10611,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 102,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6248),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5923),
                             Photo = "product/b9145-x9.jpg",
                             ProductId = 58,
                             Status = true
@@ -10617,7 +10619,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 103,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6250),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5925),
                             Photo = "product/58251-soyuducu-hitachi-r-w720puc1-gbk-new-630x552.jpg",
                             ProductId = 59,
                             Status = true
@@ -10625,7 +10627,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 104,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6253),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5927),
                             Photo = "product/5d3dc-hitachi-r-w720fpuc1x-gbk_images_1490044930-630x552.jpg",
                             ProductId = 59,
                             Status = true
@@ -10633,7 +10635,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 105,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6255),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5929),
                             Photo = "product/7a81a-Zanussi-ZRB-36101-XA.jpg",
                             ProductId = 60,
                             Status = true
@@ -10641,7 +10643,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 106,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6257),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5931),
                             Photo = "product/295ac-Zanussi-ZRB-36101XA.jpg",
                             ProductId = 60,
                             Status = true
@@ -10649,7 +10651,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 107,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6259),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5933),
                             Photo = "product/84b16-mcsa02343948-i2025-1745639-gsn36ai31u-cmyk-def.jpg",
                             ProductId = 61,
                             Status = true
@@ -10657,7 +10659,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 108,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6261),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5936),
                             Photo = "product/dfb76-mcsa02343828-i2015-1745524-gsn36ai31u-pga2-cmyk-def.jpg",
                             ProductId = 61,
                             Status = true
@@ -10665,7 +10667,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 109,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6264),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5940),
                             Photo = "product/6869e-mcsa01734543-pkn811fp1e-electrichob-bosch-stp-def.jpg",
                             ProductId = 62,
                             Status = true
@@ -10673,7 +10675,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 110,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6266),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5942),
                             Photo = "product/397bd-mcsa00766690-411043-hmg636bs1-def.jpg",
                             ProductId = 63,
                             Status = true
@@ -10681,7 +10683,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 111,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6268),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5944),
                             Photo = "product/22142-11.jpg",
                             ProductId = 64,
                             Status = true
@@ -10689,7 +10691,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 112,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6271),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5946),
                             Photo = "product/ef50c-1720017047_w640_h640_utyug-bosch-tdi902836a.jpg",
                             ProductId = 65,
                             Status = true
@@ -10697,7 +10699,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 113,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6273),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5948),
                             Photo = "product/4391f-juicer-bosch-mes4000-silver.jpg",
                             ProductId = 66,
                             Status = true
@@ -10705,7 +10707,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 114,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6276),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5951),
                             Photo = "product/b111c-MCSA00726979_E4593_MSM67190_378570_korr_def.jpg",
                             ProductId = 67,
                             Status = true
@@ -10713,7 +10715,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 115,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6278),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5953),
                             Photo = "product/193d2-MCSA01619347_G1895_TAT6A913_1070026_def.jpg",
                             ProductId = 68,
                             Status = true
@@ -10721,7 +10723,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 116,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6280),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5955),
                             Photo = "product/32213-61Jz8-WoS2L._SX425_.jpg",
                             ProductId = 69,
                             Status = true
@@ -10729,7 +10731,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 117,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6282),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(5957),
                             Photo = "product/64bbe-98-1-vestel-sd450g-a-46970778995.jpg",
                             ProductId = 70,
                             Status = true
@@ -10737,7 +10739,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 118,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6286),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(6073),
                             Photo = "product/ce317-srk-zspr-s-3.jpg",
                             ProductId = 71,
                             Status = true
@@ -10745,7 +10747,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 119,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6289),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(6076),
                             Photo = "product/e18c1-31bb1-p1cegsbak5at11i9f1d6t1c61ui16.jpg",
                             ProductId = 72,
                             Status = true
@@ -10753,7 +10755,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 120,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6292),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(6078),
                             Photo = "product/311b2-5b111ad12a7ff.jpg",
                             ProductId = 73,
                             Status = true
@@ -10761,7 +10763,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 121,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6294),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(6080),
                             Photo = "product/57572-8845618053150.jpg",
                             ProductId = 74,
                             Status = true
@@ -10769,7 +10771,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 122,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6296),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(6082),
                             Photo = "product/411e1-ASUS-Zenbook-UX301L.png",
                             ProductId = 75,
                             Status = true
@@ -10777,7 +10779,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 123,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6299),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(6085),
                             Photo = "product/a15f4-ASUS-Zenbook-UX301L.jpg",
                             ProductId = 75,
                             Status = true
@@ -10785,7 +10787,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 124,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6301),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(6087),
                             Photo = "product/60264-large_9212_acer-nitro-5-an515-51-nh-q2rer-001-black-1304615-1.jpg",
                             ProductId = 76,
                             Status = true
@@ -10793,7 +10795,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 125,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6303),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(6089),
                             Photo = "product/cff28-Dell-Inspirion-17-5759.jpeg",
                             ProductId = 77,
                             Status = true
@@ -10801,7 +10803,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 126,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6305),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(6091),
                             Photo = "product/26989-Dell-Inspirion-17-57592.jpg",
                             ProductId = 77,
                             Status = true
@@ -10809,7 +10811,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 127,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6307),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(6094),
                             Photo = "product/8b7e0-1157594-1024x768.jpg",
                             ProductId = 78,
                             Status = true
@@ -10817,7 +10819,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 128,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6310),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(6097),
                             Photo = "product/bda07-c06179404.png",
                             ProductId = 79,
                             Status = true
@@ -10825,7 +10827,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 129,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6312),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(6100),
                             Photo = "product/96ef6-monoblok-hp-pavilion-27-xa0046ur-aio-5kp15ea-belyj-27.jpg",
                             ProductId = 79,
                             Status = true
@@ -10833,7 +10835,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 130,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6314),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(6102),
                             Photo = "product/3cefb-14265876.jpg",
                             ProductId = 80,
                             Status = true
@@ -10841,7 +10843,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 131,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6317),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(6104),
                             Photo = "product/bda07-c06179404.png",
                             ProductId = 81,
                             Status = true
@@ -10849,7 +10851,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 132,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6319),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(6106),
                             Photo = "product/96ef6-monoblok-hp-pavilion-27-xa0046ur-aio-5kp15ea-belyj-27.jpg",
                             ProductId = 81,
                             Status = true
@@ -10857,7 +10859,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 133,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6321),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(6108),
                             Photo = "product/eb436-item_XL_24487273_36024943.jpg",
                             ProductId = 82,
                             Status = true
@@ -10865,7 +10867,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 134,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6323),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(6110),
                             Photo = "product/eda36-HP-V220W-USB2.0.jpg",
                             ProductId = 83,
                             Status = true
@@ -10873,7 +10875,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 135,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6325),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(6112),
                             Photo = "product/31ee5-1475c009aa-1_1_1.jpg",
                             ProductId = 84,
                             Status = true
@@ -10881,7 +10883,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 136,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6328),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(6114),
                             Photo = "product/54de5-Canon-i-SENSYS-MF633-Left-Large.jpg",
                             ProductId = 84,
                             Status = true
@@ -10889,7 +10891,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 137,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6331),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(6116),
                             Photo = "product/acd36-155135057906695c77bb331062c240.jpeg",
                             ProductId = 85,
                             Status = true
@@ -10897,7 +10899,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 138,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6335),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(6118),
                             Photo = "product/6f999-2.jpg",
                             ProductId = 86,
                             Status = true
@@ -10905,7 +10907,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 139,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6337),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(6120),
                             Photo = "product/e48ec-6.jpg",
                             ProductId = 87,
                             Status = true
@@ -10913,7 +10915,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 140,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6339),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(6122),
                             Photo = "product/87640-GC3802_27-IMS-ru_RU.jpg",
                             ProductId = 88,
                             Status = true
@@ -10921,7 +10923,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 141,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6341),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(6124),
                             Photo = "product/1d986-7127109_images_1457230048.jpg",
                             ProductId = 89,
                             Status = true
@@ -10929,7 +10931,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 142,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6343),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(6126),
                             Photo = "product/d74d6-20038860b.jpg",
                             ProductId = 90,
                             Status = true
@@ -10937,7 +10939,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 143,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6345),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(6129),
                             Photo = "product/e0788-1cyyBR9sQRE74UHjZ3DSQ.jpg",
                             ProductId = 91,
                             Status = true
@@ -10945,7 +10947,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 144,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6348),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(6131),
                             Photo = "product/234fd-philips_hr1627_00_images_8734980833.jpg",
                             ProductId = 92,
                             Status = true
@@ -10953,7 +10955,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 145,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6350),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(6133),
                             Photo = "product/5a045-p1cv07udbb3p41ggd1omi3oa19kf4.jpg",
                             ProductId = 93,
                             Status = true
@@ -10961,7 +10963,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 146,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6352),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(6136),
                             Photo = "product/d29c5-1-aiwa-jh32bt700s.jpg",
                             ProductId = 94,
                             Status = true
@@ -10969,7 +10971,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 147,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6355),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(6138),
                             Photo = "product/a96ad-bluetooth_stereo_garnitura_awei_a990_bl_black_46.jpg",
                             ProductId = 95,
                             Status = true
@@ -10977,7 +10979,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 148,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6357),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(6141),
                             Photo = "product/1b89a-shivaki_32sh90g_2019-02-12_13-52-21.jpg",
                             ProductId = 96,
                             Status = true
@@ -10985,7 +10987,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 149,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6359),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(6143),
                             Photo = "product/2d5ed-sony_3001560_playstation_vr_ps4_1245989.jpg",
                             ProductId = 97,
                             Status = true
@@ -10993,7 +10995,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 150,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6361),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(6145),
                             Photo = "product/de456-PS-VR-1.jpg",
                             ProductId = 97,
                             Status = true
@@ -11001,7 +11003,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 151,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6363),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(6147),
                             Photo = "product/2e9b2-fifa2020.jpeg",
                             ProductId = 98,
                             Status = true
@@ -11009,7 +11011,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 152,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6365),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(6149),
                             Photo = "product/product12.jpg",
                             ProductId = 99,
                             Status = true
@@ -11017,7 +11019,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 153,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6368),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(6151),
                             Photo = "product/product11.jpg",
                             ProductId = 99,
                             Status = true
@@ -11025,7 +11027,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 154,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6370),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(6154),
                             Photo = "product/cc70a-Xbox-One-X-600x400.jpg",
                             ProductId = 100,
                             Status = true
@@ -11033,7 +11035,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 155,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6373),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(6156),
                             Photo = "product/745d0-9558d591a8eff0d270ad94a5c1896826.jpg",
                             ProductId = 101,
                             Status = true
@@ -11041,7 +11043,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 156,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6376),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(6158),
                             Photo = "product/7b8ae-61tmThxXwCL._SX425_.jpg",
                             ProductId = 102,
                             Status = true
@@ -11049,7 +11051,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 157,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6379),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(6160),
                             Photo = "product/50380-s0657161_sc7.jpg",
                             ProductId = 103,
                             Status = true
@@ -11057,7 +11059,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 158,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6381),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(6162),
                             Photo = "product/a31df-447a2b44-b89c-4b43-ab24-71789d6585cb.jpeg",
                             ProductId = 104,
                             Status = true
@@ -11065,7 +11067,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 159,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6383),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(6164),
                             Photo = "product/58f92-97af2475ef574516a0c7c42f5f22ff28.jpeg",
                             ProductId = 105,
                             Status = true
@@ -11073,7 +11075,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 160,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6385),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(6166),
                             Photo = "product/f061c-KX-TG3722.jpg",
                             ProductId = 106,
                             Status = true
@@ -11081,7 +11083,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 161,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6387),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(6168),
                             Photo = "product/b86db-rowenta_cv_5090_images_8899783856.jpg",
                             ProductId = 107,
                             Status = true
@@ -11089,7 +11091,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 162,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6390),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(6171),
                             Photo = "product/0a059-6863_1830007152.1200X1200_700x700.jpg",
                             ProductId = 108,
                             Status = true
@@ -11097,7 +11099,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 163,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6392),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(6173),
                             Photo = "product/a8978-1--1-.jpg",
                             ProductId = 109,
                             Status = true
@@ -11105,7 +11107,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 164,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6394),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(6175),
                             Photo = "product/b28f2-mytea_red-1.jpg",
                             ProductId = 110,
                             Status = true
@@ -11113,7 +11115,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 165,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6397),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(6178),
                             Photo = "product/a3c2a-1b-sokovyzhimalka-tefal-ze550d38.jpg",
                             ProductId = 111,
                             Status = true
@@ -11121,7 +11123,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 166,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6399),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(6180),
                             Photo = "product/c43dd-5077_1510001396.1200X1200_700x700--1-.jpg",
                             ProductId = 112,
                             Status = true
@@ -11129,7 +11131,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 167,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6401),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(6183),
                             Photo = "product/c9d5c-a4e391610eb4e3f191e20f0745afd9d8.jpg",
                             ProductId = 113,
                             Status = true
@@ -11137,7 +11139,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 168,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6403),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(6185),
                             Photo = "product/26502-vitek-vt-1209-vt_images_1425588609.jpg",
                             ProductId = 114,
                             Status = true
@@ -11145,7 +11147,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 169,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6406),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(6187),
                             Photo = "product/de5c3-IS7056BK-1000x1000.jpg",
                             ProductId = 115,
                             Status = true
@@ -11153,7 +11155,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 170,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6408),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(6189),
                             Photo = "product/4711a-braun_is_7056_bk_d.jpg",
                             ProductId = 115,
                             Status = true
@@ -11161,7 +11163,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 171,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6411),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(6191),
                             Photo = "product/5a790-item_XL_8323336_7940917.jpg",
                             ProductId = 116,
                             Status = true
@@ -11169,7 +11171,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 172,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6413),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(6193),
                             Photo = "product/4fcdc-traveler_9000r_2_02.jpg",
                             ProductId = 117,
                             Status = true
@@ -11177,7 +11179,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 173,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6415),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(6195),
                             Photo = "product/04e4d-jbl-partybox-300-wireless-party-speaker.jpg",
                             ProductId = 118,
                             Status = true
@@ -11185,7 +11187,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 174,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6419),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(6197),
                             Photo = "product/aa500-390-500x554.jpg",
                             ProductId = 119,
                             Status = true
@@ -11193,7 +11195,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 175,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6422),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(6199),
                             Photo = "product/ba53e-advertising-s1.jpg",
                             ProductId = 120,
                             Status = true
@@ -11201,7 +11203,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 176,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6424),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(6201),
                             Photo = "product/c43ec-Remax-Power-Box-Mini-2600-mAh-9292-900x900.jpg",
                             ProductId = 121,
                             Status = true
@@ -11209,7 +11211,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 177,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6427),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(6203),
                             Photo = "product/37d24-2d497ee1-b6d9-42a2-a22f-423c8bc91fd1.jpg",
                             ProductId = 122,
                             Status = true
@@ -11217,7 +11219,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 178,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6429),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(6205),
                             Photo = "product/dd5ab-item_XL_27390553_67835296.jpg",
                             ProductId = 123,
                             Status = true
@@ -11225,7 +11227,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 179,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6432),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(6207),
                             Photo = "product/35a78-A4TECH-Bloody-R7-R70-Wireless-Gaming-Mouse-World-s-Fastest-Key.jpg",
                             ProductId = 124,
                             Status = true
@@ -11233,7 +11235,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 180,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6434),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(6209),
                             Photo = "product/9b4a9-0042341_memorijskakartica-sandisk.jpg",
                             ProductId = 125,
                             Status = true
@@ -11241,7 +11243,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 181,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6436),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(6211),
                             Photo = "product/812e6-sandisk-ultra-dual-usb-m3-0-micro.jpg",
                             ProductId = 126,
                             Status = true
@@ -11249,7 +11251,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 182,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6438),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(6213),
                             Photo = "product/e4a4e-Beats_Solo_HD_Bluetooth_S_460_Red.jpg",
                             ProductId = 127,
                             Status = true
@@ -11257,7 +11259,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 183,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6441),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(6217),
                             Photo = "product/05d53-item_XL_11469506_16186303.jpg",
                             ProductId = 128,
                             Status = true
@@ -11265,7 +11267,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 184,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6443),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(6219),
                             Photo = "product/6d56b-ORIG-Roman-X3s-1428x1228.jpg",
                             ProductId = 129,
                             Status = true
@@ -11273,7 +11275,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 185,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6445),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(6222),
                             Photo = "product/90df9-241531185.jpg",
                             ProductId = 130,
                             Status = true
@@ -11281,7 +11283,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 186,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6447),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(6224),
                             Photo = "product/8962a-image-244538.jpg",
                             ProductId = 131,
                             Status = true
@@ -11289,7 +11291,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 187,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6450),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(6226),
                             Photo = "product/a9db2-ZUVA0014.png",
                             ProductId = 132,
                             Status = true
@@ -11297,7 +11299,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 188,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6452),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(6228),
                             Photo = "product/a5b90-bilitong-10000mah-power-bank--500x500.jpg",
                             ProductId = 133,
                             Status = true
@@ -11305,7 +11307,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 189,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6454),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(6230),
                             Photo = "product/655d4-Brand-new-Fashion.jpg",
                             ProductId = 134,
                             Status = true
@@ -11313,7 +11315,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 190,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6456),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(6232),
                             Photo = "product/19a63-b4e306f7-2672-49a3-92ae-674701322bd7.png",
                             ProductId = 135,
                             Status = true
@@ -11321,7 +11323,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 191,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6459),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(6234),
                             Photo = "product/180f3-886.jpg",
                             ProductId = 135,
                             Status = true
@@ -11329,7 +11331,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 192,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6461),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(6236),
                             Photo = "product/40167-argox-as-8000-ccd-kablolu-barkod-okuyucu.jpg",
                             ProductId = 136,
                             Status = true
@@ -11337,7 +11339,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 193,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6465),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(6238),
                             Photo = "product/40167-argox-as-8000-ccd-kablolu-barkod-okuyucu.jpg",
                             ProductId = 137,
                             Status = true
@@ -11345,7 +11347,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 194,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6467),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(6240),
                             Photo = "product/8abd1-zebra-gc-420t-barkod-yazici-barkod-yazici-38130_500.jpg",
                             ProductId = 138,
                             Status = true
@@ -11353,7 +11355,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 195,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6470),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(6242),
                             Photo = "product/07461-datalogic-quickscan-lite-qw210.jpg",
                             ProductId = 139,
                             Status = true
@@ -11361,7 +11363,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 196,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6472),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(6244),
                             Photo = "product/a6474-aclas-pp7x-usb-x.jpg",
                             ProductId = 140,
                             Status = true
@@ -11369,7 +11371,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 197,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6474),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(6246),
                             Photo = "product/3d33b-staer.jpg",
                             ProductId = 141,
                             Status = true
@@ -11377,102 +11379,10 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 198,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 269, DateTimeKind.Local).AddTicks(6476),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 966, DateTimeKind.Local).AddTicks(6248),
                             Photo = "product/555b5-sraseq.jpg",
                             ProductId = 141,
                             Status = true
-                        });
-                });
-
-            modelBuilder.Entity("Junko.Models.ProductReview", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int?>("AdminManagerId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Content")
-                        .IsRequired()
-                        .HasColumnType("ntext");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("UserId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AdminManagerId");
-
-                    b.HasIndex("ProductId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("ProductReviews");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Content = "Excelent!!!",
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 268, DateTimeKind.Local).AddTicks(1287),
-                            ProductId = 1,
-                            UserId = 1
-                        },
-                        new
-                        {
-                            Id = 2,
-                            AdminManagerId = 1,
-                            Content = "Endirimli Mehsullarimizdan yararlanin",
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 268, DateTimeKind.Local).AddTicks(2175),
-                            ProductId = 1
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Content = "Ucuzdur!!!",
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 268, DateTimeKind.Local).AddTicks(2198),
-                            ProductId = 2,
-                            UserId = 1
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Content = "Bahadir!!!",
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 268, DateTimeKind.Local).AddTicks(2202),
-                            ProductId = 3,
-                            UserId = 1
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Content = "Cheap!!!",
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 268, DateTimeKind.Local).AddTicks(2204),
-                            ProductId = 4,
-                            UserId = 1
-                        },
-                        new
-                        {
-                            Id = 6,
-                            Content = "Very Cheap!!!",
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 268, DateTimeKind.Local).AddTicks(2206),
-                            ProductId = 5,
-                            UserId = 1
-                        },
-                        new
-                        {
-                            Id = 7,
-                            Content = "Excelent!!!",
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 268, DateTimeKind.Local).AddTicks(2209),
-                            ProductId = 6,
-                            UserId = 1
                         });
                 });
 
@@ -11521,7 +11431,7 @@ namespace Junko.Migrations
                         {
                             Id = 1,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 264, DateTimeKind.Local).AddTicks(6253),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 962, DateTimeKind.Local).AddTicks(7555),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Photo = "category/6fe81-ceptelefon.jpg",
                             ProductCategoryId = 1,
@@ -11531,7 +11441,7 @@ namespace Junko.Migrations
                         {
                             Id = 2,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 264, DateTimeKind.Local).AddTicks(7768),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 962, DateTimeKind.Local).AddTicks(8883),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Photo = "category/5f28a-tabletler.jpg",
                             ProductCategoryId = 1,
@@ -11541,7 +11451,7 @@ namespace Junko.Migrations
                         {
                             Id = 3,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 264, DateTimeKind.Local).AddTicks(7798),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 962, DateTimeKind.Local).AddTicks(8913),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Photo = "category/3d444-akillisaatler.jpg",
                             ProductCategoryId = 1,
@@ -11551,7 +11461,7 @@ namespace Junko.Migrations
                         {
                             Id = 4,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 264, DateTimeKind.Local).AddTicks(7802),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 962, DateTimeKind.Local).AddTicks(8916),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Photo = "category/c6c32-4c725ea90ea12cefddd054328870a61f-online-mobile-second-hand.jpg",
                             ProductCategoryId = 1,
@@ -11561,7 +11471,7 @@ namespace Junko.Migrations
                         {
                             Id = 5,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 264, DateTimeKind.Local).AddTicks(7804),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 962, DateTimeKind.Local).AddTicks(8918),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Photo = "category/37bcc-soyuducu.png",
                             ProductCategoryId = 2,
@@ -11571,7 +11481,7 @@ namespace Junko.Migrations
                         {
                             Id = 6,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 264, DateTimeKind.Local).AddTicks(7806),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 962, DateTimeKind.Local).AddTicks(8920),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Photo = "category/5818a-klima.jpg",
                             ProductCategoryId = 2,
@@ -11581,7 +11491,7 @@ namespace Junko.Migrations
                         {
                             Id = 7,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 264, DateTimeKind.Local).AddTicks(7809),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 962, DateTimeKind.Local).AddTicks(8923),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Photo = "category/531d2-paltaryuyan.png",
                             ProductCategoryId = 2,
@@ -11591,7 +11501,7 @@ namespace Junko.Migrations
                         {
                             Id = 8,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 264, DateTimeKind.Local).AddTicks(7811),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 962, DateTimeKind.Local).AddTicks(8925),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Photo = "category/a79f3-kitchenaid-logo.jpg",
                             ProductCategoryId = 2,
@@ -11601,7 +11511,7 @@ namespace Junko.Migrations
                         {
                             Id = 9,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 264, DateTimeKind.Local).AddTicks(7814),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 962, DateTimeKind.Local).AddTicks(8928),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Photo = "category/bccf0-pilte.png",
                             ProductCategoryId = 2,
@@ -11611,7 +11521,7 @@ namespace Junko.Migrations
                         {
                             Id = 10,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 264, DateTimeKind.Local).AddTicks(7816),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 962, DateTimeKind.Local).AddTicks(8930),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Photo = "category/63377-mikrodalga.jpg",
                             ProductCategoryId = 2,
@@ -11621,7 +11531,7 @@ namespace Junko.Migrations
                         {
                             Id = 11,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 264, DateTimeKind.Local).AddTicks(7819),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 962, DateTimeKind.Local).AddTicks(8932),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Photo = "category/ddf24-notebook.jpg",
                             ProductCategoryId = 3,
@@ -11631,7 +11541,7 @@ namespace Junko.Migrations
                         {
                             Id = 12,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 264, DateTimeKind.Local).AddTicks(7822),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 962, DateTimeKind.Local).AddTicks(8935),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Photo = "category/9b6f3-masaustu.jpg",
                             ProductCategoryId = 3,
@@ -11641,7 +11551,7 @@ namespace Junko.Migrations
                         {
                             Id = 13,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 264, DateTimeKind.Local).AddTicks(7825),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 962, DateTimeKind.Local).AddTicks(8939),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Photo = "category/bd8b6-notebook.jpg",
                             ProductCategoryId = 3,
@@ -11651,7 +11561,7 @@ namespace Junko.Migrations
                         {
                             Id = 14,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 264, DateTimeKind.Local).AddTicks(7829),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 962, DateTimeKind.Local).AddTicks(8941),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Photo = "category/d6ad6-yazicilar.jpg",
                             ProductCategoryId = 3,
@@ -11661,7 +11571,7 @@ namespace Junko.Migrations
                         {
                             Id = 15,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 264, DateTimeKind.Local).AddTicks(7832),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 962, DateTimeKind.Local).AddTicks(8944),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Photo = "category/70f58-monitorkatr.jpg",
                             ProductCategoryId = 3,
@@ -11671,7 +11581,7 @@ namespace Junko.Migrations
                         {
                             Id = 16,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 264, DateTimeKind.Local).AddTicks(7834),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 962, DateTimeKind.Local).AddTicks(8947),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Photo = "category/900d4-televizyonlar.jpg",
                             ProductCategoryId = 4,
@@ -11681,7 +11591,7 @@ namespace Junko.Migrations
                         {
                             Id = 17,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 264, DateTimeKind.Local).AddTicks(7837),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 962, DateTimeKind.Local).AddTicks(8949),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Photo = "category/ec35f-ses_ev.png",
                             ProductCategoryId = 4,
@@ -11691,7 +11601,7 @@ namespace Junko.Migrations
                         {
                             Id = 18,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 264, DateTimeKind.Local).AddTicks(7839),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 962, DateTimeKind.Local).AddTicks(8952),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Photo = "category/a6cf0-soundbar.png",
                             ProductCategoryId = 4,
@@ -11701,7 +11611,7 @@ namespace Junko.Migrations
                         {
                             Id = 19,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 264, DateTimeKind.Local).AddTicks(7842),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 962, DateTimeKind.Local).AddTicks(8954),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Photo = "category/a9a78-evsinema.jpg",
                             ProductCategoryId = 4,
@@ -11711,7 +11621,7 @@ namespace Junko.Migrations
                         {
                             Id = 20,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 264, DateTimeKind.Local).AddTicks(7845),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 962, DateTimeKind.Local).AddTicks(8956),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Photo = "category/d73ad-projeksiyon.jpg",
                             ProductCategoryId = 4,
@@ -11721,7 +11631,7 @@ namespace Junko.Migrations
                         {
                             Id = 21,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 264, DateTimeKind.Local).AddTicks(7847),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 962, DateTimeKind.Local).AddTicks(8959),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Photo = "category/712b6-ps4.jpg",
                             ProductCategoryId = 5,
@@ -11731,7 +11641,7 @@ namespace Junko.Migrations
                         {
                             Id = 22,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 264, DateTimeKind.Local).AddTicks(7850),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 962, DateTimeKind.Local).AddTicks(8961),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Photo = "category/8b3c4-unnamed.jpg",
                             ProductCategoryId = 5,
@@ -11741,7 +11651,7 @@ namespace Junko.Migrations
                         {
                             Id = 23,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 264, DateTimeKind.Local).AddTicks(7852),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 962, DateTimeKind.Local).AddTicks(8964),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Photo = "category/47bfc-xbox-logo_318-9975.jpg",
                             ProductCategoryId = 5,
@@ -11751,7 +11661,7 @@ namespace Junko.Migrations
                         {
                             Id = 24,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 264, DateTimeKind.Local).AddTicks(7854),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 962, DateTimeKind.Local).AddTicks(8966),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Photo = "category/7e1df-37229008_21039398.jpeg",
                             ProductCategoryId = 5,
@@ -11761,7 +11671,7 @@ namespace Junko.Migrations
                         {
                             Id = 25,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 264, DateTimeKind.Local).AddTicks(7857),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 962, DateTimeKind.Local).AddTicks(8968),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Photo = "category/00858-a4726b678f87bd94ea880eeef0ecdfcb-silhouette-black-white-vacuum-cleaner.png",
                             ProductCategoryId = 6,
@@ -11771,7 +11681,7 @@ namespace Junko.Migrations
                         {
                             Id = 26,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 264, DateTimeKind.Local).AddTicks(7860),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 962, DateTimeKind.Local).AddTicks(8970),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Photo = "category/6a0f2-pngtree-vector-hair-dryer-icon-png-image_701315.jpg",
                             ProductCategoryId = 6,
@@ -11781,7 +11691,7 @@ namespace Junko.Migrations
                         {
                             Id = 27,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 264, DateTimeKind.Local).AddTicks(7862),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 962, DateTimeKind.Local).AddTicks(8973),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Photo = "category/a7af1-electric-iron-icon-simple-style-vector-21484883.jpg",
                             ProductCategoryId = 6,
@@ -11791,7 +11701,7 @@ namespace Junko.Migrations
                         {
                             Id = 28,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 264, DateTimeKind.Local).AddTicks(7867),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 962, DateTimeKind.Local).AddTicks(8976),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Photo = "category/560ee-meat-grinder-machine-icon-simple-style-vector-22276672.jpg",
                             ProductCategoryId = 6,
@@ -11801,7 +11711,7 @@ namespace Junko.Migrations
                         {
                             Id = 29,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 264, DateTimeKind.Local).AddTicks(7870),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 962, DateTimeKind.Local).AddTicks(8979),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Photo = "category/ae188-electric-kettle-household-appliance-icon-vector-8275057.jpg",
                             ProductCategoryId = 6,
@@ -11811,7 +11721,7 @@ namespace Junko.Migrations
                         {
                             Id = 30,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 264, DateTimeKind.Local).AddTicks(7873),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 962, DateTimeKind.Local).AddTicks(8981),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Photo = "category/d879f-juicer-icon-simple-style-vector-10155704.jpg",
                             ProductCategoryId = 6,
@@ -11821,7 +11731,7 @@ namespace Junko.Migrations
                         {
                             Id = 31,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 264, DateTimeKind.Local).AddTicks(7876),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 962, DateTimeKind.Local).AddTicks(8984),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Photo = "category/11f7a-a-gray-stationary-blender-icon-vector-13417582.jpg",
                             ProductCategoryId = 6,
@@ -11831,7 +11741,7 @@ namespace Junko.Migrations
                         {
                             Id = 32,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 264, DateTimeKind.Local).AddTicks(7878),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 962, DateTimeKind.Local).AddTicks(8986),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Photo = "category/cea64-toaster-icon-simple-black-style-vector-18839754.jpg",
                             ProductCategoryId = 6,
@@ -11841,7 +11751,7 @@ namespace Junko.Migrations
                         {
                             Id = 33,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 264, DateTimeKind.Local).AddTicks(7880),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 962, DateTimeKind.Local).AddTicks(8988),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Photo = "category/4f398-90652265-stock-vector-mixer-kitchen-icon-simple-illustration-of-mixer-kitchen-vector-icon-for-web.jpg",
                             ProductCategoryId = 6,
@@ -11851,7 +11761,7 @@ namespace Junko.Migrations
                         {
                             Id = 34,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 264, DateTimeKind.Local).AddTicks(7883),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 962, DateTimeKind.Local).AddTicks(8991),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Photo = "category/7b5b8-ekran-koruyucu.jpg",
                             ProductCategoryId = 7,
@@ -11861,7 +11771,7 @@ namespace Junko.Migrations
                         {
                             Id = 35,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 264, DateTimeKind.Local).AddTicks(7885),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 962, DateTimeKind.Local).AddTicks(9039),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Photo = "category/9a881-iphonea.png",
                             ProductCategoryId = 7,
@@ -11871,7 +11781,7 @@ namespace Junko.Migrations
                         {
                             Id = 36,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 264, DateTimeKind.Local).AddTicks(7889),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 962, DateTimeKind.Local).AddTicks(9043),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Photo = "category/eee1f-003386-glossy-black-icon-media-music-speaker.png",
                             ProductCategoryId = 7,
@@ -11881,7 +11791,7 @@ namespace Junko.Migrations
                         {
                             Id = 37,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 264, DateTimeKind.Local).AddTicks(7891),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 962, DateTimeKind.Local).AddTicks(9045),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Photo = "category/6d65f-86666-cordless-phone.png",
                             ProductCategoryId = 7,
@@ -11891,7 +11801,7 @@ namespace Junko.Migrations
                         {
                             Id = 38,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 264, DateTimeKind.Local).AddTicks(7893),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 962, DateTimeKind.Local).AddTicks(9047),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Photo = "category/74601-car-flat-icon-01-.jpg",
                             ProductCategoryId = 7,
@@ -11901,7 +11811,7 @@ namespace Junko.Migrations
                         {
                             Id = 39,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 264, DateTimeKind.Local).AddTicks(7896),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 962, DateTimeKind.Local).AddTicks(9050),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Photo = "category/8ebb1-kablo.jpg",
                             ProductCategoryId = 7,
@@ -11911,7 +11821,7 @@ namespace Junko.Migrations
                         {
                             Id = 40,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 264, DateTimeKind.Local).AddTicks(7898),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 962, DateTimeKind.Local).AddTicks(9052),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Photo = "category/03ba9-telefonkilif.jpg",
                             ProductCategoryId = 7,
@@ -11921,7 +11831,7 @@ namespace Junko.Migrations
                         {
                             Id = 41,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 264, DateTimeKind.Local).AddTicks(7901),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 962, DateTimeKind.Local).AddTicks(9054),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Photo = "category/b1347-business-suitcase-bag-icon.jpg",
                             ProductCategoryId = 7,
@@ -11931,7 +11841,7 @@ namespace Junko.Migrations
                         {
                             Id = 42,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 264, DateTimeKind.Local).AddTicks(7903),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 962, DateTimeKind.Local).AddTicks(9057),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Photo = "category/b40b8-network.jpg",
                             ProductCategoryId = 7,
@@ -11941,7 +11851,7 @@ namespace Junko.Migrations
                         {
                             Id = 43,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 264, DateTimeKind.Local).AddTicks(8009),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 962, DateTimeKind.Local).AddTicks(9060),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Photo = "category/6d0d5-mouse.jpg",
                             ProductCategoryId = 7,
@@ -11951,7 +11861,7 @@ namespace Junko.Migrations
                         {
                             Id = 44,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 264, DateTimeKind.Local).AddTicks(8015),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 962, DateTimeKind.Local).AddTicks(9063),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Photo = "category/f3ba8-sdcard.png",
                             ProductCategoryId = 7,
@@ -11961,7 +11871,7 @@ namespace Junko.Migrations
                         {
                             Id = 45,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 264, DateTimeKind.Local).AddTicks(8018),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 962, DateTimeKind.Local).AddTicks(9066),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Photo = "category/b813a-kulaklikkategori.png",
                             ProductCategoryId = 7,
@@ -11971,7 +11881,7 @@ namespace Junko.Migrations
                         {
                             Id = 46,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 264, DateTimeKind.Local).AddTicks(8020),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 962, DateTimeKind.Local).AddTicks(9068),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Photo = "category/2ed8d-tasinabilirsarj.jpg",
                             ProductCategoryId = 7,
@@ -11981,7 +11891,7 @@ namespace Junko.Migrations
                         {
                             Id = 47,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 264, DateTimeKind.Local).AddTicks(8023),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 962, DateTimeKind.Local).AddTicks(9070),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Photo = "category/528ea-monopad.png",
                             ProductCategoryId = 7,
@@ -11991,7 +11901,7 @@ namespace Junko.Migrations
                         {
                             Id = 48,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 264, DateTimeKind.Local).AddTicks(8025),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 962, DateTimeKind.Local).AddTicks(9072),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Photo = "category/c1af5-usb-bellek.jpg",
                             ProductCategoryId = 7,
@@ -12001,7 +11911,7 @@ namespace Junko.Migrations
                         {
                             Id = 49,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 264, DateTimeKind.Local).AddTicks(8028),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 962, DateTimeKind.Local).AddTicks(9075),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Photo = "category/b3323-bakcell.png",
                             ProductCategoryId = 8,
@@ -12011,7 +11921,7 @@ namespace Junko.Migrations
                         {
                             Id = 50,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 264, DateTimeKind.Local).AddTicks(8030),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 962, DateTimeKind.Local).AddTicks(9077),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Photo = "category/6fb9a-azercell.png",
                             ProductCategoryId = 8,
@@ -12021,7 +11931,7 @@ namespace Junko.Migrations
                         {
                             Id = 51,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 264, DateTimeKind.Local).AddTicks(8033),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 962, DateTimeKind.Local).AddTicks(9079),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Photo = "category/bdd2e-nar.png",
                             ProductCategoryId = 8,
@@ -12031,7 +11941,7 @@ namespace Junko.Migrations
                         {
                             Id = 52,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 264, DateTimeKind.Local).AddTicks(8036),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 962, DateTimeKind.Local).AddTicks(9081),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Photo = "category/d9046-81sbl3t77zl._sl1500_.jpg",
                             ProductCategoryId = 9,
@@ -12041,7 +11951,7 @@ namespace Junko.Migrations
                         {
                             Id = 53,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 264, DateTimeKind.Local).AddTicks(8038),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 962, DateTimeKind.Local).AddTicks(9083),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Photo = "category/b3747-bar-code.png",
                             ProductCategoryId = 10,
@@ -12051,7 +11961,7 @@ namespace Junko.Migrations
                         {
                             Id = 54,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 264, DateTimeKind.Local).AddTicks(8040),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 962, DateTimeKind.Local).AddTicks(9085),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Photo = "category/3a824-intermec_pc42d_icon_1.jpg",
                             ProductCategoryId = 10,
@@ -12061,7 +11971,7 @@ namespace Junko.Migrations
                         {
                             Id = 55,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 264, DateTimeKind.Local).AddTicks(8043),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 962, DateTimeKind.Local).AddTicks(9088),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Photo = "category/09a3c-xprinter-thermal-barcode-printer-80mm-xp-350b-.jpg",
                             ProductCategoryId = 10,
@@ -12071,7 +11981,7 @@ namespace Junko.Migrations
                         {
                             Id = 56,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 264, DateTimeKind.Local).AddTicks(8045),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 962, DateTimeKind.Local).AddTicks(9090),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Photo = "category/eaf6d-sk50-1.png",
                             ProductCategoryId = 10,
@@ -12109,7 +12019,7 @@ namespace Junko.Migrations
                         {
                             Id = 1,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 265, DateTimeKind.Local).AddTicks(6851),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 963, DateTimeKind.Local).AddTicks(6775),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Status = true
                         },
@@ -12117,7 +12027,7 @@ namespace Junko.Migrations
                         {
                             Id = 2,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 265, DateTimeKind.Local).AddTicks(8349),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 963, DateTimeKind.Local).AddTicks(8098),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Status = true
                         },
@@ -12125,7 +12035,7 @@ namespace Junko.Migrations
                         {
                             Id = 3,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 265, DateTimeKind.Local).AddTicks(8381),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 963, DateTimeKind.Local).AddTicks(8128),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Status = true
                         },
@@ -12133,7 +12043,7 @@ namespace Junko.Migrations
                         {
                             Id = 4,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 265, DateTimeKind.Local).AddTicks(8383),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 963, DateTimeKind.Local).AddTicks(8132),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Status = true
                         },
@@ -12141,7 +12051,7 @@ namespace Junko.Migrations
                         {
                             Id = 5,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 265, DateTimeKind.Local).AddTicks(8386),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 963, DateTimeKind.Local).AddTicks(8134),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Status = true
                         },
@@ -12149,7 +12059,7 @@ namespace Junko.Migrations
                         {
                             Id = 6,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 265, DateTimeKind.Local).AddTicks(8388),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 963, DateTimeKind.Local).AddTicks(8137),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Status = true
                         },
@@ -12157,7 +12067,7 @@ namespace Junko.Migrations
                         {
                             Id = 7,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 265, DateTimeKind.Local).AddTicks(8390),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 963, DateTimeKind.Local).AddTicks(8139),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Status = true
                         },
@@ -12165,7 +12075,7 @@ namespace Junko.Migrations
                         {
                             Id = 8,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 265, DateTimeKind.Local).AddTicks(8392),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 963, DateTimeKind.Local).AddTicks(8142),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Status = true
                         },
@@ -12173,7 +12083,7 @@ namespace Junko.Migrations
                         {
                             Id = 9,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 265, DateTimeKind.Local).AddTicks(8394),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 963, DateTimeKind.Local).AddTicks(8145),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Status = true
                         },
@@ -12181,7 +12091,7 @@ namespace Junko.Migrations
                         {
                             Id = 10,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 265, DateTimeKind.Local).AddTicks(8397),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 963, DateTimeKind.Local).AddTicks(8147),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Status = true
                         },
@@ -12189,7 +12099,7 @@ namespace Junko.Migrations
                         {
                             Id = 11,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 265, DateTimeKind.Local).AddTicks(8400),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 963, DateTimeKind.Local).AddTicks(8150),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Status = true
                         },
@@ -12197,7 +12107,7 @@ namespace Junko.Migrations
                         {
                             Id = 12,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 265, DateTimeKind.Local).AddTicks(8402),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 963, DateTimeKind.Local).AddTicks(8152),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Status = true
                         },
@@ -12205,7 +12115,7 @@ namespace Junko.Migrations
                         {
                             Id = 13,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 265, DateTimeKind.Local).AddTicks(8404),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 963, DateTimeKind.Local).AddTicks(8155),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Status = true
                         },
@@ -12213,7 +12123,7 @@ namespace Junko.Migrations
                         {
                             Id = 14,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 265, DateTimeKind.Local).AddTicks(8407),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 963, DateTimeKind.Local).AddTicks(8158),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Status = true
                         },
@@ -12221,7 +12131,7 @@ namespace Junko.Migrations
                         {
                             Id = 15,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 265, DateTimeKind.Local).AddTicks(8410),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 963, DateTimeKind.Local).AddTicks(8161),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Status = true
                         },
@@ -12229,7 +12139,7 @@ namespace Junko.Migrations
                         {
                             Id = 16,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 265, DateTimeKind.Local).AddTicks(8413),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 963, DateTimeKind.Local).AddTicks(8164),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Status = true
                         },
@@ -12237,7 +12147,7 @@ namespace Junko.Migrations
                         {
                             Id = 17,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 265, DateTimeKind.Local).AddTicks(8416),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 963, DateTimeKind.Local).AddTicks(8167),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Status = true
                         },
@@ -12245,7 +12155,7 @@ namespace Junko.Migrations
                         {
                             Id = 18,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 265, DateTimeKind.Local).AddTicks(8418),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 963, DateTimeKind.Local).AddTicks(8169),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Status = true
                         },
@@ -12253,7 +12163,7 @@ namespace Junko.Migrations
                         {
                             Id = 19,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 265, DateTimeKind.Local).AddTicks(8420),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 963, DateTimeKind.Local).AddTicks(8171),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Status = true
                         },
@@ -12261,7 +12171,7 @@ namespace Junko.Migrations
                         {
                             Id = 20,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 265, DateTimeKind.Local).AddTicks(8423),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 963, DateTimeKind.Local).AddTicks(8174),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Status = true
                         },
@@ -12269,7 +12179,7 @@ namespace Junko.Migrations
                         {
                             Id = 21,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 265, DateTimeKind.Local).AddTicks(8425),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 963, DateTimeKind.Local).AddTicks(8176),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Status = true
                         },
@@ -12277,7 +12187,7 @@ namespace Junko.Migrations
                         {
                             Id = 22,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 265, DateTimeKind.Local).AddTicks(8427),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 963, DateTimeKind.Local).AddTicks(8178),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Status = true
                         },
@@ -12285,7 +12195,7 @@ namespace Junko.Migrations
                         {
                             Id = 23,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 265, DateTimeKind.Local).AddTicks(8429),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 963, DateTimeKind.Local).AddTicks(8180),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Status = true
                         },
@@ -12293,7 +12203,7 @@ namespace Junko.Migrations
                         {
                             Id = 24,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 265, DateTimeKind.Local).AddTicks(8431),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 963, DateTimeKind.Local).AddTicks(8183),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Status = true
                         },
@@ -12301,7 +12211,7 @@ namespace Junko.Migrations
                         {
                             Id = 25,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 265, DateTimeKind.Local).AddTicks(8433),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 963, DateTimeKind.Local).AddTicks(8185),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Status = true
                         },
@@ -12309,7 +12219,7 @@ namespace Junko.Migrations
                         {
                             Id = 26,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 265, DateTimeKind.Local).AddTicks(8436),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 963, DateTimeKind.Local).AddTicks(8187),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Status = true
                         },
@@ -12317,7 +12227,7 @@ namespace Junko.Migrations
                         {
                             Id = 27,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 265, DateTimeKind.Local).AddTicks(8438),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 963, DateTimeKind.Local).AddTicks(8190),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Status = true
                         },
@@ -12325,7 +12235,7 @@ namespace Junko.Migrations
                         {
                             Id = 28,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 265, DateTimeKind.Local).AddTicks(8440),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 963, DateTimeKind.Local).AddTicks(8192),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Status = true
                         },
@@ -12333,7 +12243,7 @@ namespace Junko.Migrations
                         {
                             Id = 29,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 265, DateTimeKind.Local).AddTicks(8442),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 963, DateTimeKind.Local).AddTicks(8194),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Status = true
                         },
@@ -12341,7 +12251,7 @@ namespace Junko.Migrations
                         {
                             Id = 30,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 265, DateTimeKind.Local).AddTicks(8445),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 963, DateTimeKind.Local).AddTicks(8197),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Status = true
                         },
@@ -12349,7 +12259,7 @@ namespace Junko.Migrations
                         {
                             Id = 31,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 265, DateTimeKind.Local).AddTicks(8447),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 963, DateTimeKind.Local).AddTicks(8199),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Status = true
                         },
@@ -12357,7 +12267,7 @@ namespace Junko.Migrations
                         {
                             Id = 32,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 265, DateTimeKind.Local).AddTicks(8449),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 963, DateTimeKind.Local).AddTicks(8201),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Status = true
                         },
@@ -12365,7 +12275,7 @@ namespace Junko.Migrations
                         {
                             Id = 33,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 265, DateTimeKind.Local).AddTicks(8452),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 963, DateTimeKind.Local).AddTicks(8204),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Status = true
                         },
@@ -12373,7 +12283,7 @@ namespace Junko.Migrations
                         {
                             Id = 34,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 265, DateTimeKind.Local).AddTicks(8455),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 963, DateTimeKind.Local).AddTicks(8207),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Status = true
                         },
@@ -12381,7 +12291,7 @@ namespace Junko.Migrations
                         {
                             Id = 35,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 265, DateTimeKind.Local).AddTicks(8458),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 963, DateTimeKind.Local).AddTicks(8210),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Status = true
                         },
@@ -12389,7 +12299,7 @@ namespace Junko.Migrations
                         {
                             Id = 36,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 265, DateTimeKind.Local).AddTicks(8461),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 963, DateTimeKind.Local).AddTicks(8212),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Status = true
                         },
@@ -12397,7 +12307,7 @@ namespace Junko.Migrations
                         {
                             Id = 37,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 265, DateTimeKind.Local).AddTicks(8463),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 963, DateTimeKind.Local).AddTicks(8215),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Status = true
                         },
@@ -12405,7 +12315,7 @@ namespace Junko.Migrations
                         {
                             Id = 38,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 265, DateTimeKind.Local).AddTicks(8465),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 963, DateTimeKind.Local).AddTicks(8217),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Status = true
                         },
@@ -12413,7 +12323,7 @@ namespace Junko.Migrations
                         {
                             Id = 39,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 265, DateTimeKind.Local).AddTicks(8467),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 963, DateTimeKind.Local).AddTicks(8219),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Status = true
                         },
@@ -12421,7 +12331,7 @@ namespace Junko.Migrations
                         {
                             Id = 40,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 265, DateTimeKind.Local).AddTicks(8470),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 963, DateTimeKind.Local).AddTicks(8221),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Status = true
                         },
@@ -12429,7 +12339,7 @@ namespace Junko.Migrations
                         {
                             Id = 41,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 265, DateTimeKind.Local).AddTicks(8472),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 963, DateTimeKind.Local).AddTicks(8224),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Status = true
                         },
@@ -12437,7 +12347,7 @@ namespace Junko.Migrations
                         {
                             Id = 42,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 265, DateTimeKind.Local).AddTicks(8474),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 963, DateTimeKind.Local).AddTicks(8226),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Status = true
                         },
@@ -12445,7 +12355,7 @@ namespace Junko.Migrations
                         {
                             Id = 43,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 265, DateTimeKind.Local).AddTicks(8476),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 963, DateTimeKind.Local).AddTicks(8228),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Status = true
                         },
@@ -12453,7 +12363,7 @@ namespace Junko.Migrations
                         {
                             Id = 44,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 265, DateTimeKind.Local).AddTicks(8478),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 963, DateTimeKind.Local).AddTicks(8230),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Status = true
                         },
@@ -12461,7 +12371,7 @@ namespace Junko.Migrations
                         {
                             Id = 45,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 265, DateTimeKind.Local).AddTicks(8481),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 963, DateTimeKind.Local).AddTicks(8233),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Status = true
                         },
@@ -12469,7 +12379,7 @@ namespace Junko.Migrations
                         {
                             Id = 46,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 265, DateTimeKind.Local).AddTicks(8483),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 963, DateTimeKind.Local).AddTicks(8235),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Status = true
                         },
@@ -12477,7 +12387,7 @@ namespace Junko.Migrations
                         {
                             Id = 47,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 265, DateTimeKind.Local).AddTicks(8486),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 963, DateTimeKind.Local).AddTicks(8237),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Status = true
                         },
@@ -12485,7 +12395,7 @@ namespace Junko.Migrations
                         {
                             Id = 48,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 265, DateTimeKind.Local).AddTicks(8488),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 963, DateTimeKind.Local).AddTicks(8239),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Status = true
                         },
@@ -12493,7 +12403,7 @@ namespace Junko.Migrations
                         {
                             Id = 49,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 265, DateTimeKind.Local).AddTicks(8490),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 963, DateTimeKind.Local).AddTicks(8242),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Status = true
                         },
@@ -12501,7 +12411,7 @@ namespace Junko.Migrations
                         {
                             Id = 50,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 265, DateTimeKind.Local).AddTicks(8492),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 963, DateTimeKind.Local).AddTicks(8244),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Status = true
                         },
@@ -12509,7 +12419,7 @@ namespace Junko.Migrations
                         {
                             Id = 51,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 265, DateTimeKind.Local).AddTicks(8494),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 963, DateTimeKind.Local).AddTicks(8246),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Status = true
                         },
@@ -12517,7 +12427,7 @@ namespace Junko.Migrations
                         {
                             Id = 52,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 265, DateTimeKind.Local).AddTicks(8497),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 963, DateTimeKind.Local).AddTicks(8249),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Status = true
                         },
@@ -12525,7 +12435,7 @@ namespace Junko.Migrations
                         {
                             Id = 53,
                             AdminManagerId = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 265, DateTimeKind.Local).AddTicks(8500),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 963, DateTimeKind.Local).AddTicks(8254),
                             ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Status = true
                         });
@@ -13206,7 +13116,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 268, DateTimeKind.Local).AddTicks(6124),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(7211),
                             Key = "158 x 77.8 x 8.1 mm (6.22 x 3.06 x 0.32 in)",
                             ProductId = 1,
                             ProperityId = 1
@@ -13214,7 +13124,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 268, DateTimeKind.Local).AddTicks(6948),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(7946),
                             Key = "226 g (7.97 oz)",
                             ProductId = 1,
                             ProperityId = 2
@@ -13222,7 +13132,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 268, DateTimeKind.Local).AddTicks(6970),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(7967),
                             Key = "Single SIM  or Dual SIM",
                             ProductId = 1,
                             ProperityId = 3
@@ -13230,7 +13140,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 4,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 268, DateTimeKind.Local).AddTicks(6973),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(7971),
                             Key = "iOS 13, upgradable to iOS 13.1",
                             ProductId = 1,
                             ProperityId = 4
@@ -13238,7 +13148,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 5,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 268, DateTimeKind.Local).AddTicks(6975),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(7974),
                             Key = "Apple A13 Bionic (7 nm+)",
                             ProductId = 1,
                             ProperityId = 5
@@ -13246,7 +13156,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 6,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 268, DateTimeKind.Local).AddTicks(6977),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(7976),
                             Key = "Hexa-core (2x2.65 GHz Lightning + 4x1.8 GHz Thunder)",
                             ProductId = 1,
                             ProperityId = 6
@@ -13254,7 +13164,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 7,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 268, DateTimeKind.Local).AddTicks(6979),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(7978),
                             Key = "256 GB",
                             ProductId = 1,
                             ProperityId = 7
@@ -13262,7 +13172,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 8,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 268, DateTimeKind.Local).AddTicks(6982),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(7980),
                             Key = "4 GB RAM",
                             ProductId = 1,
                             ProperityId = 8
@@ -13270,7 +13180,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 9,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 268, DateTimeKind.Local).AddTicks(6985),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(7982),
                             Key = "-",
                             ProductId = 1,
                             ProperityId = 9
@@ -13278,7 +13188,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 10,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 268, DateTimeKind.Local).AddTicks(6987),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(7984),
                             Key = "12 MP, f/1.8, 26mm (wide), 1/2.55",
                             ProductId = 1,
                             ProperityId = 10
@@ -13286,7 +13196,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 11,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 268, DateTimeKind.Local).AddTicks(6991),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(7986),
                             Key = "2160p@24/30/60fps, 1080p@30/60/120/240fps, HDR, stereo sound rec.",
                             ProductId = 1,
                             ProperityId = 11
@@ -13294,7 +13204,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 12,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 268, DateTimeKind.Local).AddTicks(6993),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(7988),
                             Key = "12 MP, f/2.2 TOF 3D camera",
                             ProductId = 1,
                             ProperityId = 12
@@ -13302,7 +13212,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 13,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 268, DateTimeKind.Local).AddTicks(6996),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(7990),
                             Key = "Wi-Fi 802.11 a/b/g/n/ac/ax, dual-band, hotspot",
                             ProductId = 1,
                             ProperityId = 13
@@ -13310,7 +13220,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 14,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 268, DateTimeKind.Local).AddTicks(6998),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(7993),
                             Key = "5.0, A2DP, LE",
                             ProductId = 1,
                             ProperityId = 14
@@ -13318,7 +13228,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 15,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 268, DateTimeKind.Local).AddTicks(7000),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(7995),
                             Key = "Non-removable Li-Ion 3969 mAh battery (15.04 Wh)",
                             ProductId = 1,
                             ProperityId = 15
@@ -13326,7 +13236,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 16,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 268, DateTimeKind.Local).AddTicks(7002),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(7997),
                             Key = "Intel Core i7,2.6Ghz",
                             ProductId = 16,
                             ProperityId = 5
@@ -13334,7 +13244,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 17,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 268, DateTimeKind.Local).AddTicks(7005),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(7999),
                             Key = "512 GB SSD",
                             ProductId = 16,
                             ProperityId = 7
@@ -13342,7 +13252,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 18,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 268, DateTimeKind.Local).AddTicks(7007),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(8001),
                             Key = "16 GB",
                             ProductId = 16,
                             ProperityId = 8
@@ -13350,7 +13260,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 19,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 268, DateTimeKind.Local).AddTicks(7009),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(8003),
                             Key = "USB, HDMI, VGA",
                             ProductId = 16,
                             ProperityId = 31
@@ -13358,7 +13268,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 20,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 268, DateTimeKind.Local).AddTicks(7011),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(8006),
                             Key = "Wi-Fi / LAN / BT",
                             ProductId = 16,
                             ProperityId = 32
@@ -13366,7 +13276,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 21,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 268, DateTimeKind.Local).AddTicks(7014),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(8009),
                             Key = "65(164 sm)",
                             ProductId = 34,
                             ProperityId = 16
@@ -13374,7 +13284,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 22,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 268, DateTimeKind.Local).AddTicks(7016),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(8012),
                             Key = "LED",
                             ProductId = 34,
                             ProperityId = 34
@@ -13382,7 +13292,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 23,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 268, DateTimeKind.Local).AddTicks(7018),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(8014),
                             Key = "100 Hz",
                             ProductId = 34,
                             ProperityId = 35
@@ -13390,7 +13300,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 24,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 268, DateTimeKind.Local).AddTicks(7020),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(8016),
                             Key = "+",
                             ProductId = 34,
                             ProperityId = 36
@@ -13398,7 +13308,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 25,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 268, DateTimeKind.Local).AddTicks(7023),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(8018),
                             Key = "USB, HDMI",
                             ProductId = 34,
                             ProperityId = 37
@@ -13406,7 +13316,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 26,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 268, DateTimeKind.Local).AddTicks(7025),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(8020),
                             Key = "+",
                             ProductId = 34,
                             ProperityId = 38
@@ -13414,7 +13324,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 27,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 268, DateTimeKind.Local).AddTicks(7027),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(8022),
                             Key = "-",
                             ProductId = 34,
                             ProperityId = 39
@@ -13422,7 +13332,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 28,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 268, DateTimeKind.Local).AddTicks(7029),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(8024),
                             Key = "AVI, DivX, MKV, MPEG4,MP3,WMA,JPEG",
                             ProductId = 34,
                             ProperityId = 40
@@ -13430,7 +13340,7 @@ namespace Junko.Migrations
                         new
                         {
                             Id = 29,
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 268, DateTimeKind.Local).AddTicks(7032),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 965, DateTimeKind.Local).AddTicks(8026),
                             Key = "1452.7 x 918.1 x 312.8 mm",
                             ProductId = 34,
                             ProperityId = 1
@@ -13471,7 +13381,7 @@ namespace Junko.Migrations
                         {
                             Id = 1,
                             AdminManagerId = 1,
-                            ModifiedAt = new DateTime(2020, 1, 3, 17, 22, 4, 259, DateTimeKind.Local).AddTicks(4068),
+                            ModifiedAt = new DateTime(2020, 1, 3, 15, 41, 12, 958, DateTimeKind.Local).AddTicks(2039),
                             Order = 1,
                             Photo = "service/services1.jpg",
                             Status = true
@@ -13480,7 +13390,7 @@ namespace Junko.Migrations
                         {
                             Id = 2,
                             AdminManagerId = 1,
-                            ModifiedAt = new DateTime(2020, 1, 3, 17, 22, 4, 259, DateTimeKind.Local).AddTicks(6230),
+                            ModifiedAt = new DateTime(2020, 1, 3, 15, 41, 12, 958, DateTimeKind.Local).AddTicks(3898),
                             Order = 2,
                             Photo = "service/services2.jpg",
                             Status = true
@@ -13489,7 +13399,7 @@ namespace Junko.Migrations
                         {
                             Id = 3,
                             AdminManagerId = 1,
-                            ModifiedAt = new DateTime(2020, 1, 3, 17, 22, 4, 259, DateTimeKind.Local).AddTicks(6276),
+                            ModifiedAt = new DateTime(2020, 1, 3, 15, 41, 12, 958, DateTimeKind.Local).AddTicks(3938),
                             Order = 3,
                             Photo = "service/services3.jpg",
                             Status = true
@@ -13546,7 +13456,7 @@ namespace Junko.Migrations
                             Email = "Junko@mail.com",
                             Location = "Code Academy",
                             Logo = "Junko",
-                            ModifiedAt = new DateTime(2020, 1, 3, 17, 22, 4, 249, DateTimeKind.Local).AddTicks(990),
+                            ModifiedAt = new DateTime(2020, 1, 3, 15, 41, 12, 947, DateTimeKind.Local).AddTicks(411),
                             Phone = "+994 50 787 01 81",
                             PhotoLogo = "logo/logo.png"
                         });
@@ -13604,7 +13514,7 @@ namespace Junko.Migrations
                             FAQContent = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec id erat sagittis, faucibus metus malesuada, eleifend turpis. Mauris semper augue id nisl aliquet, a porta lectus mattis. Nulla at tortor augue. In eget enim diam. Donec gravida tortor sem, ac fermentum nibh rutrum sit amet. Nulla convallis mauris vitae congue consequat. Donec interdum nunc purus, vitae vulputate arcu fringilla quis. Vivamus iaculis euismod dui.",
                             FAQTitle = "Below are frequently asked questions, you may find the answer for yourself",
                             LanguageId = 1,
-                            ModifiedAt = new DateTime(2020, 1, 3, 17, 22, 4, 254, DateTimeKind.Local).AddTicks(3934),
+                            ModifiedAt = new DateTime(2020, 1, 3, 15, 41, 12, 953, DateTimeKind.Local).AddTicks(9722),
                             Privacy = "<div class='privacy_content section_1'> <h2>Who we are</h2> <p>Our website address is: <a href='http://1.envato.market/9LbxW'>http://1.envato.market/9LbxW</a></p> </div> <div class='privacy_content section_2'> <h2>What personal data we collect and why we collect it</h2> <h3>Comments</h3> <p>When visitors leave comments on the site we collect the data shown in the comments form, and also the visitor’s IP address and browser user agent string to help spam detection.</p> <p>An anonymized string created from your email address (also called a hash) may be provided to the Gravatar service to see if you are using it. The Gravatar service privacy policy is available here: https://automattic.com/privacy/. After approval of your comment, your profile picture is visible to the public in the context of your comment.</p> <h3>Media</h3> <p>If you upload images to the website, you should avoid uploading images with embedded location data (EXIF GPS) included. Visitors to the website can download and extract any location data from images on the website.</p> <h3>Cookies</h3> <p>If you leave a comment on our site you may opt-in to saving your name, email address and website in cookies. These are for your convenience so that you do not have to fill in your details again when you leave another comment. These cookies will last for one year.</p> <p>If you have an account and you log in to this site, we will set a temporary cookie to determine if your browser accepts cookies. This cookie contains no personal data and is discarded when you close your browser.</p> <p>When you log in, we will also set up several cookies to save your login information and your screen display choices. Login cookies last for two days, and screen options cookies last for a year. If you select “Remember Me”, your login will persist for two weeks. If you log out of your account, the login cookies will be removed.</p> <p>If you edit or publish an article, an additional cookie will be saved in your browser. This cookie includes no personal data and simply indicates the post ID of the article you just edited. It expires after 1 day.</p> <h3>Embedded content from other websites</h3> <p>Articles on this site may include embedded content (e.g. videos, images, articles, etc.). Embedded content from other websites behaves in the exact same way as if the visitor has visited the other website.</p> <p>These websites may collect data about you, use cookies, embed additional third-party tracking, and monitor your interaction with that embedded content, including tracking your interaction with the embedded content if you have an account and are logged in to that website.</p> </div> <div class='privacy_content section_3'> <h2>How long we retain your data</h2> <p>If you leave a comment, the comment and its metadata are retained indefinitely. This is so we can recognize and approve any follow-up comments automatically instead of holding them in a moderation queue.</p> <p>For users that register on our website (if any), we also store the personal information they provide in their user profile. All users can see, edit, or delete their personal information at any time (except they cannot change their username). Website administrators can also see and edit that information.</p> </div> <div class='privacy_content section_3'> <h2>What rights you have over your data</h2> <p>If you have an account on this site, or have left comments, you can request to receive an exported file of the personal data we hold about you, including any data you have provided to us. You can also request that we erase any personal data we hold about you. This does not include any data we are obliged to keep for administrative, legal, or security purposes.</p> </div> <div class='privacy_content section_3'> <h2>Where we send your data</h2> <p>Visitor comments may be checked through an automated spam detection service.</p> </div>",
                             SettingId = 1
                         },
@@ -13615,7 +13525,7 @@ namespace Junko.Migrations
                             FAQContent = "",
                             FAQTitle = "Aşağıda tez-tez verilən suallarla özünüz üçün cavab tapa bilərsiniz",
                             LanguageId = 2,
-                            ModifiedAt = new DateTime(2020, 1, 3, 17, 22, 4, 254, DateTimeKind.Local).AddTicks(4774),
+                            ModifiedAt = new DateTime(2020, 1, 3, 15, 41, 12, 954, DateTimeKind.Local).AddTicks(454),
                             Privacy = "<div class='privacy_content section_1'> <h2>Biz kimik</h2> <p>Veb saytımızın ünvanı: <a href='http://1.envato.market/9LbxW'>http://1.envato.market/9LbxW</a></p> </div> <div class='privacy_content section_2'> <h2>Hansı şəxsi məlumatları toplayırıq və niyə toplayırıq</h2> <h3>Şərhlər</h3> <p>Saytda şərhlər buraxdıqda, şərh şəklində göstərilən məlumatları, həmçinin spamın aşkarlanmasına kömək etmək üçün ziyarətçinin IP ünvanı və brauzer istifadəçi agenti simini toplayırıq.Elektron poçtunuzun adından yaradılan bir anonim simli (hash adlanır) istifadə etdiyinizi görmək üçün Gravatar xidmətinə verilə bilər. Gravatar xidmətinin məxfilik siyasəti ilə burada tanış olmaq mümkündür: https://automattic.com/privacy/. Şərhiniz təsdiqləndikdən sonra profil şəkliniz şərhiniz daxilində ictimaiyyətə görünəcəkdir.</p> <h3>Media</h3> <p>Şəkilləri veb saytına yükləsəniz, daxil edilmiş məlumat məlumatları (EXIF GPS) daxil edilmiş şəkilləri yükləməkdən çəkinməlisiniz. Veb saytına daxil olanlar veb saytdakı şəkillərdən hər hansı bir yer məlumatını yükləyə və çıxara bilər.</p> <h3>Cookies</h3> <p>Saytımızda bir rəy yazsanız, adınızı, e-poçt adresinizi və veb saytınızı çərəzlərdə saxlamaq üçün iştirak edə bilərsiniz. Bunlar sizin rahatlığınız üçündür ki, başqa bir şərh yazanda yenidən məlumatlarınızı doldurmamalısınız. Bu peçenye bir il davam edəcəkdir.Bir hesabınız varsa və bu sayta daxil olsanız, brauzerinizin çerezləri qəbul edib etmədiyini müəyyənləşdirmək üçün müvəqqəti bir çərəz hazırlayacağıq. Bu çerezdə şəxsi məlumat yoxdur və brauzerinizi bağladığınız zaman atılır.Giriş etdiyiniz zaman giriş məlumatlarınızı və ekrandakı seçimlərinizi saxlamaq üçün bir neçə çərəz hazırlayacağıq. Giriş peçenye iki gün davam edir və ekran seçimləri peçenye bir il davam edir. 'Məni yadda saxla' seçsəniz, girişiniz iki həftə davam edəcəkdir. Hesabınızdan çıxsanız, giriş cookies-ləri silinəcəkdir.Bir məqaləni redaktə etsəniz və ya dərc etsəniz, əlavə bir çərəz brauzerinizdə saxlanacaqdır. Bu çerez heç bir şəxsi məlumatı ehtiva etmir və sadəcə redaktə etdiyiniz məqalənin poçt nömrəsini göstərir. 1 gündən sonra bitəcək.</p> <h3>Digər veb saytlardan daxil edilmiş məzmun</h3> <p>Bu saytdakı məqalələr əlaqədar məzmunu ehtiva edə bilər (məsələn, video, şəkillər, məqalələr və s.). Digər veb saytlardan daxil edilmiş məzmun, qonaq digər veb saytı ziyarət etdiyi kimi eyni şəkildə davranır.Bu veb saytlar sizin haqqınızda məlumat toplaya bilər, peçenye istifadə edə bilər, əlavə üçüncü tərəf izləmə əlavə edə bilər və daxil edilmiş məzmunla qarşılıqlı əlaqənizi, habelə hesabınız varsa və həmin veb sayta daxil olmağınızla əlaqəli əlaqənizi izləyə bilər.</p> </div> <div class='privacy_content section_3'> <h2>Verilənlərinizi necə saxlayırıq?</h2> <p>Bir şərh buraxsanız, şərh və onun metadatası qeyri-müəyyən olaraq saxlanılır. Bu, hər hansı bir izləmə şərhlərini moderasiya növbəsində saxlamaq əvəzinə avtomatik olaraq tanıya və təsdiqləyə biləcəyimizdir.Veb saytımızda (əgər varsa) qeydiyyatdan keçən istifadəçilər üçün təqdim etdikləri şəxsi məlumatları istifadəçi profilində saxlayırıq. Bütün istifadəçilər istənilən vaxt şəxsi məlumatlarını görə bilər, redaktə edə və ya silə bilər (istifadəçi adlarını dəyişə bilməyincə). Veb sayt rəhbərləri də həmin məlumatları görə və redaktə edə bilərlər.</p> </div> <div class='privacy_content section_3'> <h2>Məlumatlarınız üzərində hansı hüquqlara sahibsiniz</h2> <p>Bu saytda bir hesabınız varsa və ya şərhlər buraxmısınızsa, sizə təqdim etdiyiniz hər hansı bir məlumat daxil olmaqla, sizin haqqımızda saxladığımız fərdi məlumatların ixrac edilmiş sənədini tələb edə bilərsiniz. Ayrıca, sizin haqqınızda saxladığımız şəxsi məlumatlarınızı silməyimizi tələb edə bilərsiniz. Buraya inzibati, qanuni və ya təhlükəsizlik məqsədləri üçün saxlamalı olduğumuz hər hansı bir məlumat daxil deyil.</p> </div> <div class='privacy_content section_3'> <h2>Məlumatlarınızı hara göndəririk</h2> <p>Ziyarətçilərin şərhləri avtomatlaşdırılmış spam aşkarlama xidməti vasitəsilə yoxlanıla bilər..</p> </div>",
                             SettingId = 1
                         });
@@ -13750,7 +13660,7 @@ namespace Junko.Migrations
                             Id = 1,
                             Address = "Sumqayit seheri H.Z.Tagiyev Qesesebesi",
                             Birthday = new DateTime(1994, 1, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedAt = new DateTime(2020, 1, 3, 17, 22, 4, 253, DateTimeKind.Local).AddTicks(4572),
+                            CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 953, DateTimeKind.Local).AddTicks(1845),
                             Email = "Huseynis@code.edu.az",
                             Firstname = "Huseyn",
                             Gender = 0,
@@ -13800,7 +13710,7 @@ namespace Junko.Migrations
                         {
                             Id = 1,
                             AdminManagerId = 1,
-                            ModifiedAt = new DateTime(2020, 1, 3, 17, 22, 4, 261, DateTimeKind.Local).AddTicks(7083),
+                            ModifiedAt = new DateTime(2020, 1, 3, 15, 41, 12, 960, DateTimeKind.Local).AddTicks(1918),
                             Photo = "about/about2.jpg",
                             Status = true
                         },
@@ -13808,7 +13718,7 @@ namespace Junko.Migrations
                         {
                             Id = 2,
                             AdminManagerId = 1,
-                            ModifiedAt = new DateTime(2020, 1, 3, 17, 22, 4, 261, DateTimeKind.Local).AddTicks(8518),
+                            ModifiedAt = new DateTime(2020, 1, 3, 15, 41, 12, 960, DateTimeKind.Local).AddTicks(3177),
                             Photo = "about/about3.jpg",
                             Status = true
                         });
@@ -14169,23 +14079,6 @@ namespace Junko.Migrations
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("Junko.Models.ProductReview", b =>
-                {
-                    b.HasOne("Junko.Models.AdminManager", "Admin")
-                        .WithMany("ProductReviews")
-                        .HasForeignKey("AdminManagerId");
-
-                    b.HasOne("Junko.Models.Product", "Product")
-                        .WithMany("ProductReviews")
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Junko.Models.User", "User")
-                        .WithMany("ProductReviews")
-                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("Junko.Models.ProductSubCategory", b =>

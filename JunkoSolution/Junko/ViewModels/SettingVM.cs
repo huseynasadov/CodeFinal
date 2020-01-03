@@ -11,5 +11,6 @@ namespace Junko.ViewModels
         public Setting Setting { get; set; }
         public SettingTranslate SettingTranslate { get; set; }
         public ICollection<ProductCategory> ProductCategories{ get; set; }
+        public User User { get; set; }
     }
 }

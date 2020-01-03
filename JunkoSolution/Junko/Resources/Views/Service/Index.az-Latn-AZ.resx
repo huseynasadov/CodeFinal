@@ -126,7 +126,10 @@
   <data name="purchase now" xml:space="preserve">
     <value>İndi Al</value>
   </data>
+  <data name="Service" xml:space="preserve">
+    <value>Servislər</value>
+  </data>
   <data name="Services" xml:space="preserve">
-    <value>Servisler</value>
+    <value>Servislər</value>
   </data>
 </root>

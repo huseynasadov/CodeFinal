@@ -13,5 +13,7 @@ namespace Junko.ViewModels
         public BlogTranslate Blog { get; set; }
         public ICollection<BlogCategory> BlogCategories { get; set; }
         public BlogVM BlogVM { get; set; }
+        public int? UserId { get; set; }
+        public int? AdminId { get; set; }
     }
 }

@@ -23,6 +23,7 @@ namespace Junko.Models
         public ICollection<ProductPhoto> ProductPhotos { get; set; }
         public ICollection<ProductColor> ProductColors { get; set; }
         public ICollection<ProperityProduct> ProperityProducts { get; set; }
+        public ICollection<ProductReview> ProductReviews { get; set; }
 
 
     }

@@ -127,15 +127,29 @@ namespace Junko.Controllers
             {
                 return RedirectToAction("error", "home");
             }
+            AdminManager admin = new AdminManager();
+            User user = new User();
+            var cookieUser = Request.Cookies["Token"];
+            var cookieAdmin = Request.Cookies["TokenAdmin"];
+            if (cookieAdmin != null)
+            {
+                admin = _db.AdminManagers.FirstOrDefault(a => a.Token == cookieAdmin);
+            }
+            if (cookieUser != null)
+            {
+                user = _db.Users.FirstOrDefault(a => a.Token == cookieUser);
+            }
             var rqf = Request.HttpContext.Features.Get<IRequestCultureFeature>();
             var culture = rqf.RequestCulture.Culture;
-            Product product = _db.Products.Include("ProductTranslates").Include("ProductPhotos").Include("ProductColors.Color").Include("BrandProductCategory.ProductSubCategory.ProductSubCategoryTranslate").Include("ProperityProducts.Properity.ProperityTranslates").FirstOrDefault(p => p.Status == true && p.Slug == slug);
+            Product product = _db.Products.Include("ProductReviews.User").Include("ProductReviews.Admin.Category.AdminCategoryTranslates").Include("ProductTranslates").Include("ProductPhotos").Include("ProductColors.Color").Include("BrandProductCategory.ProductSubCategory.ProductSubCategoryTranslate").Include("ProperityProducts.Properity.ProperityTranslates").FirstOrDefault(p => p.Status == true && p.Slug == slug);
             if (product == null)
             {
                 return RedirectToAction("error", "home");
             }
             ShopDetailVM model = new ShopDetailVM
             {
+                UserId = (user != null ? user.Id : 0),
+                AdminId = (admin != null ? admin.Id : 0),
                 Breadcrumb = new Breadcrumb
                 {
                     Path = new Dictionary<string, string> {
@@ -150,6 +164,31 @@ namespace Junko.Controllers
                 MostSaledProducts = _db.Products.Include("BrandProductCategory.ProductSubCategory.ProductSubCategoryTranslate").Include("ProductPhotos").Where(p => p.Status == true).OrderBy(o => o.CreatedAt).ToList()
             };
             return View(model);
+        }
+
+        [HttpPost]
+        public IActionResult Review(ProductReview review)
+        {
+            if (ModelState.IsValid)
+            {
+                if (review.AdminManagerId == 0)
+                {
+                    review.AdminManagerId = null;
+                }
+                if (review.UserId == 0)
+                {
+                    review.UserId = null;
+                }
+                if (review.UserId==null && review.AdminManagerId==null)
+                {
+                    return RedirectToAction("index", "login");
+                }
+                review.CreatedAt = DateTime.Now;
+                _db.ProductReviews.Add(review);
+                _db.SaveChanges();
+            }
+
+            return LocalRedirect("/shop/detail?slug=" + _db.Products.FirstOrDefault(a=>a.Id==review.ProductId).Slug);
         }
     }
 }

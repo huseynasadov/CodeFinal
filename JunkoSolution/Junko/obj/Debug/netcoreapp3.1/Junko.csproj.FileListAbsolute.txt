@@ -462,5 +462,6 @@ C:\Users\Huseyn\Desktop\Code Academy\Final\CodeFinal\JunkoSolution\Junko\bin\Deb
 C:\Users\Huseyn\Desktop\Code Academy\Final\CodeFinal\JunkoSolution\Junko\bin\Debug\netcoreapp3.1\System.Web.WebPages.Razor.dll
 C:\Users\Huseyn\Desktop\Code Academy\Final\CodeFinal\JunkoSolution\Junko\bin\Debug\netcoreapp3.1\System.Web.WebPages.dll
 C:\Users\Huseyn\Desktop\Code Academy\Final\CodeFinal\JunkoSolution\Junko\bin\Debug\netcoreapp3.1\Microsoft.Web.Infrastructure.dll
+C:\Users\Huseyn\Desktop\Code Academy\Final\CodeFinal\JunkoSolution\Junko\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 C:\Users\Huseyn\Desktop\Code Academy\Final\CodeFinal\JunkoSolution\Junko\obj\Debug\netcoreapp3.1\Junko.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\Huseyn\Desktop\Code Academy\Final\CodeFinal\JunkoSolution\Junko\obj\Debug\netcoreapp3.1\Junko.MvcApplicationPartsAssemblyInfo.cache

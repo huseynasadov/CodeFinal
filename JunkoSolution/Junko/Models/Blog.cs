@@ -19,6 +19,7 @@ namespace Junko.Models
         public bool Status { get; set; }
         public ICollection<BlogCategory> BlogCategories { get; set; }
         public ICollection<BlogTranslate> BlogTranslates { get; set; }
+        public ICollection<BlogReview> BlogReviews { get; set; }
 
     }
 }

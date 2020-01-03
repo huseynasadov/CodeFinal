@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Junko.DAL;
+using Junko.Models;
 using Junko.ModelTranslate;
 using Junko.ViewModels;
 using Microsoft.AspNetCore.Localization;
@@ -64,9 +65,22 @@ namespace Junko.Controllers
             {
                 return RedirectToAction("Error", "Home");
             }
+
+            AdminManager admin = new AdminManager();
+            User user = new User();
+            var cookieUser = Request.Cookies["Token"];
+            var cookieAdmin = Request.Cookies["TokenAdmin"];
+            if (cookieAdmin != null)
+            {
+                admin = _db.AdminManagers.FirstOrDefault(a => a.Token == cookieAdmin);
+            }
+            if (cookieUser != null)
+            {
+                user = _db.Users.FirstOrDefault(a => a.Token == cookieUser);
+            }
             var rqf = Request.HttpContext.Features.Get<IRequestCultureFeature>();
             var culture = rqf.RequestCulture.Culture;
-            BlogTranslate blog = _db.BlogTranslates.Include("Blog.BlogCategories.AdminManager.Category.AdminCategoryTranslates").FirstOrDefault(c =>c.BlogId==id && c.Language.LanguageCode == culture.ToString() && c.Blog.Status == true);
+            BlogTranslate blog = _db.BlogTranslates.Include("Blog.BlogReviews.User").Include("Blog.BlogReviews.Admin.Category.AdminCategoryTranslates").Include("Blog.BlogCategories.AdminManager.Category.AdminCategoryTranslates").FirstOrDefault(c =>c.BlogId==id && c.Language.LanguageCode == culture.ToString() && c.Blog.Status == true);
             if (blog == null)
             {
                 return RedirectToAction("Error", "Home");
@@ -74,7 +88,9 @@ namespace Junko.Controllers
             BlogDetailVM model = new BlogDetailVM
             {
                 Blog = blog,
-                BlogVM=new BlogVM {
+                UserId = (user!=null?user.Id:0),
+                AdminId = (admin != null ? admin.Id : 0),
+                BlogVM =new BlogVM {
                     Breadcrumb = new Breadcrumb
                     {
                         Path = new Dictionary<string, string> {
@@ -99,6 +115,27 @@ namespace Junko.Controllers
                 
             };
             return View(model);
+        }
+
+        [HttpPost]
+        public IActionResult Review(BlogReview review) 
+        {
+            if (ModelState.IsValid)
+            {
+                if (review.AdminManagerId == 0)
+                {
+                    review.AdminManagerId = null;
+                }
+                if (review.UserId == 0)
+                {
+                    review.UserId = null;
+                }
+                review.CreatedAt = DateTime.Now;
+                _db.BlogReviews.Add(review);
+                _db.SaveChanges();
+            }
+
+            return LocalRedirect("/blog/detail/"+review.BlogId);
         }
     }
 }

@@ -55,6 +55,8 @@ namespace Junko.DAL
         public DbSet<HomeHeaderTranslate> HomeHeaderTranslates { get; set; }
         public DbSet<Partner> Partners { get; set; }
         public DbSet<ProperityProduct> ProperityProducts { get; set; }
+        public DbSet<BlogReview> BlogReviews { get; set; }
+        public DbSet<ProductReview> ProductReviews { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -91,6 +93,10 @@ namespace Junko.DAL
                 }
                );
 
+            // User
+            modelBuilder.Entity<User>().HasData(
+                new User { Id=1, Firstname="Huseyn", Lastname="Asadov", Birthday=DateTime.Parse("1994-01-29"), CreatedAt=DateTime.Now, Address="Sumqayit seheri H.Z.Tagiyev Qesesebesi", Email="Huseynis@code.edu.az", Gender=Gender.Male, Password= "AIdRrgaJylkMlIfb0SOtVptIxShQUR06oD9A8EenQfuWYy4/Avoa01hQKAknD9Nxqw==" }
+                );
             // Setting Translate
             modelBuilder.Entity<SettingTranslate>().HasData(
                new SettingTranslate
@@ -276,6 +282,22 @@ namespace Junko.DAL
                 new Blog { Id = 15, ModifiedAt = DateTime.Now, AdminManagerId = 1, CreatedAt = DateTime.Now, Status = true, Photo = "blog/blog5.jpg" }
                 );
 
+
+            // BlogReview
+            modelBuilder.Entity<BlogReview>().HasData(
+                new BlogReview {Id=1, BlogId = 1, UserId = 1, Content = "But I must explain to you how all this mistaken idea of denouncing pleasure", CreatedAt=DateTime.Now },
+                new BlogReview {Id=2, BlogId = 1, UserId = 1, Content = "Quisque semper nunc vitae erat pellentesque, ac placerat arcu consectetur", CreatedAt=DateTime.Now },
+                new BlogReview {Id=3, BlogId = 1,AdminManagerId=1,Content = "Vnunc vitae erat pellentesque, ac placerat arcu consectetur", CreatedAt=DateTime.Now },
+                new BlogReview {Id=4, BlogId = 2, UserId = 1, Content = "But I must explain to you how all this mistaken idea of denouncing pleasure", CreatedAt=DateTime.Now },
+                new BlogReview {Id=5, BlogId = 3, UserId = 1, Content = "But I must explain to you how all this mistaken idea of denouncing pleasure", CreatedAt=DateTime.Now },
+                new BlogReview {Id=6, BlogId = 4, UserId = 1, Content = "But I must explain to you how all this mistaken idea of denouncing pleasure", CreatedAt=DateTime.Now },
+                new BlogReview {Id=7, BlogId = 5, UserId = 1, Content = "But I must explain to you how all this mistaken idea of denouncing pleasure", CreatedAt=DateTime.Now },
+                new BlogReview {Id=8, BlogId = 6, UserId = 1, Content = "But I must explain to you how all this mistaken idea of denouncing pleasure", CreatedAt=DateTime.Now },
+                new BlogReview {Id=9, BlogId = 7, UserId = 1, Content = "But I must explain to you how all this mistaken idea of denouncing pleasure", CreatedAt=DateTime.Now },
+                new BlogReview {Id=10, BlogId = 8, UserId = 1, Content = "But I must explain to you how all this mistaken idea of denouncing pleasure", CreatedAt=DateTime.Now },
+                new BlogReview {Id=11, BlogId = 9, UserId = 1, Content = "But I must explain to you how all this mistaken idea of denouncing pleasure", CreatedAt=DateTime.Now },
+                new BlogReview {Id=12, BlogId = 10, UserId = 1, Content = "But I must explain to you how all this mistaken idea of denouncing pleasure", CreatedAt=DateTime.Now }
+                );
             // Blog Translate
             modelBuilder.Entity<BlogTranslate>().HasData(
                 new BlogTranslate { Id = 1, BlogId = 1, LanguageId = 1, Slug = "Blog-Image-Post", Title = "Blog Image Post (Sticky)", Desc = "Donec vitae hendrerit arcu, sit amet faucibus nisl. Cras pretium arcu ex. Aenean posuere libero eu augue condimentum rhoncus. Praesent ornare tortor ac ante egestas hendrerit. Aliquam et metus pharetra, bibendum massa nec, fermentum odio.", Content = "<p>Aenean et tempor eros,vitae sollicitudin velit.Etiam varius enim nec quam tempor sed efficitur ex ultrices.Phasellus pretium est vel vestibulum condimentum.Aenean nec suscipit nibh.Phasellus nec lacus arcu facilisis elementum.Curabitur lobortiselit ut elementum congueerat ex bibendum odionec iaculis lacus sem non lorem.Duis metus antesed convallis quam posuere quis.Ut tincidunt eleifend odioac fringilla mi vehicula nec.Nunc vitae lacus eget lectus tempus sed in dui.Nam molestie magna at risus suscipit justo dignissim.Sed vitae fringilla enimnec arcu</p><blockquote><p>Quisque semper nunc vitae erat pellentesqueac placerat consectetur.In venenatis elit ac ultrices convallis.Duis est nisitincidunt ac urna sedcursus blandit lectus.In ullamcorper amet ligula ut eleifend.Proin dictum tempor ligulaac metus.Sed finibus tortor eu scelerisque scelerisque</p></blockquote><p>Aenean et tempor erosvitae sollicitudin velit.Etiam varius enim quam temporsed efficitur ex ultrices.Phasellus pretium est vel vestibulum condimentum.Aenean nec suscipit nibh.Phasellus nec lacus arcu facilisis elementum.Curabitur lobortiselit ut elementum congueerat ex bibendum odionec iaculis lacus sem non lorem.Duis metus antesed convallis quam posuere quis.Ut tincidunt eleifend odioac fringilla mi vehicula nec.Nunc vitae lacus eget lectus tempus sed in dui.Nam molestie magna at risus suscipit justo dignissim.Sed vitae fringilla enimnec arcu</p><p>Suspendisse turpis ipsumtempus in nulla euposuere pharetra nibh.dignissim vitae lorem non mollis.Praesent pretium tellus in viverra condimentum.Nullam dignissim facilisis nislaccumsan justo ultricies vel.Vivamus finibus mi a neque pretiumut dui lacinia.Morbi a rutrum velit.Curabitur sagittis quam consectetur mattis.Aenean sit amet quam vel turpis interdum sagittis eget neque.Nunc ante quamluctus et neque ainterdum iaculis metusAliquam vel ante mattisplacerat orci idvehicula quam.quis eros cursusviverra urna sedcommodo mauris.Cras diam arcufringilla a sem condimentumviverra facilisis nunc.Curabitur orci id nulla maximus maximus.Nunc pulvinar sollicitudin molestie</p></div> " },
@@ -1278,9 +1300,18 @@ namespace Junko.DAL
                 new Product { Id = 141, Name = "Star Çek Printer TSP-143 U", Slug = "Star-Çek-Printer-TSP-143-U", BrandProductCategoryId = 132, Price = 489, Discount = 10, DiscountDate = 5, AdminManagerId = 1, CreatedAt = DateTime.Now, Status = true, FollowCount = 1 }
                 );
 
-            // Product Properity
+            // Product Review
+            modelBuilder.Entity<ProductReview>().HasData(
+                new ProductReview {Id=1, ProductId =1, UserId =1, AdminManagerId=null, Content="Excelent!!!", CreatedAt=DateTime.Now },
+                new ProductReview {Id=2, ProductId =1, UserId =null, AdminManagerId=1, Content="Endirimli Mehsullarimizdan yararlanin", CreatedAt=DateTime.Now },
+                new ProductReview {Id=3, ProductId =2, UserId =1, AdminManagerId=null, Content="Ucuzdur!!!", CreatedAt=DateTime.Now },
+                new ProductReview {Id=4, ProductId =3, UserId =1, AdminManagerId=null, Content="Bahadir!!!", CreatedAt=DateTime.Now },
+                new ProductReview {Id=5, ProductId =4, UserId =1, AdminManagerId=null, Content="Cheap!!!", CreatedAt=DateTime.Now },
+                new ProductReview {Id=6, ProductId =5, UserId =1, AdminManagerId=null, Content="Very Cheap!!!", CreatedAt=DateTime.Now },
+                new ProductReview {Id=7, ProductId =6, UserId =1, AdminManagerId=null, Content="Excelent!!!", CreatedAt=DateTime.Now }
+                );
 
-            //// Product
+            // Product Properity
             modelBuilder.Entity<ProperityProduct>().HasData(
                 new ProperityProduct { Id = 1, ProductId = 1, ProperityId = 1, Key = "158 x 77.8 x 8.1 mm (6.22 x 3.06 x 0.32 in)", CreatedAt = DateTime.Now },
                 new ProperityProduct { Id = 2, ProductId = 1, ProperityId = 2, Key = "226 g (7.97 oz)", CreatedAt = DateTime.Now },

@@ -117,11 +117,20 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="About" xml:space="preserve">
+    <value>Haqqımızda</value>
+  </data>
   <data name="About Us" xml:space="preserve">
     <value>Haqqımızda</value>
   </data>
+  <data name="Account" xml:space="preserve">
+    <value>Hesabım</value>
+  </data>
   <data name="Blog Detail" xml:space="preserve">
     <value>Xəbər haqqında</value>
+  </data>
+  <data name="BlogDetail" xml:space="preserve">
+    <value>Xəbər Haqqında</value>
   </data>
   <data name="Blogs" xml:space="preserve">
     <value>Xəbərlər</value>
@@ -138,8 +147,14 @@
   <data name="home" xml:space="preserve">
     <value>Ana səhifə</value>
   </data>
+  <data name="Login" xml:space="preserve">
+    <value>Daxil Ol</value>
+  </data>
   <data name="My Account" xml:space="preserve">
     <value>Mənim Hesabım</value>
+  </data>
+  <data name="Privacy" xml:space="preserve">
+    <value>Güvənlilik</value>
   </data>
   <data name="Privacy Policy" xml:space="preserve">
     <value>Güvənlilik</value>
@@ -147,8 +162,14 @@
   <data name="Product Detail" xml:space="preserve">
     <value>Məhsul haqqında</value>
   </data>
+  <data name="Service" xml:space="preserve">
+    <value>Servislər</value>
+  </data>
   <data name="Shop" xml:space="preserve">
     <value>Mağaza</value>
+  </data>
+  <data name="ShopDetail" xml:space="preserve">
+    <value>Məhsul Haqqında</value>
   </data>
   <data name="Wish List" xml:space="preserve">
     <value>Alış listi</value>
