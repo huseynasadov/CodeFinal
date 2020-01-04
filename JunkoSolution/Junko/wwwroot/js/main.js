@@ -1,9 +1,16 @@
-
+$(function () {
+    $(".RemoveCart").click(function (e) {
+        e.preventDefault();
+        let id = $(this).data("id");
+        $.get('/ordering/remove/' + id, {}, function (data) {
+            $("div.smallCart").html(data);
+        });
+    });
+});
 
 (function ($) {
     "use strict";
     
-
     new WOW().init();  
 
     /*---background image---*/
@@ -818,6 +825,7 @@
         	$this.toggleClass('menu-open');
         }
     });
-    
+
+   
     
 })(jQuery);	

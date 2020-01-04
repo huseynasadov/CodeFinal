@@ -112,7 +112,7 @@
                             <div class="product_variant quantity">
                                 <label>@_localizer["quantity"]</label>
                                 <input min="1" max="100" value="1" type="number">
-                                <button class="button" type="submit">@_localizer["Add to cart"]</button>
+                                <a class="addToCart btn btn-info ml-2" asp-route-id="@Model.Product.Id" asp-controller="ordering" asp-action="add" data-id="@Model.Product.Id" title="@_localizer["Add to cart"]"> @_localizer["Add to cart"]</a>
 
                             </div>
                             <div class=" product_d_action">
@@ -236,7 +236,7 @@
                                                 </div>
                                                 <div class="comment_content">
                                                     <div class="comment_meta">
-                                                        <h5><a href="#">@(rev.AdminManagerId > 0 || rev.AdminManagerId !=null  ? rev.Admin.Category.AdminCategoryTranslates.FirstOrDefault(a => a.LanguageId == Model.LanguageId).Name : rev.User.Firstname + " " + rev.User.Lastname)</a></h5>
+                                                        <h5><a href="#">@(rev.AdminManagerId > 0 || rev.AdminManagerId != null ? rev.Admin.Category.AdminCategoryTranslates.FirstOrDefault(a => a.LanguageId == Model.LanguageId).Name : rev.User.Firstname + " " + rev.User.Lastname)</a></h5>
                                                         <span>@rev.CreatedAt.ToString("MM dd, yyy 'at' HH:mm ")</span>
                                                     </div>
                                                     <p>
@@ -304,3 +304,18 @@
 
 </main>
 <!--Main End-->
+@section Scripts{
+    <script>
+        $(function () {
+            $("a.addToCart").click(function (e) {
+                e.preventDefault();
+                let id = $(this).data("id");
+                $.get('/ordering/add/' + id, {}, function (data) {
+                    $("div.smallCart").html(data);
+                   
+                });
+            });
+        });
+    </script>
+
+}

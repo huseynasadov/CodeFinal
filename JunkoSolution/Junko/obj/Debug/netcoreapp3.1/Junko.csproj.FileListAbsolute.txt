@@ -392,7 +392,6 @@ C:\Users\Huseyn\Desktop\Code Academy\Final\CodeFinal\JunkoSolution\Junko\bin\Deb
 C:\Users\Huseyn\Desktop\Code Academy\Final\CodeFinal\JunkoSolution\Junko\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\Huseyn\Desktop\Code Academy\Final\CodeFinal\JunkoSolution\Junko\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\Huseyn\Desktop\Code Academy\Final\CodeFinal\JunkoSolution\Junko\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\Huseyn\Desktop\Code Academy\Final\CodeFinal\JunkoSolution\Junko\obj\Debug\netcoreapp3.1\Junko.csprojAssemblyReference.cache
 C:\Users\Huseyn\Desktop\Code Academy\Final\CodeFinal\JunkoSolution\Junko\obj\Debug\netcoreapp3.1\staticwebassets\Junko.StaticWebAssets.Manifest.cache
 C:\Users\Huseyn\Desktop\Code Academy\Final\CodeFinal\JunkoSolution\Junko\obj\Debug\netcoreapp3.1\staticwebassets\Junko.StaticWebAssets.xml
 C:\Users\Huseyn\Desktop\Code Academy\Final\CodeFinal\JunkoSolution\Junko\obj\Debug\netcoreapp3.1\Junko.Resources.Controllers.HomeController.az-Latn-AZ.resources
@@ -465,3 +464,7 @@ C:\Users\Huseyn\Desktop\Code Academy\Final\CodeFinal\JunkoSolution\Junko\bin\Deb
 C:\Users\Huseyn\Desktop\Code Academy\Final\CodeFinal\JunkoSolution\Junko\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 C:\Users\Huseyn\Desktop\Code Academy\Final\CodeFinal\JunkoSolution\Junko\obj\Debug\netcoreapp3.1\Junko.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\Huseyn\Desktop\Code Academy\Final\CodeFinal\JunkoSolution\Junko\obj\Debug\netcoreapp3.1\Junko.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Huseyn\Desktop\Code Academy\Final\CodeFinal\JunkoSolution\Junko\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\SmallCart\Default.cshtml.g.cs
+C:\Users\Huseyn\Desktop\Code Academy\Final\CodeFinal\JunkoSolution\Junko\obj\Debug\netcoreapp3.1\Junko.csprojAssemblyReference.cache
+C:\Users\Huseyn\Desktop\Code Academy\Final\CodeFinal\JunkoSolution\Junko\obj\Debug\netcoreapp3.1\Junko.Resources.Views.Ordering.Cart.az-Latn-AZ.resources
+C:\Users\Huseyn\Desktop\Code Academy\Final\CodeFinal\JunkoSolution\Junko\obj\Debug\netcoreapp3.1\Junko.Resources.Views.Shared.Components.Default.az-Latn-AZ.resources

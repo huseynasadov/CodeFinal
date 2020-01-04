@@ -156,6 +156,9 @@
   <data name="The most visited categories this week" xml:space="preserve">
     <value>Bu həftə ərzində ən çox daxil olunan kateqoriyalar</value>
   </data>
+  <data name="The Product has been Added!" xml:space="preserve">
+    <value>Məhsul karta əlavə edildi!</value>
+  </data>
   <data name="this month" xml:space="preserve">
     <value>Bu ay</value>
   </data>

@@ -20,11 +20,11 @@ namespace Junko.Helpers
 
             if (DiscountPrice == 0 && LanguageId==2)
             {
-                output.Content.SetHtmlContent("<span class='current_price'>" + Price.ToString("#.00") + " ‎₼</span>");
+                output.Content.SetHtmlContent("<span class='current_price'>" + (Price!=0?Price.ToString("#.00"):"0") + " ‎₼</span>");
             }
             else if (DiscountPrice == 0 && LanguageId == 1)
             {
-                output.Content.SetHtmlContent("<span class='current_price'>" + ((double)Price/1.7).ToString("#.00") + " ‎$</span>");
+                output.Content.SetHtmlContent("<span class='current_price'>" + (((double)Price/1.7) != 0 ? ((double)Price / 1.7).ToString("#.00") : "0") + " ‎$</span>");
             }
             else if (LanguageId == 2)
             {

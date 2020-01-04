@@ -30,6 +30,7 @@ namespace Junko.ViewComponents
 
             var rqf = Request.HttpContext.Features.Get<IRequestCultureFeature>();
             var culture = rqf.RequestCulture.Culture;
+            ViewBag.languageId = _db.Languages.FirstOrDefault(a => a.LanguageCode == culture.ToString()).Id;
             SettingVM model = new SettingVM
             {
                 Setting = await _db.Setting.Include("SocialActivities").FirstOrDefaultAsync(),

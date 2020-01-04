@@ -204,6 +204,12 @@
                         @foreach (var product in Model.Products)
                         {
                             <div class="col-lg-4 col-md-4 col-12 ">
+                                <div class="ajaxbg d-none">
+                                    <img width="50" height="50" src="~/images/ajax-loader.gif" />
+                                    <p class="lead alert alert-success text-center d-none">
+                                      @_localizer["The Product has been Added!"]  
+                                    </p>
+                                </div>
                                 <article class="single_product">
                                     <figure class="ProductList">
                                         <div class="product_thumb">
@@ -223,7 +229,7 @@
                                                 </ul>
                                             </div>
                                             <div class="add_to_cart">
-                                                <a asp-action="add" asp-controller="ordering" asp-route-id="@product.Id" title="@_localizer["Add to cart"]">@_localizer["Add to cart"]</a>
+                                                <a class="addToCart" asp-action="add" asp-controller="ordering" asp-route-id="@product.Id" data-id="@product.Id" title="@_localizer["Add to cart"]">@_localizer["Add to cart"]</a>
                                             </div>
                                         </div>
                                         <div class="product_content grid_content">
@@ -258,7 +264,7 @@
                                             </div>
                                             <div class="right_caption">
                                                 <div class="add_to_cart">
-                                                    <a asp-action="add" asp-controller="ordering" asp-route-id="@product.Id" title="add to cart">@_localizer["Add to cart"]</a>
+                                                    <a class="addToCart" asp-action="add" asp-controller="ordering" asp-route-id="@product.Id" data-id="@product.Id" title="@_localizer["Add to cart"]">@_localizer["Add to cart"]</a>
                                                 </div>
                                                 <div class="action_links">
                                                     <ul>
@@ -293,3 +299,29 @@
     <!--shop  area end-->
 </main>
 <!--Main End-->
+
+@section Scripts{ 
+    <script>
+        $(function () {
+            $("a.addToCart").click(function (e) {
+                e.preventDefault(); 
+                let ajaxDiv = $(this).parent().parent().parent().parent().parent().find("div.ajaxbg");
+                ajaxDiv.removeClass("d-none");
+                let id = $(this).data("id");
+                $.get('/ordering/add/' + id, {}, function (data) {
+                    $("div.smallCart").html(data);
+                    ajaxDiv.find("img").addClass("d-none");
+                    ajaxDiv.find("p").removeClass("d-none");
+                    setTimeout(() => {
+                        ajaxDiv.animate({ opacity: 0 }, function () {
+                            $(this).addClass("d-none").fadeTo(.1, 1);
+                            $(this).find("img").removeClass("d-none");
+                            $(this).find("p").addClass("d-none");
+                        });
+                    });
+                });
+            });
+        });
+    </script>
+
+}

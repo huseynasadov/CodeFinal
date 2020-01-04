@@ -135,6 +135,12 @@
                             @foreach (var product in Model.NewProducts.Where(n => n.BrandProductCategory.ProductSubCategory.ProductCategoryId == cat.Id))
                             {
                                 <div class="col-lg-4">
+                                    <div class="ajaxbg d-none">
+                                        <img width="50" height="50" src="~/images/ajax-loader.gif" />
+                                        <p class="lead alert alert-success text-center d-none">
+                                            @_localizer["The Product has been Added!"]
+                                        </p>
+                                    </div>
                                     <article class="single_product">
                                         <figure>
                                             <div class="product_thumb">
@@ -166,7 +172,7 @@
                                                     </ul>
                                                 </div>
                                                 <div class="add_to_cart">
-                                                    <a asp-controller="ordering" asp-action="cart" title="@_localizer["Add to cart"]"> @_localizer["Add to cart"]</a>
+                                                    <a class="addToCart" asp-route-id="@product.Id" asp-controller="ordering" asp-action="add" data-id="@product.Id" title="@_localizer["Add to cart"]"> @_localizer["Add to cart"]</a>
                                                 </div>
                                             </figcaption>
                                         </figure>
@@ -216,6 +222,12 @@
                             @foreach (var product in Model.NewProducts.Where(n => n.BrandProductCategory.ProductSubCategoryId == cat.Id))
                             {
                                 <div class="col-lg-4">
+                                    <div class="ajaxbg d-none">
+                                        <img width="50" height="50" src="~/images/ajax-loader.gif" />
+                                        <p class="lead alert alert-success text-center d-none">
+                                            @_localizer["The Product has been Added!"]
+                                        </p>
+                                    </div>
                                     <article class="single_product">
                                         <figure>
                                             <div class="product_thumb">
@@ -238,7 +250,7 @@
                                                     </a>
                                                 </h3>
                                                 <div class="add_to_cart">
-                                                    <a asp-controller="ordering" asp-action="cart" title="@_localizer["Add to cart"]"> @_localizer["Add to cart"]</a>
+                                                    <a class="addToCart" asp-route-id="@product.Id" asp-controller="ordering" asp-action="add" data-id="@product.Id" title="@_localizer["Add to cart"]"> @_localizer["Add to cart"]</a>
                                                 </div>
                                             </figcaption>
                                         </figure>
@@ -296,30 +308,31 @@
                         <div class="small_product_container small_product_active">
                             @foreach (var product in Model.NewProducts.Take(9))
                             {
-                            <article class="single_product">
-                                <figure>
-                                    <div class="product_thumb">
-                                        <a class="primary_img" asp-controller="shop" asp-action="detail" asp-route-slug="@product.Slug">
-                                            <img src="~/images/@(product.ProductPhotos.FirstOrDefault()==null?"product/product-default.png":product.ProductPhotos.FirstOrDefault().Photo) " alt="@product.Name">
-                                        </a>
-                                        <a class="secondary_img" asp-controller="shop" asp-action="detail" asp-route-slug="@product.Slug">
-                                            <img src="~/images/@(product.ProductPhotos.FirstOrDefault()==null ?"product/product-default.png":product.ProductPhotos.Count==1?product.ProductPhotos.FirstOrDefault().Photo:product.ProductPhotos.Skip(1).FirstOrDefault().Photo)" alt="@product.Name">
-                                        </a>
-                                    </div>
-                                    <figcaption class="product_content">
-
-                                        <price price="@product.Price" discount-price="@product.Discount" language-id="@product.BrandProductCategory.ProductSubCategory.ProductSubCategoryTranslate.FirstOrDefault(a=>a.LanguageId==Model.LanguageId).Id"></price>
-                                        <h3 class="product_name">
-                                            <a asp-controller="shop" asp-action="detail" asp-route-slug="@product.Slug">
-                                                @product.Name
+                                <article class="single_product">
+                                    <figure>
+                                        <div class="product_thumb">
+                                            <a class="primary_img" asp-controller="shop" asp-action="detail" asp-route-slug="@product.Slug">
+                                                <img src="~/images/@(product.ProductPhotos.FirstOrDefault()==null?"product/product-default.png":product.ProductPhotos.FirstOrDefault().Photo) " alt="@product.Name">
                                             </a>
-                                        </h3>
-                                        <div class="add_to_cart">
-                                            <a asp-controller="ordering" asp-action="cart" title="@_localizer["Add to cart"]"> @_localizer["Add to cart"]</a>
+                                            <a class="secondary_img" asp-controller="shop" asp-action="detail" asp-route-slug="@product.Slug">
+                                                <img src="~/images/@(product.ProductPhotos.FirstOrDefault()==null ?"product/product-default.png":product.ProductPhotos.Count==1?product.ProductPhotos.FirstOrDefault().Photo:product.ProductPhotos.Skip(1).FirstOrDefault().Photo)" alt="@product.Name">
+                                            </a>
                                         </div>
-                                    </figcaption>
-                                </figure>
-                            </article>
+
+                                        <figcaption class="product_content">
+
+                                            <price price="@product.Price" discount-price="@product.Discount" language-id="@product.BrandProductCategory.ProductSubCategory.ProductSubCategoryTranslate.FirstOrDefault(a=>a.LanguageId==Model.LanguageId).Id"></price>
+                                            <h3 class="product_name">
+                                                <a asp-controller="shop" asp-action="detail" asp-route-slug="@product.Slug">
+                                                    @product.Name
+                                                </a>
+                                            </h3>
+                                            <div class="add_to_cart">
+                                                <a class="addToCart" asp-route-id="@product.Id" asp-controller="ordering" asp-action="add" data-id="@product.Id" title="@_localizer["Add to cart"]"> @_localizer["Add to cart"]</a>
+                                            </div>
+                                        </figcaption>
+                                    </figure>
+                                </article>
                             }
                         </div>
                     </div>
@@ -353,7 +366,7 @@
                                                 </a>
                                             </h3>
                                             <div class="add_to_cart">
-                                                <a asp-controller="ordering" asp-action="cart" title="@_localizer["Add to cart"]"> @_localizer["Add to cart"]</a>
+                                                <a class="addToCart" asp-route-id="@product.Id" asp-controller="ordering" asp-action="add" data-id="@product.Id" title="@_localizer["Add to cart"]"> @_localizer["Add to cart"]</a>
                                             </div>
                                         </figcaption>
                                     </figure>
@@ -390,7 +403,7 @@
                                                 </a>
                                             </h3>
                                             <div class="add_to_cart">
-                                                <a asp-controller="ordering" asp-action="cart" title="@_localizer["Add to cart"]"> @_localizer["Add to cart"]</a>
+                                                <a class="addToCart" asp-route-id="@product.Id" asp-controller="ordering" asp-action="add" data-id="@product.Id" title="@_localizer["Add to cart"]"> @_localizer["Add to cart"]</a>
                                             </div>
                                         </figcaption>
                                     </figure>
@@ -429,3 +442,28 @@
     <!--brand end-->
 </main>
 <!--Main End-->
+@section Scripts{
+    <script>
+        $(function () {
+            $("a.addToCart").click(function (e) {
+                e.preventDefault();
+                let ajaxDiv = $(this).parent().parent().parent().parent().parent().find("div.ajaxbg");
+                ajaxDiv.removeClass("d-none");
+                let id = $(this).data("id");
+                $.get('/ordering/add/' + id, {}, function (data) {
+                    $("div.smallCart").html(data);
+                    ajaxDiv.find("img").addClass("d-none");
+                    ajaxDiv.find("p").removeClass("d-none");
+                    setTimeout(() => {
+                        ajaxDiv.animate({ opacity: 0 }, function () {
+                            $(this).addClass("d-none").fadeTo(.1, 1);
+                            $(this).find("img").removeClass("d-none");
+                            $(this).find("p").addClass("d-none");
+                        });
+                    });
+                });
+            });
+        });
+    </script>
+
+}

@@ -1,128 +1,145 @@
 ﻿@model CartVM
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer _localizer
 @{
     ViewData["Title"] = "Cart";
 }
 
 <!--breadcrumbs area start-->
 
-@await Html.PartialAsync("~/Views/Shared/_Breadcrumb.cshtml",model:Model.Breadcrumb)
+@await Html.PartialAsync("~/Views/Shared/_Breadcrumb.cshtml", model: Model.Breadcrumb)
 <!--breadcrumbs area end-->
 <!--Main Start-->
-    <main>
+<main>
 
-        @if (Model.CartItems.Count > 0)
-        {
-            <!--shopping cart area start -->
-            <div class="shopping_cart_area mt-60">
-                <div class="container">
-                    <form action="#">
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="table_desc">
-                                    <div class="cart_page table-responsive">
-                                        <table>
-                                            <thead>
+    @if (Model.CartItems.Count > 0)
+    {
+        <!--shopping cart area start -->
+        <div class="shopping_cart_area mt-60">
+            <div class="container">
+                <form action="#">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="table_desc">
+                                <div class="cart_page table-responsive">
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th class="product_remove">@_localizer["Delete"]</th>
+                                                <th class="product_thumb">@_localizer["Image"]</th>
+                                                <th class="product_name">@_localizer["Product"]</th>
+                                                <th class="product-price">@_localizer["Price"]</th>
+                                                <th class="product_quantity">@_localizer["Quantity"]</th>
+                                                <th class="product_total">@_localizer["Total"]</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var item in Model.CartItems)
+                                            {
+
                                                 <tr>
-                                                    <th class="product_remove">Delete</th>
-                                                    <th class="product_thumb">Image</th>
-                                                    <th class="product_name">Product</th>
-                                                    <th class="product-price">Price</th>
-                                                    <th class="product_quantity">Quantity</th>
-                                                    <th class="product_total">Total</th>
+                                                    <td class="product_remove">
+                                                        <a asp-action="remove" asp-controller="ordering" asp-route-id="@item.ProductId"><i class="fa fa-trash-o"></i></a>
+                                                    </td>
+                                                    <td class="product_thumb">
+                                                        <a href="#">
+                                                            <img src="~/images/@item.Image" alt="@item.ProductName">
+                                                        </a>
+                                                    </td>
+                                                    <td class="product_name"><a href="#">@item.ProductName</a></td>
+                                                    <td class="product-price">
+                                                        <price price="@item.Price" discount-price="0" language-id="@Model.LanguageId"></price>
+                                                    </td>
+                                                    <td class="product_quantity">
+                                                        <label>@_localizer["Quantity"]</label>
+                                                        <a asp-action="add" asp-controller="ordering" asp-route-id="@item.ProductId" class="badge badge-info">+</a>
+                                                        @item.Quantity
+                                                        <a asp-action="decrease" asp-controller="ordering" asp-route-id="@item.ProductId" data-id="@item.ProductId" class="badge badge-info decreaseCart">-</a>
+                                                    </td>
+                                                    <td class="product_total">
+                                                        <price price="@Model.CartItems.Where(x=>x.ProductId==item.ProductId).Sum(x=>x.Quantity*x.Price)" discount-price="0" language-id="@Model.LanguageId"></price>
+                                                    </td>
                                                 </tr>
-                                            </thead>
-                                            <tbody>
-                                                @foreach (var item in Model.CartItems)
-                                                {
+                                            }
 
-                                                    <tr>
-                                                        <td class="product_remove">
-                                                            <a href="#"><i class="fa fa-trash-o"></i></a>
-                                                        </td>
-                                                        <td class="product_thumb">
-                                                            <a href="#">
-                                                                <img src="~/images/@item.Image" alt="@item.ProductName">
-                                                            </a>
-                                                        </td>
-                                                        <td class="product_name"><a href="#">@item.ProductName</a></td>
-                                                        <td class="product-price">
-                                                            <price price="@item.Price" discount-price="0" language-id="@Model.LanguageId"></price>
-                                                        </td>
-                                                        <td class="product_quantity">
-                                                            <label>Quantity</label> <input min="1"
-                                                                                           max="100" value="@item.Quantity" type="number">
-                                                        </td>
-                                                        <td class="product_total">
-                                                            <price price="@Model.CartItems.Where(x=>x.ProductId==item.ProductId).Sum(x=>x.Quantity*x.Price)" discount-price="0" language-id="@Model.LanguageId"></price>
-                                                        </td>
-                                                    </tr>
-                                                }
-
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <div class="cart_submit">
-                                        <button type="submit">update cart</button>
-                                    </div>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="cart_submit">
+                                    <a asp-action="clear" asp-controller="ordering" class="btn-warning btn ">@_localizer["Clear Cart"]</a>
                                 </div>
                             </div>
                         </div>
-                        <!--coupon code area start-->
-                        <div class="coupon_area">
-                            <div class="row">
-                                <div class="col-lg-6 col-md-6">
-                                    <div class="coupon_code left">
-                                        <h3>Coupon</h3>
-                                        <div class="coupon_inner">
-                                            <p>Enter your coupon code if you have one.</p>
-                                            <input placeholder="Coupon code" type="text">
-                                            <button type="submit">Apply coupon</button>
-                                        </div>
+                    </div>
+                    <!--coupon code area start-->
+                    <div class="coupon_area">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6">
+                                <div class="coupon_code left">
+                                    <h3>Coupon</h3>
+                                    <div class="coupon_inner">
+                                        <p>@_localizer["Enter your coupon code if you have one"]</p>
+                                        <input placeholder="Coupon code" type="text">
+                                        <button type="submit">@_localizer["Apply coupon"]</button>
                                     </div>
                                 </div>
-                                <div class="col-lg-6 col-md-6">
-                                    <div class="coupon_code right">
-                                        <h3>Cart Totals</h3>
-                                        <div class="coupon_inner">
-                                            <div class="cart_subtotal">
-                                                <p>Subtotal</p>
-                                                <p class="cart_amount">
-                                                    <price price="@Model.GrandTotal" discount-price="0" language-id="@Model.LanguageId"></price>
-                                                </p>
-                                            </div>
-                                            <div class="cart_subtotal ">
-                                                <p>Shipping</p>
-                                                <p class="cart_amount">
-                                                    <span>Flat Rate:</span>
-                                                    <price price="@Model.GrandTotal" discount-price="0" language-id="@Model.LanguageId"></price>
-                                                </p>
-                                            </div>
-                                            <a href="#">Calculate shipping</a>
+                            </div>
+                            <div class="col-lg-6 col-md-6">
+                                <div class="coupon_code right">
+                                    <h3>Cart Totals</h3>
+                                    <div class="coupon_inner">
+                                        <div class="cart_subtotal">
+                                            <p>@_localizer["Subtotal"]</p>
+                                            <p class="cart_amount">
+                                                <price price="@Model.GrandTotal" discount-price="0" language-id="@Model.LanguageId"></price>
+                                            </p>
+                                        </div>
+                                        <div class="cart_subtotal ">
+                                            <p>@_localizer["Shipping"]</p>
+                                            <p class="cart_amount">
+                                                <price price="@Model.GrandTotal" discount-price="0" language-id="@Model.LanguageId"></price>
+                                            </p>
+                                        </div>
 
-                                            <div class="cart_subtotal">
-                                                <p>Total</p>
-                                                <p class="cart_amount">
-                                                    <price price="@Model.GrandTotal" discount-price="0" language-id="@Model.LanguageId"></price>
-                                                </p>
-                                            </div>
-                                            <div class="checkout_btn">
-                                                <a href="#">Proceed to Checkout</a>
-                                            </div>
+                                        <div class="cart_subtotal">
+                                            <p>@_localizer["Total"]</p>
+                                            <p class="cart_amount">
+                                                <price price="@Model.GrandTotal" discount-price="0" language-id="@Model.LanguageId"></price>
+                                            </p>
+                                        </div>
+                                        <div class="checkout_btn">
+                                            <a href="#">@_localizer["Checkout"]</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <!--coupon code area end-->
-                    </form>
-                </div>
+                    </div>
+                    <!--coupon code area end-->
+                </form>
             </div>
-            <!--shopping cart area end -->
-        }
-        else
-        {
-            <h3 class="display-4 text-center">Your Cart Is Empty</h3>
-        }
+        </div>
+        <!--shopping cart area end -->
+    }
+    else
+    {
+        <h3 class="display-4 text-center">@_localizer["Your Cart Is Empty"] </h3>
+    }
 
-    </main>
+</main>
 <!--Main End-->
+@section Scripts{
+    <script>
+        $(function () {
+            $(".decreaseCart").click(function (event) {
+                event.preventDefault();
+                let id = $(this).data("id");
+                $.get('/ordering/decrease/' + id, {}, function (data) {
+                    $("body").html(data);
+                    
+                });
+            });
+        });
+    </script>
+
+}

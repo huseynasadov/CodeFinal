@@ -121,7 +121,7 @@ namespace Junko.Controllers
             model.Pagination.PageCount = pageCount;
             return View(model);
         }
-        public IActionResult Detail(string slug)
+        public async Task<IActionResult> Detail(string slug)
         {
             if (slug == null)
             {
@@ -133,7 +133,7 @@ namespace Junko.Controllers
             var cookieAdmin = Request.Cookies["TokenAdmin"];
             if (cookieAdmin != null)
             {
-                admin = _db.AdminManagers.FirstOrDefault(a => a.Token == cookieAdmin);
+                admin = await _db.AdminManagers.FirstOrDefaultAsync(a => a.Token == cookieAdmin);
             }
             if (cookieUser != null)
             {
@@ -141,7 +141,7 @@ namespace Junko.Controllers
             }
             var rqf = Request.HttpContext.Features.Get<IRequestCultureFeature>();
             var culture = rqf.RequestCulture.Culture;
-            Product product = _db.Products.Include("ProductReviews.User").Include("ProductReviews.Admin.Category.AdminCategoryTranslates").Include("ProductTranslates").Include("ProductPhotos").Include("ProductColors.Color").Include("BrandProductCategory.ProductSubCategory.ProductSubCategoryTranslate").Include("ProperityProducts.Properity.ProperityTranslates").FirstOrDefault(p => p.Status == true && p.Slug == slug);
+            Product product = await _db.Products.Include("ProductReviews.User").Include("ProductReviews.Admin.Category.AdminCategoryTranslates").Include("ProductTranslates").Include("ProductPhotos").Include("ProductColors.Color").Include("BrandProductCategory.ProductSubCategory.ProductSubCategoryTranslate").Include("ProperityProducts.Properity.ProperityTranslates").FirstOrDefaultAsync(p => p.Status == true && p.Slug == slug);
             if (product == null)
             {
                 return RedirectToAction("error", "home");
@@ -158,7 +158,7 @@ namespace Junko.Controllers
                     },
                     Page = Page.ShopDetail
                 },
-                LanguageId = _db.Languages.FirstOrDefault(l => l.LanguageCode == culture.ToString()).Id,
+                LanguageId = _db.Languages.FirstOrDefaultAsync(l => l.LanguageCode == culture.ToString()).Id,
                 Product = product,
                 LikeProducts = _db.Products.Include("BrandProductCategory.ProductSubCategory.ProductSubCategoryTranslate.Language").Include("ProductPhotos").Where(p => p.Status == true && p.BrandProductCategory.ProductSubCategoryId == product.BrandProductCategory.ProductSubCategoryId).ToList(),
                 MostSaledProducts = _db.Products.Include("BrandProductCategory.ProductSubCategory.ProductSubCategoryTranslate").Include("ProductPhotos").Where(p => p.Status == true).OrderBy(o => o.CreatedAt).ToList()
