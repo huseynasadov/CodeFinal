@@ -1,4 +1,4 @@
-﻿@using Microsoft.AspNetCore.Mvc.Localization
+﻿ @using Microsoft.AspNetCore.Mvc.Localization
 @inject IViewLocalizer _localizer
 @model ShopIndexVM
 @{
@@ -223,7 +223,7 @@
                                                 </ul>
                                             </div>
                                             <div class="add_to_cart">
-                                                <a href="cart.html" title="@_localizer["Add to cart"]">@_localizer["Add to cart"]</a>
+                                                <a asp-action="add" asp-controller="ordering" asp-route-id="@product.Id" title="@_localizer["Add to cart"]">@_localizer["Add to cart"]</a>
                                             </div>
                                         </div>
                                         <div class="product_content grid_content">
@@ -258,7 +258,7 @@
                                             </div>
                                             <div class="right_caption">
                                                 <div class="add_to_cart">
-                                                    <a href="cart.html" title="add to cart">@_localizer["Add to cart"]</a>
+                                                    <a asp-action="add" asp-controller="ordering" asp-route-id="@product.Id" title="add to cart">@_localizer["Add to cart"]</a>
                                                 </div>
                                                 <div class="action_links">
                                                     <ul>

@@ -38,7 +38,11 @@ namespace Junko
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            services.AddMemoryCache();
+            services.AddSession(options => 
+            {
+                options.IdleTimeout = TimeSpan.FromDays(1);
+            });
             services.Configure<CookiePolicyOptions>(options =>
             {
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.
@@ -103,6 +107,7 @@ namespace Junko
             var options = app.ApplicationServices.GetService<IOptions<RequestLocalizationOptions>>();
             app.UseRequestLocalization(options.Value);
             app.UseRouting();
+            app.UseSession();
             app.UseAuthorization();
             app.UseAuthentication();
 

@@ -142,8 +142,18 @@ namespace Junko.Controllers
         {
             if (ModelState.IsValid)
             {
-                _db.Update(model.User);
-                _db.SaveChanges();
+              User user=  _db.Users.FirstOrDefault(a => a.Id == model.User.Id);
+                if (user!=null)
+                {
+                    user.Firstname = model.User.Firstname;
+                    user.Lastname = model.User.Lastname;
+                    user.Password = Crypto.HashPassword(model.User.Password);
+                    user.Birthday = model.User.Birthday;
+                    user.Email = model.User.Email;
+                    user.Gender = model.User.Gender;
+
+                    _db.SaveChanges();
+                }
 
             }
             model.Breadcrumb = new Breadcrumb

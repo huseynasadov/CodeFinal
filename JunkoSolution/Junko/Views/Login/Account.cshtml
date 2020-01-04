@@ -3,7 +3,6 @@
 @model AccountVM
 @{
     ViewData["Title"] = _localizer["Account"];
-   ViewBag.returnUrl = (Context.Request.QueryString.ToString() != "/" ? Context.Request.Path.ToString() + Context.Request.QueryString.ToString() : Context.Request.Path.ToString());
     
 }
 
@@ -95,6 +94,7 @@
                                                 </select><br />
 
                                                 @_localizer["Firstname"]:  <input asp-for="User.Firstname" /> <br />
+                                                <input hidden asp-for="User.Id" />
                                                 <span class="text-danger" asp-validation-for="User.Firstname"></span><br />
 
                                                 @_localizer["Lastname"]:  <input asp-for="User.Lastname" /> <br />
@@ -103,7 +103,7 @@
                                                 @_localizer["Email"]:  <input asp-for="User.Email" /> <br />
                                                 <span class="text-danger" asp-validation-for="User.Email"></span><br />
 
-                                                @_localizer["Birthday"]:  <input asp-for="User.Birthday"  /> <br />
+                                                @_localizer["Birthday"]:  <input asp-for="User.Birthday" /> <br />
                                                 <span class="text-danger" asp-validation-for="User.Birthday"></span><br />
 
                                                 @_localizer["Password"]: <input asp-for="User.Password" /><br />
