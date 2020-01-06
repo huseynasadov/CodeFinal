@@ -117,7 +117,7 @@
                             </div>
                             <div class=" product_d_action">
                                 <ul>
-                                    <li><a href="#" title="Add to wishlist">+ @_localizer["Add to Wishlist"]</a></li>
+                                    <li><a class="addToCartWishlistSaled" asp-action="AddWishlist" asp-controller="ordering" asp-route-id="@Model.Product.Id" data-id="@Model.Product.Id" title="Add to wishlist">+ @_localizer["Add to Wishlist"]</a></li>
                                 </ul>
                             </div>
                             <div class="product_meta">
@@ -226,9 +226,9 @@
 
                             <div class="tab-pane fade" id="reviews" role="tabpanel">
                                 <div class="reviews_wrapper">
-                                    @if (Model.Product.ProductReviews.Count > 0)
+                                    @if (Model.ProductReview.ProductReviews.Count > 0)
                                     {
-                                        @foreach (var rev in Model.Product.ProductReviews)
+                                        @foreach (var rev in Model.ProductReview.ProductReviews)
                                         {
                                             <div class="comment_list">
                                                 <div class="comment_thumb">
@@ -247,7 +247,7 @@
                                             </div>
                                         }
                                     }
-                                    <div class="product_review_form">
+                                    <div class="product_review_form"> 
                                         <div class="comments_form">
                                             <h3>@_localizer["Add a Comment"] </h3>
                                             <form asp-action="Review" asp-controller="shop" method="post">
@@ -313,6 +313,15 @@
                 $.get('/ordering/add/' + id, {}, function (data) {
                     $("div.smallCart").html(data);
                    
+                });
+            });
+        });
+         $(function () {
+            $("a.addToCartWishlistSaled").click(function (e) {
+                e.preventDefault();
+                let id = $(this).data("id");
+                $.get('/ordering/AddWishlist/' + id, {}, function (data) {
+                    $("div.smallCart").html(data);
                 });
             });
         });

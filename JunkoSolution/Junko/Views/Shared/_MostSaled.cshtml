@@ -13,7 +13,6 @@
         <article class="single_product">
             <figure>
                 <div class="product_thumb">
-
                     <a class="primary_img" asp-controller="shop" asp-action="detail" asp-route-slug="@product.Slug"><img style="height:200px; object-fit:contain" src="~/images/@(product.ProductPhotos.FirstOrDefault()==null?"product/product-default.png":product.ProductPhotos.FirstOrDefault().Photo) " alt="@product.Name"></a>
                     <a class="secondary_img" asp-controller="shop" asp-action="detail" asp-route-slug="@product.Slug"><img style="height:200px; object-fit:contain" src="~/images/@(product.ProductPhotos.FirstOrDefault()==null ?"product/product-default.png":product.ProductPhotos.Count==1?product.ProductPhotos.FirstOrDefault().Photo:product.ProductPhotos.Skip(1).FirstOrDefault().Photo)" alt="@product.Name"></a>
                     <div class="label_product">
@@ -21,11 +20,7 @@
                     </div>
                     <div class="action_links">
                         <ul>
-                            <li class="wishlist">
-                                <a asp-controller="ordering" asp-action="wishlist" title="@_localizer["Add to Wishlist"]">
-                                    <i class="fa fa-heart-o" aria-hidden="true"></i>
-                                </a>
-                            </li>
+                            <li class="wishlist"><a class="addToCartWishlistSaled" asp-action="AddWishlist" asp-controller="ordering" asp-route-id="@product.Id" data-id="@product.Id" title="@_localizer["Add to Wishlist"]"><i class="fa fa-heart-o" aria-hidden="true"></i></a></li>
                             <li class="quick_button">
                                 <a href="#" data-toggle="modal"
                                    data-target="#modal_box" title="@_localizer["quick view"]">

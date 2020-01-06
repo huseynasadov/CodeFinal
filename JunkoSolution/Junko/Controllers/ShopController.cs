@@ -23,6 +23,7 @@ namespace Junko.Controllers
         public IActionResult Index(int? page, int? category, int? orderby, string filter, int? brand, string search)
         {
             int count = page ?? 1;
+            int pageCount = 1;
             var rqf = Request.HttpContext.Features.Get<IRequestCultureFeature>();
             var culture = rqf.RequestCulture.Culture;
             ShopIndexVM model = new ShopIndexVM
@@ -49,7 +50,12 @@ namespace Junko.Controllers
             if (category != null)
             {
                 model.Products = _db.Products.Include("ProductPhotos").Where(p => p.Status == true && p.BrandProductCategory.ProductSubCategoryId == category).OrderByDescending(p => p.CreatedAt).Skip((count - 1) * 12).Take(12).ToList();
-
+                pageCount = _db.Products.Where(p => p.Status == true && p.BrandProductCategory.ProductSubCategoryId == category).Count() / 12;
+                if (_db.Products.Where(p => p.Status == true && p.BrandProductCategory.ProductSubCategoryId == category).Count() % 12 != 0)
+                {
+                    pageCount++;
+                }
+                model.Pagination.PageCount = pageCount;
                 if (orderby == 2)
                 {
                     model.Products = _db.Products.Include("ProductPhotos").Where(p => p.Status == true && p.BrandProductCategory.ProductSubCategoryId == category).OrderByDescending(p => p.CreatedAt).Skip((count - 1) * 12).Take(12).ToList();
@@ -66,21 +72,16 @@ namespace Junko.Controllers
                 {
                     model.Products = _db.Products.Include("ProductPhotos").Where(p => p.Status == true && p.BrandProductCategory.ProductSubCategoryId == category).OrderBy(p => p.Name).Skip((count - 1) * 12).Take(12).ToList();
                 }
-                if (brand != null)
-                {
-                    model.Products = _db.Products.Include("ProductPhotos").Where(p => p.BrandProductCategoryId == brand && p.Status == true).Skip((count - 1) * 12).Take(12).ToList();
-                    model.Pagination.BrandId = brand;
-                }
-                if (search != null)
-                {
-                    model.Products = _db.Products.Include("ProductPhotos").Where(p => p.Name.Contains(search) || p.BrandProductCategory.Brand.Name.Contains(search) || p.BrandProductCategory.ProductSubCategory.ProductSubCategoryTranslate.Any(a => a.Name.Contains(search)) && p.Status == true).Skip((count - 1) * 12).Take(12).ToList();
-                }
                 model.Pagination.CategoryId = category;
             }
             else
             {
                 model.Products = _db.Products.Include("ProductPhotos").Where(p => p.Status == true).OrderByDescending(p => p.CreatedAt).Skip((count - 1) * 12).Take(12).ToList();
-
+                pageCount = _db.Products.Where(p => p.Status == true).Count() / 12;
+                if (_db.Products.Where(p => p.Status == true).Count() % 12 != 0)
+                {
+                    pageCount++;
+                }
                 if (orderby == 2)
                 {
                     model.Products = _db.Products.Include("ProductPhotos").Where(p => p.Status == true).OrderByDescending(p => p.CreatedAt).Skip((count - 1) * 12).Take(12).ToList();
@@ -97,31 +98,44 @@ namespace Junko.Controllers
                 {
                     model.Products = _db.Products.Include("ProductPhotos").Where(p => p.Status == true).OrderBy(p => p.Name).Skip((count - 1) * 12).Take(12).ToList();
                 }
-                if (filter != null)
-                {
-                    string[] parts = filter.Split('-');
-                    model.Products = _db.Products.Include("ProductPhotos").Where(p => p.Status == true && p.Price > decimal.Parse(parts[0]) && p.Price < decimal.Parse(parts[1])).OrderByDescending(p => p.Price).Skip((count - 1) * 12).Take(12).ToList();
-                }
-                if (brand != null)
-                {
-                    model.Products = _db.Products.Include("ProductPhotos").Where(p => p.BrandProductCategoryId == brand && p.Status == true).Skip((count - 1) * 12).Take(12).ToList();
-                }
-                if (search != null)
-                {
-                    model.Products = _db.Products.Include("ProductPhotos").Where(p => p.Name.Contains(search) && p.Status == true).Skip((count - 1) * 12).Take(12).ToList();
-                }
+               
+                
             }
-
-            model.ProductCount = model.Products.Count();
-            int pageCount = model.Products.Count() / 12;
-            if (model.Products.Count() % 12 != 0)
+            if (brand != null)
             {
-                pageCount++;
+                model.Products = _db.Products.Include("ProductPhotos").Where(p => p.BrandProductCategoryId == brand && p.Status == true).Skip((count - 1) * 12).Take(12).ToList();
+                model.Pagination.BrandId = brand;
+                pageCount = _db.Products.Where(p => p.Status == true && p.BrandProductCategoryId == brand).Count() / 12;
+                if (_db.Products.Where(p => p.Status == true && p.BrandProductCategoryId == brand).Count() % 12 != 0)
+                {
+                    pageCount++;
+                }
             }
-            model.Pagination.PageCount = pageCount;
+            if (search != null)
+            {
+                model.Products = _db.Products.Include("ProductPhotos").Where(p => p.Name.Contains(search) || p.BrandProductCategory.Brand.Name.Contains(search) || p.BrandProductCategory.ProductSubCategory.ProductSubCategoryTranslate.Any(a => a.Name.Contains(search)) && p.Status == true).Skip((count - 1) * 12).Take(12).ToList();
+                pageCount = _db.Products.Where(p => p.Name.Contains(search) || p.BrandProductCategory.Brand.Name.Contains(search) || p.BrandProductCategory.ProductSubCategory.ProductSubCategoryTranslate.Any(a => a.Name.Contains(search)) && p.Status == true).Count() / 12;
+                if (_db.Products.Where(p => p.Name.Contains(search) || p.BrandProductCategory.Brand.Name.Contains(search) || p.BrandProductCategory.ProductSubCategory.ProductSubCategoryTranslate.Any(a => a.Name.Contains(search)) && p.Status == true).Count() % 12 != 0)
+                {
+                    pageCount++;
+                }
+            }
+            if (filter != null)
+            {
+                string[] parts = filter.Split('-');
+                model.Products = _db.Products.Include("ProductPhotos").Where(p => p.Status == true && p.Price > decimal.Parse(parts[0]) && p.Price < decimal.Parse(parts[1])).OrderByDescending(p => p.Price).Skip((count - 1) * 12).Take(12).ToList();
+                
+                pageCount = _db.Products.Where(p => p.Status == true && p.Price > decimal.Parse(parts[0]) && p.Price < decimal.Parse(parts[1])).Count() / 12;
+                if (_db.Products.Where(p => p.Status == true && p.Price > decimal.Parse(parts[0]) && p.Price < decimal.Parse(parts[1])).Count() % 12 != 0)
+                {
+                    pageCount++;
+                }
+            }
+            model.ProductCount = model.Products.Count();
+           
             return View(model);
         }
-        public async Task<IActionResult> Detail(string slug)
+        public IActionResult Detail(string slug)
         {
             if (slug == null)
             {
@@ -133,7 +147,7 @@ namespace Junko.Controllers
             var cookieAdmin = Request.Cookies["TokenAdmin"];
             if (cookieAdmin != null)
             {
-                admin = await _db.AdminManagers.FirstOrDefaultAsync(a => a.Token == cookieAdmin);
+                admin =  _db.AdminManagers.FirstOrDefault(a => a.Token == cookieAdmin);
             }
             if (cookieUser != null)
             {
@@ -141,7 +155,8 @@ namespace Junko.Controllers
             }
             var rqf = Request.HttpContext.Features.Get<IRequestCultureFeature>();
             var culture = rqf.RequestCulture.Culture;
-            Product product = await _db.Products.Include("ProductReviews.User").Include("ProductReviews.Admin.Category.AdminCategoryTranslates").Include("ProductTranslates").Include("ProductPhotos").Include("ProductColors.Color").Include("BrandProductCategory.ProductSubCategory.ProductSubCategoryTranslate").Include("ProperityProducts.Properity.ProperityTranslates").FirstOrDefaultAsync(p => p.Status == true && p.Slug == slug);
+            Product product = _db.Products.Include("ProductTranslates").Include("ProductPhotos").Include("ProductColors.Color").Include("BrandProductCategory.ProductSubCategory.ProductSubCategoryTranslate").Include("ProperityProducts.Properity.ProperityTranslates").FirstOrDefault(p => p.Status == true && p.Slug == slug);
+            Product productReview =  _db.Products.Include("ProductReviews.User").Include("ProductReviews.Admin.Category.AdminCategoryTranslates").FirstOrDefault(p => p.Status == true && p.Slug == slug);
             if (product == null)
             {
                 return RedirectToAction("error", "home");
@@ -158,8 +173,9 @@ namespace Junko.Controllers
                     },
                     Page = Page.ShopDetail
                 },
-                LanguageId = _db.Languages.FirstOrDefaultAsync(l => l.LanguageCode == culture.ToString()).Id,
+                LanguageId = _db.Languages.FirstOrDefault(l => l.LanguageCode == culture.ToString()).Id,
                 Product = product,
+                ProductReview=productReview,
                 LikeProducts = _db.Products.Include("BrandProductCategory.ProductSubCategory.ProductSubCategoryTranslate.Language").Include("ProductPhotos").Where(p => p.Status == true && p.BrandProductCategory.ProductSubCategoryId == product.BrandProductCategory.ProductSubCategoryId).ToList(),
                 MostSaledProducts = _db.Products.Include("BrandProductCategory.ProductSubCategory.ProductSubCategoryTranslate").Include("ProductPhotos").Where(p => p.Status == true).OrderBy(o => o.CreatedAt).ToList()
             };

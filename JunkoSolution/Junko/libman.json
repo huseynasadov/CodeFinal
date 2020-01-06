@@ -5,6 +5,10 @@
     {
       "library": "bootstrap-formhelpers@2.3.0",
       "destination": "wwwroot/bootstrap-formhelpers/"
+    },
+    {
+      "library": "font-awesome@5.11.2",
+      "destination": "wwwroot/bootstrap-formhelpers/font-awesome/"
     }
   ]
 }

@@ -1,11 +1,13 @@
-﻿
+﻿@model CartVM
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer _localizer
 @{
     ViewData["Title"] = "Wishlist";
 }
 
 <!--breadcrumbs area start-->
 
-@await Html.PartialAsync("~/Views/Shared/_Breadcrumb.cshtml")
+@await Html.PartialAsync("~/Views/Shared/_Breadcrumb.cshtml",model:Model.Breadcrumb)
 <!--breadcrumbs area end-->
 <!--Main Start-->
 <main>
@@ -13,76 +15,100 @@
     <!--wishlist area start -->
     <div class="wishlist_area mt-60">
         <div class="container">
-            <form action="#">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="table_desc wishlist">
-                            <div class="cart_page table-responsive">
-                                <table>
-                                    <thead>
-                                        <tr>
-                                            <th class="product_remove">Delete</th>
-                                            <th class="product_thumb">Image</th>
-                                            <th class="product_name">Product</th>
-                                            <th class="product-price">Price</th>
-                                            <th class="product_quantity">Stock Status</th>
-                                            <th class="product_total">Add To Cart</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td class="product_remove"><a href="#">X</a></td>
-                                            <td class="product_thumb">
-                                                <a href="#">
-                                                    <img src="~/images/s-product/product.jpg" alt="">
-                                                </a>
-                                            </td>
-                                            <td class="product_name"><a href="#">Handbag fringilla</a></td>
-                                            <td class="product-price">£65.00</td>
-                                            <td class="product_quantity">In Stock</td>
-                                            <td class="product_total"><a href="#">Add To Cart</a></td>
+            @if (Model.CartItems.Count > 0)
+            {
+                <form action="#">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="table_desc">
+                                <div class="cart_page table-responsive">
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th class="product_remove">@_localizer["Delete"]</th>
+                                                <th class="product_thumb">@_localizer["Image"]</th>
+                                                <th class="product_name">@_localizer["Product"]</th>
+                                                <th class="product-price">@_localizer["Price"]</th>
+                                                <th class="product_quantity">@_localizer["Quantity"]</th>
+                                                <th class="product_total">@_localizer["Add to Cart"]</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var item in Model.CartItems)
+                                            {
 
+                                                <tr>
+                                                    <td class="product_remove">
+                                                        <a asp-action="removeWishlist" asp-controller="ordering" asp-route-id="@item.ProductId"><i class="fa fa-trash-o"></i></a>
+                                                    </td>
+                                                    <td class="product_thumb">
+                                                        <a href="#">
+                                                            <img src="~/images/@item.Image" alt="@item.ProductName">
+                                                        </a>
+                                                    </td>
+                                                    <td class="product_name"><a href="#">@item.ProductName</a></td>
+                                                    <td class="product-price">
+                                                        <price price="@item.Price" discount-price="0" language-id="@Model.LanguageId"></price>
+                                                    </td>
+                                                    <td class="product_quantity">
+                                                        @item.Quantity
+                                                    </td>
+                                                    <td class="product_total">
+                                                        <a class="addToCart btn btn-info text-white" asp-route-id="@item.ProductId" asp-controller="ordering" asp-action="add" data-id="@item.ProductId" title="@_localizer["Add to cart"]"> @_localizer["Add to cart"]</a>
+                                                    </td>
+                                                </tr>
+                                            }
 
-                                        </tr>
-
-                                        <tr>
-                                            <td class="product_remove"><a href="#">X</a></td>
-                                            <td class="product_thumb">
-                                                <a href="#">
-                                                    <img src="~/images/s-product/product2.jpg" alt="">
-                                                </a>
-                                            </td>
-                                            <td class="product_name"><a href="#">Handbags justo</a></td>
-                                            <td class="product-price">£90.00</td>
-                                            <td class="product_quantity">In Stock</td>
-                                            <td class="product_total"><a href="#">Add To Cart</a></td>
-
-
-                                        </tr>
-                                        <tr>
-                                            <td class="product_remove"><a href="#">X</a></td>
-                                            <td class="product_thumb">
-                                                <a href="#">
-                                                    <img src="~/images/s-product/product3.jpg" alt="">
-                                                </a>
-                                            </td>
-                                            <td class="product_name"><a href="#">Handbag elit</a></td>
-                                            <td class="product-price">£80.00</td>
-                                            <td class="product_quantity">In Stock</td>
-                                            <td class="product_total"><a href="#">Add To Cart</a></td>
-
-
-                                        </tr>
-
-                                    </tbody>
-                                </table>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="cart_submit">
+                                    <a asp-action="clearWishlist" asp-controller="ordering" class="btn-warning btn ">@_localizer["Clear Cart"]</a>
+                                </div>
                             </div>
-
                         </div>
                     </div>
-                </div>
+                    <!--coupon code area start-->
+                    <div class="coupon_area">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6">
+                                <div class="coupon_code right">
+                                    <h3>Cart Totals</h3>
+                                    <div class="coupon_inner">
+                                        <div class="cart_subtotal">
+                                            <p>@_localizer["Subtotal"]</p>
+                                            <p class="cart_amount">
+                                                <price price="@Model.GrandTotal" discount-price="0" language-id="@Model.LanguageId"></price>
+                                            </p>
+                                        </div>
+                                        <div class="cart_subtotal ">
+                                            <p>@_localizer["Shipping"]</p>
+                                            <p class="cart_amount">
+                                                <price price="@Model.GrandTotal" discount-price="0" language-id="@Model.LanguageId"></price>
+                                            </p>
+                                        </div>
 
-            </form>
+                                        <div class="cart_subtotal">
+                                            <p>@_localizer["Total"]</p>
+                                            <p class="cart_amount">
+                                                <price price="@Model.GrandTotal" discount-price="0" language-id="@Model.LanguageId"></price>
+                                            </p>
+                                        </div>
+                                        <div class="checkout_btn">
+                                            <a href="#">@_localizer["Checkout"]</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--coupon code area end-->
+                </form>
+            }
+            else
+            {
+                <h3 class="display-4 text-center">@_localizer["Your Cart Is Empty"] </h3>
+            }
             <div class="row">
                 <div class="col-12">
                     <div class="wishlist_share">
@@ -103,3 +129,17 @@
     <!--wishlist area end -->
 </main>
 
+@section Scripts{
+    <script>
+        $(function () {
+            $("a.addToCart").click(function (e) {
+                e.preventDefault();
+                let id = $(this).data("id");
+                $.get('/ordering/add/' + id, {}, function (data) {
+                    $("div.smallCart").html(data);
+                });
+            });
+        });
+    </script>
+
+}

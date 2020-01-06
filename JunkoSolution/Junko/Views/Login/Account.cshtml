@@ -3,10 +3,10 @@
 @model AccountVM
 @{
     ViewData["Title"] = _localizer["Account"];
-    
+
 }
 
-@await Html.PartialAsync("~/Views/Shared/_Breadcrumb.cshtml",model:Model.Breadcrumb)
+@await Html.PartialAsync("~/Views/Shared/_Breadcrumb.cshtml", model: Model.Breadcrumb)
 <!--Main Start-->
 <main>
     <!-- my account start  -->
@@ -42,33 +42,48 @@
                                 </p>
                             </div>
                             <div class="tab-pane fade" id="orders">
-                                <h3>Orders</h3>
+                                <h3>@_localizer["Orders"]</h3>
                                 <div class="table-responsive">
                                     <table class="table">
                                         <thead>
                                             <tr>
-                                                <th>@_localizer["Order"]</th>
+                                                <th>@_localizer["Delete"]</th>
+                                                <th>@_localizer["Name"]</th>
                                                 <th>@_localizer["Date"]</th>
                                                 <th>@_localizer["Status"]</th>
                                                 <th>@_localizer["Total"]</th>
-                                                <th>@_localizer["Actions"]</th>
+                                                <th>@_localizer["Quantity"]</th>
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            @foreach (var order in Model.OrderProducts)
+                                            {
                                             <tr>
-                                                <td>1</td>
-                                                <td>May 10, 2018</td>
-                                                <td><span class="success">@_localizer["Completed"]</span></td>
-                                                <td>$25.00 for 1 item </td>
-                                                <td><a href="cart.html" class="view">@_localizer["View"]</a></td>
+                                                <td>
+                                                    <a asp-action="RemoveOrder" asp-controller="ordering" asp-route-id="@order.Id" class="view text-danger"><i class="fas fa-trash-alt"></i></a>
+                                                </td>
+                                                <td>
+                                                    @order.Product.Name
+                                                </td>
+                                                <td>@order.CreatedAt.ToString("MMMM dd, yyyy")</td>
+                                                <td>
+                                                    @if (order.Complete == Complete.Completed)
+                                                    {
+                                                        <span class="badge badge-success">@_localizer["Completed"]</span>
+                                                    }
+                                                    else
+                                                    {
+                                                        <span class="badge badge-warning">@_localizer["Processing"]</span>
+                                                    }
+                                                </td>
+                                                <td>
+                                                    <price price="@order.Price" discount-price="0" language-id="@Model.LanguageId"></price>
+                                                </td>
+                                                <td>
+                                                    x @order.Quantity
+                                                </td>
                                             </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>May 10, 2018</td>
-                                                <td>@_localizer["Processing"]</td>
-                                                <td>$17.00 for 1 item </td>
-                                                <td><a href="cart.html" class="view">@_localizer["View"]</a></td>
-                                            </tr>
+                                            }
                                         </tbody>
                                     </table>
                                 </div>
@@ -111,15 +126,15 @@
                                                 <button type="submit">@_localizer["Save"]</button>
                                             </form>
                                         </div>
-                                            </div>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </section>
-            <!-- my account end   -->
-        </main>
-        <!--Main End-->
+            </div>
+        </div>
+    </section>
+    <!-- my account end   -->
+</main>
+<!--Main End-->

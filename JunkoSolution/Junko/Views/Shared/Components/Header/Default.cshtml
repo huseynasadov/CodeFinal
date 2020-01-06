@@ -321,16 +321,10 @@
                                     </div>
                                 </form>
                             </div>
-                            <div class="middel_right_info">
-                                <div class="header_wishlist">
-                                    <a asp-controller="ordering" asp-action="wishlist"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
-                                    <span class="wishlist_quantity">3</span>
-                                </div>
-                                <div class="smallCart">
-                                        @await Component.InvokeAsync("SmallCart")
-                                </div>
-
+                            <div class="smallCart">
+                                @await Component.InvokeAsync("SmallCart")
                             </div>
+
                         </div>
                     </div>
                 </div>
@@ -375,15 +369,10 @@
                             </ul>
                         </nav>
                     </div>
-                    <div class="middel_right_info">
-                        <div class="header_wishlist">
-                            <a asp-controller="ordering" asp-action="wishlist"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
-                            <span class="wishlist_quantity">3</span>
-                        </div>
-                        <div class="smallCart">
-                                @await Component.InvokeAsync("SmallCart")
-                        </div>
+                    <div class="smallCart">
+                        @await Component.InvokeAsync("SmallCart")
                     </div>
+
                 </div>
             </div>
         </div>

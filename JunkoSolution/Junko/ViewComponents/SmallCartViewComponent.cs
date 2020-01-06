@@ -23,12 +23,13 @@ namespace Junko.ViewComponents
             var rqf = Request.HttpContext.Features.Get<IRequestCultureFeature>();
             var culture = rqf.RequestCulture.Culture;
             List<CartItem> cart = HttpContext.Session.GetJson<List<CartItem>>("Cart");
+            List<CartItem> cartWishlist = HttpContext.Session.GetJson<List<CartItem>>("Wishlist");
             SmallCartVM model = new SmallCartVM
             {
                 LanguageId = _db.Languages.FirstOrDefault(x => x.LanguageCode == culture.ToString()).Id,
                 TotalAmount=0,
-                NumberOfItems=0
-                
+                NumberOfItems=0,
+                WishlistCount=cartWishlist!=null?cartWishlist.Count():0
             };
             if (cart!=null)
             {

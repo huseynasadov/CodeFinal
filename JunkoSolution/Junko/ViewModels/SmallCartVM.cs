@@ -12,5 +12,6 @@ namespace Junko.ViewModels
         public int NumberOfItems { get; set; }
         public decimal TotalAmount { get; set; }
         public int LanguageId { get; set; }
+        public int WishlistCount { get; set; }
     }
 }

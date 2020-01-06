@@ -138,6 +138,9 @@
   <data name="Date" xml:space="preserve">
     <value>Tarix</value>
   </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Sil</value>
+  </data>
   <data name="From your account dashboard. you can easily check and view your recent orders manage your shipping and and Edit your password and account details." xml:space="preserve">
     <value>Hesabınızın tablosundan son sifarişlərinizi asanlıqla yoxlaya və görə bilərsiniz, göndərmə və göndərmə ünvanlarınızı idarə edə və parol və hesab məlumatlarınızı düzəldə bilərsiniz.</value>
   </data>
@@ -150,6 +153,9 @@
   <data name="Mrs" xml:space="preserve">
     <value>Qadın</value>
   </data>
+  <data name="Name" xml:space="preserve">
+    <value>Ad</value>
+  </data>
   <data name="Order" xml:space="preserve">
     <value>Sifariş</value>
   </data>
@@ -158,6 +164,9 @@
   </data>
   <data name="Processing" xml:space="preserve">
     <value>Tamamlanmamış</value>
+  </data>
+  <data name="Quantity" xml:space="preserve">
+    <value>Say</value>
   </data>
   <data name="Save" xml:space="preserve">
     <value>Yadda saxla</value>

@@ -1,0 +1,12 @@
+﻿@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success zmdi-notifications">
+        @TempData["Success"]
+    </div>
+}
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger zmdi-notifications">
+        @TempData["Error"]
+    </div>
+}

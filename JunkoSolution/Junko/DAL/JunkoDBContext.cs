@@ -57,6 +57,7 @@ namespace Junko.DAL
         public DbSet<ProperityProduct> ProperityProducts { get; set; }
         public DbSet<BlogReview> BlogReviews { get; set; }
         public DbSet<ProductReview> ProductReviews { get; set; }
+        public DbSet<OrderProduct> OrderProducts { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -1842,6 +1843,11 @@ namespace Junko.DAL
                 new Partner { Id = 6, Name = "Retrobrand", Photo = "brand/brand6.jpg", ModifiedAt = DateTime.Now, AdminManagerId = 1 },
                 new Partner { Id = 7, Name = "Business", Photo = "brand/brand7.jpg", ModifiedAt = DateTime.Now, AdminManagerId = 1 },
                 new Partner { Id = 8, Name = "Photograph", Photo = "brand/brand8.jpg", ModifiedAt = DateTime.Now, AdminManagerId = 1 }
+                );
+
+            // Order Product
+            modelBuilder.Entity<OrderProduct>().HasData(
+                new OrderProduct {Id=1, UserId=1, ProductId=1, Price=3000, Quantity=1, CreatedAt=DateTime.Now }
                 );
         }
     }

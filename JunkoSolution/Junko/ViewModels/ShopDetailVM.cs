@@ -11,6 +11,7 @@ namespace Junko.ViewModels
     {
         public Breadcrumb Breadcrumb { get; set; }
         public Product Product { get; set; }
+        public Product ProductReview { get; set; }
         public ICollection<Product> LikeProducts { get; set; }
         public ICollection<Product> MostSaledProducts { get; set; }
         public int LanguageId { get; set; }

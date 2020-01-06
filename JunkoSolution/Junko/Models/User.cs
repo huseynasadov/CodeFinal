@@ -31,6 +31,7 @@ namespace Junko.Models
         public string Token { get; set; }
         public DateTime CreatedAt { get; set; }
         public ICollection<BlogReview> BlogReviews { get; set; }
+        public ICollection<OrderProduct> OrderProducts { get; set; }
         public ICollection<ProductReview> ProductReviews { get; set; }
     }
 }

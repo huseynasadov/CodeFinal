@@ -6,7 +6,9 @@ using Junko.DAL;
 using Junko.Models;
 using Junko.ViewModels;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace Junko.Controllers
 {
@@ -118,6 +120,9 @@ namespace Junko.Controllers
 
         public IActionResult Account(string returnUrl = "/")
         {
+            var rqf = Request.HttpContext.Features.Get<IRequestCultureFeature>();
+            var culture = rqf.RequestCulture.Culture;
+
             var cookieValue = Request.Cookies["Token"];
             if (cookieValue == null) return LocalRedirect(returnUrl);
             
@@ -133,7 +138,9 @@ namespace Junko.Controllers
                     },
                     Page = Page.Account
                 },
-                User = user
+                User = user,
+                LanguageId=_db.Languages.FirstOrDefault(x=>x.LanguageCode==culture.ToString()).Id,
+                OrderProducts=_db.OrderProducts.Include("Product").Where(x=>x.Status==true && x.UserId==user.Id).OrderByDescending(x=>x.Complete).ThenByDescending(x=>x.CreatedAt).ToList()
             };
             return View(model);
         }

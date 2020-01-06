@@ -464,6 +464,15 @@
                 });
             });
         });
+        $(function () {
+            $("a.addToCartWishlistSaled").click(function (e) {
+                e.preventDefault();
+                let id = $(this).data("id");
+                $.get('/ordering/AddWishlist/' + id, {}, function (data) {
+                    $("div.smallCart").html(data);
+                });
+            });
+        });
     </script>
 
 }

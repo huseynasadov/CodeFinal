@@ -1,4 +1,4 @@
-﻿ @using Microsoft.AspNetCore.Mvc.Localization
+﻿@using Microsoft.AspNetCore.Mvc.Localization
 @inject IViewLocalizer _localizer
 @model ShopIndexVM
 @{
@@ -39,7 +39,7 @@
                                                 <div id="collapse-@cat.Id" class="collapse" aria-labelledby="heading-@cat.Id"
                                                      data-parent="#accordion">
                                                     <div class="card-body widget-succategory-card">
-                                                        <ul >
+                                                        <ul>
                                                             @foreach (var subcat in cat.ProductCategory.ProductSubCategories)
                                                             {
                                                                 <li class="widget-succategory"><a asp-controller="shop" asp-action="index" asp-route-category="@subcat.Id">@subcat.ProductSubCategoryTranslate.FirstOrDefault(s => s.LanguageId == cat.LanguageId).Name</a></li>
@@ -151,7 +151,7 @@
                             <button data-role="grid_list" type="button" class="btn-list" data-toggle="tooltip" title="List"></button>
                         </div>
                         <div class="sortable-form">
-                            <form method="get" role="form"  asp-controller="shop" asp-action="index" asp-route-category=@(Model.Pagination.CategoryId !=null? Model.Pagination.CategoryId:null )>
+                            <form method="get" role="form" asp-controller="shop" asp-action="index" asp-route-category=@(Model.Pagination.CategoryId !=null? Model.Pagination.CategoryId:null )>
                                 <select onchange="this.form.submit();" name="orderby" class="custom-select custom-select-md">
                                     @if (Model.Pagination.OrderBy == 1)
                                     {
@@ -207,7 +207,7 @@
                                 <div class="ajaxbg d-none">
                                     <img width="50" height="50" src="~/images/ajax-loader.gif" />
                                     <p class="lead alert alert-success text-center d-none">
-                                      @_localizer["The Product has been Added!"]  
+                                        @_localizer["The Product has been Added!"]
                                     </p>
                                 </div>
                                 <article class="single_product">
@@ -215,7 +215,7 @@
                                         <div class="product_thumb">
                                             <a class="primary_img" asp-controller="shop" asp-action="detail" asp-route-slug="@product.Slug"><img style="height:200px; object-fit:contain" src="~/images/@(product.ProductPhotos.FirstOrDefault()==null?"product/product-default.png":product.ProductPhotos.FirstOrDefault().Photo) " alt="@product.Name"></a>
                                             <a class="secondary_img" asp-controller="shop" asp-action="detail" asp-route-slug="@product.Slug"><img style="height:200px; object-fit:contain" src="~/images/@(product.ProductPhotos.FirstOrDefault()==null ?"product/product-default.png":product.ProductPhotos.Count==1?product.ProductPhotos.FirstOrDefault().Photo:product.ProductPhotos.Skip(1).FirstOrDefault().Photo)" alt="@product.Name"></a>
-                                            @if (product.Discount!=0 )
+                                            @if (product.Discount != 0)
                                             {
                                                 <div class="label_product">
                                                     <span class="label_sale">@_localizer["sale"]</span>
@@ -223,7 +223,7 @@
                                             }
                                             <div class="action_links">
                                                 <ul>
-                                                    <li class="wishlist"><a href="wishlist.html" title="@_localizer["Add to Wishlist"]"><i class="fa fa-heart-o" aria-hidden="true"></i></a></li>
+                                                    <li class="wishlist"><a class="addToCartWishlist" asp-action="AddWishlist" asp-controller="ordering" asp-route-id="@product.Id" data-id="@product.Id" title="@_localizer["Add to Wishlist"]"><i class="fa fa-heart-o" aria-hidden="true"></i></a></li>
 
                                                     <li class="quick_button"><a href="#" data-toggle="modal" data-target="#modal_box" title="@_localizer["Quick View"]"> <span class="ion-ios-search-strong"></span></a></li>
                                                 </ul>
@@ -233,7 +233,7 @@
                                             </div>
                                         </div>
                                         <div class="product_content grid_content">
- 
+
                                             <price price="@product.Price" discount-price="@product.Discount" language-id="@Model.ProductCategoryTranslates.FirstOrDefault().LanguageId"></price>
 
                                             <div class="product_ratings">
@@ -250,7 +250,7 @@
                                         <div class="product_content list_content">
                                             <div class="left_caption">
                                                 <price price="@product.Price" discount-price="@product.Discount" language-id="@Model.ProductCategoryTranslates.FirstOrDefault().LanguageId"></price>
-                                               
+
                                                 <h3 class="product_name"><a style="font-weight:bold;font-size:medium;color:dimgray" asp-controller="shop" asp-action="detail" asp-route-slug="@product.Slug">@product.Name</a></h3>
                                                 <div class="product_ratings">
                                                     <ul>
@@ -268,8 +268,8 @@
                                                 </div>
                                                 <div class="action_links">
                                                     <ul>
-                                                        <li class="wishlist"><a href="wishlist.html" title="@_localizer["Add to Wishlist"]"><i class="fa fa-heart-o" aria-hidden="true"></i>@_localizer["Add to Wishlist"]</a></li>
-                                                     
+                                                        <li class="wishlist"><a class="addToCartWishlist" asp-action="AddWishlist" asp-controller="ordering" asp-route-id="@product.Id" data-id="@product.Id" title="@_localizer["Add to Wishlist"]"><i class="fa fa-heart-o" aria-hidden="true"></i>@_localizer["Add to Wishlist"]</a></li>
+
                                                         <li class="quick_button"><a href="#" data-toggle="modal" data-target="#modal_box" title="@_localizer["Quick View"]"> <span class="ion-ios-search-strong"></span>@_localizer["Quick View"] </a></li>
                                                     </ul>
                                                 </div>
@@ -300,15 +300,35 @@
 </main>
 <!--Main End-->
 
-@section Scripts{ 
+@section Scripts{
     <script>
         $(function () {
             $("a.addToCart").click(function (e) {
-                e.preventDefault(); 
+                e.preventDefault();
                 let ajaxDiv = $(this).parent().parent().parent().parent().parent().find("div.ajaxbg");
                 ajaxDiv.removeClass("d-none");
                 let id = $(this).data("id");
                 $.get('/ordering/add/' + id, {}, function (data) {
+                    $("div.smallCart").html(data);
+                    ajaxDiv.find("img").addClass("d-none");
+                    ajaxDiv.find("p").removeClass("d-none");
+                    setTimeout(() => {
+                        ajaxDiv.animate({ opacity: 0 }, function () {
+                            $(this).addClass("d-none").fadeTo(.1, 1);
+                            $(this).find("img").removeClass("d-none");
+                            $(this).find("p").addClass("d-none");
+                        });
+                    });
+                });
+            });
+        });
+        $(function () {
+            $("a.addToCartWishlist").click(function (e) {
+                e.preventDefault();
+                let ajaxDiv = $(this).parent().parent().parent().parent().parent().parent().parent().find("div.ajaxbg");
+                ajaxDiv.removeClass("d-none");
+                let id = $(this).data("id");
+                $.get('/ordering/AddWishlist/' + id, {}, function (data) {
                     $("div.smallCart").html(data);
                     ajaxDiv.find("img").addClass("d-none");
                     ajaxDiv.find("p").removeClass("d-none");
