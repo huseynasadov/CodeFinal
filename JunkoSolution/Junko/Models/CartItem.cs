@@ -13,6 +13,7 @@ namespace Junko.Models
         public int Quantity { get; set; }
         public decimal Total { get { return Quantity * Price; } }
         public string Image { get; set; }
+        public DateTime CreatedAt { get; set; }
 
         public CartItem()
         {
@@ -25,7 +26,7 @@ namespace Junko.Models
             Image = product.ProductPhotos.FirstOrDefault().Photo;
             Price = product.Price;
             Quantity = 1;
-
+            CreatedAt = DateTime.Now;
         }
     }
 }

@@ -17,6 +17,9 @@ html,
 body {
     height: 100%;
 }
+footer {
+    position:relative;
+}
 
 body {
     line-height: 24px;
@@ -969,9 +972,10 @@ textarea:-ms-input-placeholder {
         }
 
     .mini_cart_wrapper:hover .mini_cart {
-        max-height: 500px;
+        max-height: 312px;
         padding: 18px 28px 33px;
         visibility: visible;
+        overflow-y:scroll;
     }
 
 .mini_cart {

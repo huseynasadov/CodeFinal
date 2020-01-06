@@ -1376,6 +1376,13 @@
 }
 
 @media only screen and (max-width: 767px) {
+    .custom_product_area {
+        display: none !important;
+    }
+
+    .banner_area{
+        display: none !important;
+    }
     .cart_info a {
         font-size: 13px;
     }
@@ -3057,8 +3064,12 @@
 }
 
 @media only screen and (max-width: 479px) {
-
-
+    .custom_product_area {
+        display: none !important;
+    }
+    .banner_area{
+        display:none!important;
+    }
     .container {
         width: 100%;
     }

@@ -35,7 +35,7 @@ namespace Junko.ViewComponents
             {
                 model.NumberOfItems = cart.Sum(x => x.Quantity);
                 model.TotalAmount = cart.Sum(x => x.Quantity * x.Price);
-                model.CartItems = cart;
+                model.CartItems = cart.OrderByDescending(x=>x.CreatedAt).ToList();
             }
             return View(model);
         }
