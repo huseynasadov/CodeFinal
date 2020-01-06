@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Junko.Helpers;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -13,7 +14,9 @@ namespace Junko.Models
         [Required,MaxLength(50)]
         public string Logo { get; set; }
 
-        [Required, MaxLength(250)]
+        [MaxLength(250)]
+        [FileExtension]
+        [Display(Name = "Logo Image")]
         public string PhotoLogo { get; set; }
         [Required, MaxLength(20),MinLength(10)]
         public string Phone { get; set; }

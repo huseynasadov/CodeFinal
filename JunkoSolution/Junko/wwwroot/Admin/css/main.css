@@ -1,1 +1,8 @@
-﻿
+﻿.imgpreview {
+    position: absolute;
+    left: 120%;
+    top: -60%;
+}
+.form-image {
+    position:relative;
+}
