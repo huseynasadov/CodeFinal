@@ -58,7 +58,7 @@
             <hr class="sidebar-divider">
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a class="nav-link"asp-action="index" asp-controller="settings" asp-area="control">
+                <a class="nav-link" asp-action="index" asp-controller="settings" asp-area="control">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Setting</span>
                 </a>
@@ -134,14 +134,14 @@
                 </a>
             </li>
             @*@if (admin.AdminPosition == AdminPosition.Admin)
-            {
-                <li class="nav-item">
-                    <a class="nav-link" href="@Url.Action("index","AdminManagers")">
-                        <i class="fas fa-fw fa-table"></i>
-                        <span>Admin Manager</span>
-                    </a>
-                </li>
-            }*@
+                {
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("index","AdminManagers")">
+                            <i class="fas fa-fw fa-table"></i>
+                            <span>Admin Manager</span>
+                        </a>
+                    </li>
+                }*@
 
 
             <!-- Divider -->
@@ -394,6 +394,7 @@
     <!-- Bootstrap core JavaScript-->
     <script src="~/Admin/vendor/jquery/jquery.min.js"></script>
     <script src="~/Admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/jquery-form-validator/jquery.form-validator.min.js"></script>
 
     <!-- Core plugin JavaScript-->
     <script src="~/Admin/vendor/jquery-easing/jquery.easing.min.js"></script>

@@ -1,7 +1,10 @@
 ﻿.imgpreview {
     position: absolute;
-    left: 120%;
-    top: -60%;
+    left: 105%;
+    top: 0;
+    width:100px;
+    height:100px;
+    object-fit:contain;
 }
 .form-image {
     position:relative;

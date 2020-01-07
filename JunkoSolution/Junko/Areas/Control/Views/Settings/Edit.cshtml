@@ -1,4 +1,4 @@
-﻿@model Junko.Models.Setting
+﻿@model Junko.Areas.Control.ViewModels.SettingViewModel
 
 @{
     ViewData["Title"] = "Edit";
@@ -8,61 +8,110 @@
 
 <h4>Setting</h4>
 <hr />
-<div class="row">
-    <div class="col-md-4">
+<div class="row d-flex justify-content-between">
+    <div class="col-md-6">
         <form asp-action="Edit" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Logo" class="control-label"></label>
-                <input asp-for="Logo" class="form-control" />
-                <span asp-validation-for="Logo" class="text-danger"></span>
+                <label asp-for="Setting.Logo" class="control-label"></label>
+                <input asp-for="Setting.Logo" class="form-control" data-validation="required" />
+                <span asp-validation-for="Setting.Logo" class="text-danger"></span>
             </div>
-            <div class="form-group d-flex form-image">
-                <label asp-for="PhotoLogo" class="control-label"></label>
-                <input asp-for="PhotoUpload" class="form-control" />
-                <span asp-validation-for="PhotoUpload" class="text-danger"></span>
-                <img src="" class="imgpreview">
-            </div>
-            <div class="form-group">
-                <label asp-for="Phone" class="control-label"></label>
-                <input asp-for="Phone" class="form-control" />
-                <span asp-validation-for="Phone" class="text-danger"></span>
+            <div class="form-group form-image">
+                <label asp-for="Setting.PhotoLogo" class="control-label"></label>
+                <input asp-for="Setting.PhotoUpload" class="form-control" data-validation="mime size" data-validation-allowing="jpg, png,jpeg" data-validation-max-size="2Mb" />
+                <input hidden asp-for="Setting.PhotoLogo" class="form-control" data-validation="required" />
+                <span asp-validation-for="Setting.PhotoUpload" class="text-danger"></span>
+                <img src="~/images/@Model.Setting.PhotoLogo" class="imgpreview">
             </div>
             <div class="form-group">
-                <label asp-for="Location" class="control-label"></label>
-                <input asp-for="Location" class="form-control" />
-                <span asp-validation-for="Location" class="text-danger"></span>
+                <label asp-for="Setting.Phone" class="control-label"></label>
+                <input asp-for="Setting.Phone" class="form-control" data-validation="required" />
+                <span asp-validation-for="Setting.Phone" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control" />
-                <span asp-validation-for="Email" class="text-danger"></span>
-            </div>
-            <input type="hidden" asp-for="Id" />
-            <div class="form-group">
-                <label asp-for="AdminManagerId" class="control-label"></label>
-                <select asp-for="AdminManagerId" class="form-control" asp-items="ViewBag.AdminManagerId"></select>
-                <span asp-validation-for="AdminManagerId" class="text-danger"></span>
+                <label asp-for="Setting.Location" class="control-label"></label>
+                <input asp-for="Setting.Location" class="form-control" data-validation="required" />
+                <span asp-validation-for="Setting.Location" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ModifiedAt" class="control-label"></label>
-                <input asp-for="ModifiedAt" class="form-control" />
-                <span asp-validation-for="ModifiedAt" class="text-danger"></span>
+                <label asp-for="Setting.Email" class="control-label"></label>
+                <input asp-for="Setting.Email" class="form-control" data-validation="email" />
+                <span asp-validation-for="Setting.Email" class="text-danger"></span>
             </div>
+            <input type="hidden" asp-for="Setting.Id" />
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <select hidden asp-for="Setting.AdminManagerId" class="form-control" asp-items="ViewBag.AdminManagerId"></select>
+            </div>
+            <input hidden asp-for="Setting.ModifiedAt" class="form-control" />
+
+            <nav>
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">
+                        <img width="30" src="~/images/azerbaijan.png" />
+                    </a>
+                    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">
+                        <img width="30" src="~/images/united-states.png" />
+                    </a>
+                </div>
+            </nav>
+            <div class="tab-content" id="nav-tabContent">
+                @for (int i = Model.SettingTranslates.Count-1; i >= 0; i--)
+                {
+                    <div class="tab-pane fade @(i==0?"show active":"")" id="@(i==0?"nav-home":"nav-profile")" role="tabpanel" aria-labelledby="@(i==0?"nav-home-tab":"nav-profile-tab")">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <select hidden asp-for="SettingTranslates[i].SettingId" class="form-control" asp-items="ViewBag.SettingId"></select>
+
+                        <input hidden name="SettingTranslates[@i].LanguageId" value="@Model.SettingTranslates[i].LanguageId"/>
+
+                        <div class="form-group">
+                            <label asp-for="SettingTranslates[i].Address" class="control-label"></label>
+                            <input asp-for="SettingTranslates[i].Address" class="form-control" />
+                            <span asp-validation-for="SettingTranslates[i].Address" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="SettingTranslates[i].FAQTitle" class="control-label"></label>
+                            <input asp-for="SettingTranslates[i].FAQTitle" class="form-control" />
+                            <span asp-validation-for="SettingTranslates[i].FAQTitle" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="SettingTranslates[i].FAQContent" class="control-label"></label>
+                            <input asp-for="SettingTranslates[i].FAQContent" class="form-control" />
+                            <span asp-validation-for="SettingTranslates[i].FAQContent" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="SettingTranslates[i].Privacy" class="control-label"></label>
+                            <textarea asp-for="SettingTranslates[i].Privacy" class="form-control"></textarea>
+                            <span asp-validation-for="SettingTranslates[i].Privacy" class="text-danger"></span>
+                        </div>
+                        <input type="hidden" asp-for="SettingTranslates[i].Id" />
+                    </div>
+                }
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                </div>
             </div>
         </form>
     </div>
+
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a class="btn btn-outline-info" asp-action="Index">Back to List</a>
 </div>
 @section Scripts{
     <script>
-        $("#PhotoUpload").change(function () {
+        $("#Setting_PhotoUpload").change(function () {
             readURL(this);
         });
+        $.validate({
+            modules: 'date, file'
+        });
+
+    </script>
+    <script src="https://cdn.ckeditor.com/4.13.0/standard/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace('SettingTranslates[0].Privacy');
+        CKEDITOR.replace('SettingTranslates[1].Privacy');
     </script>
 }

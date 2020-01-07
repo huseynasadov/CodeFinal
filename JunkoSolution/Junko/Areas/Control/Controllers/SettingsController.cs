@@ -9,6 +9,8 @@ using Junko.DAL;
 using Junko.Models;
 using System.IO;
 using Microsoft.AspNetCore.Hosting;
+using Junko.Helpers;
+using Junko.Areas.Control.ViewModels;
 
 namespace Junko.Areas.Control.Controllers
 {
@@ -32,20 +34,25 @@ namespace Junko.Areas.Control.Controllers
 
 
         // GET: Control/Settings/Edit/5
+
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
-
-            var setting = await _context.Setting.FindAsync(id);
-            if (setting == null)
+            SettingViewModel model = new SettingViewModel {
+                Setting = await _context.Setting.Include("SettingTranslates").FirstOrDefaultAsync(x => x.Id == id),
+                SettingTranslates =  _context.SettingTranslates.Include("Language").Where(x=>x.SettingId==id).ToList()
+        };
+            if (model.Setting == null)
             {
                 return NotFound();
             }
-            ViewData["AdminManagerId"] = new SelectList(_context.AdminManagers, "Id", "Email", setting.AdminManagerId);
-            return View(setting);
+            ViewData["AdminManagerId"] = new SelectList(_context.AdminManagers, "Id", "Email", model.Setting.AdminManagerId);
+            ViewData["SettingId"] = new SelectList(_context.Setting, "Id", "Email", model.Setting.Id);
+            ViewData["LanguageId"] = new SelectList(_context.Languages, "Id", "Id", model.SettingTranslates.FirstOrDefault().LanguageId);
+            return View(model);
         }
 
         // POST: Control/Settings/Edit/5
@@ -53,34 +60,39 @@ namespace Junko.Areas.Control.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Logo,PhotoLogo,PhotoUpload,Phone,Location,Email,Id,AdminManagerId,ModifiedAt")] Setting setting)
+        public async Task<IActionResult> Edit(int id, SettingViewModel model)
         {
-            if (id != setting.Id)
+            if (id != model.Setting.Id)
             {
                 return NotFound();
             }
-
-            if (ModelState.IsValid)
+            if (model.Setting.PhotoUpload != null)
             {
-                string DefaultImage = "noimage.png";
-                if (setting.PhotoUpload!=null)
-                {
-                    string UploadDir = Path.Combine(webHostEnvironment.WebRootPath, "images");
-                    DefaultImage = "Uploads/"+Guid.NewGuid().ToString() + "_" + setting.PhotoUpload.FileName;
-                    string filePath = Path.Combine(UploadDir, DefaultImage);
-                    FileStream fs = new FileStream(filePath, FileMode.Create);
-                    await setting.PhotoUpload.CopyToAsync(fs);
-                    fs.Close();
-                }
-                    setting.PhotoLogo = DefaultImage;
                 try
                 {
-                    _context.Update(setting);
+                    FileManager fileManager = new FileManager(webHostEnvironment);
+                    model.Setting.PhotoLogo = fileManager.Upload(model.Setting.PhotoUpload);
+                }
+                catch (Exception e)
+                {
+                    ModelState.AddModelError("PhotoUpload", e.Message);
+                }
+            }
+            if (ModelState.IsValid)
+            {
+                foreach (var setTranslate in model.SettingTranslates)
+                {
+                    _context.Update(setTranslate);
+                }
+                try
+                {
+                    _context.Update(model.Setting);
                     await _context.SaveChangesAsync();
+                    TempData["Success"] = "Change Successed";
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!SettingExists(setting.Id))
+                    if (!SettingExists(model.Setting.Id))
                     {
                         return NotFound();
                     }
@@ -91,8 +103,8 @@ namespace Junko.Areas.Control.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["AdminManagerId"] = new SelectList(_context.AdminManagers, "Id", "Email", setting.AdminManagerId);
-            return View(setting);
+            ViewData["AdminManagerId"] = new SelectList(_context.AdminManagers, "Id", "Email", model.Setting.AdminManagerId);
+            return View(model);
         }
 
        

@@ -9,6 +9,24 @@
     {
       "library": "font-awesome@5.11.2",
       "destination": "wwwroot/bootstrap-formhelpers/font-awesome/"
+    },
+    {
+      "library": "jquery-form-validator@2.3.79",
+      "destination": "wwwroot/jquery-form-validator/",
+      "files": [
+        "jquery.form-validator.min.js",
+        "file.js",
+        "date.js",
+        "color.js",
+        "html5.js",
+        "theme-default.css",
+        "theme-default.min.css",
+        "toggleDisabled.js"
+      ]
+    },
+    {
+      "library": "ckeditor@4.12.1",
+      "destination": "wwwroot/lib/ckeditor/"
     }
   ]
 }
