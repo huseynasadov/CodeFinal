@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Junko.DAL;
 using Junko.Models;
 using Junko.ModelTranslate;
@@ -120,6 +119,10 @@ namespace Junko.Controllers
         [HttpPost]
         public IActionResult Review(BlogReview review) 
         {
+            if (review.AdminManagerId == 0 && review.UserClientId == 0)
+            {
+                return RedirectToAction("index", "login");
+            }
             if (ModelState.IsValid)
             {
                 if (review.AdminManagerId == 0)
@@ -130,6 +133,7 @@ namespace Junko.Controllers
                 {
                     review.UserClientId = null;
                 }
+                
                 review.CreatedAt = DateTime.Now;
                 _db.BlogReviews.Add(review);
                 _db.SaveChanges();

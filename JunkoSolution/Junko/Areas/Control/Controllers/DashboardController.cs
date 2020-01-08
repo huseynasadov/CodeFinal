@@ -12,12 +12,8 @@ namespace Junko.Areas.Control.Controllers
     [Authorize]
     public class DashboardController : Controller
     {
-        private readonly JunkoDBContext _db;
-        public DashboardController(JunkoDBContext context)
-        {
-            _db = context;
-        }
-        public async Task<IActionResult> Index()
+       
+        public IActionResult Index()
         {
 
             return View();

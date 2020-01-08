@@ -7,7 +7,7 @@
 
 <!--breadcrumbs area start-->
 
-@await Html.PartialAsync("~/Views/Shared/_Breadcrumb.cshtml",model:Model.Breadcrumb)
+@await Html.PartialAsync("~/Views/Shared/_Breadcrumb.cshtml", model: Model.Breadcrumb)
 <!--breadcrumbs area end-->
 <!--Main Start-->
 <main>
@@ -73,29 +73,13 @@
                         <div class="row">
                             <div class="col-lg-6 col-md-6">
                                 <div class="coupon_code right">
-                                    <h3>Cart Totals</h3>
+                                    <h3>@_localizer["Cart"] @_localizer["Total"]</h3>
                                     <div class="coupon_inner">
-                                        <div class="cart_subtotal">
-                                            <p>@_localizer["Subtotal"]</p>
-                                            <p class="cart_amount">
-                                                <price price="@Model.GrandTotal" discount-price="0" language-id="@Model.LanguageId"></price>
-                                            </p>
-                                        </div>
-                                        <div class="cart_subtotal ">
-                                            <p>@_localizer["Shipping"]</p>
-                                            <p class="cart_amount">
-                                                <price price="@Model.GrandTotal" discount-price="0" language-id="@Model.LanguageId"></price>
-                                            </p>
-                                        </div>
-
                                         <div class="cart_subtotal">
                                             <p>@_localizer["Total"]</p>
                                             <p class="cart_amount">
                                                 <price price="@Model.GrandTotal" discount-price="0" language-id="@Model.LanguageId"></price>
                                             </p>
-                                        </div>
-                                        <div class="checkout_btn">
-                                            <a href="#">@_localizer["Checkout"]</a>
                                         </div>
                                     </div>
                                 </div>

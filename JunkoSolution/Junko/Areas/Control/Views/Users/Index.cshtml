@@ -1,26 +1,26 @@
 ﻿@model IEnumerable<AppAdmin>
 
 @{
-    ViewData["Title"] = "Admins";
+    ViewData["Title"] = "Admin Panel";
 }
 
 <partial name="_NotificationPartial" />
-<h1>Admins</h1>
+<h1>Admin Panel</h1>
 
 <p>
-    <a asp-action="register" asp-controller="users" class="btn btn-outline-info">Create New</a>
+    <a asp-action="register" asp-controller="users" class="btn btn-outline-info">Yeni Admin Yarat</a>
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                Firstname
+                Ad
             </th>
             <th>
-                Lastname
+                Soyad
             </th>
             <th>
-                Email
+                E-Poçt
             </th>
             <th></th>
         </tr>
@@ -39,10 +39,46 @@
                     @item.Email
                 </td>
                 <td>
-                    <a asp-action="remove" asp-controller="users"><i class="fas fa-trash text-danger"></i></a>
+                    <a class="categoryDelete" asp-action="remove" asp-controller="users" asp-route-Email="@item.Email"><i class="fas fa-trash text-danger"></i></a>
 
                 </td>
             </tr>
         }
     </tbody>
 </table>
+@section Scripts{
+    <script>
+        $(function () {
+            $(".categoryDelete").click(function (event) {
+                var deletinput = this;
+                event.preventDefault();
+                Swal.fire({
+                    title: 'Əminsinizmi ?',
+                    text: "Geri qaytarmaq mümkün olmayacaq",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Bəli, silinsin!',
+                    cancelButtonText: 'Xeyir'
+                }).then((result) => {
+                    if (result.value) {
+
+                        $.ajax({
+                            url: $(deletinput).attr("href"),
+                            success: function () {
+
+                            },
+
+                            complete: function () {
+                                setTimeout(1000);
+                                location.reload();
+                            }
+                        })
+                        toastr.success('Ugurla basa catdi', 'Admin Silindi')
+                    }
+                })
+            })
+        })
+    </script>
+}

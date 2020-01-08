@@ -1,11 +1,11 @@
 ﻿@model IEnumerable<Junko.Models.Setting>
 
 @{
-    ViewData["Title"] = "Setting";
+    ViewData["Title"] = "Parametrlər";
 }
 
     <partial name="_NotificationPartial" />
-<h1>Setting</h1>
+<h1>Parametrlər</h1>
 
 <table class="table">
     <thead>
@@ -59,7 +59,7 @@
                 @Html.DisplayFor(modelItem => item.AdminManager.Email)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-outline-info">Edit</a>
+                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-outline-info">Dəyişdir</a>
             </td>
         </tr>
 }

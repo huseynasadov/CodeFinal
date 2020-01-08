@@ -15,7 +15,7 @@ namespace Junko.Areas.Control.Controllers
     {
         private readonly UserManager<AppAdmin> _userManager;
         private readonly SignInManager<AppAdmin> _signInManager;
-        private IPasswordHasher<AppAdmin> _passwordHasher;
+        private readonly IPasswordHasher<AppAdmin> _passwordHasher;
         public UsersController(UserManager<AppAdmin> userManager, SignInManager<AppAdmin> signInManager, IPasswordHasher<AppAdmin> passwordHasher)
         {
             _userManager = userManager;
@@ -127,6 +127,20 @@ namespace Junko.Areas.Control.Controllers
             }
 
             return View();
+        }
+
+        public async Task<IActionResult> Remove(string Email)
+        {
+            AppAdmin appAdmin = await _userManager.FindByEmailAsync(Email);
+            if (appAdmin!=null)
+            {
+                IdentityResult result = await _userManager.DeleteAsync(appAdmin);
+                if (result.Succeeded)
+                    TempData["Success"] = "Admin Deleted";
+                return RedirectToAction("index", "users");
+            }
+
+            return LocalRedirect("/home/error");
         }
     }
 }

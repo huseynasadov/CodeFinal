@@ -8,17 +8,14 @@
 <html lang="en">
 
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-
-    <title>SB Admin 2 - Register</title>
-
+    <title>SB Admin 2 - Qeydiyyat</title>
     <!-- Custom fonts for this template-->
-    <link href="~/Admin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="~/bootstrap-formhelpers/font-awesome/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
     <!-- Custom styles for this template-->
@@ -38,7 +35,7 @@
                     <div class="col-lg-7">
                         <div class="p-5">
                             <div class="text-center">
-                                <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
+                                <h1 class="h4 text-gray-900 mb-4">Hesab yarat!</h1>
                             </div>
                             <form asp-action="Register">
                                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -58,17 +55,17 @@
                                     <span asp-validation-for="Email" class="text-danger"></span>
                                 </div>
                                 <div class="form-group">
-                                    <label for="Password_confirmation"  class="control-label">Password</label>
+                                    <label for="Password_confirmation" class="control-label">Parol</label>
                                     <input type="password" name="Password_confirmation" id="Password_confirmation" data-validation="required length" data-validation-length="min8" class="form-control" />
                                     <span asp-validation-for="Password" class="text-danger"></span>
                                 </div>
                                 <div class="form-group">
-                                    <label for="Password" class="control-label">Confirm Password</label>
+                                    <label for="Password" class="control-label">Təkrar Parol</label>
                                     <input asp-for="Password" class="form-control" data-validation="required confirmation" />
                                     <span asp-validation-for="Password" class="text-danger"></span>
                                 </div>
                                 <div class="form-group">
-                                    <input type="submit" value="Register" class="btn btn-primary" />
+                                    <input type="submit" value="Qeydiyyat" class="btn btn-primary" />
                                 </div>
                             </form>
                             <hr>
@@ -86,7 +83,7 @@
 
     <!-- Bootstrap core JavaScript-->
     <script src="~/Admin/vendor/jquery/jquery.min.js"></script>
-    <script src="~/Admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 
     <!-- Core plugin JavaScript-->
     <script src="~/Admin/vendor/jquery-easing/jquery.easing.min.js"></script>

@@ -12,6 +12,7 @@ namespace Junko.Models
     public class Setting:BaseAuditClass
     {
         [Required,MaxLength(50)]
+        [Display(Name = "Loqo Şəkli")]
         public string Logo { get; set; }
 
         [MaxLength(250)]
@@ -19,10 +20,13 @@ namespace Junko.Models
         [Display(Name = "Logo Image")]
         public string PhotoLogo { get; set; }
         [Required, MaxLength(20),MinLength(10)]
+        [Display(Name = "Telefon")]
         public string Phone { get; set; }
         [Required,MaxLength(100)]
+        [Display(Name = "Yerləşmə")]
         public string Location { get; set; }
         [Required,EmailAddress]
+        [Display(Name = "E-Poçt")]
         public string Email { get; set; }
         [NotMapped]
         public IFormFile PhotoUpload { get; set; }

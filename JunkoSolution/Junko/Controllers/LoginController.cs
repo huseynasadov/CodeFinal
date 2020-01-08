@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web.Helpers;
 using Junko.DAL;
 using Junko.Models;
 using Junko.ViewModels;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 
 namespace Junko.Controllers
 {
@@ -48,7 +49,16 @@ namespace Junko.Controllers
             if (ModelState.IsValid)
             {
                 UserClient user = _db.UserClients.FirstOrDefault(a => a.Email == model.Login.Email);
-                if (user != null && Crypto.VerifyHashedPassword(user.Password, model.Login.Password))
+                PasswordHasher<UserClient> hasher = new PasswordHasher<UserClient>(
+                       new OptionsWrapper<PasswordHasherOptions>(
+                           new PasswordHasherOptions()
+                           {
+                               CompatibilityMode = PasswordHasherCompatibilityMode.IdentityV2
+                           })
+                   );
+                var result = hasher.VerifyHashedPassword(user, user.Password, model.Login.Password);
+
+                if (user != null && result == PasswordVerificationResult.Success)
                 {
                     user.Token = Guid.NewGuid().ToString();
                     _db.SaveChanges();
@@ -57,7 +67,7 @@ namespace Junko.Controllers
                     option.IsEssential = true;
                     Response.Cookies.Append("Token", user.Token, option);
 
-                    return LocalRedirect(returnUrl);
+                    return Redirect((!string.IsNullOrEmpty(Request.Headers["Referer"]) ? Request.Headers["Referer"].ToString() :returnUrl));
                 }
             }
             model.Breadcrumb = new Breadcrumb
@@ -97,7 +107,16 @@ namespace Junko.Controllers
             {
 
                 model.User.CreatedAt = DateTime.Now;
-                model.User.Password = Crypto.HashPassword(model.User.Password);
+
+                PasswordHasher<UserClient> hasher = new PasswordHasher<UserClient>(
+                        new OptionsWrapper<PasswordHasherOptions>(
+                            new PasswordHasherOptions()
+                            {
+                                CompatibilityMode = PasswordHasherCompatibilityMode.IdentityV2
+                            })
+                    );
+
+                model.User.Password = hasher.HashPassword(model.User, model.User.Password);
                 model.User.Token = Guid.NewGuid().ToString();
                 _db.UserClients.Add(model.User);
                 _db.SaveChanges();
@@ -105,7 +124,7 @@ namespace Junko.Controllers
                 option.Expires = DateTime.Now.AddMinutes(60);
                 option.IsEssential = true;
                 Response.Cookies.Append("Token", model.User.Token, option);
-                return LocalRedirect(returnUrl);
+                return Redirect((!string.IsNullOrEmpty(Request.Headers["Referer"]) ? Request.Headers["Referer"].ToString() : returnUrl));
             }
             model.Breadcrumb = new Breadcrumb
             {
@@ -124,10 +143,11 @@ namespace Junko.Controllers
             var culture = rqf.RequestCulture.Culture;
 
             var cookieValue = Request.Cookies["Token"];
-            if (cookieValue == null) return LocalRedirect(returnUrl);
-            
+            if (cookieValue == null) return Redirect((!string.IsNullOrEmpty(Request.Headers["Referer"]) ? Request.Headers["Referer"].ToString() : returnUrl));
+
             UserClient user = _db.UserClients.FirstOrDefault(a => a.Token == cookieValue);
-            if (user==null) return LocalRedirect(returnUrl); ;
+            if (user==null)
+                return Redirect((!string.IsNullOrEmpty(Request.Headers["Referer"]) ? Request.Headers["Referer"].ToString() : returnUrl));
 
             AccountVM model = new AccountVM {
                 Breadcrumb = new Breadcrumb
@@ -154,7 +174,14 @@ namespace Junko.Controllers
                 {
                     user.Firstname = model.User.Firstname;
                     user.Lastname = model.User.Lastname;
-                    user.Password = Crypto.HashPassword(model.User.Password);
+                    PasswordHasher<UserClient> hasher = new PasswordHasher<UserClient>(
+                        new OptionsWrapper<PasswordHasherOptions>(
+                            new PasswordHasherOptions()
+                            {
+                                CompatibilityMode = PasswordHasherCompatibilityMode.IdentityV2
+                            })
+                    );
+                    user.Password = hasher.HashPassword(model.User, model.User.Password);
                     user.Birthday = model.User.Birthday;
                     user.Email = model.User.Email;
                     user.Gender = model.User.Gender;
@@ -179,7 +206,7 @@ namespace Junko.Controllers
             var cookieValue = Request.Cookies["Token"];
             if (cookieValue==null)
             {
-                return LocalRedirect(returnUrl);
+               return Redirect((!string.IsNullOrEmpty(Request.Headers["Referer"]) ? Request.Headers["Referer"].ToString() : returnUrl));
             }
           UserClient user=  _db.UserClients.FirstOrDefault(a => a.Token == cookieValue);
             if (user!=null)
@@ -188,8 +215,8 @@ namespace Junko.Controllers
                 _db.SaveChanges();
             }
 
-            Response.Cookies.Delete("Token"); 
-            return LocalRedirect(returnUrl);
+            Response.Cookies.Delete("Token");
+            return Redirect((!string.IsNullOrEmpty(Request.Headers["Referer"]) ? Request.Headers["Referer"].ToString() : returnUrl));
         }
     }
 }

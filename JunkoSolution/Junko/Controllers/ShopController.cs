@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Junko.DAL;
-using Junko.Helpers;
 using Junko.Models;
-using Junko.ModelTranslate;
 using Junko.ViewModels;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;

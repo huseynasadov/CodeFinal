@@ -1,11 +1,11 @@
 ﻿@model Junko.Models.User
 
 @{
-    ViewData["Title"] = "Edit Account";
+    ViewData["Title"] = "Hesabdı Dəyişdir";
 }
 
 <partial name="_NotificationPartial" />
-<h1>Edit Account</h1>
+<h1>Hesabdı Dəyişdir</h1>
 
 <hr />
 <div class="row">
@@ -28,17 +28,17 @@
                 <span asp-validation-for="Email" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label for="Password_confirmation" class="control-label">Password</label>
+                <label for="Password_confirmation" class="control-label">Parol</label>
                 <input type="password" name="Password_confirmation" id="Password_confirmation" class="form-control" />
                 <span asp-validation-for="Password" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label for="Password" class="control-label">Confirm Password</label>
+                <label for="Password" class="control-label">Təkrar Parol</label>
                 <input asp-for="Password" class="form-control" data-validation="confirmation" />
                 <span asp-validation-for="Password" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Yadda Saxla" class="btn btn-primary" />
             </div>
         </form>
     </div>
