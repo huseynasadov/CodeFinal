@@ -16,9 +16,9 @@ namespace Junko.Models
         public Product Product { get; set; }
         [ForeignKey("Product")]
         public int ProductId { get; set; }
-        public User User { get; set; }
+        public UserClient User { get; set; }
         [ForeignKey("User")]
-        public int? UserId { get; set; }
+        public int? UserClientId { get; set; }
         public AdminManager Admin { get; set; }
         [ForeignKey("AdminManager")]
         public int? AdminManagerId { get; set; }

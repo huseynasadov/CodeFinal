@@ -15,7 +15,7 @@ namespace Junko.ViewModels
         public ICollection<Product> LikeProducts { get; set; }
         public ICollection<Product> MostSaledProducts { get; set; }
         public int LanguageId { get; set; }
-        public int? UserId { get; set; }
+        public int? UserClientId { get; set; }
         public int? AdminId { get; set; }
     }
 }

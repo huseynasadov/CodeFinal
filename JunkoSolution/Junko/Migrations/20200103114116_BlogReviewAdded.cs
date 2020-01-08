@@ -16,7 +16,7 @@ namespace Junko.Migrations
                     Content = table.Column<string>(type: "ntext", nullable: false),
                     CreatedAt = table.Column<DateTime>(nullable: false),
                     BlogId = table.Column<int>(nullable: false),
-                    UserId = table.Column<int>(nullable: true),
+                    UserClientId = table.Column<int>(nullable: true),
                     AdminManagerId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
@@ -35,9 +35,9 @@ namespace Junko.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_BlogReviews_Users_UserId",
-                        column: x => x.UserId,
-                        principalTable: "Users",
+                        name: "FK_BlogReviews_UserClients_UserClientId",
+                        column: x => x.UserClientId,
+                        principalTable: "UserClients",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -79,7 +79,7 @@ namespace Junko.Migrations
 
             migrationBuilder.InsertData(
                 table: "BlogReviews",
-                columns: new[] { "Id", "AdminManagerId", "BlogId", "Content", "CreatedAt", "UserId" },
+                columns: new[] { "Id", "AdminManagerId", "BlogId", "Content", "CreatedAt", "UserClientId" },
                 values: new object[] { 3, 1, 1, "Vnunc vitae erat pellentesque, ac placerat arcu consectetur", new DateTime(2020, 1, 3, 15, 41, 12, 957, DateTimeKind.Local).AddTicks(2669), null });
 
             migrationBuilder.UpdateData(
@@ -4381,7 +4381,7 @@ namespace Junko.Migrations
                 value: new DateTime(2020, 1, 3, 15, 41, 12, 954, DateTimeKind.Local).AddTicks(454));
 
             migrationBuilder.InsertData(
-                table: "Users",
+                table: "UserClients",
                 columns: new[] { "Id", "Address", "Birthday", "CreatedAt", "Email", "Firstname", "Gender", "Lastname", "Password", "Token" },
                 values: new object[] { 1, "Sumqayit seheri H.Z.Tagiyev Qesesebesi", new DateTime(1994, 1, 29, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2020, 1, 3, 15, 41, 12, 953, DateTimeKind.Local).AddTicks(1845), "Huseynis@code.edu.az", "Huseyn", 0, "Asadov", "AIdRrgaJylkMlIfb0SOtVptIxShQUR06oD9A8EenQfuWYy4/Avoa01hQKAknD9Nxqw==", null });
 
@@ -4401,7 +4401,7 @@ namespace Junko.Migrations
 
             migrationBuilder.InsertData(
                 table: "BlogReviews",
-                columns: new[] { "Id", "AdminManagerId", "BlogId", "Content", "CreatedAt", "UserId" },
+                columns: new[] { "Id", "AdminManagerId", "BlogId", "Content", "CreatedAt", "UserClientId" },
                 values: new object[,]
                 {
                     { 1, null, 1, "But I must explain to you how all this mistaken idea of denouncing pleasure", new DateTime(2020, 1, 3, 15, 41, 12, 957, DateTimeKind.Local).AddTicks(1100), 1 },
@@ -4428,9 +4428,9 @@ namespace Junko.Migrations
                 column: "BlogId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_BlogReviews_UserId",
+                name: "IX_BlogReviews_UserClientId",
                 table: "BlogReviews",
-                column: "UserId");
+                column: "UserClientId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -4439,7 +4439,7 @@ namespace Junko.Migrations
                 name: "BlogReviews");
 
             migrationBuilder.DeleteData(
-                table: "Users",
+                table: "UserClients",
                 keyColumn: "Id",
                 keyValue: 1);
 

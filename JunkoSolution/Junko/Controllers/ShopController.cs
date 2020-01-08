@@ -142,7 +142,7 @@ namespace Junko.Controllers
                 return RedirectToAction("error", "home");
             }
             AdminManager admin = new AdminManager();
-            User user = new User();
+            UserClient user = new UserClient();
             var cookieUser = Request.Cookies["Token"];
             var cookieAdmin = Request.Cookies["TokenAdmin"];
             if (cookieAdmin != null)
@@ -151,7 +151,7 @@ namespace Junko.Controllers
             }
             if (cookieUser != null)
             {
-                user = _db.Users.FirstOrDefault(a => a.Token == cookieUser);
+                user = _db.UserClients.FirstOrDefault(a => a.Token == cookieUser);
             }
             var rqf = Request.HttpContext.Features.Get<IRequestCultureFeature>();
             var culture = rqf.RequestCulture.Culture;
@@ -163,7 +163,7 @@ namespace Junko.Controllers
             }
             ShopDetailVM model = new ShopDetailVM
             {
-                UserId = (user != null ? user.Id : 0),
+                UserClientId = (user != null ? user.Id : 0),
                 AdminId = (admin != null ? admin.Id : 0),
                 Breadcrumb = new Breadcrumb
                 {
@@ -191,11 +191,11 @@ namespace Junko.Controllers
                 {
                     review.AdminManagerId = null;
                 }
-                if (review.UserId == 0)
+                if (review.UserClientId == 0)
                 {
-                    review.UserId = null;
+                    review.UserClientId = null;
                 }
-                if (review.UserId==null && review.AdminManagerId==null)
+                if (review.UserClientId==null && review.AdminManagerId==null)
                 {
                     return RedirectToAction("index", "login");
                 }

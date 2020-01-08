@@ -196,7 +196,7 @@ namespace Junko.Controllers
 
             var cookieValue = Request.Cookies["Token"];
             if (cookieValue == null) return RedirectToAction("index", "login");
-            User user = _db.Users.FirstOrDefault(a => a.Token == cookieValue);
+            UserClient user = _db.UserClients.FirstOrDefault(a => a.Token == cookieValue);
             if (user == null) return  RedirectToAction("index", "login");
 
             List<CartItem> carts = HttpContext.Session.GetJson<List<CartItem>>("Cart") ?? new List<CartItem>();
@@ -214,9 +214,9 @@ namespace Junko.Controllers
 
             foreach (var cart in carts)
             {
-                if (_db.OrderProducts.FirstOrDefault(x => x.ProductId == cart.ProductId && x.UserId==user.Id) != null)
+                if (_db.OrderProducts.FirstOrDefault(x => x.ProductId == cart.ProductId && x.UserClientId==user.Id) != null)
                 {
-                    _db.OrderProducts.FirstOrDefault(x => x.ProductId == cart.ProductId && x.UserId == user.Id).Quantity = cart.Quantity;
+                    _db.OrderProducts.FirstOrDefault(x => x.ProductId == cart.ProductId && x.UserClientId == user.Id).Quantity = cart.Quantity;
                     _db.SaveChanges();
                 }
                 else
@@ -235,7 +235,7 @@ namespace Junko.Controllers
                     _db.SaveChanges();
                 }
             }
-            model.OrderProducts = _db.OrderProducts.Include("Product").Where(x => x.UserId == user.Id && x.Status==true).OrderByDescending(x => x.CreatedAt).ToList();
+            model.OrderProducts = _db.OrderProducts.Include("Product").Where(x => x.UserClientId == user.Id && x.Status==true).OrderByDescending(x => x.CreatedAt).ToList();
             return View(model);
         }
 

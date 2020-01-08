@@ -1,6 +1,6 @@
 ﻿@{
 
-//AdminManager admin = ViewBag.admin as AdminManager;
+    //AdminManager admin = ViewBag.admin as AdminManager;
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -133,15 +133,12 @@
                     <span>Employer Reviews</span>
                 </a>
             </li>
-            @*@if (admin.AdminPosition == AdminPosition.Admin)
-                {
-                    <li class="nav-item">
-                        <a class="nav-link" href="@Url.Action("index","AdminManagers")">
-                            <i class="fas fa-fw fa-table"></i>
-                            <span>Admin Manager</span>
-                        </a>
-                    </li>
-                }*@
+                <li class="nav-item">
+                    <a class="nav-link" asp-action="index" asp-controller="users">
+                        <i class="fas fa-fw fa-table"></i>
+                        <span>Admin Manager</span>
+                    </a>
+                </li>
 
 
             <!-- Divider -->

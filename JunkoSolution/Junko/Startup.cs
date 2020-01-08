@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Localization.Routing;
 using Microsoft.AspNetCore.Mvc;
@@ -74,19 +75,22 @@ namespace Junko
                 opts.SupportedUICultures = supportedCultures;
             });
 
-
-
             services.AddControllersWithViews();
             services.AddMvc(setup =>
             {
                 //...mvc setup...
             }).AddFluentValidation();
 
+            services.AddAuthentication().AddCookie();
             services.AddDbContext<JunkoDBContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddIdentity<AppAdmin, IdentityRole>().AddEntityFrameworkStores<JunkoDBContext>().AddDefaultTokenProviders();
 
             services.AddMvc(option => option.EnableEndpointRouting = false);
             services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.ConfigureApplicationCookie(opts => opts.LoginPath = "/Control/users/login");
+           
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -108,8 +112,9 @@ namespace Junko
             app.UseRequestLocalization(options.Value);
             app.UseRouting();
             app.UseSession();
-            app.UseAuthorization();
             app.UseAuthentication();
+            app.UseAuthorization();
+            
 
             app.UseEndpoints(endpoints =>
             {

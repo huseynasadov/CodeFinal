@@ -25,7 +25,7 @@ namespace Junko.Controllers
             var cookieValue = Request.Cookies["Token"];
             if (cookieValue!=null)
             {
-                User user = _db.Users.FirstOrDefault(a => a.Token == cookieValue);
+                UserClient user = _db.UserClients.FirstOrDefault(a => a.Token == cookieValue);
                 if (user != null) return LocalRedirect(returnUrl);
             }
             LoginVM model = new LoginVM
@@ -47,7 +47,7 @@ namespace Junko.Controllers
         {
             if (ModelState.IsValid)
             {
-                User user = _db.Users.FirstOrDefault(a => a.Email == model.Login.Email);
+                UserClient user = _db.UserClients.FirstOrDefault(a => a.Email == model.Login.Email);
                 if (user != null && Crypto.VerifyHashedPassword(user.Password, model.Login.Password))
                 {
                     user.Token = Guid.NewGuid().ToString();
@@ -89,7 +89,7 @@ namespace Junko.Controllers
         [HttpPost]
         public IActionResult Register(RegisterVM model, string returnUrl)
         {
-            if (_db.Users.Any(a => a.Email == model.User.Email))
+            if (_db.UserClients.Any(a => a.Email == model.User.Email))
             {
                 ModelState.AddModelError("User.Email", "This Email was Registered");
             }
@@ -99,7 +99,7 @@ namespace Junko.Controllers
                 model.User.CreatedAt = DateTime.Now;
                 model.User.Password = Crypto.HashPassword(model.User.Password);
                 model.User.Token = Guid.NewGuid().ToString();
-                _db.Users.Add(model.User);
+                _db.UserClients.Add(model.User);
                 _db.SaveChanges();
                 var option = new CookieOptions();
                 option.Expires = DateTime.Now.AddMinutes(60);
@@ -126,7 +126,7 @@ namespace Junko.Controllers
             var cookieValue = Request.Cookies["Token"];
             if (cookieValue == null) return LocalRedirect(returnUrl);
             
-            User user = _db.Users.FirstOrDefault(a => a.Token == cookieValue);
+            UserClient user = _db.UserClients.FirstOrDefault(a => a.Token == cookieValue);
             if (user==null) return LocalRedirect(returnUrl); ;
 
             AccountVM model = new AccountVM {
@@ -140,7 +140,7 @@ namespace Junko.Controllers
                 },
                 User = user,
                 LanguageId=_db.Languages.FirstOrDefault(x=>x.LanguageCode==culture.ToString()).Id,
-                OrderProducts=_db.OrderProducts.Include("Product").Where(x=>x.Status==true && x.UserId==user.Id).OrderByDescending(x=>x.Complete).ThenByDescending(x=>x.CreatedAt).ToList()
+                OrderProducts=_db.OrderProducts.Include("Product").Where(x=>x.Status==true && x.UserClientId==user.Id).OrderByDescending(x=>x.Complete).ThenByDescending(x=>x.CreatedAt).ToList()
             };
             return View(model);
         }
@@ -149,7 +149,7 @@ namespace Junko.Controllers
         {
             if (ModelState.IsValid)
             {
-              User user=  _db.Users.FirstOrDefault(a => a.Id == model.User.Id);
+              UserClient user=  _db.UserClients.FirstOrDefault(a => a.Id == model.User.Id);
                 if (user!=null)
                 {
                     user.Firstname = model.User.Firstname;
@@ -181,7 +181,7 @@ namespace Junko.Controllers
             {
                 return LocalRedirect(returnUrl);
             }
-          User user=  _db.Users.FirstOrDefault(a => a.Token == cookieValue);
+          UserClient user=  _db.UserClients.FirstOrDefault(a => a.Token == cookieValue);
             if (user!=null)
             {
                 user.Token = null;

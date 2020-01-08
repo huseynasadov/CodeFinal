@@ -4493,7 +4493,7 @@ namespace Junko.Migrations
                 value: new DateTime(2020, 1, 6, 9, 30, 36, 270, DateTimeKind.Local).AddTicks(1825));
 
             migrationBuilder.UpdateData(
-                table: "Users",
+                table: "UserClients",
                 keyColumn: "Id",
                 keyValue: 1,
                 column: "CreatedAt",
@@ -8998,7 +8998,7 @@ namespace Junko.Migrations
                 value: new DateTime(2020, 1, 5, 22, 58, 38, 100, DateTimeKind.Local).AddTicks(131));
 
             migrationBuilder.UpdateData(
-                table: "Users",
+                table: "UserClients",
                 keyColumn: "Id",
                 keyValue: 1,
                 column: "CreatedAt",

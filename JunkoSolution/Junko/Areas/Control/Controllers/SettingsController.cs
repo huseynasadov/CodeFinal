@@ -11,6 +11,7 @@ using System.IO;
 using Microsoft.AspNetCore.Hosting;
 using Junko.Helpers;
 using Junko.Areas.Control.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Junko.Areas.Control.Controllers
 {

@@ -4104,10 +4104,10 @@ readers do not read off random characters that represent icons */
 .fa-user-times:before {
   content: "\f235"; }
 
-.fa-users:before {
+.fa-UserClients:before {
   content: "\f0c0"; }
 
-.fa-users-cog:before {
+.fa-UserClients-cog:before {
   content: "\f509"; }
 
 .fa-usps:before {

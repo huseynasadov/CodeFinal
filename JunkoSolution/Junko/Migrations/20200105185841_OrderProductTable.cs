@@ -13,7 +13,7 @@ namespace Junko.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    UserId = table.Column<int>(nullable: false),
+                    UserClientId = table.Column<int>(nullable: false),
                     ProductId = table.Column<int>(nullable: false),
                     Price = table.Column<decimal>(nullable: false),
                     Quantity = table.Column<int>(nullable: false),
@@ -29,9 +29,9 @@ namespace Junko.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_OrderProducts_Users_UserId",
-                        column: x => x.UserId,
-                        principalTable: "Users",
+                        name: "FK_OrderProducts_UserClients_UserClientId",
+                        column: x => x.UserClientId,
+                        principalTable: "UserClients",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -892,7 +892,7 @@ namespace Junko.Migrations
 
             migrationBuilder.InsertData(
                 table: "OrderProducts",
-                columns: new[] { "Id", "CreatedAt", "Price", "ProductId", "Quantity", "UserId" },
+                columns: new[] { "Id", "CreatedAt", "Price", "ProductId", "Quantity", "UserClientId" },
                 values: new object[] { 1, new DateTime(2020, 1, 5, 22, 58, 38, 116, DateTimeKind.Local).AddTicks(3329), 3000m, 1, 1, 1 });
 
             migrationBuilder.UpdateData(
@@ -4508,7 +4508,7 @@ namespace Junko.Migrations
                 value: new DateTime(2020, 1, 5, 22, 58, 38, 100, DateTimeKind.Local).AddTicks(131));
 
             migrationBuilder.UpdateData(
-                table: "Users",
+                table: "UserClients",
                 keyColumn: "Id",
                 keyValue: 1,
                 column: "CreatedAt",
@@ -4534,9 +4534,9 @@ namespace Junko.Migrations
                 column: "ProductId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_OrderProducts_UserId",
+                name: "IX_OrderProducts_UserClientId",
                 table: "OrderProducts",
-                column: "UserId");
+                column: "UserClientId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -9011,7 +9011,7 @@ namespace Junko.Migrations
                 value: new DateTime(2020, 1, 3, 17, 22, 4, 254, DateTimeKind.Local).AddTicks(4774));
 
             migrationBuilder.UpdateData(
-                table: "Users",
+                table: "UserClients",
                 keyColumn: "Id",
                 keyValue: 1,
                 column: "CreatedAt",

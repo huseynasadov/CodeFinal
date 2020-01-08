@@ -14,10 +14,10 @@ namespace Junko.Models
     {
         public int Id { get; set; }
         [ForeignKey("User")]
-        public int UserId { get; set; }
+        public int UserClientId { get; set; }
         [ForeignKey("Product")]
         public int ProductId { get; set; }
-        public User User { get; set; }
+        public UserClient User { get; set; }
         public Product Product { get; set; }
         public decimal Price { get; set; }
         public int Quantity { get; set; }

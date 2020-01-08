@@ -21,11 +21,11 @@ namespace Junko.ViewComponents
         }
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            User user = new User();
+            UserClient user = new UserClient();
             var cookieValue = Request.Cookies["Token"];
             if (cookieValue!=null)
             {
-               user = await _db.Users.FirstOrDefaultAsync(a => a.Token == cookieValue);
+               user = await _db.UserClients.FirstOrDefaultAsync(a => a.Token == cookieValue);
             }
 
             var rqf = Request.HttpContext.Features.Get<IRequestCultureFeature>();

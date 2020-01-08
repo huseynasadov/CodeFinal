@@ -9,7 +9,7 @@ namespace Junko.Migrations
         {
             migrationBuilder.AddColumn<string>(
                 name: "Address",
-                table: "Users",
+                table: "UserClients",
                 nullable: true);
 
             migrationBuilder.UpdateData(
@@ -4364,7 +4364,7 @@ namespace Junko.Migrations
         {
             migrationBuilder.DropColumn(
                 name: "Address",
-                table: "Users");
+                table: "UserClients");
 
             migrationBuilder.UpdateData(
                 table: "AboutSettings",

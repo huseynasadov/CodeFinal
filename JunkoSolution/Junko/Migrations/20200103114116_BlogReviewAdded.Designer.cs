@@ -3943,7 +3943,7 @@ namespace Junko.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("UserId")
+                    b.Property<int?>("UserClientId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -3952,7 +3952,7 @@ namespace Junko.Migrations
 
                     b.HasIndex("BlogId");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("UserClientId");
 
                     b.ToTable("BlogReviews");
 
@@ -3963,7 +3963,7 @@ namespace Junko.Migrations
                             BlogId = 1,
                             Content = "But I must explain to you how all this mistaken idea of denouncing pleasure",
                             CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 957, DateTimeKind.Local).AddTicks(1100),
-                            UserId = 1
+                            UserClientId = 1
                         },
                         new
                         {
@@ -3971,7 +3971,7 @@ namespace Junko.Migrations
                             BlogId = 1,
                             Content = "Quisque semper nunc vitae erat pellentesque, ac placerat arcu consectetur",
                             CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 957, DateTimeKind.Local).AddTicks(1918),
-                            UserId = 1
+                            UserClientId = 1
                         },
                         new
                         {
@@ -3987,7 +3987,7 @@ namespace Junko.Migrations
                             BlogId = 2,
                             Content = "But I must explain to you how all this mistaken idea of denouncing pleasure",
                             CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 957, DateTimeKind.Local).AddTicks(2682),
-                            UserId = 1
+                            UserClientId = 1
                         },
                         new
                         {
@@ -3995,7 +3995,7 @@ namespace Junko.Migrations
                             BlogId = 3,
                             Content = "But I must explain to you how all this mistaken idea of denouncing pleasure",
                             CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 957, DateTimeKind.Local).AddTicks(2685),
-                            UserId = 1
+                            UserClientId = 1
                         },
                         new
                         {
@@ -4003,7 +4003,7 @@ namespace Junko.Migrations
                             BlogId = 4,
                             Content = "But I must explain to you how all this mistaken idea of denouncing pleasure",
                             CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 957, DateTimeKind.Local).AddTicks(2688),
-                            UserId = 1
+                            UserClientId = 1
                         },
                         new
                         {
@@ -4011,7 +4011,7 @@ namespace Junko.Migrations
                             BlogId = 5,
                             Content = "But I must explain to you how all this mistaken idea of denouncing pleasure",
                             CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 957, DateTimeKind.Local).AddTicks(2690),
-                            UserId = 1
+                            UserClientId = 1
                         },
                         new
                         {
@@ -4019,7 +4019,7 @@ namespace Junko.Migrations
                             BlogId = 6,
                             Content = "But I must explain to you how all this mistaken idea of denouncing pleasure",
                             CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 957, DateTimeKind.Local).AddTicks(2693),
-                            UserId = 1
+                            UserClientId = 1
                         },
                         new
                         {
@@ -4027,7 +4027,7 @@ namespace Junko.Migrations
                             BlogId = 7,
                             Content = "But I must explain to you how all this mistaken idea of denouncing pleasure",
                             CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 957, DateTimeKind.Local).AddTicks(2695),
-                            UserId = 1
+                            UserClientId = 1
                         },
                         new
                         {
@@ -4035,7 +4035,7 @@ namespace Junko.Migrations
                             BlogId = 8,
                             Content = "But I must explain to you how all this mistaken idea of denouncing pleasure",
                             CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 957, DateTimeKind.Local).AddTicks(2697),
-                            UserId = 1
+                            UserClientId = 1
                         },
                         new
                         {
@@ -4043,7 +4043,7 @@ namespace Junko.Migrations
                             BlogId = 9,
                             Content = "But I must explain to you how all this mistaken idea of denouncing pleasure",
                             CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 957, DateTimeKind.Local).AddTicks(2700),
-                            UserId = 1
+                            UserClientId = 1
                         },
                         new
                         {
@@ -4051,7 +4051,7 @@ namespace Junko.Migrations
                             BlogId = 10,
                             Content = "But I must explain to you how all this mistaken idea of denouncing pleasure",
                             CreatedAt = new DateTime(2020, 1, 3, 15, 41, 12, 957, DateTimeKind.Local).AddTicks(2702),
-                            UserId = 1
+                            UserClientId = 1
                         });
                 });
 
@@ -13515,7 +13515,7 @@ namespace Junko.Migrations
                             FAQTitle = "Below are frequently asked questions, you may find the answer for yourself",
                             LanguageId = 1,
                             ModifiedAt = new DateTime(2020, 1, 3, 15, 41, 12, 953, DateTimeKind.Local).AddTicks(9722),
-                            Privacy = "<div class='privacy_content section_1'> <h2>Who we are</h2> <p>Our website address is: <a href='http://1.envato.market/9LbxW'>http://1.envato.market/9LbxW</a></p> </div> <div class='privacy_content section_2'> <h2>What personal data we collect and why we collect it</h2> <h3>Comments</h3> <p>When visitors leave comments on the site we collect the data shown in the comments form, and also the visitor’s IP address and browser user agent string to help spam detection.</p> <p>An anonymized string created from your email address (also called a hash) may be provided to the Gravatar service to see if you are using it. The Gravatar service privacy policy is available here: https://automattic.com/privacy/. After approval of your comment, your profile picture is visible to the public in the context of your comment.</p> <h3>Media</h3> <p>If you upload images to the website, you should avoid uploading images with embedded location data (EXIF GPS) included. Visitors to the website can download and extract any location data from images on the website.</p> <h3>Cookies</h3> <p>If you leave a comment on our site you may opt-in to saving your name, email address and website in cookies. These are for your convenience so that you do not have to fill in your details again when you leave another comment. These cookies will last for one year.</p> <p>If you have an account and you log in to this site, we will set a temporary cookie to determine if your browser accepts cookies. This cookie contains no personal data and is discarded when you close your browser.</p> <p>When you log in, we will also set up several cookies to save your login information and your screen display choices. Login cookies last for two days, and screen options cookies last for a year. If you select “Remember Me”, your login will persist for two weeks. If you log out of your account, the login cookies will be removed.</p> <p>If you edit or publish an article, an additional cookie will be saved in your browser. This cookie includes no personal data and simply indicates the post ID of the article you just edited. It expires after 1 day.</p> <h3>Embedded content from other websites</h3> <p>Articles on this site may include embedded content (e.g. videos, images, articles, etc.). Embedded content from other websites behaves in the exact same way as if the visitor has visited the other website.</p> <p>These websites may collect data about you, use cookies, embed additional third-party tracking, and monitor your interaction with that embedded content, including tracking your interaction with the embedded content if you have an account and are logged in to that website.</p> </div> <div class='privacy_content section_3'> <h2>How long we retain your data</h2> <p>If you leave a comment, the comment and its metadata are retained indefinitely. This is so we can recognize and approve any follow-up comments automatically instead of holding them in a moderation queue.</p> <p>For users that register on our website (if any), we also store the personal information they provide in their user profile. All users can see, edit, or delete their personal information at any time (except they cannot change their username). Website administrators can also see and edit that information.</p> </div> <div class='privacy_content section_3'> <h2>What rights you have over your data</h2> <p>If you have an account on this site, or have left comments, you can request to receive an exported file of the personal data we hold about you, including any data you have provided to us. You can also request that we erase any personal data we hold about you. This does not include any data we are obliged to keep for administrative, legal, or security purposes.</p> </div> <div class='privacy_content section_3'> <h2>Where we send your data</h2> <p>Visitor comments may be checked through an automated spam detection service.</p> </div>",
+                            Privacy = "<div class='privacy_content section_1'> <h2>Who we are</h2> <p>Our website address is: <a href='http://1.envato.market/9LbxW'>http://1.envato.market/9LbxW</a></p> </div> <div class='privacy_content section_2'> <h2>What personal data we collect and why we collect it</h2> <h3>Comments</h3> <p>When visitors leave comments on the site we collect the data shown in the comments form, and also the visitor’s IP address and browser user agent string to help spam detection.</p> <p>An anonymized string created from your email address (also called a hash) may be provided to the Gravatar service to see if you are using it. The Gravatar service privacy policy is available here: https://automattic.com/privacy/. After approval of your comment, your profile picture is visible to the public in the context of your comment.</p> <h3>Media</h3> <p>If you upload images to the website, you should avoid uploading images with embedded location data (EXIF GPS) included. Visitors to the website can download and extract any location data from images on the website.</p> <h3>Cookies</h3> <p>If you leave a comment on our site you may opt-in to saving your name, email address and website in cookies. These are for your convenience so that you do not have to fill in your details again when you leave another comment. These cookies will last for one year.</p> <p>If you have an account and you log in to this site, we will set a temporary cookie to determine if your browser accepts cookies. This cookie contains no personal data and is discarded when you close your browser.</p> <p>When you log in, we will also set up several cookies to save your login information and your screen display choices. Login cookies last for two days, and screen options cookies last for a year. If you select “Remember Me”, your login will persist for two weeks. If you log out of your account, the login cookies will be removed.</p> <p>If you edit or publish an article, an additional cookie will be saved in your browser. This cookie includes no personal data and simply indicates the post ID of the article you just edited. It expires after 1 day.</p> <h3>Embedded content from other websites</h3> <p>Articles on this site may include embedded content (e.g. videos, images, articles, etc.). Embedded content from other websites behaves in the exact same way as if the visitor has visited the other website.</p> <p>These websites may collect data about you, use cookies, embed additional third-party tracking, and monitor your interaction with that embedded content, including tracking your interaction with the embedded content if you have an account and are logged in to that website.</p> </div> <div class='privacy_content section_3'> <h2>How long we retain your data</h2> <p>If you leave a comment, the comment and its metadata are retained indefinitely. This is so we can recognize and approve any follow-up comments automatically instead of holding them in a moderation queue.</p> <p>For UserClients that register on our website (if any), we also store the personal information they provide in their user profile. All UserClients can see, edit, or delete their personal information at any time (except they cannot change their username). Website administrators can also see and edit that information.</p> </div> <div class='privacy_content section_3'> <h2>What rights you have over your data</h2> <p>If you have an account on this site, or have left comments, you can request to receive an exported file of the personal data we hold about you, including any data you have provided to us. You can also request that we erase any personal data we hold about you. This does not include any data we are obliged to keep for administrative, legal, or security purposes.</p> </div> <div class='privacy_content section_3'> <h2>Where we send your data</h2> <p>Visitor comments may be checked through an automated spam detection service.</p> </div>",
                             SettingId = 1
                         },
                         new
@@ -13652,7 +13652,7 @@ namespace Junko.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Users");
+                    b.ToTable("UserClients");
 
                     b.HasData(
                         new
@@ -13975,7 +13975,7 @@ namespace Junko.Migrations
 
                     b.HasOne("Junko.Models.User", "User")
                         .WithMany("BlogReviews")
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("UserClientId");
                 });
 
             modelBuilder.Entity("Junko.Models.Brand", b =>

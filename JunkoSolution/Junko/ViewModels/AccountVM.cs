@@ -9,7 +9,7 @@ namespace Junko.ViewModels
     public class AccountVM
     {
         public Breadcrumb Breadcrumb { get; set; }
-        public User User { get; set; }
+        public UserClient User { get; set; }
         public ICollection<OrderProduct> OrderProducts { get; set; }
         public int LanguageId { get; set; }
     }

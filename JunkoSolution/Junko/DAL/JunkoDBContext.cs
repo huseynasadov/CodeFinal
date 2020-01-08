@@ -1,5 +1,6 @@
 ﻿using Junko.Models;
 using Junko.ModelTranslate;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -8,14 +9,15 @@ using System.Threading.Tasks;
 
 namespace Junko.DAL
 {
-    public class JunkoDBContext : DbContext
+    public class JunkoDBContext :IdentityDbContext<AppAdmin>
     {
         public JunkoDBContext(DbContextOptions<JunkoDBContext> options) : base(options)
         {
 
         }
+      
         public DbSet<Setting> Setting { get; set; }
-        public DbSet<User> Users { get; set; }
+        public DbSet<UserClient> UserClients { get; set; }
         public DbSet<Language> Languages { get; set; }
         public DbSet<SettingTranslate> SettingTranslates { get; set; }
         public DbSet<SocialActivity> SocialActivities { get; set; }
@@ -62,6 +64,7 @@ namespace Junko.DAL
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
             // Language
             modelBuilder.Entity<Language>().HasData(
                    new Language
@@ -95,8 +98,8 @@ namespace Junko.DAL
                );
 
             // User
-            modelBuilder.Entity<User>().HasData(
-                new User { Id=1, Firstname="Huseyn", Lastname="Asadov", Birthday=DateTime.Parse("1994-01-29"), CreatedAt=DateTime.Now, Address="Sumqayit seheri H.Z.Tagiyev Qesesebesi", Email="Huseynis@code.edu.az", Gender=Gender.Male, Password= "AIdRrgaJylkMlIfb0SOtVptIxShQUR06oD9A8EenQfuWYy4/Avoa01hQKAknD9Nxqw==" }
+            modelBuilder.Entity<UserClient>().HasData(
+                new UserClient { Id=1, Firstname="Huseyn", Lastname="Asadov", Birthday=DateTime.Parse("1994-01-29"), CreatedAt=DateTime.Now, Address="Sumqayit seheri H.Z.Tagiyev Qesesebesi", Email="Huseynis@code.edu.az", Gender=Gender.Male, Password= "AIdRrgaJylkMlIfb0SOtVptIxShQUR06oD9A8EenQfuWYy4/Avoa01hQKAknD9Nxqw==" }
                 );
             // Setting Translate
             modelBuilder.Entity<SettingTranslate>().HasData(
@@ -109,7 +112,7 @@ namespace Junko.DAL
                    FAQTitle = "Below are frequently asked questions, you may find the answer for yourself",
                    FAQContent = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec id erat sagittis, faucibus metus malesuada, eleifend turpis. Mauris semper augue id nisl aliquet, a porta lectus mattis. Nulla at tortor augue. In eget enim diam. Donec gravida tortor sem, ac fermentum nibh rutrum sit amet. Nulla convallis mauris vitae congue consequat. Donec interdum nunc purus, vitae vulputate arcu fringilla quis. Vivamus iaculis euismod dui.",
                    ModifiedAt = DateTime.Now,
-                   Privacy = "<div class='privacy_content section_1'> <h2>Who we are</h2> <p>Our website address is: <a href='http://1.envato.market/9LbxW'>http://1.envato.market/9LbxW</a></p> </div> <div class='privacy_content section_2'> <h2>What personal data we collect and why we collect it</h2> <h3>Comments</h3> <p>When visitors leave comments on the site we collect the data shown in the comments form, and also the visitor’s IP address and browser user agent string to help spam detection.</p> <p>An anonymized string created from your email address (also called a hash) may be provided to the Gravatar service to see if you are using it. The Gravatar service privacy policy is available here: https://automattic.com/privacy/. After approval of your comment, your profile picture is visible to the public in the context of your comment.</p> <h3>Media</h3> <p>If you upload images to the website, you should avoid uploading images with embedded location data (EXIF GPS) included. Visitors to the website can download and extract any location data from images on the website.</p> <h3>Cookies</h3> <p>If you leave a comment on our site you may opt-in to saving your name, email address and website in cookies. These are for your convenience so that you do not have to fill in your details again when you leave another comment. These cookies will last for one year.</p> <p>If you have an account and you log in to this site, we will set a temporary cookie to determine if your browser accepts cookies. This cookie contains no personal data and is discarded when you close your browser.</p> <p>When you log in, we will also set up several cookies to save your login information and your screen display choices. Login cookies last for two days, and screen options cookies last for a year. If you select “Remember Me”, your login will persist for two weeks. If you log out of your account, the login cookies will be removed.</p> <p>If you edit or publish an article, an additional cookie will be saved in your browser. This cookie includes no personal data and simply indicates the post ID of the article you just edited. It expires after 1 day.</p> <h3>Embedded content from other websites</h3> <p>Articles on this site may include embedded content (e.g. videos, images, articles, etc.). Embedded content from other websites behaves in the exact same way as if the visitor has visited the other website.</p> <p>These websites may collect data about you, use cookies, embed additional third-party tracking, and monitor your interaction with that embedded content, including tracking your interaction with the embedded content if you have an account and are logged in to that website.</p> </div> <div class='privacy_content section_3'> <h2>How long we retain your data</h2> <p>If you leave a comment, the comment and its metadata are retained indefinitely. This is so we can recognize and approve any follow-up comments automatically instead of holding them in a moderation queue.</p> <p>For users that register on our website (if any), we also store the personal information they provide in their user profile. All users can see, edit, or delete their personal information at any time (except they cannot change their username). Website administrators can also see and edit that information.</p> </div> <div class='privacy_content section_3'> <h2>What rights you have over your data</h2> <p>If you have an account on this site, or have left comments, you can request to receive an exported file of the personal data we hold about you, including any data you have provided to us. You can also request that we erase any personal data we hold about you. This does not include any data we are obliged to keep for administrative, legal, or security purposes.</p> </div> <div class='privacy_content section_3'> <h2>Where we send your data</h2> <p>Visitor comments may be checked through an automated spam detection service.</p> </div>"
+                   Privacy = "<div class='privacy_content section_1'> <h2>Who we are</h2> <p>Our website address is: <a href='http://1.envato.market/9LbxW'>http://1.envato.market/9LbxW</a></p> </div> <div class='privacy_content section_2'> <h2>What personal data we collect and why we collect it</h2> <h3>Comments</h3> <p>When visitors leave comments on the site we collect the data shown in the comments form, and also the visitor’s IP address and browser user agent string to help spam detection.</p> <p>An anonymized string created from your email address (also called a hash) may be provided to the Gravatar service to see if you are using it. The Gravatar service privacy policy is available here: https://automattic.com/privacy/. After approval of your comment, your profile picture is visible to the public in the context of your comment.</p> <h3>Media</h3> <p>If you upload images to the website, you should avoid uploading images with embedded location data (EXIF GPS) included. Visitors to the website can download and extract any location data from images on the website.</p> <h3>Cookies</h3> <p>If you leave a comment on our site you may opt-in to saving your name, email address and website in cookies. These are for your convenience so that you do not have to fill in your details again when you leave another comment. These cookies will last for one year.</p> <p>If you have an account and you log in to this site, we will set a temporary cookie to determine if your browser accepts cookies. This cookie contains no personal data and is discarded when you close your browser.</p> <p>When you log in, we will also set up several cookies to save your login information and your screen display choices. Login cookies last for two days, and screen options cookies last for a year. If you select “Remember Me”, your login will persist for two weeks. If you log out of your account, the login cookies will be removed.</p> <p>If you edit or publish an article, an additional cookie will be saved in your browser. This cookie includes no personal data and simply indicates the post ID of the article you just edited. It expires after 1 day.</p> <h3>Embedded content from other websites</h3> <p>Articles on this site may include embedded content (e.g. videos, images, articles, etc.). Embedded content from other websites behaves in the exact same way as if the visitor has visited the other website.</p> <p>These websites may collect data about you, use cookies, embed additional third-party tracking, and monitor your interaction with that embedded content, including tracking your interaction with the embedded content if you have an account and are logged in to that website.</p> </div> <div class='privacy_content section_3'> <h2>How long we retain your data</h2> <p>If you leave a comment, the comment and its metadata are retained indefinitely. This is so we can recognize and approve any follow-up comments automatically instead of holding them in a moderation queue.</p> <p>For UserClients that register on our website (if any), we also store the personal information they provide in their user profile. All UserClients can see, edit, or delete their personal information at any time (except they cannot change their username). Website administrators can also see and edit that information.</p> </div> <div class='privacy_content section_3'> <h2>What rights you have over your data</h2> <p>If you have an account on this site, or have left comments, you can request to receive an exported file of the personal data we hold about you, including any data you have provided to us. You can also request that we erase any personal data we hold about you. This does not include any data we are obliged to keep for administrative, legal, or security purposes.</p> </div> <div class='privacy_content section_3'> <h2>Where we send your data</h2> <p>Visitor comments may be checked through an automated spam detection service.</p> </div>"
                },
                new SettingTranslate
                {
@@ -286,18 +289,18 @@ namespace Junko.DAL
 
             // BlogReview
             modelBuilder.Entity<BlogReview>().HasData(
-                new BlogReview {Id=1, BlogId = 1, UserId = 1, Content = "But I must explain to you how all this mistaken idea of denouncing pleasure", CreatedAt=DateTime.Now },
-                new BlogReview {Id=2, BlogId = 1, UserId = 1, Content = "Quisque semper nunc vitae erat pellentesque, ac placerat arcu consectetur", CreatedAt=DateTime.Now },
+                new BlogReview {Id=1, BlogId = 1, UserClientId = 1, Content = "But I must explain to you how all this mistaken idea of denouncing pleasure", CreatedAt=DateTime.Now },
+                new BlogReview {Id=2, BlogId = 1, UserClientId = 1, Content = "Quisque semper nunc vitae erat pellentesque, ac placerat arcu consectetur", CreatedAt=DateTime.Now },
                 new BlogReview {Id=3, BlogId = 1,AdminManagerId=1,Content = "Vnunc vitae erat pellentesque, ac placerat arcu consectetur", CreatedAt=DateTime.Now },
-                new BlogReview {Id=4, BlogId = 2, UserId = 1, Content = "But I must explain to you how all this mistaken idea of denouncing pleasure", CreatedAt=DateTime.Now },
-                new BlogReview {Id=5, BlogId = 3, UserId = 1, Content = "But I must explain to you how all this mistaken idea of denouncing pleasure", CreatedAt=DateTime.Now },
-                new BlogReview {Id=6, BlogId = 4, UserId = 1, Content = "But I must explain to you how all this mistaken idea of denouncing pleasure", CreatedAt=DateTime.Now },
-                new BlogReview {Id=7, BlogId = 5, UserId = 1, Content = "But I must explain to you how all this mistaken idea of denouncing pleasure", CreatedAt=DateTime.Now },
-                new BlogReview {Id=8, BlogId = 6, UserId = 1, Content = "But I must explain to you how all this mistaken idea of denouncing pleasure", CreatedAt=DateTime.Now },
-                new BlogReview {Id=9, BlogId = 7, UserId = 1, Content = "But I must explain to you how all this mistaken idea of denouncing pleasure", CreatedAt=DateTime.Now },
-                new BlogReview {Id=10, BlogId = 8, UserId = 1, Content = "But I must explain to you how all this mistaken idea of denouncing pleasure", CreatedAt=DateTime.Now },
-                new BlogReview {Id=11, BlogId = 9, UserId = 1, Content = "But I must explain to you how all this mistaken idea of denouncing pleasure", CreatedAt=DateTime.Now },
-                new BlogReview {Id=12, BlogId = 10, UserId = 1, Content = "But I must explain to you how all this mistaken idea of denouncing pleasure", CreatedAt=DateTime.Now }
+                new BlogReview {Id=4, BlogId = 2, UserClientId = 1, Content = "But I must explain to you how all this mistaken idea of denouncing pleasure", CreatedAt=DateTime.Now },
+                new BlogReview {Id=5, BlogId = 3, UserClientId = 1, Content = "But I must explain to you how all this mistaken idea of denouncing pleasure", CreatedAt=DateTime.Now },
+                new BlogReview {Id=6, BlogId = 4, UserClientId = 1, Content = "But I must explain to you how all this mistaken idea of denouncing pleasure", CreatedAt=DateTime.Now },
+                new BlogReview {Id=7, BlogId = 5, UserClientId = 1, Content = "But I must explain to you how all this mistaken idea of denouncing pleasure", CreatedAt=DateTime.Now },
+                new BlogReview {Id=8, BlogId = 6, UserClientId = 1, Content = "But I must explain to you how all this mistaken idea of denouncing pleasure", CreatedAt=DateTime.Now },
+                new BlogReview {Id=9, BlogId = 7, UserClientId = 1, Content = "But I must explain to you how all this mistaken idea of denouncing pleasure", CreatedAt=DateTime.Now },
+                new BlogReview {Id=10, BlogId = 8, UserClientId = 1, Content = "But I must explain to you how all this mistaken idea of denouncing pleasure", CreatedAt=DateTime.Now },
+                new BlogReview {Id=11, BlogId = 9, UserClientId = 1, Content = "But I must explain to you how all this mistaken idea of denouncing pleasure", CreatedAt=DateTime.Now },
+                new BlogReview {Id=12, BlogId = 10, UserClientId = 1, Content = "But I must explain to you how all this mistaken idea of denouncing pleasure", CreatedAt=DateTime.Now }
                 );
             // Blog Translate
             modelBuilder.Entity<BlogTranslate>().HasData(
@@ -1303,13 +1306,13 @@ namespace Junko.DAL
 
             // Product Review
             modelBuilder.Entity<ProductReview>().HasData(
-                new ProductReview {Id=1, ProductId =1, UserId =1, AdminManagerId=null, Content="Excelent!!!", CreatedAt=DateTime.Now },
-                new ProductReview {Id=2, ProductId =1, UserId =null, AdminManagerId=1, Content="Endirimli Mehsullarimizdan yararlanin", CreatedAt=DateTime.Now },
-                new ProductReview {Id=3, ProductId =2, UserId =1, AdminManagerId=null, Content="Ucuzdur!!!", CreatedAt=DateTime.Now },
-                new ProductReview {Id=4, ProductId =3, UserId =1, AdminManagerId=null, Content="Bahadir!!!", CreatedAt=DateTime.Now },
-                new ProductReview {Id=5, ProductId =4, UserId =1, AdminManagerId=null, Content="Cheap!!!", CreatedAt=DateTime.Now },
-                new ProductReview {Id=6, ProductId =5, UserId =1, AdminManagerId=null, Content="Very Cheap!!!", CreatedAt=DateTime.Now },
-                new ProductReview {Id=7, ProductId =6, UserId =1, AdminManagerId=null, Content="Excelent!!!", CreatedAt=DateTime.Now }
+                new ProductReview {Id=1, ProductId =1, UserClientId =1, AdminManagerId=null, Content="Excelent!!!", CreatedAt=DateTime.Now },
+                new ProductReview {Id=2, ProductId =1, UserClientId =null, AdminManagerId=1, Content="Endirimli Mehsullarimizdan yararlanin", CreatedAt=DateTime.Now },
+                new ProductReview {Id=3, ProductId =2, UserClientId =1, AdminManagerId=null, Content="Ucuzdur!!!", CreatedAt=DateTime.Now },
+                new ProductReview {Id=4, ProductId =3, UserClientId =1, AdminManagerId=null, Content="Bahadir!!!", CreatedAt=DateTime.Now },
+                new ProductReview {Id=5, ProductId =4, UserClientId =1, AdminManagerId=null, Content="Cheap!!!", CreatedAt=DateTime.Now },
+                new ProductReview {Id=6, ProductId =5, UserClientId =1, AdminManagerId=null, Content="Very Cheap!!!", CreatedAt=DateTime.Now },
+                new ProductReview {Id=7, ProductId =6, UserClientId =1, AdminManagerId=null, Content="Excelent!!!", CreatedAt=DateTime.Now }
                 );
 
             // Product Properity
@@ -1847,7 +1850,7 @@ namespace Junko.DAL
 
             // Order Product
             modelBuilder.Entity<OrderProduct>().HasData(
-                new OrderProduct {Id=1, UserId=1, ProductId=1, Price=3000, Quantity=1, CreatedAt=DateTime.Now }
+                new OrderProduct {Id=1, UserClientId=1, ProductId=1, Price=3000, Quantity=1, CreatedAt=DateTime.Now }
                 );
         }
     }

@@ -6,32 +6,26 @@ using System.Threading.Tasks;
 
 namespace Junko.Models
 {
-    public enum Gender
+    public class User
     {
-        Male,
-        Female
-    }
-    public class User 
-    {
-        public int Id { get; set; }
-        [Required, MaxLength(50)]
+        [Required,MaxLength(150)]
         public string Firstname { get; set; }
-        [Required, MaxLength(50)]
+        [Required, MaxLength(150)]
         public string Lastname { get; set; }
-        [Required, EmailAddress]
+        [Required,EmailAddress]
         public string Email { get; set; }
-        [DataType(DataType.Date)]
-        public DateTime Birthday { get; set; }
-        [Required, MaxLength(250)]
         [DataType(DataType.Password)]
         public string Password { get; set; }
-        public string Address { get; set; }
-        public Gender Gender { get; set; }
-        [MaxLength(400)]
-        public string Token { get; set; }
-        public DateTime CreatedAt { get; set; }
-        public ICollection<BlogReview> BlogReviews { get; set; }
-        public ICollection<OrderProduct> OrderProducts { get; set; }
-        public ICollection<ProductReview> ProductReviews { get; set; }
+        public User()
+        {
+
+        }
+        public User(AppAdmin appAdmin)
+        {
+            Firstname = appAdmin.Firstname;
+            Lastname = appAdmin.Lastname;
+            Email = appAdmin.Email;
+            Password = appAdmin.PasswordHash;
+        }
     }
 }

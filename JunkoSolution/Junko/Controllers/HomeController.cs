@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Http;
 using Junko.DAL;
 using Junko.ViewModels;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Junko.Controllers
 {

@@ -9,7 +9,7 @@ namespace Junko.ViewModels
     public class RegisterVM
     {
         public Breadcrumb Breadcrumb { get; set; }
-        public User User { get; set; }
+        public UserClient User { get; set; }
         public string ReturnUrl { get; set; }
     }
 }

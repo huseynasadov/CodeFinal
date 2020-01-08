@@ -1,0 +1,48 @@
+﻿@model IEnumerable<AppAdmin>
+
+@{
+    ViewData["Title"] = "Admins";
+}
+
+<partial name="_NotificationPartial" />
+<h1>Admins</h1>
+
+<p>
+    <a asp-action="register" asp-controller="users" class="btn btn-outline-info">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Firstname
+            </th>
+            <th>
+                Lastname
+            </th>
+            <th>
+                Email
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.Firstname
+                </td>
+                <td>
+                    @item.Lastname
+                </td>
+                <td>
+                    @item.Email
+                </td>
+                <td>
+                    <a asp-action="remove" asp-controller="users"><i class="fas fa-trash text-danger"></i></a>
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

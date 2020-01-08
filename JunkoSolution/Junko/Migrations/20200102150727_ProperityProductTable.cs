@@ -36,7 +36,7 @@ namespace Junko.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Users",
+                name: "UserClients",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -52,7 +52,7 @@ namespace Junko.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Users", x => x.Id);
+                    table.PrimaryKey("PK_UserClients", x => x.Id);
                 });
 
             migrationBuilder.UpdateData(
@@ -4254,7 +4254,7 @@ namespace Junko.Migrations
                 name: "ProperityProducts");
 
             migrationBuilder.DropTable(
-                name: "Users");
+                name: "UserClients");
 
             migrationBuilder.DeleteData(
                 table: "HomeHeaderTranslates",
