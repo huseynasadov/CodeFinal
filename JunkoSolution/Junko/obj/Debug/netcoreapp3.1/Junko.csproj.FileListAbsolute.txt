@@ -296,9 +296,6 @@ C:\Users\Huseyn\Desktop\Code Academy\Final\CodeFinal\JunkoSolution\Junko\bin\Deb
 C:\Users\Huseyn\Desktop\Code Academy\Final\CodeFinal\JunkoSolution\Junko\bin\Debug\netcoreapp3.1\az-Latn-AZ\Junko.resources.dll
 C:\Users\Huseyn\Desktop\Code Academy\Final\CodeFinal\JunkoSolution\Junko\bin\Debug\netcoreapp3.1\Junko.Views.dll
 C:\Users\Huseyn\Desktop\Code Academy\Final\CodeFinal\JunkoSolution\Junko\bin\Debug\netcoreapp3.1\Junko.Views.pdb
-C:\Users\Huseyn\Desktop\Code Academy\Final\CodeFinal\JunkoSolution\Junko\bin\Debug\netcoreapp3.1\FluentValidation.dll
-C:\Users\Huseyn\Desktop\Code Academy\Final\CodeFinal\JunkoSolution\Junko\bin\Debug\netcoreapp3.1\FluentValidation.AspNetCore.dll
-C:\Users\Huseyn\Desktop\Code Academy\Final\CodeFinal\JunkoSolution\Junko\bin\Debug\netcoreapp3.1\FluentValidation.DependencyInjectionExtensions.dll
 C:\Users\Huseyn\Desktop\Code Academy\Final\CodeFinal\JunkoSolution\Junko\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 C:\Users\Huseyn\Desktop\Code Academy\Final\CodeFinal\JunkoSolution\Junko\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Razor.Language.dll
 C:\Users\Huseyn\Desktop\Code Academy\Final\CodeFinal\JunkoSolution\Junko\bin\Debug\netcoreapp3.1\Microsoft.Bcl.AsyncInterfaces.dll
@@ -437,8 +434,6 @@ C:\Users\Huseyn\Desktop\Code Academy\Final\CodeFinal\JunkoSolution\Junko\obj\Deb
 C:\Users\Huseyn\Desktop\Code Academy\Final\CodeFinal\JunkoSolution\Junko\obj\Debug\netcoreapp3.1\Junko.Resources.Views.Shop.Detail.az-Latn-AZ.resources
 C:\Users\Huseyn\Desktop\Code Academy\Final\CodeFinal\JunkoSolution\Junko\obj\Debug\netcoreapp3.1\Junko.Resources.Views.Shop.Index.az-Latn-AZ.resources
 C:\Users\Huseyn\Desktop\Code Academy\Final\CodeFinal\JunkoSolution\Junko\obj\Debug\netcoreapp3.1\Junko.csproj.GenerateResource.cache
-C:\Users\Huseyn\Desktop\Code Academy\Final\CodeFinal\JunkoSolution\Junko\obj\Debug\netcoreapp3.1\Junko.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\Huseyn\Desktop\Code Academy\Final\CodeFinal\JunkoSolution\Junko\obj\Debug\netcoreapp3.1\Junko.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Huseyn\Desktop\Code Academy\Final\CodeFinal\JunkoSolution\Junko\obj\Debug\netcoreapp3.1\Junko.RazorAssemblyInfo.cache
 C:\Users\Huseyn\Desktop\Code Academy\Final\CodeFinal\JunkoSolution\Junko\obj\Debug\netcoreapp3.1\Junko.RazorAssemblyInfo.cs
 C:\Users\Huseyn\Desktop\Code Academy\Final\CodeFinal\JunkoSolution\Junko\obj\Debug\netcoreapp3.1\Junko.AssemblyInfoInputs.cache
@@ -495,3 +490,16 @@ C:\Users\Huseyn\Desktop\Code Academy\Final\CodeFinal\JunkoSolution\Junko\obj\Deb
 C:\Users\Huseyn\Desktop\Code Academy\Final\CodeFinal\JunkoSolution\Junko\obj\Debug\netcoreapp3.1\Junko.csproj.CopyComplete
 C:\Users\Huseyn\Desktop\Code Academy\Final\CodeFinal\JunkoSolution\Junko\obj\Debug\netcoreapp3.1\Junko.dll
 C:\Users\Huseyn\Desktop\Code Academy\Final\CodeFinal\JunkoSolution\Junko\obj\Debug\netcoreapp3.1\Junko.pdb
+C:\Users\Huseyn\Desktop\Code Academy\Final\CodeFinal\JunkoSolution\Junko\obj\Debug\netcoreapp3.1\Junko.csprojAssemblyReference.cache
+C:\Users\Huseyn\Desktop\Code Academy\Final\CodeFinal\JunkoSolution\Junko\obj\Debug\netcoreapp3.1\Junko.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Huseyn\Desktop\Code Academy\Final\CodeFinal\JunkoSolution\Junko\obj\Debug\netcoreapp3.1\Razor\Areas\Control\Views\Brands\Create.cshtml.g.cs
+C:\Users\Huseyn\Desktop\Code Academy\Final\CodeFinal\JunkoSolution\Junko\obj\Debug\netcoreapp3.1\Razor\Areas\Control\Views\Brands\Edit.cshtml.g.cs
+C:\Users\Huseyn\Desktop\Code Academy\Final\CodeFinal\JunkoSolution\Junko\obj\Debug\netcoreapp3.1\Razor\Areas\Control\Views\Brands\Index.cshtml.g.cs
+C:\Users\Huseyn\Desktop\Code Academy\Final\CodeFinal\JunkoSolution\Junko\obj\Debug\netcoreapp3.1\Razor\Areas\Control\Views\ProductCategories\Create.cshtml.g.cs
+C:\Users\Huseyn\Desktop\Code Academy\Final\CodeFinal\JunkoSolution\Junko\obj\Debug\netcoreapp3.1\Razor\Areas\Control\Views\ProductCategories\Details.cshtml.g.cs
+C:\Users\Huseyn\Desktop\Code Academy\Final\CodeFinal\JunkoSolution\Junko\obj\Debug\netcoreapp3.1\Razor\Areas\Control\Views\ProductCategories\Edit.cshtml.g.cs
+C:\Users\Huseyn\Desktop\Code Academy\Final\CodeFinal\JunkoSolution\Junko\obj\Debug\netcoreapp3.1\Razor\Areas\Control\Views\ProductCategories\Index.cshtml.g.cs
+C:\Users\Huseyn\Desktop\Code Academy\Final\CodeFinal\JunkoSolution\Junko\obj\Debug\netcoreapp3.1\Razor\Areas\Control\Views\ProductSubCategories\Create.cshtml.g.cs
+C:\Users\Huseyn\Desktop\Code Academy\Final\CodeFinal\JunkoSolution\Junko\obj\Debug\netcoreapp3.1\Razor\Areas\Control\Views\ProductSubCategories\Details.cshtml.g.cs
+C:\Users\Huseyn\Desktop\Code Academy\Final\CodeFinal\JunkoSolution\Junko\obj\Debug\netcoreapp3.1\Razor\Areas\Control\Views\ProductSubCategories\Edit.cshtml.g.cs
+C:\Users\Huseyn\Desktop\Code Academy\Final\CodeFinal\JunkoSolution\Junko\obj\Debug\netcoreapp3.1\Razor\Areas\Control\Views\ProductSubCategories\Index.cshtml.g.cs

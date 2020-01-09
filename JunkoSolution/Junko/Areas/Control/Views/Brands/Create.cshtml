@@ -1,0 +1,43 @@
+﻿@model Junko.Models.Brand
+
+@{
+    ViewData["Title"] = "Yeni Brend";
+}
+
+<h1>Yeni Brend</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control slug-source" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Slug" class="control-label"></label>
+                <input asp-for="Slug" class="form-control slug" />
+                <span asp-validation-for="Slug" class="text-danger"></span>
+            </div>
+            <input hidden class="form-check-input" asp-for="Status" /> @Html.DisplayNameFor(model => model.Status)
+
+            <input hidden name="CreatedAt" id="CreatedAt" value="@DateTime.Now" class="form-control" />
+
+            <select hidden asp-for="AdminManagerId" class="form-control" asp-items="ViewBag.AdminManagerId"></select>
+
+            <div class="form-group">
+                <input type="submit" value="YaddaSaxla" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a class="btn btn-outline-warning" asp-action="Index">Geri</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

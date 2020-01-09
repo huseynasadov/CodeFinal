@@ -1,0 +1,71 @@
+﻿@model ProductCategoryViewModel
+
+@{
+    ViewData["Title"] = "Yenil";
+}
+
+<h1>Məhsul kateqoriyasını Yenilə</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ProductCategory.Photo" class="control-label"></label>
+                <input asp-for="ProductCategory.PhotoUpload" class="form-control" data-validation="mime size" data-validation-allowing="jpg, png,jpeg" data-validation-max-size="2Mb" />
+                <input hidden asp-for="ProductCategory.Photo" class="form-control" />
+                <span asp-validation-for="ProductCategory.Photo" class="text-danger"></span>
+                <img src="~/images/@Model.ProductCategory.Photo" class="imgpreview">
+            </div>
+            <input hidden asp-for="ProductCategory.CreatedAt" class="form-control" />
+
+            <input hidden class="form-check-input" asp-for="ProductCategory.Status" />
+
+            <select hidden asp-for="ProductCategory.AdminManagerId" class="form-control" asp-items="ViewBag.AdminManagerId"></select>
+
+            <input hidden asp-for="ProductCategory.ModifiedAt" class="form-control" />
+            <input type="hidden" asp-for="ProductCategory.Id" />
+
+            <nav>
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">
+                        <img width="30" src="~/images/azerbaijan.png" />
+                    </a>
+                    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">
+                        <img width="30" src="~/images/united-states.png" />
+                    </a>
+                </div>
+            </nav>
+            <div class="tab-content" id="nav-tabContent">
+                @for (int i = Model.ProductCategoryTranslates.Count - 1; i >= 0; i--)
+                {
+                    <div class="tab-pane fade @(i==0?"show active":"")" id="@(i==0?"nav-home":"nav-profile")" role="tabpanel" aria-labelledby="@(i==0?"nav-home-tab":"nav-profile-tab")">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                        <input hidden asp-for="ProductCategoryTranslates[i].LanguageId" />
+
+                        <div class="form-group">
+                            <label asp-for="ProductCategoryTranslates[i].Name" class="control-label"></label>
+                            <input asp-for="ProductCategoryTranslates[i].Name" class="form-control slug-source" data-validation="required" />
+                            <span asp-validation-for="ProductCategoryTranslates[i].Name" class="text-danger"></span>
+                        </div>
+                        <input hidden asp-for="ProductCategoryTranslates[i].Id" />
+                    </div>
+                }
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Yenilə" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" class="btn btn-outline-warning">Geri</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -12,12 +12,12 @@ namespace Junko.Models
     public class Setting:BaseAuditClass
     {
         [Required,MaxLength(50)]
-        [Display(Name = "Loqo Şəkli")]
+        [Display(Name = "Loqo Adı")]
         public string Logo { get; set; }
 
         [MaxLength(250)]
         [FileExtension]
-        [Display(Name = "Logo Image")]
+        [Display(Name = "Loqo Şəkli")]
         public string PhotoLogo { get; set; }
         [Required, MaxLength(20),MinLength(10)]
         [Display(Name = "Telefon")]

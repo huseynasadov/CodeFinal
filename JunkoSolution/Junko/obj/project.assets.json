@@ -2,47 +2,6 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v3.1": {
-      "FluentValidation/8.6.0": {
-        "type": "package",
-        "dependencies": {
-          "System.ComponentModel.Annotations": "4.4.1"
-        },
-        "compile": {
-          "lib/netstandard2.0/FluentValidation.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/FluentValidation.dll": {}
-        }
-      },
-      "FluentValidation.AspNetCore/8.6.0": {
-        "type": "package",
-        "dependencies": {
-          "FluentValidation": "8.6.0",
-          "FluentValidation.DependencyInjectionExtensions": "8.6.0"
-        },
-        "compile": {
-          "lib/netcoreapp3.0/FluentValidation.AspNetCore.dll": {}
-        },
-        "runtime": {
-          "lib/netcoreapp3.0/FluentValidation.AspNetCore.dll": {}
-        },
-        "frameworkReferences": [
-          "Microsoft.AspNetCore.App"
-        ]
-      },
-      "FluentValidation.DependencyInjectionExtensions/8.6.0": {
-        "type": "package",
-        "dependencies": {
-          "FluentValidation": "8.6.0",
-          "Microsoft.Extensions.Dependencyinjection.Abstractions": "2.1.0"
-        },
-        "compile": {
-          "lib/netstandard2.0/FluentValidation.DependencyInjectionExtensions.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/FluentValidation.DependencyInjectionExtensions.dll": {}
-        }
-      },
       "Microsoft.AspNetCore.Cryptography.Internal/3.1.0": {
         "type": "package",
         "compile": {
@@ -141,16 +100,16 @@
           "lib/netcoreapp2.1/Microsoft.Bcl.HashCode.dll": {}
         }
       },
-      "Microsoft.CodeAnalysis.Analyzers/2.9.4": {
+      "Microsoft.CodeAnalysis.Analyzers/2.9.6": {
         "type": "package",
         "build": {
           "build/_._": {}
         }
       },
-      "Microsoft.CodeAnalysis.Common/3.3.1": {
+      "Microsoft.CodeAnalysis.Common/3.4.0": {
         "type": "package",
         "dependencies": {
-          "Microsoft.CodeAnalysis.Analyzers": "2.9.4",
+          "Microsoft.CodeAnalysis.Analyzers": "2.9.6",
           "System.Collections.Immutable": "1.5.0",
           "System.Memory": "4.5.3",
           "System.Reflection.Metadata": "1.6.0",
@@ -206,10 +165,10 @@
           }
         }
       },
-      "Microsoft.CodeAnalysis.CSharp/3.3.1": {
+      "Microsoft.CodeAnalysis.CSharp/3.4.0": {
         "type": "package",
         "dependencies": {
-          "Microsoft.CodeAnalysis.Common": "[3.3.1]"
+          "Microsoft.CodeAnalysis.Common": "[3.4.0]"
         },
         "compile": {
           "lib/netstandard2.0/Microsoft.CodeAnalysis.CSharp.dll": {}
@@ -259,12 +218,12 @@
           }
         }
       },
-      "Microsoft.CodeAnalysis.CSharp.Workspaces/3.3.1": {
+      "Microsoft.CodeAnalysis.CSharp.Workspaces/3.4.0": {
         "type": "package",
         "dependencies": {
-          "Microsoft.CodeAnalysis.CSharp": "[3.3.1]",
-          "Microsoft.CodeAnalysis.Common": "[3.3.1]",
-          "Microsoft.CodeAnalysis.Workspaces.Common": "[3.3.1]"
+          "Microsoft.CodeAnalysis.CSharp": "[3.4.0]",
+          "Microsoft.CodeAnalysis.Common": "[3.4.0]",
+          "Microsoft.CodeAnalysis.Workspaces.Common": "[3.4.0]"
         },
         "compile": {
           "lib/netstandard2.0/Microsoft.CodeAnalysis.CSharp.Workspaces.dll": {}
@@ -328,10 +287,10 @@
           "lib/netstandard2.0/Microsoft.CodeAnalysis.Razor.dll": {}
         }
       },
-      "Microsoft.CodeAnalysis.Workspaces.Common/3.3.1": {
+      "Microsoft.CodeAnalysis.Workspaces.Common/3.4.0": {
         "type": "package",
         "dependencies": {
-          "Microsoft.CodeAnalysis.Common": "[3.3.1]",
+          "Microsoft.CodeAnalysis.Common": "[3.4.0]",
           "System.Composition": "1.0.31"
         },
         "compile": {
@@ -2796,53 +2755,6 @@
     }
   },
   "libraries": {
-    "FluentValidation/8.6.0": {
-      "sha512": "jGQNISJy2trrDq2yufeJ3NwHKgAhC6Xpfu9ijDtDkgfiL35x/BA1R3xItoATtOQyrozP+rUTPrZHFHKtmI4ymw==",
-      "type": "package",
-      "path": "fluentvalidation/8.6.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "fluentvalidation.8.6.0.nupkg.sha512",
-        "fluentvalidation.nuspec",
-        "lib/net45/FluentValidation.dll",
-        "lib/net45/FluentValidation.xml",
-        "lib/netstandard1.1/FluentValidation.dll",
-        "lib/netstandard1.1/FluentValidation.xml",
-        "lib/netstandard1.6/FluentValidation.dll",
-        "lib/netstandard1.6/FluentValidation.xml",
-        "lib/netstandard2.0/FluentValidation.dll",
-        "lib/netstandard2.0/FluentValidation.xml"
-      ]
-    },
-    "FluentValidation.AspNetCore/8.6.0": {
-      "sha512": "yMnBEAN5xJxLw7JD7FI2xHabAAMm0ZVdZw1EQ/PpAVGQYdLIrlnIQLaBoE9F+phjkJDf771i+lWAsiI6nH2PIQ==",
-      "type": "package",
-      "path": "fluentvalidation.aspnetcore/8.6.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "fluentvalidation.aspnetcore.8.6.0.nupkg.sha512",
-        "fluentvalidation.aspnetcore.nuspec",
-        "lib/netcoreapp3.0/FluentValidation.AspNetCore.dll",
-        "lib/netcoreapp3.0/FluentValidation.AspNetCore.xml",
-        "lib/netstandard2.0/FluentValidation.AspNetCore.dll",
-        "lib/netstandard2.0/FluentValidation.AspNetCore.xml"
-      ]
-    },
-    "FluentValidation.DependencyInjectionExtensions/8.6.0": {
-      "sha512": "clWUgdzGuUes6xIyR28JtuwWpmBLVwspnEbWzGCocF02ytxYBq5Bn1cCh96HaVqM4mBUHuE64MJaaZH7NUnHnQ==",
-      "type": "package",
-      "path": "fluentvalidation.dependencyinjectionextensions/8.6.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "fluentvalidation.dependencyinjectionextensions.8.6.0.nupkg.sha512",
-        "fluentvalidation.dependencyinjectionextensions.nuspec",
-        "lib/netstandard2.0/FluentValidation.DependencyInjectionExtensions.dll",
-        "lib/netstandard2.0/FluentValidation.DependencyInjectionExtensions.xml"
-      ]
-    },
     "Microsoft.AspNetCore.Cryptography.Internal/3.1.0": {
       "sha512": "bsnhHHiWb0s8fcLDOfTXAb0VoTT1cCRjvxo6kwi7RItOQxv/PjMx5s6BEhnAcm/+ZkrN4+2TFXhCZDuiPBfB0Q==",
       "type": "package",
@@ -2993,14 +2905,15 @@
         "version.txt"
       ]
     },
-    "Microsoft.CodeAnalysis.Analyzers/2.9.4": {
-      "sha512": "alIJhS0VUg/7x5AsHEoovh/wRZ0RfCSS7k5pDSqpRLTyuMTtRgj6OJJPRApRhJHOGYYsLakf1hKeXFoDwKwNkg==",
+    "Microsoft.CodeAnalysis.Analyzers/2.9.6": {
+      "sha512": "Kmms3TxGQMNb95Cu/3K+0bIcMnV4qf/phZBLAB0HUi65rBPxP4JO3aM2LoAcb+DFS600RQJMZ7ZLyYDTbLwJOQ==",
       "type": "package",
-      "path": "microsoft.codeanalysis.analyzers/2.9.4",
+      "path": "microsoft.codeanalysis.analyzers/2.9.6",
       "hasTools": true,
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
+        "EULA.rtf",
         "ThirdPartyNotices.rtf",
         "analyzers/dotnet/cs/Microsoft.CodeAnalysis.Analyzers.dll",
         "analyzers/dotnet/cs/Microsoft.CodeAnalysis.CSharp.Analyzers.dll",
@@ -3033,9 +2946,33 @@
         "analyzers/dotnet/vb/zh-Hans/Microsoft.CodeAnalysis.Analyzers.resources.dll",
         "analyzers/dotnet/vb/zh-Hant/Microsoft.CodeAnalysis.Analyzers.resources.dll",
         "build/Microsoft.CodeAnalysis.Analyzers.props",
+        "documentation/Analyzer Configuration.md",
         "documentation/Microsoft.CodeAnalysis.Analyzers.md",
         "documentation/Microsoft.CodeAnalysis.Analyzers.sarif",
-        "microsoft.codeanalysis.analyzers.2.9.4.nupkg.sha512",
+        "editorconfig/AllRulesDefault/.editorconfig",
+        "editorconfig/AllRulesDisabled/.editorconfig",
+        "editorconfig/AllRulesEnabled/.editorconfig",
+        "editorconfig/CorrectnessRulesDefault/.editorconfig",
+        "editorconfig/CorrectnessRulesEnabled/.editorconfig",
+        "editorconfig/DataflowRulesDefault/.editorconfig",
+        "editorconfig/DataflowRulesEnabled/.editorconfig",
+        "editorconfig/LibraryRulesDefault/.editorconfig",
+        "editorconfig/LibraryRulesEnabled/.editorconfig",
+        "editorconfig/MicrosoftCodeAnalysisCompatibilityRulesDefault/.editorconfig",
+        "editorconfig/MicrosoftCodeAnalysisCompatibilityRulesEnabled/.editorconfig",
+        "editorconfig/MicrosoftCodeAnalysisCorrectnessRulesDefault/.editorconfig",
+        "editorconfig/MicrosoftCodeAnalysisCorrectnessRulesEnabled/.editorconfig",
+        "editorconfig/MicrosoftCodeAnalysisDesignRulesDefault/.editorconfig",
+        "editorconfig/MicrosoftCodeAnalysisDesignRulesEnabled/.editorconfig",
+        "editorconfig/MicrosoftCodeAnalysisDocumentationRulesDefault/.editorconfig",
+        "editorconfig/MicrosoftCodeAnalysisDocumentationRulesEnabled/.editorconfig",
+        "editorconfig/MicrosoftCodeAnalysisLocalizationRulesDefault/.editorconfig",
+        "editorconfig/MicrosoftCodeAnalysisLocalizationRulesEnabled/.editorconfig",
+        "editorconfig/MicrosoftCodeAnalysisPerformanceRulesDefault/.editorconfig",
+        "editorconfig/MicrosoftCodeAnalysisPerformanceRulesEnabled/.editorconfig",
+        "editorconfig/PortedFromFxCopRulesDefault/.editorconfig",
+        "editorconfig/PortedFromFxCopRulesEnabled/.editorconfig",
+        "microsoft.codeanalysis.analyzers.2.9.6.nupkg.sha512",
         "microsoft.codeanalysis.analyzers.nuspec",
         "rulesets/AllRulesDefault.ruleset",
         "rulesets/AllRulesDisabled.ruleset",
@@ -3064,10 +3001,10 @@
         "tools/uninstall.ps1"
       ]
     },
-    "Microsoft.CodeAnalysis.Common/3.3.1": {
-      "sha512": "N5yQdGy+M4kimVG7hwCeGTCfgYjK2o5b/Shumkb/rCC+/SAkvP1HUAYK+vxPFS7dLJNtXLRsmPHKj3fnyNWnrw==",
+    "Microsoft.CodeAnalysis.Common/3.4.0": {
+      "sha512": "3ncA7cV+iXGA1VYwe2UEZXcvWyZSlbexWjM9AvocP7sik5UD93qt9Hq0fMRGk0jFRmvmE4T2g+bGfXiBVZEhLw==",
       "type": "package",
-      "path": "microsoft.codeanalysis.common/3.3.1",
+      "path": "microsoft.codeanalysis.common/3.4.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -3088,14 +3025,14 @@
         "lib/netstandard2.0/tr/Microsoft.CodeAnalysis.resources.dll",
         "lib/netstandard2.0/zh-Hans/Microsoft.CodeAnalysis.resources.dll",
         "lib/netstandard2.0/zh-Hant/Microsoft.CodeAnalysis.resources.dll",
-        "microsoft.codeanalysis.common.3.3.1.nupkg.sha512",
+        "microsoft.codeanalysis.common.3.4.0.nupkg.sha512",
         "microsoft.codeanalysis.common.nuspec"
       ]
     },
-    "Microsoft.CodeAnalysis.CSharp/3.3.1": {
-      "sha512": "WDUIhTHem38H6VJ98x2Ssq0fweakJHnHYl7vbG8ARnsAwLoJKCQCy78EeY1oRrCKG42j0v6JVljKkeqSDA28UA==",
+    "Microsoft.CodeAnalysis.CSharp/3.4.0": {
+      "sha512": "/LsTtgcMN6Tu1oo7/WYbRAHL4/ubXC/miEakwTpcZKJKtFo7D0AK95Hw0dbGxul6C8WJu60v6NP2435TDYZM+Q==",
       "type": "package",
-      "path": "microsoft.codeanalysis.csharp/3.3.1",
+      "path": "microsoft.codeanalysis.csharp/3.4.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -3116,14 +3053,14 @@
         "lib/netstandard2.0/tr/Microsoft.CodeAnalysis.CSharp.resources.dll",
         "lib/netstandard2.0/zh-Hans/Microsoft.CodeAnalysis.CSharp.resources.dll",
         "lib/netstandard2.0/zh-Hant/Microsoft.CodeAnalysis.CSharp.resources.dll",
-        "microsoft.codeanalysis.csharp.3.3.1.nupkg.sha512",
+        "microsoft.codeanalysis.csharp.3.4.0.nupkg.sha512",
         "microsoft.codeanalysis.csharp.nuspec"
       ]
     },
-    "Microsoft.CodeAnalysis.CSharp.Workspaces/3.3.1": {
-      "sha512": "dHs/UyfLgzsVC4FjTi/x+H+yQifgOnpe3rSN8GwkHWjnidePZ3kSqr1JHmFDf5HTQEydYwrwCAfQ0JSzhsEqDA==",
+    "Microsoft.CodeAnalysis.CSharp.Workspaces/3.4.0": {
+      "sha512": "ReUtqcb+Pz1jtnVZTfDZl1uPV0mrngVA2U+pzxJ7MtrFM1rjlCU2KxuXs8VaOXUteYYAlAn1ZhMYlE3P8j2hIg==",
       "type": "package",
-      "path": "microsoft.codeanalysis.csharp.workspaces/3.3.1",
+      "path": "microsoft.codeanalysis.csharp.workspaces/3.4.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -3144,7 +3081,7 @@
         "lib/netstandard2.0/tr/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll",
         "lib/netstandard2.0/zh-Hans/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll",
         "lib/netstandard2.0/zh-Hant/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll",
-        "microsoft.codeanalysis.csharp.workspaces.3.3.1.nupkg.sha512",
+        "microsoft.codeanalysis.csharp.workspaces.3.4.0.nupkg.sha512",
         "microsoft.codeanalysis.csharp.workspaces.nuspec"
       ]
     },
@@ -3162,10 +3099,10 @@
         "packageIcon.png"
       ]
     },
-    "Microsoft.CodeAnalysis.Workspaces.Common/3.3.1": {
-      "sha512": "NfBz3b5hFSbO+7xsCNryD+p8axsIJFTG7qM3jvMTC/MqYrU6b8E1b6JoRj5rJSOBB+pSunk+CMqyGQTOWHeDUg==",
+    "Microsoft.CodeAnalysis.Workspaces.Common/3.4.0": {
+      "sha512": "AJszIKY+hXBXDqbcYTiztAQ17GTYfSMDB5u2plzJQqwKN17bqYKr1aC/1NkI5Oho9tixVJ0T/SoeYHpDUMsIBA==",
       "type": "package",
-      "path": "microsoft.codeanalysis.workspaces.common/3.3.1",
+      "path": "microsoft.codeanalysis.workspaces.common/3.4.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -3185,7 +3122,7 @@
         "lib/netstandard2.0/tr/Microsoft.CodeAnalysis.Workspaces.resources.dll",
         "lib/netstandard2.0/zh-Hans/Microsoft.CodeAnalysis.Workspaces.resources.dll",
         "lib/netstandard2.0/zh-Hant/Microsoft.CodeAnalysis.Workspaces.resources.dll",
-        "microsoft.codeanalysis.workspaces.common.3.3.1.nupkg.sha512",
+        "microsoft.codeanalysis.workspaces.common.3.4.0.nupkg.sha512",
         "microsoft.codeanalysis.workspaces.common.nuspec"
       ]
     },
@@ -8737,8 +8674,8 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
-      "FluentValidation.AspNetCore >= 8.6.0",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 3.1.0",
+      "Microsoft.CodeAnalysis.CSharp.Workspaces >= 3.4.0",
       "Microsoft.EntityFrameworkCore >= 3.1.0",
       "Microsoft.EntityFrameworkCore.Design >= 3.1.0",
       "Microsoft.EntityFrameworkCore.SqlServer >= 3.1.0",
@@ -8789,13 +8726,13 @@
     "frameworks": {
       "netcoreapp3.1": {
         "dependencies": {
-          "FluentValidation.AspNetCore": {
-            "target": "Package",
-            "version": "[8.6.0, )"
-          },
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
             "target": "Package",
             "version": "[3.1.0, )"
+          },
+          "Microsoft.CodeAnalysis.CSharp.Workspaces": {
+            "target": "Package",
+            "version": "[3.4.0, )"
           },
           "Microsoft.EntityFrameworkCore": {
             "target": "Package",

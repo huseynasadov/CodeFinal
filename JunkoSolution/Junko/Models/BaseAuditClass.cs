@@ -11,8 +11,9 @@ namespace Junko.Models
     {
         public int Id { get; set; }
         [ForeignKey("AdminManager")]
+        [Display(Name = "Admin")]
         public int? AdminManagerId { get; set; }
-        [Display(Name = "Modified At")]
+        [Display(Name = "Yeniləmə tarixi")]
         public DateTime ModifiedAt { get; set; }
         [Display(Name = "Admin")]
         public AdminManager AdminManager { get; set; }

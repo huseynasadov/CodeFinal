@@ -62,9 +62,10 @@ namespace Junko.Controllers
                 {
                     user.Token = Guid.NewGuid().ToString();
                     _db.SaveChanges();
-                    var option = new CookieOptions();
-                    option.Expires = DateTime.Now.AddMinutes(60);
-                    option.IsEssential = true;
+                    var option = new CookieOptions { 
+                    Expires= DateTime.Now.AddMinutes(60),
+                    IsEssential=true
+                    };
                     Response.Cookies.Append("Token", user.Token, option);
 
                     return Redirect((!string.IsNullOrEmpty(Request.Headers["Referer"]) ? Request.Headers["Referer"].ToString() :returnUrl));
@@ -115,14 +116,14 @@ namespace Junko.Controllers
                                 CompatibilityMode = PasswordHasherCompatibilityMode.IdentityV2
                             })
                     );
-
                 model.User.Password = hasher.HashPassword(model.User, model.User.Password);
                 model.User.Token = Guid.NewGuid().ToString();
                 _db.UserClients.Add(model.User);
                 _db.SaveChanges();
-                var option = new CookieOptions();
-                option.Expires = DateTime.Now.AddMinutes(60);
-                option.IsEssential = true;
+                var option = new CookieOptions { 
+                    Expires= DateTime.Now.AddMinutes(60),
+                    IsEssential=true
+                };
                 Response.Cookies.Append("Token", model.User.Token, option);
                 return Redirect((!string.IsNullOrEmpty(Request.Headers["Referer"]) ? Request.Headers["Referer"].ToString() : returnUrl));
             }

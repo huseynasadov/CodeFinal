@@ -1,23 +1,15 @@
 using System;
 using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
-using System.Threading.Tasks;
-using FluentValidation;
-using FluentValidation.AspNetCore;
 using Junko.DAL;
-using Junko.Helpers;
 using Junko.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Localization;
-using Microsoft.AspNetCore.Localization.Routing;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Razor;
-using Microsoft.AspNetCore.Routing;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -76,10 +68,6 @@ namespace Junko
             });
 
             services.AddControllersWithViews();
-            services.AddMvc(setup =>
-            {
-                //...mvc setup...
-            }).AddFluentValidation();
 
             services.AddAuthentication().AddCookie();
             services.AddDbContext<JunkoDBContext>(options =>

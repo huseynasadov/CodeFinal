@@ -10,7 +10,7 @@ namespace Junko.ModelTranslate
     public class BlogCategoryTranslate
     {
         public int Id { get; set; }
-        public int CategoryId { get; set; }
+        public int? CategoryId { get; set; }
         public int LanguageId { get; set; }
         public Category Category { get; set; }
         public Language Language { get; set; }

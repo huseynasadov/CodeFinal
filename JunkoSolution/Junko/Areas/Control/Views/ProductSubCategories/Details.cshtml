@@ -1,0 +1,87 @@
+﻿@model ProductSubCategoryViewModel
+
+@{
+    ViewData["Title"] = "Ətraflı";
+}
+
+<h1>Ətraflı - Alt Kateqoriya </h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            <img width="100" src="~/images/@Model.ProductSubCategory.Photo">
+        </dt>
+        <dd class="col-sm-10">
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ProductSubCategory.Discount)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ProductSubCategory.Discount)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ProductSubCategory.DiscountDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ProductSubCategory.DiscountDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ProductSubCategory.Status)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ProductSubCategory.Status)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ProductSubCategory.CreatedAt)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ProductSubCategory.CreatedAt)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ProductSubCategory.ProductCategory)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ProductSubCategory.ProductCategory.Id)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ProductSubCategory.ModifiedAt)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ProductSubCategory.ModifiedAt)
+        </dd>
+        
+    </dl>
+    <nav>
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">
+                <img width="30" src="~/images/azerbaijan.png" />
+            </a>
+            <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">
+                <img width="30" src="~/images/united-states.png" />
+            </a>
+        </div>
+    </nav>
+    <div class="tab-content" id="nav-tabContent">
+        @for (int i =(Model.ProductSubCategoryTranslates.Count-1) ; i >= 0; i--)
+        {
+            <div class="tab-pane fade @(i==0?"show active":"")" id="@(i==0?"nav-profile":"nav-home")" role="tabpanel" aria-labelledby="@(i==0?"nav-profile-tab":"nav-home-tab")">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <select hidden asp-for="ProductSubCategoryTranslates[i].ProductSubCategoryId" class="form-control" asp-items="ViewBag.ProductCategoryId"></select>
+
+                <input hidden asp-for="ProductSubCategoryTranslates[i].LanguageId" />
+
+                <div class="form-group">
+                    <label asp-for="ProductSubCategoryTranslates[i].Name" class="control-label"></label>
+                    <input disabled asp-for="ProductSubCategoryTranslates[i].Name" class="form-control" data-validation="required" />
+                    <span asp-validation-for="ProductSubCategoryTranslates[i].Name" class="text-danger"></span>
+                </div>
+                <input hidden asp-for="ProductSubCategoryTranslates[i].Id" />
+            </div>
+        }
+    </div>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.ProductSubCategory.Id" class="btn btn-success">Yenilə</a> |
+    <a asp-action="Index" class="btn btn-warning">Geri</a>
+</div>

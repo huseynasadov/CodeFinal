@@ -11,11 +11,13 @@ namespace Junko.Models
 {
     public class ProductCategory:BaseAuditClass
     {
+        [Display(Name ="Şəkil")]
         public string Photo { get; set; }
         [NotMapped]
         public IFormFile PhotoUpload { get; set; }
         public ICollection<ProductCategoryTranslate> ProductCategoryTranslate { get; set; }
         public ICollection<ProductSubCategory> ProductSubCategories { get; set; }
+        [Display(Name = "Yaranma tarixi")]
         public DateTime CreatedAt { get; set; }
         public bool Status { get; set; }
     }

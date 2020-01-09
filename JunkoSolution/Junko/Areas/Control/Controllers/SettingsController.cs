@@ -16,6 +16,7 @@ using Microsoft.AspNetCore.Authorization;
 namespace Junko.Areas.Control.Controllers
 {
     [Area("Control")]
+    [Authorize]
     public class SettingsController : Controller
     {
         private readonly JunkoDBContext _context;
@@ -89,7 +90,7 @@ namespace Junko.Areas.Control.Controllers
                 {
                     _context.Update(model.Setting);
                     await _context.SaveChangesAsync();
-                    TempData["Success"] = "Change Successed";
+                    TempData["Success"] = "Dəyişiklik uğurla başa çatdı";
                 }
                 catch (DbUpdateConcurrencyException)
                 {

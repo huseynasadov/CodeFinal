@@ -12,12 +12,15 @@ namespace Junko.ModelTranslate
     {
         public int Id { get; set; }
         [ForeignKey("ProductSubCategory")]
-        public int ProductSubCategoryId { get; set; }
+        [Display(Name = "Alt kateqoriya")]
+        public int? ProductSubCategoryId { get; set; }
         [ForeignKey("Language")]
+        [Display(Name = "Dil")]
         public int LanguageId { get; set; }
         public ProductSubCategory ProductSubCategory { get; set; }
         public Language Language { get; set; }
         [Required, MaxLength(100)]
+        [Display(Name = "Ad")]
         public string Name { get; set; }
     }
 }

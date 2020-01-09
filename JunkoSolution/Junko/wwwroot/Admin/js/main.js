@@ -58,17 +58,11 @@
     $(".statusActive").click(function (event) {
         event.preventDefault();
         var span = this;
-        
-        $.ajax({
-            url: "https://localhost:44399/" + $(span).attr("href") ,
-            dataType: "json",
-            type:"POST",
-            success: function (res) {
-                if (res) {
-                    location.reload();
-                }
+        $.get($(span).attr("href"), {}, function (data) {
+            if (data) {
+                location.reload();
             }
-        })
+        });
     });
 })
 
@@ -81,3 +75,36 @@ function readURL(input) {
         reader.readAsDataURL(input.files[0]);
     }
 }
+
+$(function () {
+    $(".categoryDelete").click(function (event) {
+        var deletinput = this;
+        event.preventDefault();
+        Swal.fire({
+            title: 'Əminsinizmi ?',
+            text: "Geri qaytarmaq mümkün olmayacaq",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Bəli, silinsin!',
+            cancelButtonText: 'Xeyir'
+        }).then((result) => {
+            if (result.value) {
+
+                $.ajax({
+                    url: $(deletinput).attr("href"),
+                    success: function () {
+
+                    },
+
+                    complete: function () {
+                        location.reload();
+                        setTimeout(1000);
+                    }
+                })
+                toastr.success('Ugurla basa catdi', 'Silindi')
+            }
+        })
+    })
+})

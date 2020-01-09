@@ -12,7 +12,7 @@ namespace Junko.ModelTranslate
     {
         public int Id { get; set; }
         [ForeignKey("WhatDo")]
-        public int WhatDoId { get; set; }
+        public int? WhatDoId { get; set; }
         [ForeignKey("Language")]
         public int LanguageId { get; set; }
         public WhatDo WhatDo { get; set; }

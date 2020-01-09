@@ -1,0 +1,46 @@
+﻿@model Junko.Models.Brand
+
+@{
+    ViewData["Title"] = "Brend Yenilə";
+}
+
+<h1>Brend Yenilə</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control slug-source" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Slug" class="control-label"></label>
+                <input asp-for="Slug" class="form-control slug" />
+                <span asp-validation-for="Slug" class="text-danger"></span>
+            </div>
+             <input hidden class="form-check-input" asp-for="Status" /> @Html.DisplayNameFor(model => model.Status)
+               
+            <input hidden asp-for="CreatedAt" class="form-control" />
+
+            <input type="hidden" asp-for="Id" />
+             <select hidden asp-for="AdminManagerId" class="form-control" asp-items="ViewBag.AdminManagerId"></select>
+                
+            <input hidden name="ModifiedAt" id="ModifiedAt" value="@DateTime.Now" class="form-control" />
+
+            <div class="form-group">
+                <input type="submit" value="Yenilə" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" class="btn btn-outline-warning">Geri</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

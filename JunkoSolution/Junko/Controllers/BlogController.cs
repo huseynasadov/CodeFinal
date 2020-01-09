@@ -13,7 +13,7 @@ namespace Junko.Controllers
 {
     public class BlogController : Controller
     {
-        JunkoDBContext _db;
+       private readonly JunkoDBContext _db;
         public BlogController(JunkoDBContext context)
         {
             _db = context;

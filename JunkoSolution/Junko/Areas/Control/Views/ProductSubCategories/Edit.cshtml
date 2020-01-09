@@ -1,0 +1,98 @@
+﻿@model ProductSubCategoryViewModel
+
+@{
+    ViewData["Title"] = "Məhsul alt kateqoriyasını Yenilə";
+}
+
+<h1>Məhsul Alt kateqoriyasını Yenilə</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ProductSubCategory.Photo" class="control-label"></label>
+                <input asp-for="ProductSubCategory.PhotoUpload" class="form-control" data-validation="mime size" data-validation-allowing="jpg, png,jpeg" data-validation-max-size="2Mb" />
+                <input hidden asp-for="ProductSubCategory.Photo" class="form-control" />
+                <span asp-validation-for="ProductSubCategory.Photo" class="text-danger"></span>
+                <img src="~/images/@Model.ProductSubCategory.Photo" class="imgpreview">
+            </div>
+            <div class="form-group">
+                <label asp-for="ProductSubCategory.ProductCategoryId" class="control-label"></label>
+                <select asp-for="ProductSubCategory.ProductCategoryId" class="form-control" asp-items="ViewBag.ProductCategoryId"></select>
+                <span asp-validation-for="ProductSubCategory.ProductCategoryId" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="ProductSubCategory.Discount" class="control-label"></label>
+                <input asp-for="ProductSubCategory.Discount" class="form-control" />
+                <span asp-validation-for="ProductSubCategory.Discount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProductSubCategory.DiscountDate" class="control-label"></label>
+                <input asp-for="ProductSubCategory.DiscountDate" class="form-control" />
+                <span asp-validation-for="ProductSubCategory.DiscountDate" class="text-danger"></span>
+            </div>
+
+            <input hidden asp-for="ProductSubCategory.CreatedAt" class="form-control" />
+
+            <input hidden class="form-check-input" asp-for="ProductSubCategory.Status" />
+
+            <input type="hidden" asp-for="ProductSubCategory.Id" />
+
+
+            <input hidden asp-for="ProductSubCategory.ModifiedAt" class="form-control" />
+            <nav>
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">
+                        <img width="30" src="~/images/azerbaijan.png" />
+                    </a>
+                    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">
+                        <img width="30" src="~/images/united-states.png" />
+                    </a>
+                </div>
+            </nav>
+            <div class="tab-content" id="nav-tabContent">
+                @for (int i = Model.ProductSubCategoryTranslates.Count - 1; i >= 0; i--)
+                {
+                    <div class="tab-pane fade @(i==0?"show active":"")" id="@(i==0?"nav-home":"nav-profile")" role="tabpanel" aria-labelledby="@(i==0?"nav-home-tab":"nav-profile-tab")">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                        <input hidden asp-for="ProductSubCategoryTranslates[i].LanguageId" />
+
+                        <div class="form-group">
+                            <label asp-for="ProductSubCategoryTranslates[i].Name" class="control-label"></label>
+                            <input asp-for="ProductSubCategoryTranslates[i].Name" class="form-control" data-validation="required" />
+                            <span asp-validation-for="ProductSubCategoryTranslates[i].Name" class="text-danger"></span>
+                        </div>
+                        <input hidden asp-for="ProductSubCategoryTranslates[i].Id" />
+                    </div>
+                }
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Yadda Saxla" class="btn btn-primary" />
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" class="btn btn-warning">Geri</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script>
+        $("#ProductSubCategory_PhotoUpload").change(function () {
+            readURL(this);
+        });
+        $.validate({
+            modules: 'date, file'
+        });
+
+    </script>
+}
