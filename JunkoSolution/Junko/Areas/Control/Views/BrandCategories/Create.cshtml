@@ -1,0 +1,43 @@
+﻿@model Junko.Models.BrandProductCategory
+
+@{
+    ViewData["Title"] = "Brend üçün kateqoriya seçin";
+}
+
+<h1>Brend üçün kateqoriya seçin</h1>
+
+<partial name="_NotificationPartial" />
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="BrandId" class="control-label"></label>
+                <select asp-for="BrandId" class="form-control" asp-items="ViewBag.BrandId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProductSubCategoryId" class="control-label"></label>
+                <select asp-for="ProductSubCategoryId" class="form-control" asp-items="ViewBag.ProductSubCategoryId"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Seç" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" class="btn btn-warning">Geri</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        $(function () {
+            setTimeout(function () {
+                $(".zmdi-notifications").fadeOut("slow");
+            }, 2500)
+        });
+    </script>
+}

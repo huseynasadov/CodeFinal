@@ -46,7 +46,7 @@
 
                                     @foreach (var cat in Model.ProductCategories)
                                     {
-                                        foreach (var subcat in cat.ProductSubCategories)
+                                        foreach (var subcat in cat.ProductSubCategories.Where(x=>x.Status==true))
                                         {
                                             <option value="@subcat.Id">@subcat.ProductSubCategoryTranslate.FirstOrDefault(a => a.LanguageId == Model.SettingTranslate.LanguageId).Name</option>
                                         }
@@ -271,7 +271,7 @@
                                             @if (cat.ProductSubCategories.Count > 0)
                                             {
                                                 <ul class="categories_mega_menu">
-                                                    @foreach (var subcat in cat.ProductSubCategories)
+                                                    @foreach (var subcat in cat.ProductSubCategories.Where(x=>x.Status==true))
                                                     {
                                                         <li class="menu_item_children">
 
@@ -307,7 +307,7 @@
                                             <option selected value="0">@_localizer["All Categories"]</option>
                                             @foreach (var cat in Model.ProductCategories)
                                             {
-                                                foreach (var subcat in cat.ProductSubCategories)
+                                                foreach (var subcat in cat.ProductSubCategories.Where(x=>x.Status==true))
                                                 {
                                                     <option value="@subcat.Id">@subcat.ProductSubCategoryTranslate.FirstOrDefault(a => a.LanguageId == Model.SettingTranslate.LanguageId).Name</option>
                                                 }

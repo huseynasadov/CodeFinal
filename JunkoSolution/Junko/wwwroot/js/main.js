@@ -6,7 +6,9 @@ $(function () {
             $("div.smallCart").html(data);
         });
     });
+
 });
+
 (function ($) {
     "use strict";
 

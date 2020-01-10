@@ -144,6 +144,9 @@
   <data name="Product Name" xml:space="preserve">
     <value>Məhsula görə sırala</value>
   </data>
+  <data name="Products is Empty" xml:space="preserve">
+    <value>Hal-hazırda Məhsul yoxdur</value>
+  </data>
   <data name="Quick View" xml:space="preserve">
     <value>Favoriləri Gör</value>
   </data>

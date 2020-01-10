@@ -1,0 +1,91 @@
+﻿@model ProductViewModel
+
+@{
+    ViewData["Title"] = "Məhsul Əlavə et";
+}
+
+<h1>Məhsul Əlavə et</h1>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Product.Name" class="control-label"></label>
+                <input asp-for="Product.Name" class="form-control slug-source" data-validation="required" />
+                <span asp-validation-for="Product.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Product.Slug" class="control-label"></label>
+                <input asp-for="Product.Slug" class="form-control slug" />
+                <span asp-validation-for="Product.Slug" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Product.BrandProductCategoryId" class="control-label"></label>
+                <select asp-for="Product.BrandProductCategoryId" class="form-control" asp-items="ViewBag.BrandProductCategoryId"></select>
+            </div>
+            <div class="form-group">
+                <label for="Product_Price" class="control-label">Qiymət (₼)</label>
+                <input asp-for="Product.Price" class="form-control" data-validation="required" />
+                <span asp-validation-for="Product.Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Product.Discount" class="control-label"></label>
+                <input asp-for="Product.Discount" class="form-control" data-validation="number"/>
+                <span asp-validation-for="Product.Discount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Product.DiscountDate" class="control-label"></label>
+                <input asp-for="Product.DiscountDate" class="form-control" data-validation="number" />
+                <span asp-validation-for="Product.DiscountDate" class="text-danger"></span>
+            </div>
+            <input hidden name="Product.CreatedAt" value="@DateTime.Now" class="form-control" />
+            <input hidden name="Product.FollowCount" value="1" class="form-control" />
+            <input hidden class="form-check-input" name="Product.Status" value="true" />
+            <input hidden name="Product.ModifiedAt" value="@DateTime.Now" class="form-control" />
+            <nav>
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">
+                        <img width="30" src="~/images/azerbaijan.png" />
+                    </a>
+                    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">
+                        <img width="30" src="~/images/united-states.png" />
+                    </a>
+                </div>
+            </nav>
+            <div class="tab-content" id="nav-tabContent">
+                @for (int i = 1; i >= 0; i--)
+                {
+                    <div class="tab-pane fade @(i==1?"show active":"")" id="@(i==1?"nav-home":"nav-profile")" role="tabpanel" aria-labelledby="@(i==1?"nav-home-tab":"nav-profile-tab")">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                        <input hidden name="ProductTranslates[@i].LanguageId" value="@(i==0?2:1)" />
+
+                        <div class="form-group">
+                            <label asp-for="ProductTranslates[i].Desc" class="control-label"></label>
+                            <input asp-for="ProductTranslates[i].Desc" class="form-control" />
+                            <span asp-validation-for="ProductTranslates[i].Desc" class="text-danger"></span>
+                        </div>
+                    </div>
+                }
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Əlavə et" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" class="btn btn-warning">Geri</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+<script>
+       
+        $.validate();
+
+</script>
+}

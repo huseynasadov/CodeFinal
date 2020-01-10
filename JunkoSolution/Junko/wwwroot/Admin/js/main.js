@@ -106,5 +106,7 @@ $(function () {
                 toastr.success('Ugurla basa catdi', 'Silindi')
             }
         })
-    })
+    });
+
+
 })

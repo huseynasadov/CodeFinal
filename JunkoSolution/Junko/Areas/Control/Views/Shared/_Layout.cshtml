@@ -73,6 +73,12 @@
                     <span>Brendlər</span>
                 </a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" asp-action="index" asp-controller="BrandCategories" asp-area="control">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Brend Kateqoriyalar</span>
+                </a>
+            </li>
             <!-- Nav Item - Tables -->
             <li class="nav-item">
                 <a class="nav-link" asp-action="index" asp-controller="ProductCategories" asp-area="control">
@@ -88,15 +94,9 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="@Url.Action("Index","AboutUs")">
+                <a class="nav-link" asp-action="index" asp-controller="Products" asp-area="control">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>About Us</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="@Url.Action("Index","Services")">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Services</span>
+                    <span>Məhsullar</span>
                 </a>
             </li>
             <li class="nav-item">

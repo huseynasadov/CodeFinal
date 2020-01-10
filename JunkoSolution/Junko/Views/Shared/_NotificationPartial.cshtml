@@ -1,12 +1,22 @@
 ﻿@if (TempData["Success"] != null)
 {
-    <div class="alert alert-success zmdi-notifications">
-        @TempData["Success"]
+    <div class="zmdi-notifications">
+        <div class="alert alert-success">
+            @TempData["Success"]
+        </div>
     </div>
+
 }
 @if (TempData["Error"] != null)
 {
-    <div class="alert alert-danger zmdi-notifications">
-        @TempData["Error"]
+
+    <div class="zmdi-notifications">
+        <div class="alert alert-danger ">
+            @TempData["Error"]
+        </div>
     </div>
+}
+@{
+    TempData["Error"] = null;
+    TempData["Success"] = null;
 }

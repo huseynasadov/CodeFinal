@@ -31,7 +31,7 @@ namespace Junko.Areas.Control.Controllers
         // GET: Control/ProductSubCategories
         public async Task<IActionResult> Index()
         {
-            var junkoDBContext = _context.ProductSubCategories.Include(p => p.AdminManager).Include(p => p.ProductCategory).OrderByDescending(x => x.CreatedAt);
+            var junkoDBContext = _context.ProductSubCategories.Include(p => p.AdminManager).Include("ProductCategory.ProductCategoryTranslate").OrderByDescending(x => x.ModifiedAt).ThenByDescending(x=>x.CreatedAt);
             return View(await junkoDBContext.ToListAsync());
         }
 
@@ -44,7 +44,7 @@ namespace Junko.Areas.Control.Controllers
             }
             ProductSubCategoryViewModel model = new ProductSubCategoryViewModel
             {
-                ProductSubCategory = await _context.ProductSubCategories.FirstOrDefaultAsync(x => x.Id == id),
+                ProductSubCategory = await _context.ProductSubCategories.Include("ProductCategory.ProductCategoryTranslate").FirstOrDefaultAsync(x => x.Id == id),
                 ProductSubCategoryTranslates = _context.ProductSubCategoryTranslates.Include("Language").Where(x => x.ProductSubCategoryId == id).ToList()
             };
             if (model.ProductSubCategory == null)
@@ -58,7 +58,7 @@ namespace Junko.Areas.Control.Controllers
         // GET: Control/ProductSubCategories/Create
         public IActionResult Create()
         {
-            ViewData["ProductCategoryId"] = new SelectList(_context.ProductCategories, "Id", "Id");
+            ViewData["ProductCategoryId"] = new SelectList(_context.ProductCategoryTranslates.Where(x=>x.LanguageId==2), "ProductCategoryId", "Name");
             return View();
         }
 
@@ -123,7 +123,7 @@ namespace Junko.Areas.Control.Controllers
                 return Json(new { res = true });
             }
             ViewData["AdminManagerId"] = new SelectList(_context.AdminManagers, "Id", "Email", model.ProductSubCategory.AdminManagerId);
-            ViewData["ProductCategoryId"] = new SelectList(_context.ProductCategories, "Id", "Id", model.ProductSubCategory.ProductCategoryId);
+            ViewData["ProductCategoryId"] = new SelectList(_context.ProductCategoryTranslates.Where(x => x.LanguageId == 2), "ProductCategoryId", "Name",model.ProductSubCategory.Id);
             return View(model);
         }
 
@@ -200,6 +200,7 @@ namespace Junko.Areas.Control.Controllers
             {
                 _context.ProductSubCategoryTranslates.Remove(item);
             }
+            await _context.SaveChangesAsync();
             _context.ProductSubCategories.Remove(productSubCategory);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));

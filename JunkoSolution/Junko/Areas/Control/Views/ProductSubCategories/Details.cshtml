@@ -15,16 +15,16 @@
         <dd class="col-sm-10">
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.ProductSubCategory.Discount)
+            @Html.DisplayNameFor(model => model.ProductSubCategory.Discount) (%) 
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.ProductSubCategory.Discount)
+            @Html.DisplayFor(model => model.ProductSubCategory.Discount) %
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.ProductSubCategory.DiscountDate)
+            @Html.DisplayNameFor(model => model.ProductSubCategory.DiscountDate) (Gün)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.ProductSubCategory.DiscountDate)
+            @Html.DisplayFor(model => model.ProductSubCategory.DiscountDate) Gün
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.ProductSubCategory.Status)
@@ -39,10 +39,10 @@
             @Html.DisplayFor(model => model.ProductSubCategory.CreatedAt)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.ProductSubCategory.ProductCategory)
+            Məhsul kateqoriyası
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.ProductSubCategory.ProductCategory.Id)
+            @Html.DisplayFor(model => model.ProductSubCategory.ProductCategory.ProductCategoryTranslate.FirstOrDefault(x=>x.LanguageId==2).Name)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.ProductSubCategory.ModifiedAt)
@@ -65,7 +65,7 @@
     <div class="tab-content" id="nav-tabContent">
         @for (int i =(Model.ProductSubCategoryTranslates.Count-1) ; i >= 0; i--)
         {
-            <div class="tab-pane fade @(i==0?"show active":"")" id="@(i==0?"nav-profile":"nav-home")" role="tabpanel" aria-labelledby="@(i==0?"nav-profile-tab":"nav-home-tab")">
+            <div class="tab-pane fade @(i==1?"show active":"")" id="@(i==1?"nav-home":"nav-profile")" role="tabpanel" aria-labelledby="@(i==1?"nav-home-tab":"nav-profile-tab")">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <select hidden asp-for="ProductSubCategoryTranslates[i].ProductSubCategoryId" class="form-control" asp-items="ViewBag.ProductCategoryId"></select>
 

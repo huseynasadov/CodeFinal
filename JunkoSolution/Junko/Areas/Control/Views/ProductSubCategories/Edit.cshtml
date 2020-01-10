@@ -25,12 +25,12 @@
             </div>
 
             <div class="form-group">
-                <label asp-for="ProductSubCategory.Discount" class="control-label"></label>
+                <label asp-for="ProductSubCategory.Discount" class="control-label">%</label>
                 <input asp-for="ProductSubCategory.Discount" class="form-control" />
                 <span asp-validation-for="ProductSubCategory.Discount" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ProductSubCategory.DiscountDate" class="control-label"></label>
+                <label asp-for="ProductSubCategory.DiscountDate" class="control-label">Gün</label>
                 <input asp-for="ProductSubCategory.DiscountDate" class="form-control" />
                 <span asp-validation-for="ProductSubCategory.DiscountDate" class="text-danger"></span>
             </div>
@@ -56,9 +56,10 @@
             <div class="tab-content" id="nav-tabContent">
                 @for (int i = Model.ProductSubCategoryTranslates.Count - 1; i >= 0; i--)
                 {
-                    <div class="tab-pane fade @(i==0?"show active":"")" id="@(i==0?"nav-home":"nav-profile")" role="tabpanel" aria-labelledby="@(i==0?"nav-home-tab":"nav-profile-tab")">
-                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
+                <div class="tab-pane fade @(i==1?"show active":"")" id="@(i==1?"nav-home":"nav-profile")" role="tabpanel" aria-labelledby="@(i==1?"nav-home-tab":"nav-profile-tab")">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    @if (Model.ProductSubCategoryTranslates.Count > 0)
+                    {
                         <input hidden asp-for="ProductSubCategoryTranslates[i].LanguageId" />
 
                         <div class="form-group">
@@ -67,7 +68,18 @@
                             <span asp-validation-for="ProductSubCategoryTranslates[i].Name" class="text-danger"></span>
                         </div>
                         <input hidden asp-for="ProductSubCategoryTranslates[i].Id" />
-                    </div>
+                    }
+                    else
+                    {
+                        <div class="form-group">
+                            <label id="ProductSubCategoryTranslates_@(i)__Name" class="control-label"></label>
+                            <input name="ProductSubCategoryTranslates[@i].Name" id="ProductSubCategoryTranslates_@(i)__Name" value="@(Model.ProductSubCategoryTranslates.Count>0? Model.ProductSubCategoryTranslates[i].Name:"")" class="form-control" />
+                            <span id="ProductSubCategoryTranslates_@(i)__Name" class="text-danger"></span>
+                        </div>
+                        <input hidden name="ProductSubCategoryTranslates[@i].LanguageId" value="@(i+1)" />
+                        <input hidden name="ProductSubCategoryTranslates[@i].ProductSubCategoryId" value="@Model.ProductSubCategory.Id" />
+                    }
+                </div>
                 }
             </div>
 

@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Junko.Models.BrandProductCategory>
+
+@{
+    ViewData["Title"] = "Brend Kateqoriya";
+}
+
+<partial name="_NotificationPartial" />
+<p>
+    <a asp-action="Create" class="btn btn-outline-info">Brend üçün Kateqoriya seçin</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Brand)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductSubCategory)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Brand.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductSubCategory.ProductSubCategoryTranslate.FirstOrDefault(x => x.LanguageId == 2).Name)
+                </td>
+                <td>
+                    <a class="categoryDelete" asp-action="delete" asp-route-id="@item.Id"><i class="fas fa-trash text-danger"></i></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@section Scripts{
+    <script>
+    $(function () {
+        setTimeout(function () {
+            $(".zmdi-notifications").fadeOut("slow");
+        },2500)
+    });
+    </script>
+}

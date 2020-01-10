@@ -1,0 +1,81 @@
+﻿@model IEnumerable<Junko.Models.Product>
+
+@{
+    ViewData["Title"] = "Məhsullar";
+}
+
+<partial name="_NotificationPartial" />
+<h1>Məhsullar</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-outline-info">Yeni Məhsul Əlavə et</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price) (AZN)
+            </th>
+            <th>
+                Brend > Alt Kateqoriya
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ModifiedAt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price) (₼)
+                </td>
+                <td>
+                    @item.BrandProductCategory.Brand.Name > @item.BrandProductCategory.ProductSubCategory.ProductSubCategoryTranslate.FirstOrDefault(x => x.LanguageId == 2).Name
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ModifiedAt)
+                </td>
+                <td>
+                    @if (item.Status == true)
+                    {
+                        <a href="@Url.Action("edit","products",new { id=item.Id, status=false})" class="statusActive">
+                            <span class="badge badge-success">Activ</span>
+                        </a>
+                    }
+                    else
+                    {
+                        <a href="@Url.Action("edit","products",new { id=item.Id,status=true})" class="statusActive">
+                            <span class="badge badge-danger">Deactive</span>
+                        </a>
+                    }
+                </td>
+                <td class="d-flex">
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-outline-info"><i class="fas fa-edit"></i></a>
+                    <a asp-action="Details" asp-route-slug="@item.Slug" class="btn btn-outline-warning mx-1"><i class="fas fa-info-circle"></i></a>
+                    <a class="categoryDelete" asp-action="delete" asp-route-slug="@item.Slug"><i class="fas fa-trash text-danger"></i></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@section Scripts{ 
+<script>
+    $(function () {
+        setTimeout(function () {
+            $(".zmdi-notifications").fadeOut("slow");
+        },2500)
+    });
+</script>
+}

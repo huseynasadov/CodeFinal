@@ -24,12 +24,12 @@
             </div>
 
             <div class="form-group">
-                <label asp-for="ProductSubCategory.Discount" class="control-label"></label>
+                <label asp-for="ProductSubCategory.Discount" class="control-label">%</label>
                 <input asp-for="ProductSubCategory.Discount" class="form-control" />
                 <span asp-validation-for="ProductSubCategory.Discount" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ProductSubCategory.DiscountDate" class="control-label"></label>
+                <label asp-for="ProductSubCategory.DiscountDate" class="control-label">Gün</label>
                 <input asp-for="ProductSubCategory.DiscountDate" class="form-control" />
                 <span asp-validation-for="ProductSubCategory.DiscountDate" class="text-danger"></span>
             </div>
@@ -53,7 +53,7 @@
             <div class="tab-content" id="nav-tabContent">
                 @for (int i = 1; i >= 0; i--)
                 {
-                    <div class="tab-pane fade @(i==0?"show active":"")" id="@(i==0?"nav-home":"nav-profile")" role="tabpanel" aria-labelledby="@(i==0?"nav-home-tab":"nav-profile-tab")">
+                    <div class="tab-pane fade @(i==1?"show active":"")" id="@(i==1?"nav-home":"nav-profile")" role="tabpanel" aria-labelledby="@(i==1?"nav-home-tab":"nav-profile-tab")">
                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
                         <input hidden name="ProductSubCategoryTranslates[@i].LanguageId" value="@(i==0?2:1)" />

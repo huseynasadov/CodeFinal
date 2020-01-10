@@ -7,6 +7,7 @@
 
 <!--breadcrumbs area start-->
 
+
 @await Html.PartialAsync("~/Views/Shared/_Breadcrumb.cshtml", model: Model.Breadcrumb)
 <!--breadcrumbs area end-->
 <!--Main Start-->
@@ -40,7 +41,7 @@
                                                      data-parent="#accordion">
                                                     <div class="card-body widget-succategory-card">
                                                         <ul>
-                                                            @foreach (var subcat in cat.ProductCategory.ProductSubCategories)
+                                                            @foreach (var subcat in cat.ProductCategory.ProductSubCategories.Where(x=>x.Status==true))
                                                             {
                                                                 <li class="widget-succategory"><a asp-controller="shop" asp-action="index" asp-route-category="@subcat.Id">@subcat.ProductSubCategoryTranslate.FirstOrDefault(s => s.LanguageId == cat.LanguageId).Name</a></li>
                                                             }
@@ -141,66 +142,74 @@
                 <div class="col-lg-9 col-md-12">
                     <!--shop wrapper start-->
                     <!--shop toolbar start-->
-                    <div class="shop_toolbar_wrapper">
-                        <div class="shop_toolbar_btn">
+                    @if (Model.Products.Count != 0)
+                    {
 
-                            <button data-role="grid_3" type="button" class="active btn-grid-3" data-toggle="tooltip" title="3"></button>
+                        <div class="shop_toolbar_wrapper">
+                            <div class="shop_toolbar_btn">
 
-                            <button data-role="grid_4" type="button" class=" btn-grid-4" data-toggle="tooltip" title="4"></button>
+                                <button data-role="grid_3" type="button" class="active btn-grid-3" data-toggle="tooltip" title="3"></button>
 
-                            <button data-role="grid_list" type="button" class="btn-list" data-toggle="tooltip" title="List"></button>
+                                <button data-role="grid_4" type="button" class=" btn-grid-4" data-toggle="tooltip" title="4"></button>
+
+                                <button data-role="grid_list" type="button" class="btn-list" data-toggle="tooltip" title="List"></button>
+                            </div>
+                            <div class="sortable-form">
+                                <form method="get" role="form" asp-controller="shop" asp-action="index" asp-route-category=@(Model.Pagination.CategoryId !=null? Model.Pagination.CategoryId:null )>
+                                    <select onchange="this.form.submit();" name="orderby" class="custom-select custom-select-md">
+                                        @if (Model.Pagination.OrderBy == 1)
+                                        {
+                                            <option selected value="1">@_localizer["Sort by newness"]</option>
+                                        }
+                                        else
+                                        {
+                                            <option value="1">@_localizer["Sort by newness"]</option>
+                                        }
+                                        @if (Model.Pagination.OrderBy == 2)
+                                        {
+                                            <option selected value="2">@_localizer["Sort by average rating"]</option>
+                                        }
+                                        else
+                                        {
+                                            <option value="2">@_localizer["Sort by average rating"]</option>
+                                        }
+                                        @if (Model.Pagination.OrderBy == 3)
+                                        {
+                                            <option selected value="3">@_localizer["Sort by price"]: @_localizer["low to high"]</option>
+                                        }
+                                        else
+                                        {
+                                            <option value="3">@_localizer["Sort by price"]: @_localizer["low to high"]</option>
+                                        }@if (Model.Pagination.OrderBy == 4)
+                                        {
+                                            <option selected value="4">@_localizer["Sort by price"]: @_localizer["high to low"]</option>
+                                        }
+                                        else
+                                        {
+                                            <option value="4">@_localizer["Sort by price"]: @_localizer["high to low"]</option>
+                                        }
+                                        @if (Model.Pagination.OrderBy == 5)
+                                        {
+                                            <option selected value="5">@_localizer["Sort by Product Name"]: Z</option>
+                                        }
+                                        else
+                                        {
+                                            <option value="5">@_localizer["Sort by Product Name"]: Z</option>
+                                        }
+                                    </select>
+                                </form>
+                            </div>
+                            <div class="page_amount">
+                                <p>@_localizer["Showing"] 1–@Model.Pagination.PageCount  of @Model.ProductCount @_localizer["results"]</p>
+                            </div>
                         </div>
-                        <div class="sortable-form">
-                            <form method="get" role="form" asp-controller="shop" asp-action="index" asp-route-category=@(Model.Pagination.CategoryId !=null? Model.Pagination.CategoryId:null )>
-                                <select onchange="this.form.submit();" name="orderby" class="custom-select custom-select-md">
-                                    @if (Model.Pagination.OrderBy == 1)
-                                    {
-                                        <option selected value="1">@_localizer["Sort by newness"]</option>
-                                    }
-                                    else
-                                    {
-                                        <option value="1">@_localizer["Sort by newness"]</option>
-                                    }
-                                    @if (Model.Pagination.OrderBy == 2)
-                                    {
-                                        <option selected value="2">@_localizer["Sort by average rating"]</option>
-                                    }
-                                    else
-                                    {
-                                        <option value="2">@_localizer["Sort by average rating"]</option>
-                                    }
-                                    @if (Model.Pagination.OrderBy == 3)
-                                    {
-                                        <option selected value="3">@_localizer["Sort by price"]: @_localizer["low to high"]</option>
-                                    }
-                                    else
-                                    {
-                                        <option value="3">@_localizer["Sort by price"]: @_localizer["low to high"]</option>
-                                    }@if (Model.Pagination.OrderBy == 4)
-                                    {
-                                        <option selected value="4">@_localizer["Sort by price"]: @_localizer["high to low"]</option>
-                                    }
-                                    else
-                                    {
-                                        <option value="4">@_localizer["Sort by price"]: @_localizer["high to low"]</option>
-                                    }
-                                    @if (Model.Pagination.OrderBy == 5)
-                                    {
-                                        <option selected value="5">@_localizer["Sort by Product Name"]: Z</option>
-                                    }
-                                    else
-                                    {
-                                        <option value="5">@_localizer["Sort by Product Name"]: Z</option>
-                                    }
-                                </select>
-                            </form>
-                        </div>
-                        <div class="page_amount">
-                            <p>@_localizer["Showing"] 1–@Model.Pagination.PageCount  of @Model.ProductCount @_localizer["results"]</p>
-                        </div>
-                    </div>
+                    }
                     <!--shop toolbar end-->
                     <div class="row shop_wrapper">
+                        @if (Model.Products.Count == 0)
+                        {
+                            <h1 class="text-center my-5 w-100">@_localizer["Products is Empty"]</h1>
+                        }
                         @foreach (var product in Model.Products)
                         {
                             <div class="col-lg-4 col-md-4 col-12 ">
