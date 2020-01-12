@@ -46,10 +46,14 @@
 
                                     @foreach (var cat in Model.ProductCategories)
                                     {
-                                        foreach (var subcat in cat.ProductSubCategories.Where(x=>x.Status==true))
+                                        if (cat.ProductSubCategories.Count > 0)
                                         {
-                                            <option value="@subcat.Id">@subcat.ProductSubCategoryTranslate.FirstOrDefault(a => a.LanguageId == Model.SettingTranslate.LanguageId).Name</option>
+                                            foreach (var subcat in cat.ProductSubCategories.Where(x => x.Status == true))
+                                            {
+                                                <option value="@subcat.Id">@subcat.ProductSubCategoryTranslate.FirstOrDefault(a => a.LanguageId == Model.SettingTranslate.LanguageId).Name</option>
+                                            }
                                         }
+
                                     }
                                 </select>
                             </div>
@@ -265,7 +269,7 @@
                                     {
                                         <li class="menu_item_children">
                                             <a href="#">
-                                                <img style="height:40px" src="~/images/@cat.Photo" />
+                                                <img style="height:40px" src="~/images/@(cat.Photo!=null?cat.Photo:"noimage.png")" />
                                                 @cat.ProductCategoryTranslate.FirstOrDefault(a => a.LanguageId == Model.SettingTranslate.LanguageId).Name <i class="fa fa-angle-right"></i>
                                             </a>
                                             @if (cat.ProductSubCategories.Count > 0)
@@ -275,7 +279,7 @@
                                                     {
                                                         <li class="menu_item_children">
 
-                                                            <img style="height:40px" src="~/images/@subcat.Photo" />
+                                                            <img style="height:40px" src="~/images/@(subcat.Photo!=null ? subcat.Photo:"noimage.png")" />
                                                             <a asp-action="index" asp-controller="shop" asp-route-category="@subcat.Id">@subcat.ProductSubCategoryTranslate.FirstOrDefault(a => a.LanguageId == Model.SettingTranslate.LanguageId).Name</a>
                                                             @if (subcat.BrandProductCategories.Count > 0)
                                                             {
@@ -307,10 +311,14 @@
                                             <option selected value="0">@_localizer["All Categories"]</option>
                                             @foreach (var cat in Model.ProductCategories)
                                             {
-                                                foreach (var subcat in cat.ProductSubCategories.Where(x=>x.Status==true))
+                                                if (cat.ProductSubCategories.Count > 0)
                                                 {
-                                                    <option value="@subcat.Id">@subcat.ProductSubCategoryTranslate.FirstOrDefault(a => a.LanguageId == Model.SettingTranslate.LanguageId).Name</option>
+                                                    foreach (var subcat in cat.ProductSubCategories.Where(x => x.Status == true))
+                                                    {
+                                                        <option value="@subcat.Id">@subcat.ProductSubCategoryTranslate.FirstOrDefault(a => a.LanguageId == Model.SettingTranslate.LanguageId).Name</option>
+                                                    }
                                                 }
+
                                             }
                                         </select>
                                     </div>
@@ -340,7 +348,7 @@
         <div class="row align-items-center">
             <div class="col-lg-3">
                 <div class="logo">
-                    <a asp-controller="home" asp-action="index"><img src="~/images/@Model.Setting.PhotoLogo" alt=""></a>
+                    <a asp-controller="home" asp-action="index"><img src="~/images/@(Model.Setting.PhotoLogo != null ? Model.Setting.PhotoLogo : "noimage.png")" alt=""></a>
                 </div>
             </div>
             <div class="col-lg-9">

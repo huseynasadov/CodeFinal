@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Junko.Models.BlogReview>
+
+@{
+    ViewData["Title"] = "Xəbər Rəyləri";
+}
+
+<h1>Xəbər Rəyləri</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.User)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Blog)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedAt)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.User.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Blog.BlogTranslates.FirstOrDefault(x=>x.LanguageId==2).Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedAt)
+            </td>
+            <td>
+                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-outline-warning"><i class="fas fa-info-circle"></i></a>
+                <a class="categoryDelete" asp-action="delete" asp-route-id="@item.Id"><i class="fas fa-trash text-danger"></i></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

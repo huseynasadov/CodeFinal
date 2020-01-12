@@ -23,7 +23,7 @@ namespace Junko.Models
         {
             ProductId = product.Id;
             ProductName = product.Name;
-            Image = product.ProductPhotos.FirstOrDefault().Photo;
+            Image = (product.ProductPhotos.Count >0 ? product.ProductPhotos.FirstOrDefault().Photo :"noimage.png");
             Price = product.Price;
             Quantity = 1;
             CreatedAt = DateTime.Now;

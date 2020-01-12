@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Junko.Models.OrderProduct>
+
+@{
+    ViewData["Title"] = "Sifarişlər";
+}
+
+<h1>Sifarişlər</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.User)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Complete)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.User.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Product.Name)
+                </td>
+                <td>
+                    @if (item.Complete == Complete.Completed)
+                    {
+                        <span class="badge badge-success">Tamamlanmış</span>
+
+                    }
+                    else
+                    {
+                        <span class="badge badge-danger">Tamamlanmamış</span>
+
+                    }
+                </td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-outline-warning mx-1"><i class="fas fa-info-circle"></i></a>
+                    <a class="categoryDelete" asp-action="delete" asp-route-id="@item.Id"><i class="fas fa-trash text-danger"></i></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

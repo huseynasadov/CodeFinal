@@ -101,9 +101,9 @@ $(function () {
                     complete: function () {
                         location.reload();
                         setTimeout(1000);
+                        toastr.success('Ugurla basa catdi', 'Silindi'); 
                     }
                 })
-                toastr.success('Ugurla basa catdi', 'Silindi')
             }
         })
     });

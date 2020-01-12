@@ -66,6 +66,13 @@ namespace Junko.Areas.Control.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(ProductSubCategoryViewModel model)
         {
+            if (_context.ProductSubCategoryTranslates.Any(x=>x.Name.ToLower()==model.ProductSubCategoryTranslates[1].Name.ToLower()))
+            {
+                ViewData["AdminManagerId"] = new SelectList(_context.AdminManagers, "Id", "Email", model.ProductSubCategory.AdminManagerId);
+                ViewData["ProductCategoryId"] = new SelectList(_context.ProductCategories, "Id", "Id", model.ProductSubCategory.ProductCategoryId);
+                TempData["Error"] = "Bu adda Alt kateqoriya mövcuddur!";
+                return View(model);
+            }
             if (model.ProductSubCategory.PhotoUpload != null)
             {
                 try

@@ -10,12 +10,12 @@ namespace Junko.Helpers
 {
     public class FileManager
     {
-        private  IWebHostEnvironment webHostEnvironment;
+        private readonly  IWebHostEnvironment webHostEnvironment;
         public FileManager(IWebHostEnvironment _webHostEnvironment)
         {
             webHostEnvironment = _webHostEnvironment;
         }
-        public  string Upload(IFormFile file, string allowedTypes = "image/png|image/jpeg|image/gif", int maxSize = 2048)
+        public  string Upload(IFormFile file, string allowedTypes = "image/png|image/jpeg|image/jpg|image/gif", int maxSize = 2048)
         {
             string UploadPath = Path.Combine(webHostEnvironment.WebRootPath, "images");
             if (file == null)

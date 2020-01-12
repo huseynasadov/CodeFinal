@@ -1,0 +1,75 @@
+﻿@model ProperityViewModel
+
+@{
+    ViewData["Title"] = "Yenilə";
+}
+
+<h1>Yenilə</h1>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <nav>
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">
+                        <img width="30" src="~/images/azerbaijan.png" />
+                    </a>
+                    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">
+                        <img width="30" src="~/images/united-states.png" />
+                    </a>
+                </div>
+            </nav>
+            <div class="tab-content" id="nav-tabContent">
+                @for (int i = 1; i >= 0; i--)
+                {
+                    <div class="tab-pane fade @(i==1?"show active":"")" id="@(i==1?"nav-home":"nav-profile")" role="tabpanel" aria-labelledby="@(i==1?"nav-home-tab":"nav-profile-tab")">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                        @if (Model.ProperityTranslates.Count > 0)
+                        {
+                            <div class="form-group">
+                                <label asp-for="ProperityTranslates[i].Name" class="control-label"></label>
+                                <input asp-for="ProperityTranslates[i].Name" class="form-control" data-validatation="required" />
+                                <span asp-validation-for="ProperityTranslates[i].Name" class="text-danger"></span>
+                            </div>
+                            <input hidden asp-for="ProperityTranslates[i].Id" />
+                            <input hidden asp-for="ProperityTranslates[i].LanguageId" />
+                            <input hidden asp-for="ProperityTranslates[i].ProperityId" />
+                        }
+                        else
+                        {
+                            <div class="form-group">
+                                <label id="ProperityTranslates_@(i)__Name" class="control-label"></label>
+                                <input name="ProperityTranslates[@i].Name" id="ProperityTranslates_@(i)__Name" value="@(Model.ProperityTranslates.Count>0? Model.ProperityTranslates[i].Name:"")" class="form-control" />
+                                <span id="ProperityTranslates_@(i)__Name" class="text-danger"></span>
+                            </div>
+                            <input hidden name="ProperityTranslates[@i].LanguageId" value="@(i+1)" />
+                            <input hidden name="ProperityTranslates[@i].ProperityId" value="@Model.Properity.Id" />
+
+                        }
+                    </div>
+                }
+            </div>
+            <input type="hidden" asp-for="Properity.Id" />
+            <input hidden asp-for="Properity.CreatedAt" />
+            <input hidden asp-for="Properity.Status" />
+            <input hidden asp-for="Properity.ModifiedAt" />
+            <div class="form-group">
+                <input type="submit" value="Yadda Saxla" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" class="btn btn-warning">Geri</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+<script>
+        $.validate();
+</script>
+}

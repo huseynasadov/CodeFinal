@@ -12,10 +12,14 @@ namespace Junko.Models
     {
         public int Id { get; set; }
         [ForeignKey("Product")]
+        [Display(Name ="Məhsul")]
         public int ProductId { get; set; }
+        [Display(Name = "Məhsul")]
         public Product Product { get; set; }
         [MaxLength(500)]
+        [Display(Name = "Şəkil")]
         public string Photo { get; set; }
+        [Display(Name = "Yaranma tarixi")]
         public DateTime CreatedAt { get; set; }
         public bool Status { get; set; }
         [NotMapped]

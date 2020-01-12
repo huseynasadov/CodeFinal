@@ -1,0 +1,55 @@
+﻿@model IEnumerable<Junko.Models.UserClient>
+
+@{
+    ViewData["Title"] = "İstifadəçilər";
+}
+
+<h1>İstifadəçilər</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Firstname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Lastname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Gender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedAt)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Firstname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Lastname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @(item.Gender==Gender.Male? "Kişi":"Qadın")
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedAt)
+            </td>
+            <td>
+                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-outline-warning"><i class="fas fa-info-circle"></i></a>
+                <a class="categoryDelete" asp-action="delete" asp-route-id="@item.Id"><i class="fas fa-trash text-danger"></i></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

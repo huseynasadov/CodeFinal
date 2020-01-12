@@ -17,13 +17,13 @@
                 @Html.DisplayNameFor(model => model.Photo)
             </th>
             <th>
+               Ad
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Status)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.ModifiedAt)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AdminManager)
             </th>
             <th></th>
         </tr>
@@ -31,37 +31,37 @@
     <tbody>
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
-                    <img width="100" src="~/images/@(item.Photo!=null?item.Photo:"noimage.png")" />
-                </td>
-                <td>
-                    @if (item.Status == true)
-                    {
-                        <a href="@Url.Action("edit","productcategories",new { id=item.Id, status=false})" class="statusActive">
-                            <span class="badge badge-success">Avtiv</span>
-                        </a>
-                    }
-                    else
-                    {
-                        <a href="@Url.Action("edit","productcategories",new { id=item.Id,status=true})" class="statusActive">
-                            <span class="badge badge-danger">Deactive</span>
-                        </a>
-                    }
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ModifiedAt)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.AdminManager.Email)
-                </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-outline-info"><i class="fas fa-edit"></i></a>
-                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-outline-warning"><i class="fas fa-info-circle"></i></a>
-                    <a class="categoryDelete" asp-action="delete" asp-route-id="@item.Id"><i class="fas fa-trash text-danger"></i></a>
+        <tr>
+            <td>
+                <img width="100" src="~/images/@(item.Photo!=null?item.Photo:"noimage.png")" />
+            </td>
+            <td>
+                @item.ProductCategoryTranslate.FirstOrDefault(x=>x.LanguageId==2).Name
+            </td>
+            <td>
+                @if (item.Status == true)
+                {
+                    <a href="@Url.Action("edit","productcategories",new { id=item.Id, status=false})" class="statusActive">
+                        <span class="badge badge-success">Avtiv</span>
+                    </a>
+                }
+                else
+                {
+                    <a href="@Url.Action("edit","productcategories",new { id=item.Id,status=true})" class="statusActive">
+                        <span class="badge badge-danger">Deactive</span>
+                    </a>
+                }
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModifiedAt)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-outline-info"><i class="fas fa-edit"></i></a>
+                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-outline-warning"><i class="fas fa-info-circle"></i></a>
+                <a class="categoryDelete" asp-action="delete" asp-route-id="@item.Id"><i class="fas fa-trash text-danger"></i></a>
 
-                </td>
-            </tr>
+            </td>
+        </tr>
         }
     </tbody>
 </table>

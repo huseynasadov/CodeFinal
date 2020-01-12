@@ -1,0 +1,75 @@
+﻿@model IEnumerable<Junko.Models.ProductPhoto>
+
+@{
+    ViewData["Title"] = "Məhsul üçün Şəkil seçimi";
+}
+
+<partial name="_NotificationPartial" />
+<h1>Məhsul üçün Şəkil seçimi</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-outline-success">Əlavə Et</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Product)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Photo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedAt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Product.Name)
+                </td>
+                <td>
+                    <img width="100" src="~/images/@(item.Photo!=null ? item.Photo:"noimage.png")" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreatedAt)
+                </td>
+                <td>
+                    @if (item.Status == true)
+                    {
+                        <a asp-action="edit" asp-controller="productphotoes" asp-route-id="@item.Id" asp-route-status="false" class="statusActive">
+                            <span class="badge badge-success">Aktiv</span>
+                        </a>
+                    }
+                    else
+                    {
+                        <a asp-action="edit" asp-controller="productphotoes" asp-route-id="@item.Id" asp-route-status="true" class="statusActive">
+                            <span class="badge badge-danger">Deaktiv</span>
+                        </a>
+                    }
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-outline-info"><i class="fas fa-edit"></i></a>
+                    <a class="categoryDelete" asp-action="delete" asp-route-id="@item.Id"><i class="fas fa-trash text-danger"></i></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@section Scripts{
+
+    <script>
+        $(function () {
+            setTimeout(function () {
+                $(".zmdi-notifications").fadeOut("slow");
+            }, 2500)
+        });
+    </script>
+}

@@ -11,6 +11,7 @@ namespace Junko.Models
     public class Properity : BaseAuditClass
     {
         public bool Status { get; set; }
+        [Display(Name ="Yaranma tarixi")]
         public DateTime CreatedAt { get; set; }
         public ICollection<ProperityTranslate> ProperityTranslates { get; set; }
         public ICollection<ProperityCategory> ProperityCategories { get; set; }

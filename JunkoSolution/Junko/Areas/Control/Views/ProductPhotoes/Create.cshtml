@@ -1,0 +1,52 @@
+﻿@model Junko.Models.ProductPhoto
+
+@{
+    ViewData["Title"] = "Məhsul üçün yeni şəkil";
+}
+
+<h1>Məhsul üçün yeni şəkil</h1>
+
+<h4>ProductPhoto</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" enctype="multipart/form-data" accept="image/gif, image/jpg, image/jpeg, image/png">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Photo" class="control-label"></label>
+                <input asp-for="PhotoUpload" class="form-control" data-validation="mime size" data-validation-allowing="jpg, png,jpeg" data-validation-max-size="2Mb" />
+                <input hidden asp-for="Photo" class="form-control" />
+                <span asp-validation-for="Photo" class="text-danger"></span>
+                <img style="display:none" src="" class="imgpreview">
+            </div>
+            <div class="form-group">
+                <label asp-for="ProductId" class="control-label"></label>
+                <select asp-for="ProductId" class="form-control" asp-items="ViewBag.ProductId"></select>
+            </div>
+            <input hidden name="CreatedAt" value="@DateTime.Now" />
+            <input hidden name="Status" value="true" />
+
+            <div class="form-group">
+                <input type="submit" value="Əlavə et" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" class="btn theme-btn-outlined">Geri</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+<script>
+        $("#PhotoUpload").change(function () {
+            $(".imgpreview").addClass("d-block");
+            readURL(this);
+        });
+        $.validate({
+            modules: 'file'
+        });
+
+</script>
+}

@@ -1,0 +1,63 @@
+﻿@model ProperityViewModel
+
+@{
+    ViewData["Title"] = "Əlavə et";
+}
+
+<h1>Məhsul xüsusiyyəti Əlavə et</h1>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+
+            <nav>
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">
+                        <img width="30" src="~/images/azerbaijan.png" />
+                    </a>
+                    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">
+                        <img width="30" src="~/images/united-states.png" />
+                    </a>
+                </div>
+            </nav>
+            <div class="tab-content" id="nav-tabContent">
+                @for (int i = 1; i >= 0; i--)
+                {
+                    <div class="tab-pane fade @(i==1?"show active":"")" id="@(i==1?"nav-home":"nav-profile")" role="tabpanel" aria-labelledby="@(i==1?"nav-home-tab":"nav-profile-tab")">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                        <input hidden name="ProperityTranslates[@i].LanguageId" value="@(i==1?2:1)" />
+
+                        <div class="form-group">
+                            <label asp-for="ProperityTranslates[i].Name" class="control-label"></label>
+                            <input asp-for="ProperityTranslates[i].Name" class="form-control" data-validation="required"/>
+                            <span asp-validation-for="ProperityTranslates[i].Name" class="text-danger"></span>
+                        </div>
+                    </div>
+                }
+            </div>
+
+            <input hidden name="Properity.CreatedAt" value="@DateTime.Now" />
+            <input hidden name="Properity.Status" value="true" />
+            <input hidden name="Properity.ModifiedAt" value="@DateTime.Now" />
+            <div class="form-group">
+                <input type="submit" value="Əlavə et" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" class="btn btn-warning">Geri</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+<script>
+
+        $.validate();
+
+</script>
+}

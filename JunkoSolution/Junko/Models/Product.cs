@@ -1,4 +1,4 @@
-﻿using Junko.ModelTranslate;
+﻿ using Junko.ModelTranslate;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -31,6 +31,7 @@ namespace Junko.Models
         public DateTime CreatedAt { get; set; }
         [Display(Name = "Baxış sayı")]
         public decimal? FollowCount { get; set; }
+        [Display(Name = "Brend < Alt Kateqoriya")]
         public BrandProductCategory BrandProductCategory { get; set; }
         public ICollection<ProductTranslate> ProductTranslates { get; set; }
         public ICollection<ProductPhoto> ProductPhotos { get; set; }

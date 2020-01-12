@@ -26,6 +26,7 @@ namespace Junko.Models
         public bool Status { get; set; }
         [Display(Name = "Yaranma tarixi")]
         public DateTime CreatedAt { get; set; }
+        [Display(Name = "Ust kateqoriya")]
         public ProductCategory ProductCategory { get; set; }
         public ICollection<ProductSubCategoryTranslate> ProductSubCategoryTranslate { get; set; }
         public ICollection<BrandProductCategory> BrandProductCategories { get; set; }

@@ -45,18 +45,22 @@
                     <div class="top_category_container category_column5 owl-carousel">
                         @foreach (var cat in Model.BestCategory)
                         {
-                            <div class="col-lg-2">
-                                <article class="single_category">
-                                    <figure>
-                                        <div class="category_thumb">
-                                            <a asp-controller="shop" asp-action="index" asp-route-category="@cat.ProductSubCategories.FirstOrDefault().Id"><img style="height:100px" src="~/images/@cat.Photo" alt="@cat.ProductCategoryTranslate.FirstOrDefault(a=>a.LanguageId==Model.LanguageId).Name"></a>
-                                        </div>
-                                        <figcaption class="category_name">
-                                            <h3><a asp-controller="shop" asp-action="index" asp-route-category="@cat.ProductSubCategories.FirstOrDefault().Id">@cat.ProductCategoryTranslate.FirstOrDefault(a => a.LanguageId == Model.LanguageId).Name</a></h3>
-                                        </figcaption>
-                                    </figure>
-                                </article>
-                            </div>
+                            if (cat.ProductSubCategories.Count > 0)
+                            {
+                                <div class="col-lg-2">
+                                    <article class="single_category">
+                                        <figure>
+                                            <div class="category_thumb">
+                                                <a asp-controller="shop" asp-action="index" asp-route-category="@cat.ProductSubCategories.FirstOrDefault().Id"><img style="height:100px" src="~/images/@(cat.Photo!=null?cat.Photo:"noimage.png")" alt="@cat.ProductCategoryTranslate.FirstOrDefault(a=>a.LanguageId==Model.LanguageId).Name"></a>
+                                            </div>
+                                            <figcaption class="category_name">
+                                                <h3><a asp-controller="shop" asp-action="index" asp-route-category="@cat.ProductSubCategories.FirstOrDefault().Id">@cat.ProductCategoryTranslate.FirstOrDefault(a => a.LanguageId == Model.LanguageId).Name</a></h3>
+                                            </figcaption>
+                                        </figure>
+                                    </article>
+                                </div>
+                            }
+
                         }
                     </div>
                 </div>

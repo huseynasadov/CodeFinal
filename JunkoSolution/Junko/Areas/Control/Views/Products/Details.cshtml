@@ -5,91 +5,212 @@
 }
 
 <h1>Məhsul haqqqında</h1>
-
-<div>
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Product.Name)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Product.Name)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Product.Price) (₼)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Product.Price) ₼
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Product.Discount)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Product.Discount)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Product.DiscountDate)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Product.DiscountDate)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Product.Status)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Product.Status)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Product.CreatedAt)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Product.CreatedAt)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Product.FollowCount)
-        </dt>
-        <dd class="col-sm-10">
-            <span>@Model.Product.FollowCount?.ToString("#")</span>
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Product.BrandProductCategory)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Product.BrandProductCategoryId)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Product.ModifiedAt)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Product.ModifiedAt)
-        </dd>
-    </dl>
-    @if (Model.ProductTranslates.Count > 0)
-    {
-        <nav>
-            <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">
-                    <img width="30" src="~/images/azerbaijan.png" />
-                </a>
-                <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">
-                    <img width="30" src="~/images/united-states.png" />
-                </a>
-            </div>
-        </nav>
-        <div class="tab-content" id="nav-tabContent">
-            @for (int i = (Model.ProductTranslates.Count - 1); i >= 0; i--)
-            {
-                <div class="tab-pane fade @(i==1?"show active":"")" id="@(i==1?"nav-home":"nav-profile")" role="tabpanel" aria-labelledby="@(i==1?"nav-home-tab":"nav-profile-tab")">
-                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                    <div class="form-group">
-                        <label asp-for="ProductTranslates[i].Desc" class="control-label"></label>
-                        <input disabled asp-for="ProductTranslates[i].Desc" class="form-control" />
-                        <span asp-validation-for="ProductTranslates[i].Desc" class="text-danger"></span>
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <div>
+                <dl class="row">
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.Product.Name)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Product.Name)
+                    </dd>
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.Product.Price) (₼)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Product.Price) ₼
+                    </dd>
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.Product.Discount)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Product.Discount)
+                    </dd>
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.Product.DiscountDate)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Product.DiscountDate)
+                    </dd>
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.Product.Status)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Product.Status)
+                    </dd>
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.Product.CreatedAt)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Product.CreatedAt)
+                    </dd>
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.Product.FollowCount)
+                    </dt>
+                    <dd class="col-sm-10">
+                        <span>@Model.Product.FollowCount?.ToString("#")</span>
+                    </dd>
+                    <dt class="col-sm-2">
+                        Brend < Alt kateqoriya
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Model.Product.BrandProductCategory.Brand.Name < @Model.Product.BrandProductCategory.ProductSubCategory.ProductSubCategoryTranslate.FirstOrDefault(x => x.LanguageId == 2).Name
+                    </dd>
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.Product.ModifiedAt)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Product.ModifiedAt)
+                    </dd>
+                </dl>
+                @if (Model.ProductTranslates.Count > 0)
+                {
+                    <nav>
+                        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                            <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">
+                                <img width="30" src="~/images/azerbaijan.png" />
+                            </a>
+                            <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">
+                                <img width="30" src="~/images/united-states.png" />
+                            </a>
+                        </div>
+                    </nav>
+                    <div class="tab-content" id="nav-tabContent">
+                        @for (int i = (Model.ProductTranslates.Count - 1); i >= 0; i--)
+                        {
+                            <div class="tab-pane fade @(i==1?"show active":"")" id="@(i==1?"nav-home":"nav-profile")" role="tabpanel" aria-labelledby="@(i==1?"nav-home-tab":"nav-profile-tab")">
+                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                <div class="form-group">
+                                    <label asp-for="ProductTranslates[i].Desc" class="control-label"></label>
+                                    <input disabled asp-for="ProductTranslates[i].Desc" class="form-control" />
+                                    <span asp-validation-for="ProductTranslates[i].Desc" class="text-danger"></span>
+                                </div>
+                            </div>
+                        }
                     </div>
-                </div>
-            }
-        </div>
-    }
+                }
 
+            </div>
+        </div>
+        <div class="col-12">
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Şəkillər</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Sil</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var photo in Model.Product.ProductPhotos)
+                    {
+                        <tr>
+                            <th scope="row"><img width="100" src="~/images/@(photo.Photo==null?"noimage.png":photo.Photo)" /></th>
+                            <td>
+                                @if (photo.Status == true)
+                                {
+                                    <a asp-action="edit" asp-controller="productphotoes" asp-route-id="@photo.Id" asp-route-status="false" class="statusActive">
+                                        <span class="badge badge-success">Aktiv</span>
+                                    </a>
+                                }
+                                else
+                                {
+                                    <a asp-action="edit" asp-controller="productphotoes" asp-route-id="@photo.Id" asp-route-status="true" class="statusActive">
+                                        <span class="badge badge-danger">Deaktiv</span>
+                                    </a>
+                                }
+                            </td>
+                            <td>
+                                <a class="categoryDelete" asp-action="delete" asp-controller="productphotoes" asp-route-id="@photo.Id"><i class="fas fa-trash text-danger"></i></a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="col-12">
+            <h3 class="text-center">Sifarişlər</h3>
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">İstifadəçi</th>
+                        <th scope="col">Sayı</th>
+                        <th scope="col">Qiyməti</th>
+                        <th scope="col">Tarix</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var order in Model.Product.OrderProducts.Where(x => x.Complete == Complete.Completed))
+                    {
+                        <tr>
+                            <th scope="row">@order.User.Firstname @order.User.Lastname</th>
+                            <td>@order.Quantity</td>
+                            <td>@order.Price</td>
+                            <td>@order.CreatedAt</td>
+                            <td>
+                                <a class="categoryDelete" asp-action="delete" asp-controller="orderproducts" asp-route-id="@order.Id"><i class="fas fa-trash text-danger"></i></a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="col-12">
+            <h3 class="text-center">Xüsusiyyətləri</h3>
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Xüsusiyyət</th>
+                        <th scope="col">Göstərici</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.Product.ProperityProducts)
+                    {
+                        <tr>
+                            <th scope="row">@item.Properity.ProperityTranslates.FirstOrDefault(x => x.LanguageId == 2).Name</th>
+                            <td>@item.Key</td>
+
+                            <td>
+                                <a class="categoryDelete" asp-action="delete" asp-controller="properityProducts" asp-route-id="@item.Id"><i class="fas fa-trash text-danger"></i></a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="col-12">
+            <h3 class="text-center">Rəylər</h3>
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">İstifadəçi</th>
+                        <th scope="col">Məzmun</th>
+                        <th scope="col">Tarix</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.Product.ProductReviews)
+                    {
+                    <tr>
+                        <th scope="row">@(item.User !=null ? item.User.Email : "")</th>
+                        <td>@item.Content</td>
+                        <td>@item.CreatedAt</td>
+
+                        <td>
+                            <a class="categoryDelete" asp-action="delete" asp-controller="productreviews" asp-route-id="@item.Id"><i class="fas fa-trash text-danger"></i></a>
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
 <div>
     <a asp-action="Edit" asp-route-slug="@Model.Product.Slug" class="btn btn-success">Yenilə</a> |

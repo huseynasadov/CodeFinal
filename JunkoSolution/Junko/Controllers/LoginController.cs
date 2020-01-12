@@ -125,7 +125,7 @@ namespace Junko.Controllers
                     IsEssential=true
                 };
                 Response.Cookies.Append("Token", model.User.Token, option);
-                return Redirect((!string.IsNullOrEmpty(Request.Headers["Referer"]) ? Request.Headers["Referer"].ToString() : returnUrl));
+                return LocalRedirect(returnUrl);
             }
             model.Breadcrumb = new Breadcrumb
             {

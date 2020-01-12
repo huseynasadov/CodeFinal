@@ -1,0 +1,60 @@
+﻿@model Junko.Models.OrderProduct
+
+@{
+    ViewData["Title"] = "Sifariş haqqında";
+}
+
+<h1>Sifariş haqqında</h1>
+
+<div>
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.User)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.User.Email)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Product)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Product.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Price) 
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Price) ₼
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Quantity)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Quantity)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CreatedAt)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CreatedAt)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Complete)
+        </dt>
+        <dd class="col-sm-10">
+            @if (Model.Complete == Complete.Completed)
+            {
+                <span class="badge badge-success">Tamamlanmış</span>
+
+            }
+            else
+            {
+                <span class="badge badge-danger">Tamamlanmamış</span>
+
+            }
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Index" class="btn btn-warning">Geri</a>
+</div>

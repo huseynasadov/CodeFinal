@@ -38,7 +38,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="@Url.Action("Index","Home")">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" asp-action="index" asp-controller="dashboard" asp-area="control">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
@@ -66,74 +66,47 @@
                 </a>
             </li>
 
-            <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" asp-action="index" asp-controller="Brands" asp-area="control">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePage" aria-expanded="true" aria-controls="collapsePages">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Məhsul</span>
+                </a>
+                <div id="collapsePage" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" asp-controller="Products" asp-action="index">Məhsullar</a>
+                        <a class="collapse-item" asp-action="index" asp-controller="Properities" asp-area="control">Xüsusiyyətlər</a>
+                        <a class="collapse-item" asp-action="index" asp-controller="ProperityProducts" asp-area="control">Məshul Xüsusiyyətləri </a>
+                        <a class="collapse-item" asp-action="index" asp-controller="Brands" asp-area="control">Brendlər</a>
+                        <a class="collapse-item" asp-action="index" asp-controller="BrandCategories" asp-area="control">Brend Kateqoriyalar</a>
+                        <a class="collapse-item" asp-action="index" asp-controller="ProductPhotoes" asp-area="control">Məshul Şəkilləri</a>
+                        <a class="collapse-item" asp-action="index" asp-controller="ProductSubCategories" asp-area="control">Məhsul Alt Kateqoriyaları</a>
+                        <a class="collapse-item" asp-action="index" asp-controller="ProductCategories" asp-area="control">Kateqoriyalar</a>
+                    </div>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" asp-action="index" asp-controller="UserClients" asp-area="control">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>Brendlər</span>
+                    <span>İstifadəçilər</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" asp-action="index" asp-controller="BrandCategories" asp-area="control">
+                <a class="nav-link" asp-action="index" asp-controller="OrderProducts" asp-area="control">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>Brend Kateqoriyalar</span>
-                </a>
-            </li>
-            <!-- Nav Item - Tables -->
-            <li class="nav-item">
-                <a class="nav-link" asp-action="index" asp-controller="ProductCategories" asp-area="control">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Məhsul Kateqoriyaları</span>
-                </a>
-            </li>
-            <!-- Nav Item - Tables -->
-            <li class="nav-item">
-                <a class="nav-link" asp-action="index" asp-controller="ProductSubCategories" asp-area="control">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Məhsul Alt Kateqoriyaları</span>
+                    <span>Sifarişlər</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" asp-action="index" asp-controller="Products" asp-area="control">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Məhsullar</span>
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Rəylər</span>
                 </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="@Url.Action("Index","Teams")">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Teams</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="@Url.Action("Index","Faqs")">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>FAQ</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="@Url.Action("Index","pricings")">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Pricing Plan</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="@Url.Action("Index","settings")">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Setting</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="@Url.Action("Index","BlogReviews")">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Blog Reviews</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="@Url.Action("Index","EmployerReviews")">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Employer Reviews</span>
-                </a>
+                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" asp-controller="ProductReviews" asp-action="index">Məhsul</a>
+                        <a class="collapse-item" asp-controller="BlogReviews" asp-action="index">Xəbər</a>
+                    </div>
+                </div>
             </li>
             <li class="nav-item">
                 <a class="nav-link" asp-action="index" asp-controller="users">

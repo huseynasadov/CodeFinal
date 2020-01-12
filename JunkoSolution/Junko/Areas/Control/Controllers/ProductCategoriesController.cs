@@ -31,7 +31,7 @@ namespace Junko.Areas.Control.Controllers
         // GET: Control/ProductCategories
         public async Task<IActionResult> Index()
         {
-            var junkoDBContext = _context.ProductCategories.Include(p => p.AdminManager).OrderByDescending(x=>x.CreatedAt);
+            var junkoDBContext = _context.ProductCategories.Include(p => p.AdminManager).Include("ProductCategoryTranslate").OrderByDescending(x=>x.ModifiedAt);
             return View(await junkoDBContext.ToListAsync());
         }
 
@@ -81,6 +81,13 @@ namespace Junko.Areas.Control.Controllers
             }
             if (ModelState.IsValid)
             {
+                if (_context.ProductCategoryTranslates.Any(x => x.Name.ToLower() == model.ProductCategoryTranslates[1].Name.ToLower()))
+                {
+                    TempData["Error"] = "Mu adda Kateqoriya mövcuddur!";
+                    ViewData["AdminManagerId"] = new SelectList(_context.AdminManagers, "Id", "Email", model.ProductCategory.AdminManagerId);
+                    return View(model);
+
+                }
                 model.ProductCategory.CreatedAt = DateTime.Now;
                 model.ProductCategory.ModifiedAt = DateTime.Now;
                 model.ProductCategory.Status = true;

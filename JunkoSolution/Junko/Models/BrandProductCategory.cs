@@ -16,7 +16,9 @@ namespace Junko.Models
         [ForeignKey("ProductSubCategory")]
         [Display(Name = "Məhsul Alt kateqoriyası")]
         public int ProductSubCategoryId { get; set; }
+        [Display(Name = "Brend")]
         public Brand Brand { get; set; }
+        [Display(Name = "Məhsul Alt kateqoriyası")]
         public ProductSubCategory ProductSubCategory { get; set; }
         public ICollection<Product> Products { get; set; }
     }

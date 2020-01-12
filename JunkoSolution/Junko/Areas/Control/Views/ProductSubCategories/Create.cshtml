@@ -4,6 +4,7 @@
     ViewData["Title"] = "Yeni Alt kateqoriya";
 }
 
+<partial name="_NotificationPartial" />
 <h1>Yeni Alt kateqoriya</h1>
 
 <hr />
@@ -80,7 +81,7 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-<script>
+    <script>
         $("#ProductSubCategory_PhotoUpload").change(function () {
             $(".imgpreview").addClass("d-block");
             readURL(this);
@@ -89,5 +90,5 @@
             modules: 'date, file'
         });
 
-</script>
+    </script>
 }

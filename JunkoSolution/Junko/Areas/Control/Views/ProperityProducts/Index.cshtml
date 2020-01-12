@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Junko.Models.ProperityProduct>
+
+@{
+    ViewData["Title"] = "Seçim";
+}
+
+<partial name="_NotificationPartial" />
+<p>
+    <a asp-action="Create" class="btn btn-outline-success">Məhsul üçün Xüsusiyyət Seçin</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Product)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Properity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Key)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedAt)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Product.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Properity.ProperityTranslates.FirstOrDefault(x=>x.LanguageId==2).Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Key)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreatedAt)
+                </td>
+                <td>
+                    <a class="categoryDelete" asp-action="delete" asp-route-id="@item.Id"><i class="fas fa-trash text-danger"></i></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@section Scripts{
+    <script>
+        $(function () {
+            setTimeout(function () {
+                $(".zmdi-notifications").fadeOut("slow");
+            }, 2500)
+        });
+    </script>
+}

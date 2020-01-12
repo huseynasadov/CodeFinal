@@ -1,0 +1,161 @@
+﻿@model Junko.Models.UserClient
+
+@{
+    ViewData["Title"] = "İstifadəçi haqqında";
+}
+
+<h1>İstifadəçi haqqında</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <div>
+                <dl class="row">
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.Firstname)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Firstname)
+                    </dd>
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.Lastname)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Lastname)
+                    </dd>
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.Email)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Email)
+                    </dd>
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.Birthday)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Birthday)
+                    </dd>
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.Address)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Address)
+                    </dd>
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.Gender)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @(Model.Gender == Gender.Male ? "Kişi" : "Qadın")
+                    </dd>
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.CreatedAt)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.CreatedAt)
+                    </dd>
+                </dl>
+            </div>
+        </div>
+        <div class="col-12">
+            <h3 class="text-center">Sifarişlər</h3>
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Məhsul adı</th>
+                        <th scope="col">Qiyməti</th>
+                        <th scope="col">Sayı</th>
+                        <th scope="col">Vəziyyət</th>
+                        <th scope="col">Tarix</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var order in Model.OrderProducts)
+                    {
+                    <tr>
+                        <th scope="row">@order.Product.Name</th>
+                        <td>@order.Price</td>
+                        <td>@order.Quantity</td>
+                        <td>
+                            @if (order.Complete == Complete.Completed)
+                            {
+                                <span class="badge badge-success">Tamamlanmış</span>
+
+                            }
+                            else
+                            {
+                                <span class="badge badge-danger">Tamamlanmamış</span>
+
+                            }
+                        </td>
+                        <td>@order.CreatedAt</td>
+                        <td>
+
+                            <a class="categoryDelete" asp-action="delete" asp-controller="orderproducts" asp-route-id="@order.Id"><i class="fas fa-trash text-danger"></i></a>
+                        </td>
+                    </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+        <div class="col-12">
+            <h3 class="text-center">Xəbər rəyləri</h3>
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Xəbər başlığı</th>
+                        <th scope="col">Rəy</th>
+                        <th scope="col">Tarix</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var blog in Model.BlogReviews)
+                    {
+                    <tr>
+                        <th scope="row">@blog.Blog.BlogTranslates.FirstOrDefault(x => x.LanguageId == 2).Title</th>
+                        <td>@blog.Content</td>
+                        <td>@blog.CreatedAt</td>
+                        <td>
+                            <a class="categoryDelete" asp-action="delete" asp-controller="blogreviews" asp-route-id="@blog.Id"><i class="fas fa-trash text-danger"></i></a>
+                        </td>
+                    </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+        <div class="col-12">
+            <h3 class="text-center">Məhsul Rəyləri</h3>
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Məhsul adı</th>
+                        <th scope="col">Rəy</th>
+                        <th scope="col">Tarix</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var pro in Model.ProductReviews)
+                    {
+                    <tr>
+                        <th scope="row">@pro.Product.Name</th>
+                        <td>@pro.Content</td>
+                        <td>@pro.CreatedAt</td>
+                        <td>
+                            <a class="categoryDelete" asp-action="delete" asp-controller="ProductReviews" asp-route-id="@pro.Id"><i class="fas fa-trash text-danger"></i></a>
+                        </td>
+                    </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<div>
+    <a asp-action="Index" class="btn btn-warning">Geri</a>
+</div>

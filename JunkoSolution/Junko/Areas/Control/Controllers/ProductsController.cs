@@ -30,7 +30,7 @@ namespace Junko.Areas.Control.Controllers
         // GET: Control/Products
         public async Task<IActionResult> Index()
         {
-            var junkoDBContext = _context.Products.Include("BrandProductCategory.Brand").Include("BrandProductCategory.ProductSubCategory.ProductSubCategoryTranslate").OrderByDescending(x=>x.CreatedAt);
+            var junkoDBContext = _context.Products.Include("BrandProductCategory.Brand").Include("BrandProductCategory.ProductSubCategory.ProductSubCategoryTranslate").OrderBy(x=>x.BrandProductCategory.Brand.Name);
             return View(await junkoDBContext.ToListAsync());
         }
 
@@ -40,7 +40,14 @@ namespace Junko.Areas.Control.Controllers
             
             ProductViewModel model = new ProductViewModel
             {
-                Product = await _context.Products.FirstOrDefaultAsync(x => x.Slug == slug),
+                Product = await _context.Products
+                .Include("BrandProductCategory.Brand")
+                .Include("BrandProductCategory.ProductSubCategory.ProductSubCategoryTranslate")
+                .Include("ProductPhotos")
+                .Include("OrderProducts.User")
+                .Include("ProperityProducts.Properity.ProperityTranslates")
+                .Include("ProductReviews.User")
+                .FirstOrDefaultAsync(x => x.Slug == slug),
                 ProductTranslates = _context.ProductTranslates.Include("Language").Where(x => x.Product.Slug == slug).ToList()
             };
             if (model.Product == null)
@@ -54,8 +61,11 @@ namespace Junko.Areas.Control.Controllers
         // GET: Control/Products/Create
         public IActionResult Create()
         {
-            ViewData["BrandProductCategoryId"] = new SelectList(_context.BrandProductCategories, "Id", "Id");
-            return View();
+            ViewData["BrandProductCategoryId"] = new SelectList(_context.BrandProductCategories.Include("Brand").Include("ProductSubCategory.ProductSubCategoryTranslate"), "Id", "Brand.Name");
+            ProductViewModel model = new ProductViewModel { 
+            BrandProductCategories= _context.BrandProductCategories.Include("Brand").Include("ProductSubCategory.ProductSubCategoryTranslate").ToList()
+            };
+            return View(model);
         }
 
         [HttpPost]
@@ -65,6 +75,14 @@ namespace Junko.Areas.Control.Controllers
            
             if (ModelState.IsValid)
             {
+                Product prod = _context.Products.FirstOrDefault(x => x.Name.ToLower() == model.Product.Name.ToLower());
+                if (prod!=null)
+                {
+                    model.BrandProductCategories = _context.BrandProductCategories.Include("Brand").Include("ProductSubCategory.ProductSubCategoryTranslate").ToList();
+                    TempData["Error"] = "Bu adda məhsul artıq mövcuddur!";
+                    ViewData["BrandProductCategoryId"] = new SelectList(_context.BrandProductCategories, "Id", "Id", model.Product.BrandProductCategoryId);
+                    return View(model);
+                }
                 _context.Add(model.Product);
                 await _context.SaveChangesAsync();
                 foreach (var product in model.ProductTranslates)
@@ -76,6 +94,7 @@ namespace Junko.Areas.Control.Controllers
                 TempData["Success"] = "Yeni Məhsul Yaradıldl";
                 return RedirectToAction(nameof(Index));
             }
+            model.BrandProductCategories = _context.BrandProductCategories.Include("Brand").Include("ProductSubCategory.ProductSubCategoryTranslate").ToList();
             ViewData["BrandProductCategoryId"] = new SelectList(_context.BrandProductCategories, "Id", "Id", model.Product.BrandProductCategoryId);
             return View(model);
         }
@@ -87,7 +106,8 @@ namespace Junko.Areas.Control.Controllers
             ProductViewModel model = new ProductViewModel
             {
                 Product = await _context.Products.FirstOrDefaultAsync(x => x.Id == id),
-                ProductTranslates = _context.ProductTranslates.Include("Language").Where(x => x.Product.Id == id).ToList()
+                ProductTranslates = _context.ProductTranslates.Include("Language").Where(x => x.Product.Id == id).ToList(),
+                BrandProductCategories = _context.BrandProductCategories.Include("Brand").Include("ProductSubCategory.ProductSubCategoryTranslate").ToList()
             };
             if (model.Product == null)
             {

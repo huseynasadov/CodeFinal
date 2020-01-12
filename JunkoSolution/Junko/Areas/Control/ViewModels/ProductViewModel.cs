@@ -11,5 +11,6 @@ namespace Junko.Areas.Control.ViewModels
     {
         public Product Product { get; set; }
         public List<ProductTranslate> ProductTranslates { get; set; }
+        public List<BrandProductCategory> BrandProductCategories { get; set; }
     }
 }

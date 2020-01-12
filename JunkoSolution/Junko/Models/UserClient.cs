@@ -15,20 +15,28 @@ namespace Junko.Models
     {
         public int Id { get; set; }
         [Required, MaxLength(50)]
+        [Display(Name ="Ad")]
         public string Firstname { get; set; }
         [Required, MaxLength(50)]
+        [Display(Name = "Soyad")]
         public string Lastname { get; set; }
         [Required, EmailAddress]
+        [Display(Name = "E-Poçt")]
         public string Email { get; set; }
         [DataType(DataType.Date)]
+        [Display(Name = "Doğum tarixi")]
         public DateTime Birthday { get; set; }
         [Required, MaxLength(250)]
         [DataType(DataType.Password)]
+        [Display(Name = "Parol")]
         public string Password { get; set; }
+        [Display(Name = "Ünvan")]
         public string Address { get; set; }
+        [Display(Name = "Cinsiyyət")]
         public Gender Gender { get; set; }
         [MaxLength(400)]
         public string Token { get; set; }
+        [Display(Name = "Qeydiyyat tarixi")]
         public DateTime CreatedAt { get; set; }
         public ICollection<BlogReview> BlogReviews { get; set; }
         public ICollection<OrderProduct> OrderProducts { get; set; }
