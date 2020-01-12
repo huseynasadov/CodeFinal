@@ -1,0 +1,93 @@
+﻿@model BlogViewModel
+
+@{
+    ViewData["Title"] = "Xəbər Əlavə et";
+}
+
+<h1>Xəbər Əlavə et</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Blog.Photo" class="control-label"></label>
+                <input asp-for="Blog.PhotoUpload" class="form-control" data-validation="mime size" data-validation-allowing="jpg, png,jpeg" data-validation-max-size="2Mb" />
+                <input hidden asp-for="Blog.Photo" class="form-control" />
+                <span asp-validation-for="Blog.Photo" class="text-danger"></span>
+                <img style="display:none" src="" class="imgpreview">
+            </div>
+            <input hidden name="Blog.CreatedAt" value="@DateTime.Now" />
+            <input hidden name="Blog.Status" value="true" />
+            <input hidden name="Blog.ModifiedAt" value="@DateTime.Now" />
+            <nav>
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">
+                        <img width="30" src="~/images/azerbaijan.png" />
+                    </a>
+                    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">
+                        <img width="30" src="~/images/united-states.png" />
+                    </a>
+                </div>
+            </nav>
+            <div class="tab-content" id="nav-tabContent">
+                @for (int i = 1; i >= 0; i--)
+                {
+                <div class="tab-pane fade @(i==1?"show active":"")" id="@(i==1?"nav-home":"nav-profile")" role="tabpanel" aria-labelledby="@(i==1?"nav-home-tab":"nav-profile-tab")">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <input hidden name="BlogTranslates[@i].LanguageId" value="@(i==1?2:1)" />
+
+                    <div class="form-group">
+                        <label asp-for="BlogTranslates[i].Title" class="control-label"></label>
+                        <input asp-for="BlogTranslates[i].Title" class="form-control @(i==1?"slug-source":"slug-source-1")" data-validation="required" />
+                        <span asp-validation-for="BlogTranslates[i].Title" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="BlogTranslates[i].Slug" class="control-label"></label>
+                        <input asp-for="BlogTranslates[i].Slug" class="form-control @(i==1?"slug":"slug-1")" />
+                        <span asp-validation-for="BlogTranslates[i].Slug" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="BlogTranslates[i].Desc" class="control-label"></label>
+                        <input asp-for="BlogTranslates[i].Desc" class="form-control" />
+                        <span asp-validation-for="BlogTranslates[i].Desc" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="BlogTranslates[i].Content" class="control-label"></label>
+                        <textarea asp-for="BlogTranslates[i].Content" class="form-control" data-validation="required"></textarea>
+                        <span asp-validation-for="BlogTranslates[i].Content" class="text-danger"></span>
+                    </div>
+                </div>
+                }
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Əlavə et" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" class="btn btn-warning">Geri</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script src="https://cdn.ckeditor.com/4.13.1/standard/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace('BlogTranslates[1].Content');
+        CKEDITOR.replace('BlogTranslates[0].Content');
+    </script>
+    <script>
+
+        $.validate({
+            modules: 'file'
+        });
+         $("#Blog_PhotoUpload").change(function () {
+            $(".imgpreview").addClass("d-block");
+            readURL(this);
+        });
+    </script>
+}

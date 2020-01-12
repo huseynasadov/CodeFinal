@@ -10,12 +10,12 @@
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
-            <img width="100" src="~/images/@Model.ProductSubCategory.Photo">
+            <img width="100" src="~/images/@(Model.ProductSubCategory.Photo !=null ? Model.ProductSubCategory.Photo:"noimage.png")">
         </dt>
         <dd class="col-sm-10">
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.ProductSubCategory.Discount) (%) 
+            @Html.DisplayNameFor(model => model.ProductSubCategory.Discount) (%)
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.ProductSubCategory.Discount) %
@@ -42,7 +42,7 @@
             Məhsul kateqoriyası
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.ProductSubCategory.ProductCategory.ProductCategoryTranslate.FirstOrDefault(x=>x.LanguageId==2).Name)
+            @Html.DisplayFor(model => model.ProductSubCategory.ProductCategory.ProductCategoryTranslate.FirstOrDefault(x => x.LanguageId == 2).Name)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.ProductSubCategory.ModifiedAt)
@@ -50,37 +50,40 @@
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.ProductSubCategory.ModifiedAt)
         </dd>
-        
+
     </dl>
-    <nav>
-        <div class="nav nav-tabs" id="nav-tab" role="tablist">
-            <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">
-                <img width="30" src="~/images/azerbaijan.png" />
-            </a>
-            <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">
-                <img width="30" src="~/images/united-states.png" />
-            </a>
-        </div>
-    </nav>
-    <div class="tab-content" id="nav-tabContent">
-        @for (int i =(Model.ProductSubCategoryTranslates.Count-1) ; i >= 0; i--)
-        {
-            <div class="tab-pane fade @(i==1?"show active":"")" id="@(i==1?"nav-home":"nav-profile")" role="tabpanel" aria-labelledby="@(i==1?"nav-home-tab":"nav-profile-tab")">
-                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                <select hidden asp-for="ProductSubCategoryTranslates[i].ProductSubCategoryId" class="form-control" asp-items="ViewBag.ProductCategoryId"></select>
-
-                <input hidden asp-for="ProductSubCategoryTranslates[i].LanguageId" />
-
-                <div class="form-group">
-                    <label asp-for="ProductSubCategoryTranslates[i].Name" class="control-label"></label>
-                    <input disabled asp-for="ProductSubCategoryTranslates[i].Name" class="form-control" data-validation="required" />
-                    <span asp-validation-for="ProductSubCategoryTranslates[i].Name" class="text-danger"></span>
-                </div>
-                <input hidden asp-for="ProductSubCategoryTranslates[i].Id" />
+    @if (Model.ProductSubCategoryTranslates.Count > 0)
+    {
+        <nav>
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">
+                    <img width="30" src="~/images/azerbaijan.png" />
+                </a>
+                <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">
+                    <img width="30" src="~/images/united-states.png" />
+                </a>
             </div>
-        }
+        </nav>
+        <div class="tab-content" id="nav-tabContent">
+            @for (int i = (Model.ProductSubCategoryTranslates.Count - 1); i >= 0; i--)
+            {
+                <div class="tab-pane fade @(i == 1 ? "show active" : "")" id="@(i == 1 ? "nav-home" : "nav-profile")" role="tabpanel" aria-labelledby="@(i == 1 ? "nav-home-tab" : "nav-profile-tab")">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <select hidden asp-for="ProductSubCategoryTranslates[i].ProductSubCategoryId" class="form-control" asp-items="ViewBag.ProductCategoryId"></select>
+
+                    <input hidden asp-for="ProductSubCategoryTranslates[i].LanguageId" />
+
+                    <div class="form-group">
+                        <label asp-for="ProductSubCategoryTranslates[i].Name" class="control-label"></label>
+                        <input disabled asp-for="ProductSubCategoryTranslates[i].Name" class="form-control" data-validation="required" />
+                        <span asp-validation-for="ProductSubCategoryTranslates[i].Name" class="text-danger"></span>
+                    </div>
+                    <input hidden asp-for="ProductSubCategoryTranslates[i].Id" />
+                </div>
+            }
+        </div>
+    }
     </div>
-</div>
 <div>
     <a asp-action="Edit" asp-route-id="@Model.ProductSubCategory.Id" class="btn btn-success">Yenilə</a> |
     <a asp-action="Index" class="btn btn-warning">Geri</a>

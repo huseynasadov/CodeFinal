@@ -68,7 +68,7 @@ namespace Junko.Controllers
                     };
                     Response.Cookies.Append("Token", user.Token, option);
 
-                    return Redirect((!string.IsNullOrEmpty(Request.Headers["Referer"]) ? Request.Headers["Referer"].ToString() :returnUrl));
+                    return LocalRedirect(returnUrl);
                 }
             }
             model.Breadcrumb = new Breadcrumb
@@ -207,7 +207,7 @@ namespace Junko.Controllers
             var cookieValue = Request.Cookies["Token"];
             if (cookieValue==null)
             {
-               return Redirect((!string.IsNullOrEmpty(Request.Headers["Referer"]) ? Request.Headers["Referer"].ToString() : returnUrl));
+               return LocalRedirect(returnUrl);
             }
           UserClient user=  _db.UserClients.FirstOrDefault(a => a.Token == cookieValue);
             if (user!=null)
@@ -217,7 +217,7 @@ namespace Junko.Controllers
             }
 
             Response.Cookies.Delete("Token");
-            return Redirect((!string.IsNullOrEmpty(Request.Headers["Referer"]) ? Request.Headers["Referer"].ToString() : returnUrl));
+            return LocalRedirect(returnUrl);
         }
     }
 }

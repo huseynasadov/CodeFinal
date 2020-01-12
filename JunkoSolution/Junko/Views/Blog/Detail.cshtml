@@ -26,7 +26,7 @@
                                 <div class="post_header">
                                     <h3 class="post_title">@Model.Blog.Title</h3>
                                     <div class="blog_meta">
-                                        <span class="author">@_localizer["Posted By"] : <a href="#">@Model.Blog.Blog.AdminManager.Category.AdminCategoryTranslates.FirstOrDefault(a => a.LanguageId == Model.Blog.LanguageId).Name</a> / </span>
+                                        <span class="author">@_localizer["Posted By"] : <a href="#">@(Model.Blog.Blog.AdminManager !=null ? Model.Blog.Blog.AdminManager.Category.AdminCategoryTranslates.FirstOrDefault(a => a.LanguageId == Model.Blog.LanguageId).Name : "Admin")</a> / </span>
                                         <span class="post_date">@_localizer["On"] : <a href="#">@Model.Blog.Blog.CreatedAt.ToString("MMMM dd, yyyy")</a> /</span>
                                         <span class="post_category">
                                             In : <a href="#">

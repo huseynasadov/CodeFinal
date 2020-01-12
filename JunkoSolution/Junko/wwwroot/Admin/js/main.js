@@ -24,6 +24,9 @@
     $(".slug-source").blur(function () {
         $(".slug").val($(this).val().slugify());
     });
+    $(".slug-source-1").blur(function () {
+        $(".slug-1").val($(this).val().slugify());
+    });
 
     $(".jobDelete").click(function (event) {
         var deletinput = this;

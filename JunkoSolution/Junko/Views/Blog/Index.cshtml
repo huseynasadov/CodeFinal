@@ -31,14 +31,14 @@
                                         <figure>
                                             <div class="blog_thumb">
                                                 <a asp-controller="blog" asp-action="detail" asp-route-id="@blog.BlogId">
-                                                    <img src="~/images/@blog.Blog.Photo"
+                                                    <img style="height:200px" src="~/images/@(blog.Blog.Photo !=null ? blog.Blog.Photo:"noimage.png")"
                                                          alt="@blog.Title">
                                                 </a>
                                             </div>
                                             <figcaption class="blog_content">
                                                 <h3><a asp-controller="blog" asp-action="detail" asp-route-id="@blog.BlogId">@blog.Title</a></h3>
                                                 <div class="blog_meta">
-                                                    <span class="author">@_localizer["Posted By"] : <a href="#">@blog.Blog.AdminManager.Category.AdminCategoryTranslates.FirstOrDefault(a=>a.LanguageId==blog.LanguageId).Name</a> / </span>
+                                                    <span class="author">@_localizer["Posted By"] : <a href="#">@(blog.Blog.AdminManager !=null ? blog.Blog.AdminManager.Category.AdminCategoryTranslates.FirstOrDefault(a=>a.LanguageId==blog.LanguageId).Name : "Admin")</a> / </span>
                                                     <span class="post_date">@_localizer["On"] : <a href="#">@blog.Blog.CreatedAt.ToString("MMMM dd, yyyy")</a></span>
                                                 </div>
                                                 <div class="blog_desc">

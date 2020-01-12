@@ -529,3 +529,7 @@ C:\Users\Huseyn\Desktop\Code Academy\Final\CodeFinal\JunkoSolution\Junko\obj\Deb
 C:\Users\Huseyn\Desktop\Code Academy\Final\CodeFinal\JunkoSolution\Junko\obj\Debug\netcoreapp3.1\Razor\Areas\Control\Views\ProductReviews\Index.cshtml.g.cs
 C:\Users\Huseyn\Desktop\Code Academy\Final\CodeFinal\JunkoSolution\Junko\obj\Debug\netcoreapp3.1\Razor\Areas\Control\Views\BlogReviews\Details.cshtml.g.cs
 C:\Users\Huseyn\Desktop\Code Academy\Final\CodeFinal\JunkoSolution\Junko\obj\Debug\netcoreapp3.1\Razor\Areas\Control\Views\BlogReviews\Index.cshtml.g.cs
+C:\Users\Huseyn\Desktop\Code Academy\Final\CodeFinal\JunkoSolution\Junko\obj\Debug\netcoreapp3.1\Razor\Areas\Control\Views\Blogs\Create.cshtml.g.cs
+C:\Users\Huseyn\Desktop\Code Academy\Final\CodeFinal\JunkoSolution\Junko\obj\Debug\netcoreapp3.1\Razor\Areas\Control\Views\Blogs\Details.cshtml.g.cs
+C:\Users\Huseyn\Desktop\Code Academy\Final\CodeFinal\JunkoSolution\Junko\obj\Debug\netcoreapp3.1\Razor\Areas\Control\Views\Blogs\Edit.cshtml.g.cs
+C:\Users\Huseyn\Desktop\Code Academy\Final\CodeFinal\JunkoSolution\Junko\obj\Debug\netcoreapp3.1\Razor\Areas\Control\Views\Blogs\Index.cshtml.g.cs

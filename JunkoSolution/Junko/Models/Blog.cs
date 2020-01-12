@@ -12,7 +12,9 @@ namespace Junko.Models
     public class Blog:BaseAuditClass
     {
         [MaxLength(400)]
+        [Display(Name ="Şəkil")]
         public string Photo { get; set; }
+        [Display(Name = "Yaranma tarixi")]
         public DateTime CreatedAt { get; set; }
         [NotMapped]
         public IFormFile PhotoUpload { get; set; }

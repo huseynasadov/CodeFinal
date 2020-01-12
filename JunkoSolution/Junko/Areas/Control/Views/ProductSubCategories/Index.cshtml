@@ -33,19 +33,19 @@
         {
             <tr>
                 <td>
-                    <img width="100" src="~/images/@item.Photo" />
+                    <img width="100" src="~/images/@(item.Photo !=null ? item.Photo : "noimage.png")" />
                 </td>
                 <td>
                     @if (item.Status == true)
                     {
                         <a href="@Url.Action("edit","productsubcategories",new { id=item.Id, status=false})" class="statusActive">
-                            <span class="badge badge-success">Avtiv</span>
+                            <span class="badge badge-success">Aktiv</span>
                         </a>
                     }
                     else
                     {
                         <a href="@Url.Action("edit","productsubcategories",new { id=item.Id,status=true})" class="statusActive">
-                            <span class="badge badge-danger">Deactive</span>
+                            <span class="badge badge-danger">Deaktiv</span>
                         </a>
                     }
                 </td>
