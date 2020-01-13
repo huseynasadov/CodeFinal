@@ -132,7 +132,7 @@
             <div class="tab-content">
                 @for (int i = 0; i < Model.NewProductsCategory.Count; i++)
                 {
-                    ProductCategory cat = Model.NewProductsCategory.Skip(i).FirstOrDefault();
+                    ProductCategory cat = Model.NewProductsCategory.Skip(i).FirstOrDefault(x=>x.Status==true);
 
                     <div class="tab-pane fade @(i==0?"show active":"")" id="NewArrival-@cat.Id" role="tabpanel">
                         <div class="row featured_container featured_column3">
@@ -149,10 +149,10 @@
                                         <figure>
                                             <div class="product_thumb">
                                                 <a class="primary_img" asp-controller="shop" asp-action="detail" asp-route-slug="@product.Slug">
-                                                    <img src="~/images/@(product.ProductPhotos.FirstOrDefault()==null?"product/product-default.png":product.ProductPhotos.FirstOrDefault().Photo) " alt="@product.Name">
+                                                    <img src="~/images/@(product.ProductPhotos.FirstOrDefault(x=>x.Status==true)==null?"product/product-default.png":product.ProductPhotos.FirstOrDefault().Photo) " alt="@product.Name">
                                                 </a>
                                                 <a class="secondary_img" asp-controller="shop" asp-action="detail" asp-route-slug="@product.Slug">
-                                                    <img src="~/images/@(product.ProductPhotos.FirstOrDefault()==null ?"product/product-default.png":product.ProductPhotos.Count==1?product.ProductPhotos.FirstOrDefault().Photo:product.ProductPhotos.Skip(1).FirstOrDefault().Photo)" alt="@product.Name">
+                                                    <img src="~/images/@(product.ProductPhotos.FirstOrDefault(x=>x.Status==true)==null ?"product/product-default.png":product.ProductPhotos.Count==1?product.ProductPhotos.FirstOrDefault().Photo:product.ProductPhotos.Skip(1).FirstOrDefault().Photo)" alt="@product.Name">
                                                 </a>
                                                 <div class="label_product">
                                                     <span class="label_sale">@_localizer["sale"] </span>

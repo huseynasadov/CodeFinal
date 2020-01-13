@@ -30,7 +30,7 @@ namespace Junko.Areas.Control.Controllers
         // GET: Control/ProductPhotoes
         public async Task<IActionResult> Index()
         {
-            var junkoDBContext = _context.ProductPhotos.Include(p => p.Product);
+            var junkoDBContext = _context.ProductPhotos.Include(p => p.Product).OrderByDescending(x=>x.CreatedAt);
             return View(await junkoDBContext.ToListAsync());
         }
 

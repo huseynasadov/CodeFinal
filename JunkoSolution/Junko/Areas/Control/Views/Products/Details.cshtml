@@ -109,18 +109,13 @@
                         <tr>
                             <th scope="row"><img width="100" src="~/images/@(photo.Photo==null?"noimage.png":photo.Photo)" /></th>
                             <td>
-                                @if (photo.Status == true)
-                                {
-                                    <a asp-action="edit" asp-controller="productphotoes" asp-route-id="@photo.Id" asp-route-status="false" class="statusActive">
-                                        <span class="badge badge-success">Aktiv</span>
-                                    </a>
-                                }
-                                else
-                                {
-                                    <a asp-action="edit" asp-controller="productphotoes" asp-route-id="@photo.Id" asp-route-status="true" class="statusActive">
-                                        <span class="badge badge-danger">Deaktiv</span>
-                                    </a>
-                                }
+                                <input @(photo.Status == true ? "checked" : "") type="checkbox" id="toggle" class="toogleBoot toggle-checkbox"
+                                       data-toggle="toggle"
+                                       data-url="/Control/productphotoes/edit/@photo.Id"
+                                       data-on="Aktiv"
+                                       data-off="Deaktiv"
+                                       data-onstyle="success"
+                                       data-offstyle="danger">
                             </td>
                             <td>
                                 <a class="categoryDelete" asp-action="delete" asp-controller="productphotoes" asp-route-id="@photo.Id"><i class="fas fa-trash text-danger"></i></a>

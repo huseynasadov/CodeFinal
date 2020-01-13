@@ -110,6 +110,26 @@ $(function () {
             }
         })
     });
+    $(function () {
+        $(".toggle-handle").removeClass("btn-default");
+        $(".toggle-handle").addClass("btn-light");
+        $(".toogleBoot").parent().click(function () {
+
+            if ($(this).attr("class") == "toggle btn btn-danger off") {
+                $.get($(this).children().data("url") + "?status=true", {}, function (data) {
+                    if (data) {
+                        location.reload();
+                    }
+                });
+            } else {
+                $.get($(this).children().data("url") + "?status=false", {}, function (data) {
+                    if (data) {
+                        location.reload();
+                    }
+                });
+            }
+        })
+    });
 
 
 })

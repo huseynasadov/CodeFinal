@@ -48,18 +48,14 @@
                     @Html.DisplayFor(modelItem => item.ModifiedAt)
                 </td>
                 <td>
-                    @if (item.Status == true)
-                    {
-                        <a href="@Url.Action("edit","products",new { id=item.Id, status=false})" class="statusActive">
-                            <span class="badge badge-success">Activ</span>
-                        </a>
-                    }
-                    else
-                    {
-                        <a href="@Url.Action("edit","products",new { id=item.Id,status=true})" class="statusActive">
-                            <span class="badge badge-danger">Deactive</span>
-                        </a>
-                    }
+                    <input @(item.Status==true?"checked":"") type="checkbox" id="toggle" class="toogleBoot toggle-checkbox" 
+                           data-toggle="toggle" 
+                           data-url="/Control/products/edit/@item.Id" 
+                           data-on="Aktiv" 
+                           data-off="Deaktiv"
+                           data-onstyle="success" 
+                           data-offstyle="danger">
+                   
                 </td>
                 <td class="d-flex">
                     <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-outline-info"><i class="fas fa-edit"></i></a>
@@ -70,12 +66,12 @@
         }
     </tbody>
 </table>
-@section Scripts{ 
-<script>
-    $(function () {
-        setTimeout(function () {
-            $(".zmdi-notifications").fadeOut("slow");
-        },2500)
-    });
-</script>
+@section Scripts{
+    <script>
+        $(function () {
+            setTimeout(function () {
+                $(".zmdi-notifications").fadeOut("slow");
+            }, 2500)
+        });
+    </script>
 }

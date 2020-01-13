@@ -27,12 +27,27 @@ namespace Junko.Controllers
             HomeVM model = new HomeVM {
              Partners=_db.Partners.ToList(),
              BestCategory=_db.ProductCategories.Include("ProductCategoryTranslate").Include("ProductSubCategories").OrderByDescending(a=>a.ProductSubCategories.OrderByDescending(a=>a.BrandProductCategories.OrderByDescending(a=>a.Products.OrderByDescending(a=>a.FollowCount).FirstOrDefault().FollowCount).FirstOrDefault().Products.OrderByDescending(a=>a.FollowCount).FirstOrDefault().FollowCount).FirstOrDefault().BrandProductCategories.OrderByDescending(a=>a.Products.OrderByDescending(a=>a.FollowCount).FirstOrDefault().FollowCount).FirstOrDefault().Products.OrderByDescending(a=>a.FollowCount).FirstOrDefault().FollowCount).ToList(),
-             NewProductsCategory=_db.ProductCategories.Include("ProductCategoryTranslate").Include("ProductSubCategories.ProductSubCategoryTranslate").OrderByDescending(a=>a.ProductSubCategories.OrderByDescending(a=>a.BrandProductCategories.OrderByDescending(a=>a.Products.OrderByDescending(a=>a.CreatedAt).FirstOrDefault().CreatedAt).FirstOrDefault().Products.OrderByDescending(a=>a.CreatedAt).FirstOrDefault().CreatedAt).FirstOrDefault().BrandProductCategories.OrderByDescending(a=>a.Products.OrderByDescending(a=>a.CreatedAt).FirstOrDefault().CreatedAt).FirstOrDefault().Products.OrderByDescending(a=>a.CreatedAt).FirstOrDefault().CreatedAt).Take(3).ToList(),
+             NewProductsCategory=_db.ProductCategories.Include("ProductCategoryTranslate").Include("ProductSubCategories.ProductSubCategoryTranslate").
+             OrderByDescending(a=>a.ProductSubCategories.
+             OrderByDescending(a=>a.BrandProductCategories.
+             OrderByDescending(a=>a.Products.
+             OrderByDescending(a=>a.CreatedAt).
+             FirstOrDefault().CreatedAt).
+             FirstOrDefault().Products.
+             OrderByDescending(a=>a.CreatedAt).
+             FirstOrDefault().CreatedAt).
+             FirstOrDefault().BrandProductCategories.
+             OrderByDescending(a=>a.Products.
+             OrderByDescending(a=>a.CreatedAt).
+             FirstOrDefault().CreatedAt).
+             FirstOrDefault().Products.
+             OrderByDescending(a=>a.CreatedAt).
+             FirstOrDefault().CreatedAt).Take(3).ToList(),
              BestFollow =_db.Products.OrderByDescending(a=>a.FollowCount).FirstOrDefault(),
              HomeHeaders=_db.HomeHeaders.Include("Product.ProductPhotos").Include("HomeHeaderTranslates").OrderBy(a=>a.Order).ToList(),
              NewProducts=_db.Products.Include("BrandProductCategory.ProductSubCategory").Where(p=>p.Status==true).OrderByDescending(a => a.CreatedAt).ToList(),
              MostFollowProducts=_db.Products.OrderByDescending(a=>a.FollowCount).Where(p=>p.Status==true).ToList(),
-             MostSaleds=_db.Products.Include("ProductPhotos").Include("BrandProductCategory.ProductSubCategory.ProductSubCategoryTranslate.Language").OrderByDescending(p=>p.CreatedAt).Where(p=>p.Status==true).ToList(),
+             MostSaleds=_db.Products.Include("ProductPhotos").Include("BrandProductCategory.ProductSubCategory.ProductSubCategoryTranslate.Language").OrderByDescending(p=>p.OrderProducts.Count).Where(p=>p.Status==true).ToList(),
              SaledProducts=_db.Products.OrderByDescending(p=>p.CreatedAt).Where(p=>p.Discount>0).ToList(),
              LanguageId=_db.Languages.FirstOrDefault(l=>l.LanguageCode==culture.ToString()).Id
             };

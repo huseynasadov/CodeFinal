@@ -33,18 +33,14 @@
                     @Html.DisplayFor(modelItem => item.Name)
                 </td>
                 <td>
-                    @if (item.Status == true)
-                    {
-                        <a href="@Url.Action("edit","brands",new { id=item.Id, status=false})" class="statusActive">
-                            <span class="badge badge-success">Avtiv</span>
-                        </a>
-                    }
-                    else
-                    {
-                        <a href="@Url.Action("edit","brands",new { id=item.Id,status=true})" class="statusActive">
-                            <span class="badge badge-danger">Deactive</span>
-                        </a>
-                    }
+                    <input @(item.Status == true ? "checked" : "") type="checkbox" id="toggle" class="toogleBoot toggle-checkbox"
+                           data-toggle="toggle"
+                           data-url="/Control/brands/edit/@item.Id"
+                           data-on="Aktiv"
+                           data-off="Deaktiv"
+                           data-onstyle="success"
+                           data-offstyle="danger">
+              
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.ModifiedAt)

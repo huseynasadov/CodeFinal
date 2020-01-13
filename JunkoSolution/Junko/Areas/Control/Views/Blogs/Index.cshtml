@@ -42,18 +42,14 @@
                 @Html.DisplayFor(modelItem => item.ModifiedAt)
             </td>
             <td>
-                @if (item.Status == true)
-                {
-                    <a href="@Url.Action("edit","Blogs",new { id=item.Id, status=false})" class="statusActive">
-                        <span class="badge badge-success">Aktiv</span>
-                    </a>
-                }
-                else
-                {
-                    <a href="@Url.Action("edit","Blogs",new { id=item.Id,status=true})" class="statusActive">
-                        <span class="badge badge-danger">Deaktiv</span>
-                    </a>
-                }
+                <input @(item.Status == true ? "checked" : "") type="checkbox" id="toggle" class="toogleBoot toggle-checkbox"
+                       data-toggle="toggle"
+                       data-url="/Control/Blogs/edit/@item.Id"
+                       data-on="Aktiv"
+                       data-off="Deaktiv"
+                       data-onstyle="success"
+                       data-offstyle="danger">
+             
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-outline-info"><i class="fas fa-edit"></i></a>
