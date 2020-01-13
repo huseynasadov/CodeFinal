@@ -1,0 +1,90 @@
+﻿@model HomeHeaderViewModel
+
+@{
+    ViewData["Title"] = "Ana Səhifə Başlığını yenilə";
+}
+
+<h1>Ana Səhifə Başlığını yenilə</h1>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="HomeHeader.Id" />
+            <div class="form-group">
+                <label asp-for="HomeHeader.Photo" class="control-label"></label>
+                <input asp-for="HomeHeader.PhotoUpload" class="form-control" data-validation="mime size" data-validation-allowing="jpg, png,jpeg" data-validation-max-size="2Mb" />
+                <input hidden asp-for="HomeHeader.Photo" class="form-control" />
+                <span asp-validation-for="HomeHeader.Photo" class="text-danger"></span>
+                <img src="~/images/@Model.HomeHeader.Photo" class="imgpreview">
+            </div>
+            <div class="form-group">
+                <label asp-for="HomeHeader.ProductId" class="control-label"></label>
+                <select asp-for="HomeHeader.ProductId" class="form-control" asp-items="ViewBag.ProductId"></select>
+                <span asp-validation-for="HomeHeader.ProductId" class="text-danger"></span>
+            </div>
+                <input hidden asp-for="HomeHeader.Order" />
+            <input hidden asp-for="HomeHeader.ModifiedAt" />
+
+            <nav>
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">
+                        <img width="30" src="~/images/azerbaijan.png" />
+                    </a>
+                    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">
+                        <img width="30" src="~/images/united-states.png" />
+                    </a>
+                </div>
+            </nav>
+            <div class="tab-content" id="nav-tabContent">
+                @for (int i = Model.HomeHeaderTranslates.Count - 1; i >= 0; i--)
+                {
+                    <div class="tab-pane fade @(i==1?"show active":"")" id="@(i==1?"nav-home":"nav-profile")" role="tabpanel" aria-labelledby="@(i==1?"nav-home-tab":"nav-profile-tab")">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        @if (Model.HomeHeaderTranslates.Count > 0)
+                        {
+                            <input hidden asp-for="HomeHeaderTranslates[i].LanguageId" />
+
+                            <div class="form-group">
+                                <label asp-for="HomeHeaderTranslates[i].Title" class="control-label"></label>
+                                <input asp-for="HomeHeaderTranslates[i].Title" class="form-control" data-validation="required" />
+                                <span asp-validation-for="HomeHeaderTranslates[i].Title" class="text-danger"></span>
+                            </div>
+                            <input hidden asp-for="HomeHeaderTranslates[i].Id" />
+                        }
+                        else
+                        {
+                            <div class="form-group">
+                                <label id="HomeHeaderTranslates_@(i)__Title" class="control-label"></label>
+                                <input name="HomeHeaderTranslates[@i].Title" id="HomeHeaderTranslates_@(i)__Title" value="@(Model.HomeHeaderTranslates.Count>0? Model.HomeHeaderTranslates[i].Title:"")" class="form-control" />
+                                <span id="HomeHeaderTranslates_@(i)__Title" class="text-danger"></span>
+                            </div>
+                            <input hidden name="HomeHeaderTranslates[@i].LanguageId" value="@(i+1)" />
+                            <input hidden name="HomeHeaderTranslates[@i].HomeHeaderId" value="@Model.HomeHeader.Id" />
+                        }
+                    </div>
+                }
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Yadda saxla" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" class="btn btn-warning">Geri</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+<script>
+        $("#HomeHeader_PhotoUpload").change(function () {
+            readURL(this);
+        });
+        $.validate({
+            modules: 'date, file'
+        });
+
+</script>
+}

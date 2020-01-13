@@ -24,6 +24,9 @@
     <link href="~/bootstrap-formhelpers/font-awesome/css/all.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="~/lib/SeewAlert/sweetalert2.min.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <link rel="stylesheet" href="~/Admin/vendor/Sortable/jquery-ui.min.css">
+    <link rel="stylesheet" href="~/Admin/vendor/Sortable/jquery-ui.structure.min.css">
+    <link rel="stylesheet" href="~/Admin/vendor/Sortable/jquery-ui.theme.min.css">
     <link href="~/Admin/css/main.css" rel="stylesheet" />
 
 
@@ -58,14 +61,18 @@
 
             <!-- Divider -->
             <hr class="sidebar-divider">
-            <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a class="nav-link" asp-action="index" asp-controller="settings" asp-area="control">
-                    <i class="fas fa-fw fa-chart-area"></i>
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePage-1" aria-expanded="true" aria-controls="collapsePages">
+                    <i class="fas fa-fw fa-folder"></i>
                     <span>Parametrlər</span>
                 </a>
+                <div id="collapsePage-1" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" asp-controller="settings" asp-action="index">Ümumi</a>
+                        <a class="collapse-item" asp-action="index" asp-controller="HomeHeaders" asp-area="control">Ana səhifə</a>
+                    </div>
+                </div>
             </li>
-
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePage" aria-expanded="true" aria-controls="collapsePages">
                     <i class="fas fa-fw fa-folder"></i>
@@ -377,6 +384,7 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <!-- Core plugin JavaScript-->
     <script src="~/Admin/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="~/Admin/vendor/Sortable/jquery-ui.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <!-- Custom scripts for all pages-->
     <script src="~/Admin/js/sb-admin-2.min.js"></script>

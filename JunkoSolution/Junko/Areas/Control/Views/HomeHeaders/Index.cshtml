@@ -1,0 +1,119 @@
+﻿@model IEnumerable<Junko.Models.HomeHeader>
+
+@{
+    ViewData["Title"] = "Ana Səhifə üçün Başlıq";
+}
+
+<h1>Ana Səhifə üçün Əsas Başlıq</h1>
+
+<partial name="_NotificationPartial" />
+<p>
+    <a asp-action="Create" class="btn btn-success">Yeni Üzlük Əlavə et</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Order)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Photo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ModifiedAt)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody id="sortable">
+        @{
+            var count = 0;
+        }
+        @foreach (var item in Model)
+        {
+            count++;
+            <tr data-index="@item.Id" data-order="@item.Order" style="@(count<4? "background:brown;color:white":"")">
+                <td style="cursor:grab">
+                    <i class="fas fa-sort"></i>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Product.Name)
+                </td>
+                <td>
+                    <img width="100" height="70" src="~/images/@(item.Photo !=null ? item.Photo : "noimage.png")" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ModifiedAt)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-outline-info"><i class="fas fa-edit"></i></a>
+                    <a class="categoryDelete" asp-action="delete" asp-route-id="@item.Id"><i class="fas fa-trash text-danger"></i></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@section Scripts{
+
+    <script>
+        $(function () {
+            setTimeout(function () {
+                $(".zmdi-notifications").fadeOut("slow");
+            }, 2500)
+        });
+        $("#sortable").sortable({
+            opacity: 0.7,
+            delay: 300,
+            cursor: "grabbing",
+            update: function (event, ui) {
+                $(this).children().each(function (index) {
+                    if ($(this).attr('data-order') != (index + 1)) {
+                        $(this).attr('data-order', (index + 1)).addClass("updated");
+                    }
+                });
+                saveNewOrder();
+            }
+        });
+        function saveNewOrder() {
+            var order = [];
+            $(".updated").each(function () {
+                order.push([$(this).attr('data-index'), $(this).attr('data-order')]);
+                $(this).removeClass('updated');
+                console.log(order);
+            });
+            $.ajax({
+                url: "https://localhost:44342/control/homeheaders/EditOrder",
+                method: "POST",
+                data: {
+                    order: order
+                },
+                success: function (res) {
+                    location.reload();
+                }
+
+            });
+        };
+    </script>
+}
+@section head{
+<style>
+    table {
+    margin-top: -10px; 
+    }
+    td {
+    padding: 10px;
+    }
+    td:first-child {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    }
+    td:last-child {
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    }
+</style>
+    
+}
