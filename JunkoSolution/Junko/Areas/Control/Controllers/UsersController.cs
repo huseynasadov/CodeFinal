@@ -67,6 +67,10 @@ namespace Junko.Areas.Control.Controllers
         [AllowAnonymous]
         public IActionResult Login()
         {
+            if (User.Identity.IsAuthenticated == true)
+            {
+                return RedirectToAction("index", "dashboard");
+            } 
             return View();
         }
 
@@ -116,6 +120,8 @@ namespace Junko.Areas.Control.Controllers
             if (ModelState.IsValid)
             {
                 appUser.Email = user.Email;
+                appUser.Lastname = user.Lastname;
+                appUser.Firstname = user.Firstname;
                 if (user.Password != null)
                 {
                     appUser.PasswordHash = _passwordHasher.HashPassword(appUser, user.Password);
@@ -123,7 +129,7 @@ namespace Junko.Areas.Control.Controllers
 
                 IdentityResult result = await _userManager.UpdateAsync(appUser);
                 if (result.Succeeded)
-                    TempData["Success"] = "Your information has been edited!";
+                    TempData["Success"] = "Sənin Məlumatların dəyişdirildi!";
             }
 
             return View();

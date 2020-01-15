@@ -57,9 +57,6 @@ namespace Junko.Areas.Control.Controllers
             return View(model);
         }
 
-        // POST: Control/Settings/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, SettingViewModel model)
@@ -88,6 +85,7 @@ namespace Junko.Areas.Control.Controllers
                 }
                 try
                 {
+                    model.Setting.ModifiedAt = DateTime.Now;
                     _context.Update(model.Setting);
                     await _context.SaveChangesAsync();
                     TempData["Success"] = "Dəyişiklik uğurla başa çatdı";

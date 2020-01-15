@@ -24,7 +24,7 @@
                         </div>
                         <div class="single-zoom-thumb">
                             <ul class="s-tab-zoom owl-carousel single-product-active" id="gallery_02">
-                                @foreach (var photo in Model.Product.ProductPhotos.Where(x=>x.Status==true))
+                                @foreach (var photo in Model.Product.ProductPhotos.Where(x => x.Status == true))
                                 {
                                     <li>
                                         <a href="#" class="elevatezoom-gallery active" data-update=""
@@ -126,37 +126,8 @@
 
                         </form>
                         <div class="priduct_social">
-                            <ul>
-                                <li>
-                                    <a class="facebook" href="#" title="facebook">
-                                        <i class="fa fa-facebook"></i>
-                                        Like
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="twitter" href="#" title="twitter">
-                                        <i class="fa fa-twitter"></i>
-                                        tweet
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="pinterest" href="#" title="pinterest">
-                                        <i class="fa fa-pinterest"></i>
-                                        save
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="google-plus" href="#" title="google +">
-                                        <i class="fa fa-google-plus"></i> share
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="linkedin" href="#" title="linkedin">
-                                        <i class="fa fa-linkedin"></i>
-                                        linked
-                                    </a>
-                                </li>
-                            </ul>
+                            <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+                            
                         </div>
 
                     </div>
@@ -185,8 +156,8 @@
                                     </li>
                                 }
                                 <li>
-                                    <a data-toggle="tab" href="#reviews" role="tab" aria-controls="reviews"
-                                       aria-selected="false">@_localizer["Reviews"] (@Model.Product.ProductReviews.Count)</a>
+                                    <a  data-toggle="tab" href="#reviews" role="tab" aria-controls="reviews"
+                                       aria-selected="false">@_localizer["Reviews"] (<span id="ReviewCount">@Model.Product.ProductReviews.Count</span>)</a>
                                 </li>
                             </ul>
                         </div>
@@ -226,31 +197,37 @@
 
                             <div class="tab-pane fade" id="reviews" role="tabpanel">
                                 <div class="reviews_wrapper">
-                                    @if (Model.ProductReview.ProductReviews.Count > 0)
-                                    {
-                                        @foreach (var rev in Model.ProductReview.ProductReviews)
+                                    <div id="reviews_wrapper_shop">
+                                        @if (Model.ProductReview.ProductReviews.Count > 0)
                                         {
-                                            <div class="comment_list">
-                                                <div class="comment_thumb">
-                                                    <img src="~/images/blog/comment3.png.jpg" alt="">
-                                                </div>
-                                                <div class="comment_content">
-                                                    <div class="comment_meta">
-                                                        <h5><a href="#">@(rev.AdminManagerId > 0 || rev.AdminManagerId != null ? rev.Admin.Category.AdminCategoryTranslates.FirstOrDefault(a => a.LanguageId == Model.LanguageId).Name : rev.User.Firstname + " " + rev.User.Lastname)</a></h5>
-                                                        <span>@rev.CreatedAt.ToString("MM dd, yyy 'at' HH:mm ")</span>
+                                            @foreach (var rev in Model.ProductReview.ProductReviews)
+                                            {
+                                                <div class="comment_list">
+                                                    <div class="comment_thumb">
+                                                        <img src="~/images/blog/comment3.png.jpg" alt="">
                                                     </div>
-                                                    <p>
-                                                        @rev.Content
-                                                    </p>
-                                                </div>
+                                                    <div class="comment_content">
+                                                        <div class="comment_meta">
+                                                            <h5><a href="#">@(rev.AdminManagerId > 0 || rev.AdminManagerId != null ? rev.Admin.Category.AdminCategoryTranslates.FirstOrDefault(a => a.LanguageId == Model.LanguageId).Name : rev.User.Firstname + " " + rev.User.Lastname)</a></h5>
+                                                            <div class="d-flex justify-content-between">
+                                                                <span>@rev.CreatedAt.ToString("MM dd, yyy 'at' HH:mm ")</span>
+                                                                <a asp-action="delete" asp-controller="Shop" asp-route-id="@rev.Id" style="font-size:1.5rem" class="text-danger @(Model.LanguageId==2 ? "shopReviewDeleteAz":"shopReviewDeleteEn")"><i class="fas fa-long-arrow-alt-left"></i></a>
+                                                            </div>
+                                                        </div>
+                                                        <p>
+                                                            @rev.Content
+                                                        </p>
+                                                    </div>
 
-                                            </div>
+                                                </div>
+                                            }
                                         }
-                                    }
-                                    <div class="product_review_form"> 
+                                    </div>
+                          
+                                    <div class="product_review_form">
                                         <div class="comments_form">
                                             <h3>@_localizer["Add a Comment"] </h3>
-                                            <form asp-action="Review" asp-controller="shop" method="post">
+                                            <form id="ProductReview" asp-action="Review" asp-controller="shop" method="post">
                                                 <div class="row">
                                                     <div class="col-12">
                                                         <label for="Content">@_localizer["Comment"] </label>
@@ -312,7 +289,7 @@
                 let id = $(this).data("id");
                 $.get('/ordering/add/' + id, {}, function (data) {
                     $("div.smallCart").html(data);
-                   
+                    toastr.success("@_localizer["Product Added the Cart"]", "@_localizer["Success"]");
                 });
             });
         });
@@ -322,6 +299,7 @@
                 let id = $(this).data("id");
                 $.get('/ordering/AddWishlist/' + id, {}, function (data) {
                     $("div.smallCart").html(data);
+                    toastr.success("@_localizer["Product Added the WishhList"]", "@_localizer["Success"]");
                 });
             });
         });

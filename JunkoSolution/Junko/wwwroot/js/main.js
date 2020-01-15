@@ -1,4 +1,48 @@
-$(function () {
+﻿$(function () {
+    $("#ProductReview").submit(function (event) {
+        event.preventDefault();
+        var form = $(this);
+        var count = parseInt($("#ReviewCount").html());
+        $.ajax({
+            url: form.attr("action"),
+            method: "POST",
+            data: form.serialize(),
+            success: function (res) {
+                if (res.status == false) {
+                    toastr.error('Only After Register', 'Danger');
+                    form.trigger("reset");
+                } else {
+                    $("#reviews_wrapper_shop").append(res);
+                    toastr.success('Comment added', 'Success');
+                    form.trigger("reset");
+                    $("#ReviewCount").html(`${count+1}`)
+                }
+            }
+        });
+    });
+    $("#BlogReview").submit(function (event) {
+        event.preventDefault();
+        var form = $(this);
+        var count = parseInt($("#BlogCount").html());
+        $.ajax({
+            url: form.attr("action"),
+            method: "POST",
+            data: form.serialize(),
+            success: function (res) {
+                if (res.status == false) {
+                    toastr.error('Only After Register', 'Danger');
+                    form.trigger("reset");
+                } else {
+                    $("#reviews_wrapper_blog").append(res);
+                    toastr.success('Comment added', 'Success');
+                    form.trigger("reset");
+                    $("#BlogCount").html(`${count + 1}`)
+                }
+            }
+        });
+    });
+
+    $('.tableOrder').DataTable();
     $(".RemoveCart").click(function (e) {
         e.preventDefault();
         let id = $(this).data("id");
@@ -20,7 +64,7 @@ $(function () {
         }).then((result) => {
             if (result.value) {
                 $.ajax({
-                    url: "https://localhost:44399/" + $(deletinput).attr("href"),
+                    url: $(deletinput).attr("href"),
                     success: function () {
                         Swal.fire(
                             'Deleted!',
@@ -33,8 +77,220 @@ $(function () {
                 })
             }
         })
-    })
+    });
+    $(".jobDeleteAz").click(function (event) {
+        var deletinput = this;
+        event.preventDefault();
+        Swal.fire({
+            title: 'Əminsinizmi ?',
+            text: "Geri qaytarmaq mümkün olmayacaq",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Bəli, silinsin!',
+            cancelButtonText: 'Xeyir'
+        }).then((result) => {
+            if (result.value) {
+                $.ajax({
+                    url: $(deletinput).attr("href"),
+                    success: function () {
+                        Swal.fire(
+                            'Siindi!',
+                            'Ugurla basa catdi',
+                            'Uğurlu'
+                        ).then(() => {
+                            location.reload()
+                        })
+                    }
+                })
+            }
+        })
+    });
 
+});
+
+$(function () {
+    $(".categoryDelete").click(function (event) {
+        var deletinput = this;
+        event.preventDefault();
+        Swal.fire({
+            title: 'Əminsinizmi ?',
+            text: "Geri qaytarmaq mümkün olmayacaq",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Bəli, silinsin!',
+            cancelButtonText: 'Xeyir'
+        }).then((result) => {
+            if (result.value) {
+
+                $.ajax({
+                    url: $(deletinput).attr("href"),
+                    success: function () {
+
+                    },
+
+                    complete: function () {
+                        $(deletinput).parent().parent().remove();
+                        toastr.success('Ugurla basa catdi', 'Silindi');
+                    }
+                })
+            }
+        })
+    });
+    $(".categoryDeleteEn").click(function (event) {
+        var deletinput = this;
+        event.preventDefault();
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.value) {
+
+                $.ajax({
+                    url: $(deletinput).attr("href"),
+                    success: function () {
+
+                    },
+
+                    complete: function () {
+                        $(deletinput).parent().parent().remove();
+                        toastr.success('Yes, delete it!', 'Deleted !');
+                    }
+                })
+            }
+        })
+    });
+
+    $(".blogReviewDeleteEn").click(function (event) {
+        var deletinput = this;
+        var count = $("#BlogCount").html();
+        event.preventDefault();
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.value) {
+
+                $.ajax({
+                    url: $(deletinput).attr("href"),
+                    success: function () {
+
+                    },
+
+                    complete: function () {
+                        $(deletinput).parent().parent().parent().parent().remove();
+                        toastr.success('Yes, delete it!', 'Deleted !');
+                        $("#BlogCount").html(`${count - 1}`)
+                    }
+                })
+            }
+        })
+    });
+    $(".blogReviewDeleteAz").click(function (event) {
+        var deletinput = this;
+        var count = $("#BlogCount").html();
+        event.preventDefault();
+        Swal.fire({
+            title: 'Əminsinizmi ?',
+            text: "Geri qaytarmaq mümkün olmayacaq",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Bəli, silinsin!',
+            cancelButtonText: 'Xeyir'
+        }).then((result) => {
+            if (result.value) {
+
+                $.ajax({
+                    url: $(deletinput).attr("href"),
+                    success: function () {
+
+                    },
+
+                    complete: function () {
+                        $(deletinput).parent().parent().parent().parent().remove();
+                        toastr.success('Silinmə uğurla tamamlandı!', 'Silindi !');
+                        $("#BlogCount").html(`${count - 1}`);
+                    }
+                })
+            }
+        })
+    });
+    $(".shopReviewDeleteEn").click(function (event) {
+        var deletinput = this;
+        var count = $("#ReviewCount").html();
+        event.preventDefault();
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.value) {
+
+                $.ajax({
+                    url: $(deletinput).attr("href"),
+                    success: function () {
+
+                    },
+
+                    complete: function () {
+                        $(deletinput).parent().parent().parent().parent().remove();
+                        toastr.success('Yes, delete it!', 'Deleted !');
+                        $("#ReviewCount").html(`${count - 1}`);
+                    }
+                })
+            }
+        })
+    });
+    $(".shopReviewDeleteAz").click(function (event) {
+        var deletinput = this;
+        var count = $("#ReviewCount").html();
+        event.preventDefault();
+        Swal.fire({
+            title: 'Əminsinizmi ?',
+            text: "Geri qaytarmaq mümkün olmayacaq",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Bəli, silinsin!',
+            cancelButtonText: 'Xeyir'
+        }).then((result) => {
+            if (result.value) {
+
+                $.ajax({
+                    url: $(deletinput).attr("href"),
+                    success: function () {
+
+                    },
+
+                    complete: function () {
+                        $(deletinput).parent().parent().parent().parent().remove();
+                        toastr.success('Silinmə uğurla tamamlandı!', 'Silindi !');
+                        $("#ReviewCount").html(`${count - 1}`);
+                    }
+                })
+            }
+        })
+    });
 });
 
 (function ($) {

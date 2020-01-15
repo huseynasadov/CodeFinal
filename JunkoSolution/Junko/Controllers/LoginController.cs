@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Junko.DAL;
 using Junko.Models;
 using Junko.ViewModels;
@@ -21,12 +22,12 @@ namespace Junko.Controllers
         {
             _db = context;
         }
-        public IActionResult Index(string returnUrl = "/")
+        public async Task<IActionResult> Index(string returnUrl = "/")
         {
             var cookieValue = Request.Cookies["Token"];
             if (cookieValue!=null)
             {
-                UserClient user = _db.UserClients.FirstOrDefault(a => a.Token == cookieValue);
+                UserClient user =await _db.UserClients.FirstOrDefaultAsync(a => a.Token == cookieValue);
                 if (user != null) return LocalRedirect(returnUrl);
             }
             LoginVM model = new LoginVM
@@ -44,11 +45,11 @@ namespace Junko.Controllers
             return View(model);
         }
         [HttpPost]
-        public IActionResult Index(LoginVM model, string returnUrl = "/")
+        public async Task<IActionResult> Index(LoginVM model, string returnUrl = "/")
         {
             if (ModelState.IsValid)
             {
-                UserClient user = _db.UserClients.FirstOrDefault(a => a.Email == model.Login.Email);
+                UserClient user =await _db.UserClients.FirstOrDefaultAsync(a => a.Email == model.Login.Email);
                 PasswordHasher<UserClient> hasher = new PasswordHasher<UserClient>(
                        new OptionsWrapper<PasswordHasherOptions>(
                            new PasswordHasherOptions()
@@ -61,7 +62,7 @@ namespace Junko.Controllers
                 if (user != null && result == PasswordVerificationResult.Success)
                 {
                     user.Token = Guid.NewGuid().ToString();
-                    _db.SaveChanges();
+                   await _db.SaveChangesAsync();
                     var option = new CookieOptions { 
                     Expires= DateTime.Now.AddMinutes(60),
                     IsEssential=true
@@ -98,11 +99,21 @@ namespace Junko.Controllers
             return View(model);
         }
         [HttpPost]
-        public IActionResult Register(RegisterVM model, string returnUrl)
+        public async Task<IActionResult> Register(RegisterVM model, string returnUrl)
         {
-            if (_db.UserClients.Any(a => a.Email == model.User.Email))
+            if (await _db.UserClients.AnyAsync(a => a.Email == model.User.Email))
             {
                 ModelState.AddModelError("User.Email", "This Email was Registered");
+                model.Breadcrumb = new Breadcrumb
+                {
+                    Path = new Dictionary<string, string> {
+                        { "Home", Url.Action("Index", "Home") },
+                        { "Register", null }
+                    },
+                    Page = Page.Login
+                };
+                TempData["Error"] = "This user have been Registered";
+                return View(model);
             }
             if (ModelState.IsValid)
             {
@@ -118,8 +129,8 @@ namespace Junko.Controllers
                     );
                 model.User.Password = hasher.HashPassword(model.User, model.User.Password);
                 model.User.Token = Guid.NewGuid().ToString();
-                _db.UserClients.Add(model.User);
-                _db.SaveChanges();
+               await _db.UserClients.AddAsync(model.User);
+               await _db.SaveChangesAsync();
                 var option = new CookieOptions { 
                     Expires= DateTime.Now.AddMinutes(60),
                     IsEssential=true
@@ -138,7 +149,7 @@ namespace Junko.Controllers
             return View(model);
         }
 
-        public IActionResult Account(string returnUrl = "/")
+        public async Task<IActionResult> Account(string returnUrl = "/")
         {
             var rqf = Request.HttpContext.Features.Get<IRequestCultureFeature>();
             var culture = rqf.RequestCulture.Culture;
@@ -146,7 +157,7 @@ namespace Junko.Controllers
             var cookieValue = Request.Cookies["Token"];
             if (cookieValue == null) return Redirect((!string.IsNullOrEmpty(Request.Headers["Referer"]) ? Request.Headers["Referer"].ToString() : returnUrl));
 
-            UserClient user = _db.UserClients.FirstOrDefault(a => a.Token == cookieValue);
+            UserClient user =await _db.UserClients.FirstOrDefaultAsync(a => a.Token == cookieValue);
             if (user==null)
                 return Redirect((!string.IsNullOrEmpty(Request.Headers["Referer"]) ? Request.Headers["Referer"].ToString() : returnUrl));
 
@@ -161,36 +172,16 @@ namespace Junko.Controllers
                 },
                 User = user,
                 LanguageId=_db.Languages.FirstOrDefault(x=>x.LanguageCode==culture.ToString()).Id,
-                OrderProducts=_db.OrderProducts.Include("Product").Where(x=>x.Status==true && x.UserClientId==user.Id).OrderByDescending(x=>x.Complete).ThenByDescending(x=>x.CreatedAt).ToList()
+                OrderProducts=await _db.OrderProducts.Include("Product").Where(x=>x.Status==true && x.UserClientId==user.Id).OrderByDescending(x=>x.Complete).ThenByDescending(x=>x.CreatedAt).ToListAsync()
             };
             return View(model);
         }
         [HttpPost]
-        public IActionResult Edit(AccountVM model)
+        public async Task<IActionResult> Edit(AccountVM model)
         {
-            if (ModelState.IsValid)
-            {
-              UserClient user=  _db.UserClients.FirstOrDefault(a => a.Id == model.User.Id);
-                if (user!=null)
-                {
-                    user.Firstname = model.User.Firstname;
-                    user.Lastname = model.User.Lastname;
-                    PasswordHasher<UserClient> hasher = new PasswordHasher<UserClient>(
-                        new OptionsWrapper<PasswordHasherOptions>(
-                            new PasswordHasherOptions()
-                            {
-                                CompatibilityMode = PasswordHasherCompatibilityMode.IdentityV2
-                            })
-                    );
-                    user.Password = hasher.HashPassword(model.User, model.User.Password);
-                    user.Birthday = model.User.Birthday;
-                    user.Email = model.User.Email;
-                    user.Gender = model.User.Gender;
-
-                    _db.SaveChanges();
-                }
-
-            }
+            var rqf = Request.HttpContext.Features.Get<IRequestCultureFeature>();
+            var culture = rqf.RequestCulture.Culture;
+            UserClient user =await _db.UserClients.FirstOrDefaultAsync(x => x.Id == model.User.Id);
             model.Breadcrumb = new Breadcrumb
             {
                 Path = new Dictionary<string, string> {
@@ -199,21 +190,72 @@ namespace Junko.Controllers
                     },
                 Page = Page.Account
             };
+            model.LanguageId = _db.Languages.FirstOrDefault(x => x.LanguageCode == culture.ToString()).Id;
+            model.OrderProducts =await _db.OrderProducts.Include("Product").Where(x => x.Status == true && x.UserClientId == user.Id).OrderByDescending(x => x.Complete).ThenByDescending(x => x.CreatedAt).ToListAsync();
+          
+            if (User!=null && model.User.Password == "Password")
+            {
+                model.User.Password = user.Password;
+            }
+            else
+            {
+                PasswordHasher<UserClient> hasher = new PasswordHasher<UserClient>(
+                    new OptionsWrapper<PasswordHasherOptions>(
+                        new PasswordHasherOptions()
+                        {
+                            CompatibilityMode = PasswordHasherCompatibilityMode.IdentityV2
+                        })
+                );
+                user.Password = hasher.HashPassword(model.User, model.User.Password);
+            }
+
+            if (ModelState.IsValid)
+            {
+
+                if (user!=null)
+                {
+                    user.Firstname = model.User.Firstname;
+                    user.Lastname = model.User.Lastname;
+                    user.Birthday = model.User.Birthday;
+                    user.Email = model.User.Email;
+                    user.Gender = model.User.Gender;
+                    user.Address = model.User.Address;
+                   await _db.SaveChangesAsync();
+                    if (model.LanguageId == 1)
+                    {
+                        TempData["Success"] = "Changed has been Success !";
+                    }
+                    else {
+                        TempData["Success"] = "Dəyişiklik uğurla tamamlandı ! !";
+                    }
+                    return View("Account", model);
+                }
+
+            }
+           
+            if (model.LanguageId == 1)
+            {
+                TempData["Error"] = "Changed has been Error !";
+            }
+            else
+            {
+                TempData["Error"] = "Dəyişiklik uğursuz oldu ! !";
+            }
             return View("Account",model);
         }
 
-            public IActionResult Logout(string returnUrl="/")
+            public async Task<IActionResult> Logout(string returnUrl="/")
         {
             var cookieValue = Request.Cookies["Token"];
             if (cookieValue==null)
             {
                return LocalRedirect(returnUrl);
             }
-          UserClient user=  _db.UserClients.FirstOrDefault(a => a.Token == cookieValue);
+          UserClient user=await  _db.UserClients.FirstOrDefaultAsync(a => a.Token == cookieValue);
             if (user!=null)
             {
                 user.Token = null;
-                _db.SaveChanges();
+               await _db.SaveChangesAsync();
             }
 
             Response.Cookies.Delete("Token");

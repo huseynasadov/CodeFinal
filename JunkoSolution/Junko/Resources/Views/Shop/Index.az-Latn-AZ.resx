@@ -138,6 +138,12 @@
   <data name="preview" xml:space="preserve">
     <value>əvvəlki</value>
   </data>
+  <data name="Product Added the Cart" xml:space="preserve">
+    <value>Məhsul səbətə əlavə olundu .</value>
+  </data>
+  <data name="Product Added the WishhList" xml:space="preserve">
+    <value>Məhsul Favorilər listinə əlavə olundu .</value>
+  </data>
   <data name="Product categories" xml:space="preserve">
     <value>Məhsul Kateqoriyaları</value>
   </data>
@@ -173,6 +179,9 @@
   </data>
   <data name="Sort by Product Name" xml:space="preserve">
     <value>Ada görə sırala</value>
+  </data>
+  <data name="Success" xml:space="preserve">
+    <value>Uğurlu!</value>
   </data>
   <data name="The Product has been Added!" xml:space="preserve">
     <value>Məhsul əlavə edildi!</value>

@@ -139,12 +139,7 @@
                             @foreach (var product in Model.NewProducts.Where(n => n.BrandProductCategory.ProductSubCategory.ProductCategoryId == cat.Id))
                             {
                                 <div class="col-lg-4">
-                                    <div class="ajaxbg d-none">
-                                        <img width="50" height="50" src="~/images/ajax-loader.gif" />
-                                        <p class="lead alert alert-success text-center d-none">
-                                            @_localizer["The Product has been Added!"]
-                                        </p>
-                                    </div>
+                                   
                                     <article class="single_product">
                                         <figure>
                                             <div class="product_thumb">
@@ -226,12 +221,7 @@
                             @foreach (var product in Model.NewProducts.Where(n => n.BrandProductCategory.ProductSubCategoryId == cat.Id))
                             {
                                 <div class="col-lg-4">
-                                    <div class="ajaxbg d-none">
-                                        <img width="50" height="50" src="~/images/ajax-loader.gif" />
-                                        <p class="lead alert alert-success text-center d-none">
-                                            @_localizer["The Product has been Added!"]
-                                        </p>
-                                    </div>
+                                    
                                     <article class="single_product">
                                         <figure>
                                             <div class="product_thumb">
@@ -451,20 +441,11 @@
         $(function () {
             $("a.addToCart").click(function (e) {
                 e.preventDefault();
-                let ajaxDiv = $(this).parent().parent().parent().parent().parent().find("div.ajaxbg");
-                ajaxDiv.removeClass("d-none");
                 let id = $(this).data("id");
                 $.get('/ordering/add/' + id, {}, function (data) {
                     $("div.smallCart").html(data);
-                    ajaxDiv.find("img").addClass("d-none");
-                    ajaxDiv.find("p").removeClass("d-none");
-                    setTimeout(() => {
-                        ajaxDiv.animate({ opacity: 0 }, function () {
-                            $(this).addClass("d-none").fadeTo(.1, 1);
-                            $(this).find("img").removeClass("d-none");
-                            $(this).find("p").addClass("d-none");
-                        });
-                    });
+                   
+                    toastr.success("@_localizer["Product Added the Cart"]", "@_localizer["Success"]");
                 });
             });
         });
@@ -474,6 +455,7 @@
                 let id = $(this).data("id");
                 $.get('/ordering/AddWishlist/' + id, {}, function (data) {
                     $("div.smallCart").html(data);
+                    toastr.success("@_localizer["Product Added the WishhList"]", "@_localizer["Success"]");
                 });
             });
         });

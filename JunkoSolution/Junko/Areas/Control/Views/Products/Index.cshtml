@@ -10,7 +10,7 @@
 <p>
     <a asp-action="Create" class="btn btn-outline-info">Yeni Məhsul Əlavə et</a>
 </p>
-<table class="table">
+<table class="table display" id="myTable">
     <thead>
         <tr>
             <th>
@@ -71,7 +71,7 @@
         $(function () {
             setTimeout(function () {
                 $(".zmdi-notifications").fadeOut("slow");
-            }, 2500)
+            }, 2500);
         });
     </script>
 }

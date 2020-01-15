@@ -17,6 +17,10 @@ namespace Junko.Models
         [Display(Name = "E-poçt")]
         [Required,EmailAddress]
         public string Email { get; set; }
+        [MaxLength(20),DataType(DataType.PhoneNumber)]
+        public string Phone { get; set; }
+        [DataType(DataType.Date)]
+        public DateTime? Birthday { get; set; }
         [DataType(DataType.Password)]
         [Display(Name = "Parol")]
         public string Password { get; set; }
@@ -26,6 +30,8 @@ namespace Junko.Models
         }
         public User(AppAdmin appAdmin)
         {
+            Birthday = appAdmin.Birthday;
+            Phone = appAdmin.PhoneNumber;
             Firstname = appAdmin.Firstname;
             Lastname = appAdmin.Lastname;
             Email = appAdmin.Email;

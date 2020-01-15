@@ -44,7 +44,7 @@
 
                                                     <tr>
                                                         <td class="product_remove">
-                                                            <a asp-action="remove" asp-controller="ordering" asp-route-id="@item.ProductId"><i class="fa fa-trash-o"></i></a>
+                                                            <a class="text-danger @(Model.LanguageId==2?"categoryDelete":"categoryDeleteEn")" asp-action="remove" asp-controller="ordering" asp-route-id="@item.ProductId"><i class="fa fa-trash-o"></i></a>
                                                         </td>
                                                         <td class="product_thumb">
                                                             <a href="#">
@@ -72,7 +72,7 @@
                                     </div>
                                 </div>
                                 <div class="cart_submit">
-                                    <a asp-action="clear" asp-controller="ordering" class="btn-warning btn ">@_localizer["Clear Cart"]</a>
+                                    <a asp-action="clear" asp-controller="ordering" class="btn-warning btn @(Model.LanguageId==2?"jobDeleteAz":"jobDelete")">@_localizer["Clear Cart"]</a>
                                 </div>
                             </div>
                         </div>

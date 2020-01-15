@@ -7,6 +7,8 @@
 
 
 @await Html.PartialAsync("~/Views/Shared/_Breadcrumb.cshtml", model: Model.Breadcrumb)
+
+<partial name="_NotificationPartial" />
 <div class="customer_login mt-60">
     <div class="container">
         <div class="row">
@@ -18,8 +20,9 @@
 
                         <div class="form-group">
                             @_localizer["Gender"]:
-                            <select class="custom-select mb-1" asp-for="User.Gender"
-                                    asp-items="Html.GetEnumSelectList<Gender>()">
+                            <select class="custom-select mb-1" asp-for="User.Gender">
+                                <option value="0">@_localizer["Male"]</option>
+                                <option value="1">@_localizer["Female"]</option>
                             </select><br />
                         </div>
 
@@ -53,7 +56,7 @@
                             <span class="text-danger" asp-validation-for="User.Password"></span>
                         </div>
 
-                            <button type="submit">@_localizer["Register"]</button>
+                        <button type="submit">@_localizer["Register"]</button>
                     </form>
                 </div>
             </div>
@@ -67,6 +70,11 @@
     <script>
         $.validate({
             modules: 'security'
+        });
+         $(function () {
+            setTimeout(function () {
+                $(".zmdi-notifications").fadeOut("slow");
+            }, 2500);
         });
     </script>
 }

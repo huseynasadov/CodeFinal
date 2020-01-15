@@ -33,7 +33,7 @@ namespace Junko.Controllers
                     },
                     Page = Page.Cart
                 },
-                LanguageId=_db.Languages.FirstOrDefault(a=>a.LanguageCode==culture.ToString()).Id,
+                LanguageId= _db.Languages.FirstOrDefault(a=>a.LanguageCode==culture.ToString()).Id,
                 CartItems = cart,
                 GrandTotal=cart.Sum(x=>x.Price * x.Quantity)
             };
@@ -189,14 +189,14 @@ namespace Junko.Controllers
             return Redirect((!string.IsNullOrEmpty(Request.Headers["Referer"]) ? Request.Headers["Referer"].ToString() : "/"));
         }
 
-        public IActionResult Checkout()
+        public async Task<IActionResult> Checkout()
         {
             var rqf = Request.HttpContext.Features.Get<IRequestCultureFeature>();
             var culture = rqf.RequestCulture.Culture;
 
             var cookieValue = Request.Cookies["Token"];
             if (cookieValue == null) return RedirectToAction("index", "login");
-            UserClient user = _db.UserClients.FirstOrDefault(a => a.Token == cookieValue);
+            UserClient user = await _db.UserClients.FirstOrDefaultAsync(a => a.Token == cookieValue);
             if (user == null) return  RedirectToAction("index", "login");
 
             List<CartItem> carts = HttpContext.Session.GetJson<List<CartItem>>("Cart") ?? new List<CartItem>();
@@ -214,10 +214,10 @@ namespace Junko.Controllers
 
             foreach (var cart in carts)
             {
-                if (_db.OrderProducts.FirstOrDefault(x => x.ProductId == cart.ProductId && x.UserClientId==user.Id) != null)
+                if (await _db.OrderProducts.FirstOrDefaultAsync(x => x.ProductId == cart.ProductId && x.UserClientId==user.Id) != null)
                 {
                     _db.OrderProducts.FirstOrDefault(x => x.ProductId == cart.ProductId && x.UserClientId == user.Id).Quantity = cart.Quantity;
-                    _db.SaveChanges();
+                   await _db.SaveChangesAsync();
                 }
                 else
                 {
@@ -231,20 +231,20 @@ namespace Junko.Controllers
                         Status=true,
                         Complete=Complete.Processsing
                     };
-                    _db.OrderProducts.Add(orderProduct);
-                    _db.SaveChanges();
+                   await _db.OrderProducts.AddAsync(orderProduct);
+                   await _db.SaveChangesAsync();
                 }
             }
-            model.OrderProducts = _db.OrderProducts.Include("Product").Where(x => x.UserClientId == user.Id && x.Status==true).OrderByDescending(x => x.CreatedAt).ToList();
+            model.OrderProducts =await _db.OrderProducts.Include("Product").Where(x => x.UserClientId == user.Id && x.Status==true).OrderByDescending(x => x.CreatedAt).ToListAsync();
             return View(model);
         }
 
-        public IActionResult RemoveOrder(int? id) {
+        public async Task<IActionResult> RemoveOrder(int? id) {
             if (id == null) return RedirectToAction("error", "home");
-            OrderProduct orderProduct = _db.OrderProducts.FirstOrDefault(x => x.Id == id && x.Status == true);
+            OrderProduct orderProduct =await _db.OrderProducts.FirstOrDefaultAsync(x => x.Id == id && x.Status == true);
             if(orderProduct==null) return RedirectToAction("error", "home");
             orderProduct.Status = false;
-            _db.SaveChanges();
+           await _db.SaveChangesAsync();
             return Redirect((!string.IsNullOrEmpty(Request.Headers["Referer"]) ? Request.Headers["Referer"].ToString() : "/"));
         }
     }

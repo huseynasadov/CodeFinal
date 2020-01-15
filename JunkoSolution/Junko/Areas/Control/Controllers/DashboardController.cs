@@ -10,12 +10,11 @@ namespace Junko.Areas.Control.Controllers
 {
     [Area("Control")]
     [Authorize]
-    public class DashboardController : Controller
+    public class DashboardController : BaseController 
     {
        
         public IActionResult Index()
         {
-
             return View();
         }
     }

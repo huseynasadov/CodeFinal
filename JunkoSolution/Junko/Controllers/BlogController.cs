@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Junko.DAL;
 using Junko.Models;
 using Junko.ModelTranslate;
@@ -18,7 +19,7 @@ namespace Junko.Controllers
         {
             _db = context;
         }
-        public IActionResult Index(int? page)
+        public async Task<IActionResult> Index(int? page)
         {
             int count = page ?? 1;
             var rqf = Request.HttpContext.Features.Get<IRequestCultureFeature>();
@@ -38,27 +39,27 @@ namespace Junko.Controllers
                     Page = Page.Blog,
                     CurrentPage = count
                 },
-                Categories = _db.BlogCategoryTranslates
+                Categories =await _db.BlogCategoryTranslates
                 .Where(c => c.Language.LanguageCode == culture.ToString() && c.Category.Status == true)
-                .OrderByDescending(c => c.Category.CreatedAt).ToList(),
-                Blogs = _db.BlogTranslates
+                .OrderByDescending(c => c.Category.CreatedAt).ToListAsync(),
+                Blogs = await _db.BlogTranslates
                 .Include("Blog.AdminManager.Category.AdminCategoryTranslates")
                 .Include("Language")
                 .Where(c => c.Language.LanguageCode == culture.ToString() && c.Blog.Status == true)
-                .OrderByDescending(b => b.Blog.CreatedAt).Skip((count - 1) * 6).Take(6).ToList(),
-                ArchiveBlogs = _db.BlogTranslates
+                .OrderByDescending(b => b.Blog.CreatedAt).Skip((count - 1) * 6).Take(6).ToListAsync(),
+                ArchiveBlogs =await _db.BlogTranslates
                 .Where(c => c.Language.LanguageCode == culture.ToString() && c.Blog.Status == true)
-                .OrderBy(b => b.Blog.CreatedAt).Take(4).ToList()
+                .OrderBy(b => b.Blog.CreatedAt).Take(4).ToListAsync()
             };
-            int pageCount = _db.Blogs.Where(b => b.Status == true).Count() / 6;
-            if (_db.Blogs.Where(b => b.Status == true).Count() % 6 != 0)
+            int pageCount =await _db.Blogs.Where(b => b.Status == true).CountAsync() / 6;
+            if (await _db.Blogs.Where(b => b.Status == true).CountAsync() % 6 != 0)
             {
                 pageCount++;
             }
             model.Pagination.PageCount = pageCount;
             return View(model);
         }
-        public IActionResult Detail(int? id)
+        public async Task<IActionResult> Detail(int? id)
         {
             if (id == null)
             {
@@ -71,15 +72,15 @@ namespace Junko.Controllers
             var cookieAdmin = Request.Cookies["TokenAdmin"];
             if (cookieAdmin != null)
             {
-                admin = _db.AdminManagers.FirstOrDefault(a => a.Token == cookieAdmin);
+                admin =await _db.AdminManagers.FirstOrDefaultAsync(a => a.Token == cookieAdmin);
             }
             if (cookieUser != null)
             {
-                user = _db.UserClients.FirstOrDefault(a => a.Token == cookieUser);
+                user =await _db.UserClients.FirstOrDefaultAsync(a => a.Token == cookieUser);
             }
             var rqf = Request.HttpContext.Features.Get<IRequestCultureFeature>();
             var culture = rqf.RequestCulture.Culture;
-            BlogTranslate blog = _db.BlogTranslates.Include("Blog.BlogReviews.User").Include("Blog.BlogReviews.Admin.Category.AdminCategoryTranslates").Include("Blog.BlogCategories.AdminManager.Category.AdminCategoryTranslates").FirstOrDefault(c =>c.BlogId==id && c.Language.LanguageCode == culture.ToString() && c.Blog.Status == true);
+            BlogTranslate blog =await _db.BlogTranslates.Include("Blog.BlogReviews.User").Include("Blog.BlogReviews.Admin.Category.AdminCategoryTranslates").Include("Blog.BlogCategories.AdminManager.Category.AdminCategoryTranslates").FirstOrDefaultAsync(c =>c.BlogId==id && c.Language.LanguageCode == culture.ToString() && c.Blog.Status == true);
             if (blog == null)
             {
                 return RedirectToAction("Error", "Home");
@@ -98,31 +99,28 @@ namespace Junko.Controllers
                     },
                         Page = Page.BlogDetail
                     },
-                    ArchiveBlogs = _db.BlogTranslates
+                    ArchiveBlogs =await _db.BlogTranslates
                 .Where(c => c.Language.LanguageCode == culture.ToString() && c.Blog.Status == true)
-                .OrderBy(b => b.Blog.CreatedAt).Take(4).ToList(),
-                    Categories = _db.BlogCategoryTranslates
+                .OrderBy(b => b.Blog.CreatedAt).Take(4).ToListAsync(),
+                    Categories =await _db.BlogCategoryTranslates
                 .Where(c => c.Language.LanguageCode == culture.ToString() && c.Category.Status == true)
-                .OrderByDescending(c => c.Category.CreatedAt).ToList(),
-                    Blogs = _db.BlogTranslates
+                .OrderByDescending(c => c.Category.CreatedAt).ToListAsync(),
+                    Blogs =await _db.BlogTranslates
                 .Include("Blog.AdminManager.Category.AdminCategoryTranslates")
                 .Include("Language")
                 .Where(c => c.Language.LanguageCode == culture.ToString() && c.Blog.Status == true)
-                .OrderByDescending(b => b.Blog.CreatedAt).Take(4).ToList(),
+                .OrderByDescending(b => b.Blog.CreatedAt).Take(4).ToListAsync(),
                 },
-                BlogCategories = _db.BlogCategories.Include("Category.BlogCategoryTranslates").Where(b=>b.BlogId==blog.BlogId).ToList()
+                BlogCategories =await _db.BlogCategories.Include("Category.BlogCategoryTranslates").Where(b=>b.BlogId==blog.BlogId).ToListAsync()
                 
             };
             return View(model);
         }
 
         [HttpPost]
-        public IActionResult Review(BlogReview review) 
+        public async Task<IActionResult> Review(BlogReview review) 
         {
-            if (review.AdminManagerId == 0 && review.UserClientId == 0)
-            {
-                return RedirectToAction("index", "login");
-            }
+            
             if (ModelState.IsValid)
             {
                 if (review.AdminManagerId == 0)
@@ -133,13 +131,40 @@ namespace Junko.Controllers
                 {
                     review.UserClientId = null;
                 }
-                
+                if (review.AdminManagerId == null && review.UserClientId == null)
+                {
+                    return Json(new { status = false });
+                }
                 review.CreatedAt = DateTime.Now;
-                _db.BlogReviews.Add(review);
-                _db.SaveChanges();
+               await _db.BlogReviews.AddAsync(review);
+               await _db.SaveChangesAsync();
+               BlogReview model =await _db.BlogReviews.Include("User").FirstOrDefaultAsync(x => x.Id == review.Id);
+
+                return PartialView("_BlogReview", model);
             }
 
-            return LocalRedirect("/blog/detail/"+review.BlogId);
+            return Json(new { status = false });
+        }
+
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var blogReview = await _db.BlogReviews
+                .Include(b => b.Admin)
+                .Include(b => b.Blog)
+                .Include(b => b.User)
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (blogReview == null)
+            {
+                return NotFound();
+            }
+            _db.BlogReviews.Remove(blogReview);
+            await _db.SaveChangesAsync();
+            return Redirect((!string.IsNullOrEmpty(Request.Headers["Referer"]) ? Request.Headers["Referer"].ToString() : "/blog/detail/"+blogReview.BlogId ));
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿$(document).ready(function () {
+﻿ $(document).ready(function () {
     String.prototype.removeAcento = function () {
         var text = this.toLowerCase();
         text = text.replace(new RegExp('[ÁÀÂÃ]', 'gi'), 'a');
@@ -102,8 +102,7 @@ $(function () {
                     },
 
                     complete: function () {
-                        location.reload();
-                        setTimeout(1000);
+                        $(deletinput).parent().parent().remove();
                         toastr.success('Ugurla basa catdi', 'Silindi'); 
                     }
                 })
@@ -114,22 +113,29 @@ $(function () {
         $(".toggle-handle").removeClass("btn-default");
         $(".toggle-handle").addClass("btn-light");
         $(".toogleBoot").parent().click(function () {
-
+            var parent = $(this);
             if ($(this).attr("class") == "toggle btn btn-danger off") {
                 $.get($(this).children().data("url") + "?status=true", {}, function (data) {
                     if (data) {
-                        location.reload();
+                        parent.removeClass("btn-danger off");
+                        parent.addClass("btn-success");
                     }
+                }).then(function () {
+                    toastr.success('Ugurla basa catdi', 'Aktiv'); 
                 });
             } else {
                 $.get($(this).children().data("url") + "?status=false", {}, function (data) {
                     if (data) {
-                        location.reload();
+                        parent.removeClass("btn-success");
+                        parent.add("btn-danger off");
                     }
+                }).then(function () {
+                    toastr.error('Ugurla basa catdi', 'Deaktiv');
                 });
             }
         })
     });
 
+    $('.table').DataTable();
 
 })

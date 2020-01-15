@@ -1,0 +1,52 @@
+﻿@model ProductReview
+<div class="comment_list">
+    <div class="comment_thumb">
+        <img src="~/images/blog/comment3.png.jpg" alt="">
+    </div>
+    <div class="comment_content">
+        <div class="comment_meta">
+            <h5><a href="#">@Model.User.Firstname @Model.User.Lastname</a></h5>
+            <div class="d-flex justify-content-between">
+                <span>@Model.CreatedAt.ToString("MM dd, yyy 'at' HH:mm ")</span>
+                <a asp-action="delete" asp-controller="Shop" asp-route-id="@Model.Id" style="font-size:1.5rem" class="text-danger shopReviewDeleteEn"><i class="fas fa-long-arrow-alt-left"></i></a>
+            </div>
+        </div>
+        <p>
+            @Model.Content
+        </p>
+    </div>
+
+</div>
+<script>
+        $(".shopReviewDeleteEn").click(function (event) {
+        var deletinput = this;
+        var count = $("#ReviewCount").html();
+        event.preventDefault();
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.value) {
+
+                $.ajax({
+                    url: $(deletinput).attr("href"),
+                    success: function () {
+
+                    },
+
+                    complete: function () {
+                        $(deletinput).parent().parent().parent().parent().remove();
+                        toastr.success('Yes, delete it!', 'Deleted !');
+                        $("#ReviewCount").html(`${count - 1}`)
+                    }
+                })
+            }
+        })
+        });
+    
+</script>

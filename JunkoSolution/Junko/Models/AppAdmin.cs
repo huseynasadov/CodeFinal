@@ -12,5 +12,6 @@ namespace Junko.Models
         public string Ocupation { get; set; }
         public string Firstname { get; set; }
         public string Lastname { get; set; }
+        public DateTime Birthday { get; set; }
     }
 }

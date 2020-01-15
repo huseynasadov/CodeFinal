@@ -48,8 +48,8 @@ namespace Junko.Controllers
             if (category != null)
             {
                 model.Products =await _db.Products.Include("ProductPhotos").Where(p => p.Status == true && p.BrandProductCategory.ProductSubCategoryId == category).OrderByDescending(p => p.CreatedAt).Skip((count - 1) * 12).Take(12).ToListAsync();
-                pageCount = _db.Products.Where(p => p.Status == true && p.BrandProductCategory.ProductSubCategoryId == category).Count() / 12;
-                if (_db.Products.Where(p => p.Status == true && p.BrandProductCategory.ProductSubCategoryId == category).Count() % 12 != 0)
+                pageCount =await _db.Products.Where(p => p.Status == true && p.BrandProductCategory.ProductSubCategoryId == category).CountAsync() / 12;
+                if (await _db.Products.Where(p => p.Status == true && p.BrandProductCategory.ProductSubCategoryId == category).CountAsync() % 12 != 0)
                 {
                     pageCount++;
                 }
@@ -71,15 +71,17 @@ namespace Junko.Controllers
                     model.Products = await _db.Products.Include("ProductPhotos").Where(p => p.Status == true && p.BrandProductCategory.ProductSubCategoryId == category).OrderBy(p => p.Name).Skip((count - 1) * 12).Take(12).ToListAsync();
                 }
                 model.Pagination.CategoryId = category;
+                model.ProductCount = _db.Products.Where(p => p.Status == true && p.BrandProductCategory.ProductSubCategoryId == category).Count();
             }
             else
             {
                 model.Products =await _db.Products.Include("ProductPhotos").Where(p => p.Status == true).OrderByDescending(p => p.CreatedAt).Skip((count - 1) * 12).Take(12).ToListAsync();
-                pageCount = _db.Products.Where(p => p.Status == true).Count() / 12;
-                if (_db.Products.Where(p => p.Status == true).Count() % 12 != 0)
+                pageCount =await _db.Products.Where(p => p.Status == true).CountAsync() / 12;
+                if (await _db.Products.Where(p => p.Status == true).CountAsync() % 12 != 0)
                 {
                     pageCount++;
                 }
+
                 if (orderby == 2)
                 {
                     model.Products =await _db.Products.Include("ProductPhotos").Where(p => p.Status == true).OrderByDescending(p => p.CreatedAt).Skip((count - 1) * 12).Take(12).ToListAsync();
@@ -96,41 +98,42 @@ namespace Junko.Controllers
                 {
                     model.Products = await _db.Products.Include("ProductPhotos").Where(p => p.Status == true).OrderBy(p => p.Name).Skip((count - 1) * 12).Take(12).ToListAsync();
                 }
-               
-                
+                model.ProductCount =await _db.Products.Where(p => p.Status == true).CountAsync();
             }
             if (brand != null)
             {
                 model.Products = await _db.Products.Include("ProductPhotos").Where(p => p.BrandProductCategoryId == brand && p.Status == true).Skip((count - 1) * 12).Take(12).ToListAsync();
                 model.Pagination.BrandId = brand;
-                pageCount = _db.Products.Where(p => p.Status == true && p.BrandProductCategoryId == brand).Count() / 12;
-                if (_db.Products.Where(p => p.Status == true && p.BrandProductCategoryId == brand).Count() % 12 != 0)
+                pageCount =await _db.Products.Where(p => p.Status == true && p.BrandProductCategoryId == brand).CountAsync() / 12;
+                if (await _db.Products.Where(p => p.Status == true && p.BrandProductCategoryId == brand).CountAsync() % 12 != 0)
                 {
                     pageCount++;
                 }
+                model.ProductCount =await _db.Products.Where(p => p.BrandProductCategoryId == brand && p.Status == true).CountAsync();
             }
-            if (search != null)
+            if (!string.IsNullOrEmpty(search))
             {
                 model.Products =await _db.Products.Include("ProductPhotos").Where(p => p.Name.Contains(search) || p.BrandProductCategory.Brand.Name.Contains(search) || p.BrandProductCategory.ProductSubCategory.ProductSubCategoryTranslate.Any(a => a.Name.Contains(search)) && p.Status == true).Skip((count - 1) * 12).Take(12).ToListAsync();
-                pageCount = _db.Products.Where(p => p.Name.Contains(search) || p.BrandProductCategory.Brand.Name.Contains(search) || p.BrandProductCategory.ProductSubCategory.ProductSubCategoryTranslate.Any(a => a.Name.Contains(search)) && p.Status == true).Count() / 12;
-                if (_db.Products.Where(p => p.Name.Contains(search) || p.BrandProductCategory.Brand.Name.Contains(search) || p.BrandProductCategory.ProductSubCategory.ProductSubCategoryTranslate.Any(a => a.Name.Contains(search)) && p.Status == true).Count() % 12 != 0)
+                pageCount =await _db.Products.Where(p => p.Name.Contains(search) || p.BrandProductCategory.Brand.Name.Contains(search) || p.BrandProductCategory.ProductSubCategory.ProductSubCategoryTranslate.Any(a => a.Name.Contains(search)) && p.Status == true).CountAsync() / 12;
+                if (await _db.Products.Where(p => p.Name.Contains(search) || p.BrandProductCategory.Brand.Name.Contains(search) || p.BrandProductCategory.ProductSubCategory.ProductSubCategoryTranslate.Any(a => a.Name.Contains(search)) && p.Status == true).CountAsync() % 12 != 0)
                 {
                     pageCount++;
                 }
+                model.ProductCount =await _db.Products.Where(p => p.Name.Contains(search) || p.BrandProductCategory.Brand.Name.Contains(search) || p.BrandProductCategory.ProductSubCategory.ProductSubCategoryTranslate.Any(a => a.Name.Contains(search)) && p.Status == true).CountAsync();
             }
-            if (filter != null)
+            if (!string.IsNullOrEmpty(filter))
             {
                 string[] parts = filter.Split('-');
                 model.Products =await _db.Products.Include("ProductPhotos").Where(p => p.Status == true && p.Price > decimal.Parse(parts[0]) && p.Price < decimal.Parse(parts[1])).OrderByDescending(p => p.Price).Skip((count - 1) * 12).Take(12).ToListAsync();
                 
-                pageCount = _db.Products.Where(p => p.Status == true && p.Price > decimal.Parse(parts[0]) && p.Price < decimal.Parse(parts[1])).Count() / 12;
-                if (_db.Products.Where(p => p.Status == true && p.Price > decimal.Parse(parts[0]) && p.Price < decimal.Parse(parts[1])).Count() % 12 != 0)
+                pageCount =await _db.Products.Where(p => p.Status == true && p.Price > decimal.Parse(parts[0]) && p.Price < decimal.Parse(parts[1])).CountAsync() / 12;
+                if (await _db.Products.Where(p => p.Status == true && p.Price > decimal.Parse(parts[0]) && p.Price < decimal.Parse(parts[1])).CountAsync() % 12 != 0)
                 {
                     pageCount++;
                 }
+                model.ProductCount =await _db.Products.Where(p => p.Status == true && p.Price > decimal.Parse(parts[0]) && p.Price < decimal.Parse(parts[1])).CountAsync();
             }
-            model.ProductCount = model.Products.Count();
-           
+            model.Pagination.PageCount = pageCount;
             return View(model);
         }
         public async Task<IActionResult> Detail(string slug)
@@ -188,7 +191,7 @@ namespace Junko.Controllers
         }
 
         [HttpPost]
-        public IActionResult Review(ProductReview review)
+        public async Task<IActionResult> Review(ProductReview review)
         {
             if (ModelState.IsValid)
             {
@@ -202,14 +205,36 @@ namespace Junko.Controllers
                 }
                 if (review.UserClientId==null && review.AdminManagerId==null)
                 {
-                    return RedirectToAction("index", "login");
+                    return Json(new { status = false });
                 }
                 review.CreatedAt = DateTime.Now;
-                _db.ProductReviews.Add(review);
-                _db.SaveChanges();
+               await _db.ProductReviews.AddAsync(review);
+               await _db.SaveChangesAsync();
+                ProductReview model =await _db.ProductReviews.Include("User").FirstOrDefaultAsync(x => x.Id == review.Id);
+
+                return PartialView("_ProductReview", model);
+            }
+            return Json(new { status = false });
+        }
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
             }
 
-            return LocalRedirect("/shop/detail?slug=" + _db.Products.FirstOrDefault(a=>a.Id==review.ProductId).Slug);
+            var shopReview = await _db.ProductReviews
+                .Include(b => b.Admin)
+                .Include(b => b.Product)
+                .Include(b => b.User)
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (shopReview == null)
+            {
+                return NotFound();
+            }
+            _db.ProductReviews.Remove(shopReview);
+            await _db.SaveChangesAsync();
+            return Redirect((!string.IsNullOrEmpty(Request.Headers["Referer"]) ? Request.Headers["Referer"].ToString() : "/blog/detail/" + shopReview.ProductId));
         }
     }
 }

@@ -1,6 +1,13 @@
-﻿@{
+﻿@using Microsoft.AspNetCore.Identity
+@using Junko.Models
+
+@inject SignInManager<AppAdmin> SignInManager
+@inject UserManager<AppAdmin> UserManager
+@{
 
     //AdminManager admin = ViewBag.admin as AdminManager;
+
+  
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -27,6 +34,7 @@
     <link rel="stylesheet" href="~/Admin/vendor/Sortable/jquery-ui.min.css">
     <link rel="stylesheet" href="~/Admin/vendor/Sortable/jquery-ui.structure.min.css">
     <link rel="stylesheet" href="~/Admin/vendor/Sortable/jquery-ui.theme.min.css">
+    <link rel="stylesheet" href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
     <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
     <link href="~/Admin/css/main.css" rel="stylesheet" />
 
@@ -64,7 +72,7 @@
             <hr class="sidebar-divider">
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePage-1" aria-expanded="true" aria-controls="collapsePages">
-                    <i class="fas fa-fw fa-folder"></i>
+                    <i class="fas fa-tools"></i>
                     <span>Parametrlər</span>
                 </a>
                 <div id="collapsePage-1" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
@@ -76,7 +84,7 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePage" aria-expanded="true" aria-controls="collapsePages">
-                    <i class="fas fa-fw fa-folder"></i>
+                    <i class="fas fa-cart-arrow-down"></i>
                     <span>Məhsul</span>
                 </a>
                 <div id="collapsePage" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
@@ -94,25 +102,25 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link" asp-action="index" asp-controller="Blogs" asp-area="control">
-                    <i class="fas fa-fw fa-table"></i>
+                    <i class="fab fa-blogger-b"></i>
                     <span>Xəbərlər</span>
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" asp-action="index" asp-controller="UserClients" asp-area="control">
-                    <i class="fas fa-fw fa-table"></i>
+                    <i class="fas fa-user-friends"></i>
                     <span>İstifadəçilər</span>
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" asp-action="index" asp-controller="OrderProducts" asp-area="control">
-                    <i class="fas fa-fw fa-table"></i>
+                    <i class="fab fa-paypal"></i>
                     <span>Sifarişlər</span>
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
-                    <i class="fas fa-fw fa-folder"></i>
+                    <i class="fas fa-envelope-open-text"></i>
                     <span>Rəylər</span>
                 </a>
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
@@ -124,7 +132,7 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link" asp-action="index" asp-controller="users">
-                    <i class="fas fa-fw fa-table"></i>
+                    <i class="fas fa-user-lock"></i>
                     <span>Admin İdarəetmə</span>
                 </a>
             </li>
@@ -154,41 +162,10 @@
                         <i class="fa fa-bars"></i>
                     </button>
 
-                    <!-- Topbar Search -->
-                    <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                        <div class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <button class="btn btn-primary" type="button">
-                                    <i class="fas fa-search fa-sm"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
-
-                        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-                        <li class="nav-item dropdown no-arrow d-sm-none">
-                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-search fa-fw"></i>
-                            </a>
-                            <!-- Dropdown - Messages -->
-                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
-                                <form class="form-inline mr-auto w-100 navbar-search">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-                                        <div class="input-group-append">
-                                            <button class="btn btn-primary" type="button">
-                                                <i class="fas fa-search fa-sm"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </li>
-
                         <!-- Nav Item - Alerts -->
                         <li class="nav-item dropdown no-arrow mx-1">
                             <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -298,30 +275,8 @@
 
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
-                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">@*@admin.Firstname @admin.Lastname*@</span>
-                                <img class="img-profile rounded-circle" @*src="~/Uploads/@admin.Photo"*@>
-                            </a>
-                            <!-- Dropdown - User Information -->
-                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                                <a class="dropdown-item" @*href="@Url.Action("details","adminmanagers",new { id=admin.Id})"*@>
-                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Profile
-                                </a>
-                                <a class="dropdown-item" href="@Url.Action("index","settings")">
-                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Settings
-                                </a>
-                                <a class="dropdown-item" href="@Url.Action("index","AdminManagers")">
-                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Activity Admins
-                                </a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="@Url.Action("Logout","Auth")" data-toggle="modal" data-target="#logoutModal">
-                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Logout
-                                </a>
-                            </div>
+
+                            @await Component.InvokeAsync("ControlUser")
                         </li>
 
                     </ul>
@@ -371,7 +326,7 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="@Url.Action("Logout","Auth")">Logout</a>
+                    <a class="btn btn-primary" asp-action="logout" asp-controller="users">Logout</a>
                 </div>
             </div>
         </div>
@@ -386,6 +341,7 @@
     <!-- Core plugin JavaScript-->
     <script src="~/Admin/vendor/jquery-easing/jquery.easing.min.js"></script>
     <script src="~/Admin/vendor/Sortable/jquery-ui.min.js"></script>
+    <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
     <!-- Custom scripts for all pages-->

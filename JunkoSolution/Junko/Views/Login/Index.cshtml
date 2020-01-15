@@ -16,11 +16,11 @@
                     <form asp-controller="login" asp-action="index" method="post" asp-route-returnUrl="@Model.ReturnUrl">
                         <div asp-validation-summary="ModelOnly"></div>
                         <div class="form-group">
-                            @_localizer["Email"]:  <input asp-for="Login.Email" class="form-group" data-validation="required email" />
+                            @_localizer["Email"]:  <input asp-for="Login.Email" class="form-control" data-validation="required email" />
                             <span class="text-danger" asp-validation-for="Login.Email"></span>
                         </div>
                         <div class="form-group">
-                            @_localizer["Password"]: <input asp-for="Login.Password" class="form-group" data-validation="required" />
+                            @_localizer["Password"]: <input asp-for="Login.Password" class="form-control" data-validation="required" />
                             <span class="text-danger" asp-validation-for="Login.Password"></span>
                         </div>
 

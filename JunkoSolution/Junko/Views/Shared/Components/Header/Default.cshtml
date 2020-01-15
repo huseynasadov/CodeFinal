@@ -241,8 +241,12 @@
                                             <li><a is-active-route asp-controller="about" asp-action="index">@_localizer["About Us"]</a></li>
                                             <li><a is-active-route asp-controller="faq" asp-action="index">FAQ</a></li>
                                             <li><a is-active-route asp-controller="privacy" asp-action="index">@_localizer["Privacy Policy"]</a></li>
-                                            <li><a is-active-route asp-controller="login" asp-action="index" asp-route-returnUrl="@ViewBag.returnUrl">@_localizer["Login"]</a></li>
-                                            <li><a is-active-route asp-controller="login" asp-action="register" asp-route-returnUrl="@ViewBag.returnUrl">@_localizer["Register"]</a></li>
+
+                                            @if (Model.User.Email == null)
+                                            {
+                                                <li><a is-active-route asp-controller="login" asp-action="index" asp-route-returnUrl="@ViewBag.returnUrl">@_localizer["Login"]</a></li>
+                                                <li><a is-active-route asp-controller="login" asp-action="register" asp-route-returnUrl="@ViewBag.returnUrl">@_localizer["Register"]</a></li>
+                                            }
                                         </ul>
                                     </li>
                                     <li><a is-active-route asp-controller="contact" asp-action="index">@_localizer["Contact Us"]</a></li>

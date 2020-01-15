@@ -39,7 +39,7 @@
 
                                                 <tr>
                                                     <td class="product_remove">
-                                                        <a asp-action="removeWishlist" asp-controller="ordering" asp-route-id="@item.ProductId"><i class="fa fa-trash-o"></i></a>
+                                                        <a class="@(Model.LanguageId==2?"categoryDelete":"categoryDeleteEn") text-danger" asp-action="removeWishlist" asp-controller="ordering" asp-route-id="@item.ProductId"><i class="fa fa-trash-o"></i></a>
                                                     </td>
                                                     <td class="product_thumb">
                                                         <a href="#">
@@ -63,7 +63,7 @@
                                     </table>
                                 </div>
                                 <div class="cart_submit">
-                                    <a asp-action="clearWishlist" asp-controller="ordering" class="btn-warning btn ">@_localizer["Clear Cart"]</a>
+                                    <a  asp-action="clearWishlist" asp-controller="ordering" class="btn-warning btn @(Model.LanguageId==2?"jobDeleteAz":"jobDelete")">@_localizer["Clear Cart"]</a>
                                 </div>
                             </div>
                         </div>
@@ -121,6 +121,7 @@
                 let id = $(this).data("id");
                 $.get('/ordering/add/' + id, {}, function (data) {
                     $("div.smallCart").html(data);
+                    toastr.success("@_localizer["Product Added the Cart"]", "@_localizer["Success"]");
                 });
             });
         });

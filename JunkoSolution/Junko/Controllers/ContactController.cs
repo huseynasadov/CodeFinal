@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Junko.DAL;
 using Junko.ViewModels;
 using Microsoft.AspNetCore.Localization;
@@ -15,7 +16,7 @@ namespace Junko.Controllers
         {
             _db = context;
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
             var rqf = Request.HttpContext.Features.Get<IRequestCultureFeature>();
             var culture = rqf.RequestCulture.Culture;
@@ -28,7 +29,7 @@ namespace Junko.Controllers
                     },
                     Page = Page.Contact
                 },
-                SettingTranslate=_db.SettingTranslates.Include("Setting").FirstOrDefault(s=>s.Language.LanguageCode==culture.ToString())
+                SettingTranslate=await _db.SettingTranslates.Include("Setting").FirstOrDefaultAsync(s=>s.Language.LanguageCode==culture.ToString())
             };
             return View(model);
         }

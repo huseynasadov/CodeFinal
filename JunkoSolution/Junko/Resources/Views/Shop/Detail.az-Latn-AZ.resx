@@ -153,6 +153,12 @@
   <data name="Post Comment" xml:space="preserve">
     <value>Rəy Yaz</value>
   </data>
+  <data name="Product Added the Cart" xml:space="preserve">
+    <value>Məhsul səbətə əlavə olundu .</value>
+  </data>
+  <data name="Product Added the WishhList" xml:space="preserve">
+    <value>Məhsul Favorilər listinə əlavə olundu .</value>
+  </data>
   <data name="Product Detail" xml:space="preserve">
     <value>Məhsul haqqında</value>
   </data>
@@ -167,5 +173,8 @@
   </data>
   <data name="Specification" xml:space="preserve">
     <value>Xüsusiyyətlər</value>
+  </data>
+  <data name="Success" xml:space="preserve">
+    <value>Uğurlu !</value>
   </data>
 </root>

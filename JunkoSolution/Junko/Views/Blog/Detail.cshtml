@@ -15,10 +15,8 @@
     <div class="blog_details mt-60">
         <div class="container">
             <div class="row">
-                <div class="col-lg-3 col-md-12">
-                    @await Html.PartialAsync("~/Views/Shared/_BlogLeftSide.cshtml",model:Model.BlogVM)
-                </div>
-                <div class="col-lg-9 col-md-12">
+                
+                <div class="col-lg-12 col-md-12">
                     <!--blog grid area start-->
                     <div class="blog_wrapper">
                         <article class="single_blog">
@@ -49,27 +47,10 @@
 
                                         <div class="social_sharing">
                                             <p>@_localizer["share this post"]:</p>
-                                            <ul>
-                                                <li>
-                                                    <a href="#" title="facebook"><i class="fa fa-facebook"></i></a>
-                                                </li>
-                                                <li>
-                                                    <a href="#" title="twitter"><i class="fa fa-twitter"></i></a>
-                                                </li>
-                                                <li>
-                                                    <a href="#" title="pinterest">
-                                                        <i class="fa fa-pinterest"></i>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#" title="google+">
-                                                        <i class="fa fa-google-plus"></i>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#" title="linkedin"><i class="fa fa-linkedin"></i></a>
-                                                </li>
-                                            </ul>
+                                            <div class="priduct_social">
+                                                <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+
+                                            </div>
                                         </div>
                                     </div>
                                 </figcaption>
@@ -129,34 +110,43 @@
                             </div>
                         </div>
                         <div class="comments_box">
-                            <h3>@Model.Blog.Blog.BlogReviews.Count @_localizer["Comments"]  </h3>
-                            @if (Model.Blog.Blog.BlogReviews.Count > 0)
-                            {
-                                @foreach (var rev in Model.Blog.Blog.BlogReviews)
+                            <h3><span id="BlogCount">@Model.Blog.Blog.BlogReviews.Count</span> @_localizer["Comments"]  </h3>
+                            <div id="reviews_wrapper_blog">
+                                @if (Model.Blog.Blog.BlogReviews.Count > 0)
                                 {
-                                    <div class="comment_list">
-                                        <div class="comment_thumb">
-                                            <img src="~/images/blog/comment3.png.jpg" alt="">
-                                        </div>
-                                        <div class="comment_content">
-                                            <div class="comment_meta">
-                                                <h5><a href="#">@(rev.AdminManagerId>0?rev.Admin.Category.AdminCategoryTranslates.FirstOrDefault(a=>a.LanguageId==Model.Blog.LanguageId).Name  : rev.User.Firstname +" "+ rev.User.Lastname)</a></h5>
-                                                <span>@rev.CreatedAt.ToString("MM dd, yyy 'at' HH:mm ")</span>
+                                    @foreach (var rev in Model.Blog.Blog.BlogReviews)
+                                    {
+                                        <div class="comment_list">
+                                            <div class="comment_thumb">
+                                                <img src="~/images/blog/comment3.png.jpg" alt="">
                                             </div>
-                                            <p>
-                                              @rev.Content
-                                            </p>
+                                            <div class="comment_content">
+                                                <div class="comment_meta">
+                                                    <h5><a href="#">@(rev.AdminManagerId > 0 ? rev.Admin.Category.AdminCategoryTranslates.FirstOrDefault(a => a.LanguageId == Model.Blog.LanguageId).Name : rev.User.Firstname + " " + rev.User.Lastname)</a></h5>
+                                                    @if (Model.UserClientId == rev.UserClientId)
+                                                    {
+                                                        <div class="d-flex justify-content-between">
+                                                            <span>@rev.CreatedAt.ToString("MM dd, yyy 'at' HH:mm ")</span>
+                                                            <a asp-action="delete" asp-controller="Blog" asp-route-id="@rev.Id" style="font-size:1.5rem" class="text-danger @(Model.Blog.LanguageId==2 ? "blogReviewDeleteAz":"blogReviewDeleteEn")"><i class="fas fa-long-arrow-alt-left"></i></a>
+                                                        </div>
+                                                    }
+
+
+                                                </div>
+                                                <p>
+                                                    @rev.Content
+                                                </p>
+                                            </div>
+
                                         </div>
-
-                                    </div>
+                                    }
                                 }
-                            }
-
+                            </div>
                         </div>
                         <div class="comments_form">
                             <h3>@_localizer["Leave a Reply"] </h3>
                             <p>@_localizer["Your email address will not be published. Required fields are marked"] *</p>
-                            <form asp-action="Review" asp-controller="Blog" method="post">
+                            <form id="BlogReview" asp-action="Review" asp-controller="Blog" method="post">
                                 <div class="row">
                                     <div class="col-12">
                                         <label for="Content">@_localizer["Comment"] </label>

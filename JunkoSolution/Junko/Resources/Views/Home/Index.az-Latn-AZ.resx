@@ -144,6 +144,12 @@
   <data name="On sale Products" xml:space="preserve">
     <value>En cox satılan Məhsullar</value>
   </data>
+  <data name="Product Added the Cart" xml:space="preserve">
+    <value>Məhsul səbətə əlavə olundu .</value>
+  </data>
+  <data name="Product Added the WishhList" xml:space="preserve">
+    <value>Məhsul Favorilər listinə əlavə olundu .</value>
+  </data>
   <data name="sale" xml:space="preserve">
     <value>endirim</value>
   </data>
@@ -152,6 +158,9 @@
   </data>
   <data name="Show All Categories" xml:space="preserve">
     <value>Bütün kateqoriyaları göstər</value>
+  </data>
+  <data name="Success" xml:space="preserve">
+    <value>Uğurlu!</value>
   </data>
   <data name="The most visited categories this week" xml:space="preserve">
     <value>Bu həftə ərzində ən çox daxil olunan kateqoriyalar</value>

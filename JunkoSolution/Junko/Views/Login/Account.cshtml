@@ -8,133 +8,200 @@
 
 @await Html.PartialAsync("~/Views/Shared/_Breadcrumb.cshtml", model: Model.Breadcrumb)
 <!--Main Start-->
-<main>
-    <!-- my account start  -->
-    <section class="main_content_area">
-        <div class="container">
-            <div class="account_dashboard">
-                <div class="row">
-                    <div class="col-sm-12 col-md-3 col-lg-3">
-                        <!-- Nav tabs -->
-                        <div class="dashboard_tab_button">
-                            <ul role="tablist" class="nav flex-column dashboard-list">
-                                <li>
-                                    <a href="#dashboard" data-toggle="tab" class="nav-link active">@_localizer["Dashboard"]</a>
-                                </li>
-                                <li> <a href="#orders" data-toggle="tab" class="nav-link">@_localizer["Orders"]</a></li>
-                                <li><a href="#address" data-toggle="tab" class="nav-link">@_localizer["Addresses"]</a></li>
-                                <li>
-                                    <a href="#account-details" data-toggle="tab" class="nav-link">
-                                        @_localizer["Account Details"]
-                                    </a>
-                                </li>
-                                <li><a asp-action="logout" asp-controller="login" asp-route-returnUrl="@ViewBag.returnUrl" class="nav-link">@_localizer["Logout"]</a></li>
-                            </ul>
+
+    <main>
+
+        <partial name="_NotificationPartial" />
+        <!-- my account start  -->
+        <section class="main_content_area">
+            <div class="container">
+                <div class="account_dashboard">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-3 col-lg-3">
+                            <!-- Nav tabs -->
+                            <div class="dashboard_tab_button">
+                                <ul role="tablist" class="nav flex-column dashboard-list">
+                                    <li>
+                                        <a href="#dashboard" data-toggle="tab" class="nav-link active">@_localizer["Dashboard"]</a>
+                                    </li>
+                                    <li> <a href="#orders" data-toggle="tab" class="nav-link">@_localizer["Orders"]</a></li>
+                                    <li><a href="#address" data-toggle="tab" class="nav-link">@_localizer["Addresses"]</a></li>
+                                    <li>
+                                        <a href="#account-details" data-toggle="tab" class="nav-link">
+                                            @_localizer["Account Details"]
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#account-password" data-toggle="tab" class="nav-link">
+                                            @_localizer["Change Password"]
+                                        </a>
+                                    </li>
+                                    <li><a asp-action="logout" asp-controller="login" asp-route-returnUrl="@ViewBag.returnUrl" class="nav-link">@_localizer["Logout"]</a></li>
+                                </ul>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-sm-12 col-md-9 col-lg-9">
-                        <!-- Tab panes -->
-                        <div class="tab-content dashboard_content">
-                            <div class="tab-pane fade show active" id="dashboard">
-                                <h3>@_localizer["Dashboard"] </h3>
-                                <p>
-                                    @_localizer["From your account dashboard. you can easily check and view your recent orders manage your shipping and and Edit your password and account details."]
-                                </p>
-                            </div>
-                            <div class="tab-pane fade" id="orders">
-                                <h3>@_localizer["Orders"]</h3>
-                                <div class="table-responsive">
-                                    <table class="table">
-                                        <thead>
-                                            <tr>
-                                                <th>@_localizer["Delete"]</th>
-                                                <th>@_localizer["Name"]</th>
-                                                <th>@_localizer["Date"]</th>
-                                                <th>@_localizer["Status"]</th>
-                                                <th>@_localizer["Total"]</th>
-                                                <th>@_localizer["Quantity"]</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            @foreach (var order in Model.OrderProducts)
-                                            {
-                                            <tr>
-                                                <td>
-                                                    <a asp-action="RemoveOrder" asp-controller="ordering" asp-route-id="@order.Id" class="view text-danger"><i class="fas fa-trash-alt"></i></a>
-                                                </td>
-                                                <td>
-                                                    @order.Product.Name
-                                                </td>
-                                                <td>@order.CreatedAt.ToString("MMMM dd, yyyy")</td>
-                                                <td>
-                                                    @if (order.Complete == Complete.Completed)
-                                                    {
-                                                        <span class="badge badge-success">@_localizer["Completed"]</span>
-                                                    }
-                                                    else
-                                                    {
-                                                        <span class="badge badge-warning">@_localizer["Processing"]</span>
-                                                    }
-                                                </td>
-                                                <td>
-                                                    <price price="@order.Price" discount-price="0" language-id="@Model.LanguageId"></price>
-                                                </td>
-                                                <td>
-                                                    x @order.Quantity
-                                                </td>
-                                            </tr>
-                                            }
-                                        </tbody>
-                                    </table>
+                        <div class="col-sm-12 col-md-9 col-lg-9">
+                            <!-- Tab panes -->
+                            <div class="tab-content dashboard_content">
+                                <div class="tab-pane fade show active" id="dashboard">
+                                    <h3>@_localizer["Dashboard"] </h3>
+                                    <p>
+                                        @_localizer["From your account dashboard. you can easily check and view your recent orders manage your shipping and and Edit your password and account details."]
+                                    </p>
                                 </div>
-                            </div>
-                            <div class="tab-pane" id="address">
-                                <h4 class="billing-address">@_localizer["Address"]</h4>
-                                <a href="#" class="view">Edit</a>
-                                <p><strong>@Model.User.Firstname @Model.User.Lastname</strong></p>
-                                <address>
-                                    @Model.User.Address
-                                </address>
-                            </div>
-                            <div class="tab-pane fade" id="account-details">
-                                <h3>@_localizer["Account Details"]</h3>
-                                <div class="login">
-                                    <div class="login_form_container">
-                                        <div class="account_login_form">
-                                            <form asp-controller="login" asp-action="edit" method="post" asp-route-returnUrl="@ViewBag.returnUrl">
-                                                <div asp-validation-summary="ModelOnly"></div>
-                                                @_localizer["Gender"]:
-                                                <select class="custom-select mb-1" asp-for="User.Gender"
-                                                        asp-items="Html.GetEnumSelectList<Gender>()">
-                                                </select><br />
+                                <div class="tab-pane fade" id="orders">
+                                    <h3>@_localizer["Orders"]</h3>
+                                    <div class="table-responsive">
+                                        <table class="tableOrder">
+                                            <thead>
+                                                <tr>
+                                                    <th>@_localizer["Delete"]</th>
+                                                    <th>@_localizer["Name"]</th>
+                                                    <th>@_localizer["Date"]</th>
+                                                    <th>@_localizer["Status"]</th>
+                                                    <th>@_localizer["Total"]</th>
+                                                    <th>@_localizer["Quantity"]</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach (var order in Model.OrderProducts)
+                                                {
+                                                    <tr>
+                                                        <td width="10">
+                                                            <a asp-action="RemoveOrder" asp-controller="ordering" asp-route-id="@order.Id" class="view text-danger @(Model.LanguageId==2?"categoryDelete":"categoryDeleteEn")"><i class="fas fa-trash-alt"></i></a>
+                                                        </td>
+                                                        <td>
+                                                            @order.Product.Name
+                                                        </td>
+                                                        <td>@order.CreatedAt.ToString("MMMM dd, yyyy")</td>
+                                                        <td>
+                                                            @if (order.Complete == Complete.Completed)
+                                                            {
+                                                                <span class="badge badge-success">@_localizer["Completed"]</span>
+                                                            }
+                                                            else
+                                                            {
+                                                                <span class="badge badge-warning">@_localizer["Processing"]</span>
+                                                            }
+                                                        </td>
+                                                        <td>
+                                                            <price price="(@order.Price * order.Quantity)" discount-price="0" language-id="@Model.LanguageId"></price>
+                                                        </td>
+                                                        <td>
+                                                            @order.Quantity
+                                                        </td>
+                                                    </tr>
+                                                }
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="address">
+                                    <h4 class="billing-address">@_localizer["Address"]</h4>
+                                    <a href="#" class="view">Edit</a>
+                                    <p><strong>@Model.User.Firstname @Model.User.Lastname</strong></p>
+                                    <address>
+                                        @Model.User.Address
+                                    </address>
+                                </div>
+                                <div class="tab-pane fade" id="account-details">
+                                    <h3>@_localizer["Account Details"]</h3>
+                                    <div class="login">
+                                        <div class="login_form_container">
+                                            <div class="account_login_form">
+                                                <form asp-controller="login" asp-action="edit" method="post" asp-route-returnUrl="@ViewBag.returnUrl">
+                                                    <div asp-validation-summary="ModelOnly"></div>
 
-                                                @_localizer["Firstname"]:  <input asp-for="User.Firstname" /> <br />
-                                                <input hidden asp-for="User.Id" />
-                                                <span class="text-danger" asp-validation-for="User.Firstname"></span><br />
+                                                    <div class="form-group">
+                                                        @_localizer["Gender"]:
+                                                        <select class="custom-select mb-1" asp-for="User.Gender"
+                                                                asp-items="Html.GetEnumSelectList<Gender>()">
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        @_localizer["Firstname"]:  <input asp-for="User.Firstname" data-validation="required" class="form-control" />
+                                                        <span class="text-danger" asp-validation-for="User.Firstname"></span>
+                                                    </div>
+                                                    <div class="form-group">
 
-                                                @_localizer["Lastname"]:  <input asp-for="User.Lastname" /> <br />
-                                                <span class="text-danger" asp-validation-for="User.Lastname"></span><br />
+                                                        @_localizer["Lastname"]:  <input asp-for="User.Lastname" data-validation="required" class="form-control" />
+                                                        <span class="text-danger" asp-validation-for="User.Lastname"></span>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        @_localizer["Email"]:  <input asp-for="User.Email" data-validation="required email" class="form-control" />
+                                                        <span class="text-danger" asp-validation-for="User.Email"></span>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        @_localizer["Address"]:  <input asp-for="User.Address" class="form-control" />
+                                                        <span class="text-danger" asp-validation-for="User.Address"></span>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        @_localizer["Birthday"]:  <input asp-for="User.Birthday" class="form-control" />
+                                                        <span class="text-danger" asp-validation-for="User.Birthday"></span>
+                                                    </div>
+                                                    <input hidden asp-for="User.Id" />
+                                                    <input hidden asp-for="User.CreatedAt" />
+                                                    <input hidden name="User.Password" value="Password" />
+                                                    <div class="form-group">
+                                                        <button type="submit">@_localizer["Save"]</button>
+                                                    </div>
 
-                                                @_localizer["Email"]:  <input asp-for="User.Email" /> <br />
-                                                <span class="text-danger" asp-validation-for="User.Email"></span><br />
-
-                                                @_localizer["Birthday"]:  <input asp-for="User.Birthday" /> <br />
-                                                <span class="text-danger" asp-validation-for="User.Birthday"></span><br />
-
-                                                @_localizer["Password"]: <input asp-for="User.Password" /><br />
-                                                <span class="text-danger" asp-validation-for="User.Password"></span><br />
-                                                <button type="submit">@_localizer["Save"]</button>
-                                            </form>
+                                                </form>
+                                            </div>
                                         </div>
                                     </div>
+                                </div>
+                                <div class="tab-pane" id="account-password">
+                                    <h4 class="billing-address">@_localizer["Password"]</h4>
+
+                                    <form asp-controller="login" asp-action="edit" method="post" asp-route-returnUrl="@ViewBag.returnUrl">
+                                        <div asp-validation-summary="ModelOnly"></div>
+
+                                        <select hidden class="custom-select mb-1" asp-for="User.Gender"
+                                                asp-items="Html.GetEnumSelectList<Gender>()">
+                                        </select>
+                                        <input hidden asp-for="User.Firstname" />
+                                        <input hidden asp-for="User.Lastname" />
+                                        <input hidden asp-for="User.Email" />
+                                        <input hidden asp-for="User.Birthday" />
+                                        <input hidden asp-for="User.Address" />
+                                        <input hidden asp-for="User.Id" />
+                                        <input hidden asp-for="User.CreatedAt" />
+                                        <div class="form-group">
+                                            @_localizer["Password"]: <input type="password" name="User.Password_confirmation" id="User.Password_confirmation" data-validation="required length" data-validation-length="min8" class="form-control" />
+                                            <span class="text-danger" asp-validation-for="User.Password"></span>
+                                        </div>
+
+                                        <div class="form-group">
+                                            @_localizer["Confirm Password"]: <input asp-for="User.Password" data-validation="required confirmation" class="form-control" />
+                                            <span class="text-danger" asp-validation-for="User.Password"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <button type="submit">@_localizer["Save"]</button>
+                                        </div>
+
+                                    </form>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <!-- my account end   -->
-</main>
+        </section>
+        <!-- my account end   -->
+    </main>
 <!--Main End-->
+@section Scripts{
+    <script src="~/lib/jquery-form-validator/jquery.form-validator.min.js"></script>
+    <script src="~/lib/jquery-form-validator/security.js"></script>
+    <script>
+        $.validate({
+            modules: 'security'
+        });
+        $(function () {
+            setTimeout(function () {
+                $(".zmdi-notifications").fadeOut("slow");
+            }, 2500);
+        });
+    </script>
+}
