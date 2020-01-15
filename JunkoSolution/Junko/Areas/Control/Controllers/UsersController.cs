@@ -1,11 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Threading.Tasks;
+using Junko.Areas.Control.ViewModels;
+using Junko.DAL;
 using Junko.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Junko.Helpers;
 
 namespace Junko.Areas.Control.Controllers
 {
@@ -16,40 +21,84 @@ namespace Junko.Areas.Control.Controllers
         private readonly UserManager<AppAdmin> _userManager;
         private readonly SignInManager<AppAdmin> _signInManager;
         private readonly IPasswordHasher<AppAdmin> _passwordHasher;
-        public UsersController(UserManager<AppAdmin> userManager, SignInManager<AppAdmin> signInManager, IPasswordHasher<AppAdmin> passwordHasher)
+        private readonly JunkoDBContext _db;
+        public UsersController(JunkoDBContext db, UserManager<AppAdmin> userManager, SignInManager<AppAdmin> signInManager, IPasswordHasher<AppAdmin> passwordHasher)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _passwordHasher = passwordHasher;
+            _db = db;
         }
         public IActionResult Index()
         {
             return View(_userManager.Users);
         }
-        public IActionResult Register()
+        [AllowAnonymous]
+        public IActionResult Register(string Token)
         {
+            AppAdmin user = _db.Users.FirstOrDefault(x => x.ConcurrencyStamp == Token);
+            if (user != null)
+            {
+                return View(user);
+            }
+            return NotFound();
+        }
+
+        public IActionResult Create()
+        {
+
             return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create(AdminViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                AppAdmin admin = new AppAdmin
+                {
+                    Email = model.Email,
+                    Birthday = new DateTime(2000, 01, 01),
+                    Firstname = "Admin",
+                    Lastname = "Admin",
+                    UserName = "Admin" + Guid.NewGuid()
+                };
+                await _userManager.CreateAsync(admin);
+                await _db.SaveChangesAsync();
+                TempData["Success"] = "Yeni Admin uğurla yaradıldı və " + model.Email + " ünvanına Qeydiyyyat üçün Mail Göndərildi!";
+                SendMail mail = new SendMail();
+                mail.SendEmail(admin);
+                return RedirectToAction(nameof(Index));
+            }
+
+            return View("index");
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Register(User user)
+        [AllowAnonymous]
+        public async Task<IActionResult> Register(AppAdmin user)
         {
             if (ModelState.IsValid)
             {
-                AppAdmin appUser = new AppAdmin
+                AppAdmin appUser = _db.Users.FirstOrDefault(x => x.Id == user.Id);
+                appUser.Firstname = user.Firstname;
+                appUser.Lastname = user.Lastname;
+                appUser.Birthday = user.Birthday;
+                appUser.PhoneNumber = user.PhoneNumber;
+                appUser.EmailConfirmed = true;
+                if (user.PasswordHash != null)
                 {
-                    Firstname = user.Firstname,
-                    Lastname = user.Lastname,
-                    Email = user.Email
-                };
+                    appUser.PasswordHash = _passwordHasher.HashPassword(appUser, user.PasswordHash);
+                }
                 appUser.UserName = user.Firstname + Guid.NewGuid();
-                IdentityResult resultReq = await _userManager.CreateAsync(appUser, user.Password);
+                IdentityResult resultReq = await _userManager.UpdateAsync(appUser);
                 if (resultReq.Succeeded)
                 {
-                    TempData["Success"] = "Admin is Created";
+                    TempData["Success"] = "Sizin Admin kimi Qeydiyyatınız uğurla Tamamlandı!";
+                    SendMail mail = new SendMail();
+                    mail.SendSuccess(user);
                     return RedirectToAction("index", "users");
-
                 }
                 else
                 {
@@ -69,8 +118,12 @@ namespace Junko.Areas.Control.Controllers
         {
             if (User.Identity.IsAuthenticated == true)
             {
-                return RedirectToAction("index", "dashboard");
-            } 
+              AppAdmin appAdmin =  _db.Users.FirstOrDefault(x => x.UserName == User.Identity.Name);
+                if (appAdmin.LockoutEnabled == true)
+                {
+                    return RedirectToAction("index", "dashboard");
+                } 
+            }
             return View();
         }
 
@@ -87,13 +140,14 @@ namespace Junko.Areas.Control.Controllers
                 {
                     Microsoft.AspNetCore.Identity.SignInResult result = await _signInManager.PasswordSignInAsync(appUser, login.Password, false, false);
                     if (result.Succeeded)
-                        return RedirectToAction("index","Dashboard");
+                        return RedirectToAction("index", "Dashboard");
                 }
                 ModelState.AddModelError("", "Login failed, wrong credentials.");
             }
 
             return View(login);
         }
+
 
         // GET /account/logout
         public async Task<IActionResult> Logout()
@@ -103,8 +157,28 @@ namespace Junko.Areas.Control.Controllers
             return LocalRedirect("/home");
         }
 
-        public async Task<IActionResult> Edit()
+        public async Task<IActionResult> Edit(string id, bool status = true)
         {
+
+            if (HttpContext.Request.Headers["x-requested-with"] == "XMLHttpRequest")
+            {
+                AppAdmin appAdmin = _db.Users.FirstOrDefault(x => x.Id == id);
+                if (appAdmin != null)
+                {
+                    appAdmin.EmailConfirmed = status;
+                    if (appAdmin.EmailConfirmed==false)
+                    {
+                        appAdmin.LockoutEnabled = false;
+                    }
+                    else
+                    {
+                        appAdmin.LockoutEnabled = true;
+                    }
+                    _db.SaveChanges();
+                    return Json(new { res = true });
+                }
+            }
+
             AppAdmin appUser = await _userManager.FindByNameAsync(User.Identity.Name);
             User user = new User(appUser);
 
@@ -138,15 +212,18 @@ namespace Junko.Areas.Control.Controllers
         public async Task<IActionResult> Remove(string Email)
         {
             AppAdmin appAdmin = await _userManager.FindByEmailAsync(Email);
-            if (appAdmin!=null)
+            if (appAdmin != null)
             {
                 IdentityResult result = await _userManager.DeleteAsync(appAdmin);
                 if (result.Succeeded)
-                    TempData["Success"] = "Admin Deleted";
+                    TempData["Success"] = "Admin Silindi";
                 return RedirectToAction("index", "users");
             }
 
             return LocalRedirect("/home/error");
         }
+
+
+
     }
 }

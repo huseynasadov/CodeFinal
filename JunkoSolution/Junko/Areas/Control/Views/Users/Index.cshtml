@@ -8,7 +8,7 @@
 <h1>Admin Panel</h1>
 
 <p>
-    <a asp-action="register" asp-controller="users" class="btn btn-outline-info">Yeni Admin Yarat</a>
+    <a asp-action="create" asp-controller="users" class="btn btn-outline-info">Yeni Admin Yarat</a>
 </p>
 <table class="table display">
     <thead>
@@ -18,6 +18,10 @@
             </th>
             <th>
                 Soyad
+            </th>
+
+            <th>
+                Status
             </th>
             <th>
                 E-Poçt
@@ -35,13 +39,31 @@
                 <td>
                     @item.Lastname
                 </td>
+
+                <td>
+                    @if (item.Ocupation != "Admin")
+                    {
+                        <input @(item.EmailConfirmed == true ? "checked" : "") type="checkbox" id="toggle" class="toogleBoot toggle-checkbox"
+                               data-toggle="toggle"
+                               data-url="/Control/users/edit/@item.Id"
+                               data-on="Aktiv"
+                               data-off="Deaktiv"
+                               data-onstyle="success"
+                               data-offstyle="danger">
+                    }
+                </td>
+
                 <td>
                     @item.Email
                 </td>
                 <td>
-                    <a class="categoryDelete" asp-action="remove" asp-controller="users" asp-route-Email="@item.Email"><i class="fas fa-trash text-danger"></i></a>
+                    @if (item.Ocupation != "Admin")
+                    {
+                        <a class="categoryDelete" asp-action="remove" asp-controller="users" asp-route-Email="@item.Email"><i class="fas fa-trash text-danger"></i></a>
 
+                    }
                 </td>
+
             </tr>
         }
     </tbody>

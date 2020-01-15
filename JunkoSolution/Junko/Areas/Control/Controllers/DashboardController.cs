@@ -10,7 +10,7 @@ namespace Junko.Areas.Control.Controllers
 {
     [Area("Control")]
     [Authorize]
-    public class DashboardController : BaseController 
+    public class DashboardController :Controller
     {
        
         public IActionResult Index()

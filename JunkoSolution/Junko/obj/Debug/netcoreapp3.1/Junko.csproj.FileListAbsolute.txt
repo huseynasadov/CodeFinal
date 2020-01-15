@@ -541,3 +541,4 @@ C:\Users\Huseyn\Desktop\Code Academy\Final\CodeFinal\JunkoSolution\Junko\obj\Deb
 C:\Users\Huseyn\Desktop\Code Academy\Final\CodeFinal\JunkoSolution\Junko\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ProductReview.cshtml.g.cs
 C:\Users\Huseyn\Desktop\Code Academy\Final\CodeFinal\JunkoSolution\Junko\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_BlogReview.cshtml.g.cs
 C:\Users\Huseyn\Desktop\Code Academy\Final\CodeFinal\JunkoSolution\Junko\obj\Debug\netcoreapp3.1\Junko.csprojAssemblyReference.cache
+C:\Users\Huseyn\Desktop\Code Academy\Final\CodeFinal\JunkoSolution\Junko\obj\Debug\netcoreapp3.1\Razor\Areas\Control\Views\Users\Create.cshtml.g.cs

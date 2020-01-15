@@ -1,4 +1,4 @@
-﻿@model User
+﻿@model AppAdmin
 
 @{
     ViewData["Title"] = "Register";
@@ -49,30 +49,28 @@
                                     <input asp-for="Lastname" class="form-control" data-validation="required" />
                                     <span asp-validation-for="Lastname" class="text-danger"></span>
                                 </div>
+                                <input hidden asp-for="Email" />
+                                <input hidden asp-for="Id" />
+
                                 <div class="form-group">
-                                    <label asp-for="Email" class="control-label"></label>
-                                    <input asp-for="Email" class="form-control" data-validation="required email" />
-                                    <span asp-validation-for="Email" class="text-danger"></span>
+                                    <label asp-for="PhoneNumber" class="control-label"></label>
+                                    <input asp-for="PhoneNumber" class="form-control" data-validation="required" />
+                                    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
                                 </div>
-                                <div class="form-group">
-                                    <label asp-for="Phone" class="control-label"></label>
-                                    <input asp-for="Phone" class="form-control" data-validation="required" />
-                                    <span asp-validation-for="Phone" class="text-danger"></span>
-                                </div> 
                                 <div class="form-group">
                                     <label asp-for="Birthday" class="control-label"></label>
                                     <input asp-for="Birthday" class="form-control" data-validation="required birthdate" />
                                     <span asp-validation-for="Birthday" class="text-danger"></span>
                                 </div>
                                 <div class="form-group">
-                                    <label for="Password_confirmation" class="control-label">Parol</label>
-                                    <input type="password" name="Password_confirmation" id="Password_confirmation" data-validation="required length" data-validation-length="min8" class="form-control" />
-                                    <span asp-validation-for="Password" class="text-danger"></span>
+                                    <label for="PasswordHash_confirmation" class="control-label">Parol</label>
+                                    <input type="password" name="PasswordHash_confirmation" id="PasswordHash_confirmation" data-validation="required length" data-validation-length="min8" class="form-control" />
+                                    <span asp-validation-for="PasswordHash" class="text-danger"></span>
                                 </div>
                                 <div class="form-group">
-                                    <label for="Password" class="control-label">Təkrar Parol</label>
-                                    <input asp-for="Password" class="form-control" data-validation="required confirmation" />
-                                    <span asp-validation-for="Password" class="text-danger"></span>
+                                    <label for="PasswordHash" class="control-label">Təkrar Parol</label>
+                                    <input type="password" asp-for="PasswordHash" class="form-control" data-validation="required confirmation" />
+                                    <span asp-validation-for="PasswordHash" class="text-danger"></span>
                                 </div>
                                 <div class="form-group">
                                     <input type="submit" value="Qeydiyyat" class="btn btn-primary" />

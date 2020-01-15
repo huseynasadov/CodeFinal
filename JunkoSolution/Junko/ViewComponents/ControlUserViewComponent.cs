@@ -19,7 +19,11 @@ namespace Junko.ViewComponents
         public async Task<IViewComponentResult> InvokeAsync()
         {
             AppAdmin appUser = await _userManager.FindByNameAsync(User.Identity.Name);
-            ViewBag.AdminUser = appUser.Email;
+            if (appUser!=null)
+            {
+                ViewBag.AdminUser = appUser.Email;
+            }
+
             return View();
         }
     }
