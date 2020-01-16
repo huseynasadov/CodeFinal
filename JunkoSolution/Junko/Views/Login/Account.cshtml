@@ -58,6 +58,7 @@
                                                     <th>@_localizer["Delete"]</th>
                                                     <th>@_localizer["Name"]</th>
                                                     <th>@_localizer["Date"]</th>
+                                                    <th>@_localizer["Color"]</th>
                                                     <th>@_localizer["Status"]</th>
                                                     <th>@_localizer["Total"]</th>
                                                     <th>@_localizer["Quantity"]</th>
@@ -66,31 +67,34 @@
                                             <tbody>
                                                 @foreach (var order in Model.OrderProducts)
                                                 {
-                                                    <tr>
-                                                        <td width="10">
-                                                            <a asp-action="RemoveOrder" asp-controller="ordering" asp-route-id="@order.Id" class="view text-danger @(Model.LanguageId==2?"categoryDelete":"categoryDeleteEn")"><i class="fas fa-trash-alt"></i></a>
-                                                        </td>
-                                                        <td>
-                                                            @order.Product.Name
-                                                        </td>
-                                                        <td>@order.CreatedAt.ToString("MMMM dd, yyyy")</td>
-                                                        <td>
-                                                            @if (order.Complete == Complete.Completed)
-                                                            {
-                                                                <span class="badge badge-success">@_localizer["Completed"]</span>
-                                                            }
-                                                            else
-                                                            {
-                                                                <span class="badge badge-warning">@_localizer["Processing"]</span>
-                                                            }
-                                                        </td>
-                                                        <td>
-                                                            <price price="(@order.Price * order.Quantity)" discount-price="0" language-id="@Model.LanguageId"></price>
-                                                        </td>
-                                                        <td>
-                                                            @order.Quantity
-                                                        </td>
-                                                    </tr>
+                                                <tr>
+                                                    <td width="10">
+                                                        <a asp-action="RemoveOrder" asp-controller="ordering" asp-route-id="@order.Id" class="view text-danger @(Model.LanguageId==2?"categoryDelete":"categoryDeleteEn")"><i class="fas fa-trash-alt"></i></a>
+                                                    </td>
+                                                    <td>
+                                                        @order.Product.Name
+                                                    </td>
+                                                    <td>@order.CreatedAt.ToString("MMMM dd, yyyy")</td>
+                                                    <td>
+                                                        <a style="font-size:30px;color:@order.Color.Name"><i class="fas fa-tint"></i></a>
+                                                    </td>
+                                                    <td>
+                                                        @if (order.Complete == Complete.Completed)
+                                                        {
+                                                            <span class="badge badge-success">@_localizer["Completed"]</span>
+                                                        }
+                                                        else
+                                                        {
+                                                            <span class="badge badge-warning">@_localizer["Processing"]</span>
+                                                        }
+                                                    </td>
+                                                    <td>
+                                                        <price price="(@order.Price * order.Quantity)" discount-price="0" language-id="@Model.LanguageId"></price>
+                                                    </td>
+                                                    <td>
+                                                        @order.Quantity
+                                                    </td>
+                                                </tr>
                                                 }
                                             </tbody>
                                         </table>

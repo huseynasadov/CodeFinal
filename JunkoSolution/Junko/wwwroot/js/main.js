@@ -1,4 +1,27 @@
 ﻿$(function () {
+    $(".ProductColor").on("change", function () {
+        var select = $(this);
+        var colorId = select.val();
+        var Id = select.data("id");
+        $.ajax({
+            url: "/ordering/ChangeColor",
+            method: "POST",
+            data: {
+                productId: Id,
+                colorId:colorId
+            },
+            success: function (res) {
+                if (res.status == false) {
+                    toastr.error('Not Found', 'Danger');
+                } else {
+                    toastr.success('Color Changed', 'Success');
+                    form.trigger("reset");
+                }
+            }
+        });
+    });
+
+
     //console.log($(".product_timing").children().data('countdown'));
     //var countdown = $(".product_timing").children();
     //var d = new Date();
@@ -1149,6 +1172,7 @@ $(function () {
         	$this.toggleClass('menu-open');
         }
     });
+
     
     
 })(jQuery);	

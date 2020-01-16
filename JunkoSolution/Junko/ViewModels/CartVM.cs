@@ -8,6 +8,7 @@ namespace Junko.ViewModels
 {
     public class CartVM
     {
+
         public List<CartItem> CartItems { get; set; }
         public decimal GrandTotal { get; set; }
         public Breadcrumb Breadcrumb { get; set; }

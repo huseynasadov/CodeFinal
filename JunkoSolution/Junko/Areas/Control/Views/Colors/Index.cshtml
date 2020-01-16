@@ -1,0 +1,56 @@
+﻿@model IEnumerable<Junko.Models.Color>
+
+@{
+    ViewData["Title"] = "Rəng Əlavə et";
+}
+
+<h3>Rənglər</h3>
+<p>
+    <a asp-action="Create" class="btn btn-outline-success">+ Əlavə et</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Code)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedAt)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                <a style="font-size:30px;color:@item.Code"><i class="fas fa-tint"></i></a>
+            </td>
+            <td>
+                <input @(item.Status == true ? "checked" : "") type="checkbox" id="toggle" class="toogleBoot toggle-checkbox"
+                       data-toggle="toggle"
+                       data-url="/Control/colors/edit/@item.Id"
+                       data-on="Aktiv"
+                       data-off="Deaktiv"
+                       data-onstyle="success"
+                       data-offstyle="danger">
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedAt)
+            </td>
+            <td>
+                <a class="categoryDelete" asp-action="delete" asp-route-id="@item.Id"><i class="fas fa-trash text-danger"></i></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

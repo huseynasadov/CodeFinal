@@ -34,6 +34,7 @@
     <link rel="stylesheet" href="~/Admin/vendor/Sortable/jquery-ui.min.css">
     <link rel="stylesheet" href="~/Admin/vendor/Sortable/jquery-ui.structure.min.css">
     <link rel="stylesheet" href="~/Admin/vendor/Sortable/jquery-ui.theme.min.css">
+    <link rel="stylesheet" href="~/vendor/spectrum/spectrum.min.css">
     <link rel="stylesheet" href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
     <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
     <link href="~/Admin/css/main.css" rel="stylesheet" />
@@ -97,6 +98,7 @@
                         <a class="collapse-item" asp-action="index" asp-controller="ProductPhotoes" asp-area="control">Məshul Şəkilləri</a>
                         <a class="collapse-item" asp-action="index" asp-controller="ProductSubCategories" asp-area="control">Məhsul Alt Kateqoriyaları</a>
                         <a class="collapse-item" asp-action="index" asp-controller="ProductCategories" asp-area="control">Kateqoriyalar</a>
+                        <a class="collapse-item" asp-action="index" asp-controller="ProductColors" asp-area="control">Məhsullar üçün Rəng</a>
                     </div>
                 </div>
             </li>
@@ -116,6 +118,12 @@
                 <a class="nav-link" asp-action="index" asp-controller="OrderProducts" asp-area="control">
                     <i class="fab fa-paypal"></i>
                     <span>Sifarişlər</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" asp-action="index" asp-controller="Colors" asp-area="control">
+                    <i class="fab fa-paypal"></i>
+                    <span>Rənglər</span>
                 </a>
             </li>
             <li class="nav-item">
@@ -342,6 +350,7 @@
     <script src="~/Admin/vendor/jquery-easing/jquery.easing.min.js"></script>
     <script src="~/Admin/vendor/Sortable/jquery-ui.min.js"></script>
     <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script src="~/vendor/spectrum/spectrum.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
     <!-- Custom scripts for all pages-->

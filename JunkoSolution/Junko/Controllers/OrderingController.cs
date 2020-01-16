@@ -37,17 +37,20 @@ namespace Junko.Controllers
                 CartItems = cart,
                 GrandTotal=cart.Sum(x=>x.Price * x.Quantity)
             };
+
+            ViewBag.Colors = _db.ProductColors.Include("Color").ToList();
             return View(model);
         }
         // Add Cart
-        public async Task<IActionResult> Add(int id) 
+        public async Task<IActionResult> Add(int id,int colorId=1) 
         {
-            Product product = await _db.Products.Include("ProductPhotos").FirstOrDefaultAsync(a=>a.Id==id);
+            Product product = await _db.Products.Include("ProductPhotos").Include("ProductColors.Color").FirstOrDefaultAsync(a=>a.Id==id);
             List<CartItem> cart = HttpContext.Session.GetJson<List<CartItem>>("Cart") ?? new List<CartItem>();
-            CartItem cartItem = cart.FirstOrDefault(x => x.ProductId == id);
+            CartItem cartItem = cart.FirstOrDefault(x => x.ProductId == id && x.ColorId==colorId);
+            Color color = await _db.Colors.FirstOrDefaultAsync(x => x.Id == colorId);
             if (cartItem==null)
             {
-                cart.Add(new CartItem(product));
+                cart.Add(new CartItem(product, color));
             }
             else
             {
@@ -83,6 +86,19 @@ namespace Junko.Controllers
             {
                 HttpContext.Session.SetJson("Cart", cart);
             }
+            HttpContext.Session.SetJson("Cart", cart);
+            if (HttpContext.Request.Headers["x-requested-with"] != "XMLHttpRequest")
+                return Redirect((!string.IsNullOrEmpty(Request.Headers["Referer"]) ? Request.Headers["Referer"].ToString() : "/"));
+
+            return RedirectToAction("cart");
+        }
+        [HttpPost]
+        public IActionResult ChangeColor(int productId, int colorId=1)
+        {
+            List<CartItem> cart = HttpContext.Session.GetJson<List<CartItem>>("Cart");
+            CartItem cartItem = cart.FirstOrDefault(x => x.ProductId == productId);
+            cartItem.ColorId = colorId;
+
             HttpContext.Session.SetJson("Cart", cart);
             if (HttpContext.Request.Headers["x-requested-with"] != "XMLHttpRequest")
                 return Redirect((!string.IsNullOrEmpty(Request.Headers["Referer"]) ? Request.Headers["Referer"].ToString() : "/"));
@@ -139,14 +155,15 @@ namespace Junko.Controllers
             return View(model);
         }
 
-        public async Task<IActionResult> AddWishlist(int id)
+        public async Task<IActionResult> AddWishlist(int id,int colorId=1)
         {
             Product product = await _db.Products.Include("ProductPhotos").FirstOrDefaultAsync(a => a.Id == id);
+            Color color = await _db.Colors.FirstOrDefaultAsync(x => x.Id == colorId);
             List<CartItem> cart = HttpContext.Session.GetJson<List<CartItem>>("Wishlist") ?? new List<CartItem>();
-            CartItem cartItem = cart.FirstOrDefault(x => x.ProductId == id);
+            CartItem cartItem = cart.FirstOrDefault(x => x.ProductId == id && x.ColorId==colorId);
             if (cartItem == null)
             {
-                cart.Add(new CartItem(product));
+                cart.Add(new CartItem(product, color));
             }
             else
             {
@@ -214,7 +231,7 @@ namespace Junko.Controllers
 
             foreach (var cart in carts)
             {
-                if (await _db.OrderProducts.FirstOrDefaultAsync(x => x.ProductId == cart.ProductId && x.UserClientId==user.Id) != null)
+                if (await _db.OrderProducts.FirstOrDefaultAsync(x => x.ProductId == cart.ProductId &&  x.UserClientId==user.Id) != null)
                 {
                     _db.OrderProducts.FirstOrDefault(x => x.ProductId == cart.ProductId && x.UserClientId == user.Id).Quantity = cart.Quantity;
                    await _db.SaveChangesAsync();
@@ -229,7 +246,8 @@ namespace Junko.Controllers
                         CreatedAt = DateTime.Now,
                         User = user,
                         Status=true,
-                        Complete=Complete.Processsing
+                        Complete=Complete.Processsing,
+                        ColorId = cart.ColorId
                     };
                    await _db.OrderProducts.AddAsync(orderProduct);
                    await _db.SaveChangesAsync();

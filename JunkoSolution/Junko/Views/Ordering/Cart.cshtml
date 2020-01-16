@@ -3,6 +3,7 @@
 @inject IViewLocalizer _localizer
 @{
     ViewData["Title"] = "Cart";
+    var Colors = ViewBag.Colors as List<ProductColor>;
 }
 
 <!--breadcrumbs area start-->
@@ -34,6 +35,7 @@
                                                     <th class="product_thumb">@_localizer["Image"]</th>
                                                     <th class="product_name">@_localizer["Product"]</th>
                                                     <th class="product-price">@_localizer["Price"]</th>
+                                                    <th class="product-price">@_localizer["Color"]</th>
                                                     <th class="product_quantity">@_localizer["Quantity"]</th>
                                                     <th class="product_total">@_localizer["Total"]</th>
                                                 </tr>
@@ -54,6 +56,28 @@
                                                         <td class="product_name"><a href="#">@item.ProductName</a></td>
                                                         <td class="product-price">
                                                             <price price="@item.Price" discount-price="0" language-id="@Model.LanguageId"></price>
+                                                        </td>
+                                                        <td>
+                                                                <select name="colorId" data-id="@item.ProductId" class="custom-select custom-select-md ProductColor">
+                                                                    @for (int i = 0; i < Colors.Where(x=>x.ProductId==item.ProductId).Count(); i++)
+                                                                    {
+                                                                        var colors = Colors.Where(x => x.ProductId == item.ProductId).ToList();
+                                                                        if (colors[i].ColorId==item.ColorId)
+                                                                        {
+                                                                    <option style="font-size:30px;color:@colors[i].Color.Code" selected value="@colors[i].ColorId">
+                                                                        @colors[i].Color.Name
+                                                                    </option>
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                <option style="font-size:30px;color:@colors[i].Color.Code" value="@colors[i].ColorId">
+                                                                    @colors[i].Color.Name
+                                                                </option>
+                                                                        }
+                                                                    }
+
+                                                                </select>
+
                                                         </td>
                                                         <td class="product_quantity">
                                                             <label>@_localizer["Quantity"]</label>
@@ -141,7 +165,7 @@
                 let id = $(this).data("id");
                 $.get('/ordering/decrease/' + id, {}, function (data) {
                     $("body").html(data);
-                    
+
                 });
             });
         });

@@ -172,7 +172,7 @@ namespace Junko.Controllers
                 },
                 User = user,
                 LanguageId=_db.Languages.FirstOrDefault(x=>x.LanguageCode==culture.ToString()).Id,
-                OrderProducts=await _db.OrderProducts.Include("Product").Where(x=>x.Status==true && x.UserClientId==user.Id).OrderByDescending(x=>x.Complete).ThenByDescending(x=>x.CreatedAt).ToListAsync()
+                OrderProducts=await _db.OrderProducts.Include("Product").Include("Color").Where(x=>x.Status==true && x.UserClientId==user.Id).OrderByDescending(x=>x.Complete).ThenByDescending(x=>x.CreatedAt).ToListAsync()
             };
             return View(model);
         }

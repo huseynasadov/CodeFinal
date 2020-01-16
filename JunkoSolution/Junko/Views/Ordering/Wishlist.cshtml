@@ -29,6 +29,7 @@
                                                 <th class="product_thumb">@_localizer["Image"]</th>
                                                 <th class="product_name">@_localizer["Product"]</th>
                                                 <th class="product-price">@_localizer["Price"]</th>
+                                                <th class="product-price">@_localizer["Color"]</th>
                                                 <th class="product_quantity">@_localizer["Quantity"]</th>
                                                 <th class="product_total">@_localizer["Add to Cart"]</th>
                                             </tr>
@@ -37,26 +38,29 @@
                                             @foreach (var item in Model.CartItems)
                                             {
 
-                                                <tr>
-                                                    <td class="product_remove">
-                                                        <a class="@(Model.LanguageId==2?"categoryDelete":"categoryDeleteEn") text-danger" asp-action="removeWishlist" asp-controller="ordering" asp-route-id="@item.ProductId"><i class="fa fa-trash-o"></i></a>
-                                                    </td>
-                                                    <td class="product_thumb">
-                                                        <a href="#">
-                                                            <img src="~/images/@item.Image" alt="@item.ProductName">
-                                                        </a>
-                                                    </td>
-                                                    <td class="product_name"><a href="#">@item.ProductName</a></td>
-                                                    <td class="product-price">
-                                                        <price price="@item.Price" discount-price="0" language-id="@Model.LanguageId"></price>
-                                                    </td>
-                                                    <td class="product_quantity">
-                                                        @item.Quantity
-                                                    </td>
-                                                    <td class="product_total">
-                                                        <a class="addToCart btn btn-info text-white" asp-route-id="@item.ProductId" asp-controller="ordering" asp-action="add" data-id="@item.ProductId" title="@_localizer["Add to cart"]"> @_localizer["Add to cart"]</a>
-                                                    </td>
-                                                </tr>
+                                            <tr>
+                                                <td class="product_remove">
+                                                    <a class="@(Model.LanguageId==2?"categoryDelete":"categoryDeleteEn") text-danger" asp-action="removeWishlist" asp-controller="ordering" asp-route-id="@item.ProductId"><i class="fa fa-trash-o"></i></a>
+                                                </td>
+                                                <td class="product_thumb">
+                                                    <a href="#">
+                                                        <img src="~/images/@item.Image" alt="@item.ProductName">
+                                                    </a>
+                                                </td>
+                                                <td class="product_name"><a href="#">@item.ProductName</a></td>
+                                                <td class="product-price">
+                                                    <price price="@item.Price" discount-price="0" language-id="@Model.LanguageId"></price>
+                                                </td>
+                                                <td>
+                                                    <a style="font-size:30px;color:@item.ColorCode"><i class="fas fa-tint"></i></a>
+                                                </td>
+                                                <td class="product_quantity">
+                                                    @item.Quantity
+                                                </td>
+                                                <td class="product_total">
+                                                    <a class="addToCart btn btn-info text-white" asp-route-id="@item.ProductId" asp-controller="ordering" asp-action="add" data-id="@item.ProductId" title="@_localizer["Add to cart"]"> @_localizer["Add to cart"]</a>
+                                                </td>
+                                            </tr>
                                             }
 
                                         </tbody>

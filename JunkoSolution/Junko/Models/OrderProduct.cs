@@ -17,6 +17,12 @@ namespace Junko.Models
         [ForeignKey("User")]
         [Display(Name="Istifadəçi")]
         public int UserClientId { get; set; }
+        [ForeignKey("Color")]
+        [Display(Name = "Rəng")]
+        public int ColorId { get; set; }
+        [Display(Name = "Rəng")]
+        public Color Color { get; set; }
+
         [ForeignKey("Product")]
         [Display(Name = "Məhsul")]
         public int ProductId { get; set; }

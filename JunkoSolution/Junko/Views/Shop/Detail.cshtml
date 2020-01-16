@@ -105,19 +105,20 @@
                                 <ul>
                                     @foreach (var color in Model.Product.ProductColors.Where(p => p.ProductId == Model.Product.Id))
                                     {
-                                        <li style="background-color:@(color.Color.Code)"><a href="#"></a></li>
+                                        <li style="border:0"><a style="font-size:25px;color:@(color.Color.Code)" href="#"><i class="fas fa-tint"></i></a></li>
                                     }
                                 </ul>
                             </div>
                             <div class="product_variant quantity">
                                 <label>@_localizer["quantity"]</label>
                                 <input min="1" max="100" value="1" type="number">
-                                <a class="addToCart btn btn-info ml-2" asp-route-id="@Model.Product.Id" asp-controller="ordering" asp-action="add" data-id="@Model.Product.Id" title="@_localizer["Add to cart"]"> @_localizer["Add to cart"]</a>
+                                <a class="addToCart btn btn-info ml-2" asp-route-id="@Model.Product.Id" asp-controller="ordering" asp-action="add" data-id="@Model.Product.Id" title="@_localizer["Add to cart"]">+ @_localizer["Add to cart"]</a>
 
                             </div>
                             <div class=" product_d_action">
                                 <ul>
-                                    <li><a class="addToCartWishlistSaled" asp-action="AddWishlist" asp-controller="ordering" asp-route-id="@Model.Product.Id" data-id="@Model.Product.Id" title="Add to wishlist">+ @_localizer["Add to Wishlist"]</a></li>
+                                    <li><a class="addToCartWishlistSaled button button-like" asp-action="AddWishlist" asp-controller="ordering" asp-route-id="@Model.Product.Id" data-id="@Model.Product.Id" title="@_localizer["Add to Wishlist"]"> <i class="fa fa-heart"></i><span>Like</span></a></li>
+                                    
                                 </ul>
                             </div>
                             <div class="product_meta">
@@ -126,8 +127,8 @@
 
                         </form>
                         <div class="priduct_social">
-                            <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
-                            
+                            <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">@_localizer["Share"]</a></div>
+
                         </div>
 
                     </div>
@@ -156,7 +157,7 @@
                                     </li>
                                 }
                                 <li>
-                                    <a  data-toggle="tab" href="#reviews" role="tab" aria-controls="reviews"
+                                    <a data-toggle="tab" href="#reviews" role="tab" aria-controls="reviews"
                                        aria-selected="false">@_localizer["Reviews"] (<span id="ReviewCount">@Model.Product.ProductReviews.Count</span>)</a>
                                 </li>
                             </ul>
@@ -223,7 +224,7 @@
                                             }
                                         }
                                     </div>
-                          
+
                                     <div class="product_review_form">
                                         <div class="comments_form">
                                             <h3>@_localizer["Add a Comment"] </h3>
@@ -300,6 +301,7 @@
                 $.get('/ordering/AddWishlist/' + id, {}, function (data) {
                     $("div.smallCart").html(data);
                     toastr.success("@_localizer["Product Added the WishhList"]", "@_localizer["Success"]");
+                     $(".button-like").toggleClass("liked");
                 });
             });
         });

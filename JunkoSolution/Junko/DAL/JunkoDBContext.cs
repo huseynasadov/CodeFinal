@@ -1850,7 +1850,7 @@ namespace Junko.DAL
 
             // Order Product
             modelBuilder.Entity<OrderProduct>().HasData(
-                new OrderProduct {Id=1, UserClientId=1, ProductId=1, Price=3000, Quantity=1, CreatedAt=DateTime.Now }
+                new OrderProduct {Id=1, UserClientId=1, ProductId=1, Price=3000, Quantity=1, CreatedAt=DateTime.Now}
                 );
         }
     }
