@@ -14,6 +14,7 @@ namespace Junko.Models
         public decimal Total { get { return Quantity * Price; } }
         public string Image { get; set; }
         public DateTime CreatedAt { get; set; }
+        //public string Color { get; set; }
 
         public CartItem()
         {
@@ -27,6 +28,7 @@ namespace Junko.Models
             Price = product.Price;
             Quantity = 1;
             CreatedAt = DateTime.Now;
+            //Color = (product.ProductColors.Count > 0 ? product.ProductColors.FirstOrDefault().Color.Name : "#000");
         }
     }
 }

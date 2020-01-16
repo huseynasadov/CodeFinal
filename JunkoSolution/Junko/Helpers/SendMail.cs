@@ -16,11 +16,11 @@ namespace Junko.Helpers
             try
             {
                 // Credentials
-                var credentials = new NetworkCredential("JunkoElectronics.gmail.com", "zxcasdqwe.1.");
+                var credentials = new NetworkCredential("junkoelectronics@gmail.com", "cdexswzaq.1.");
                 // Mail message
                 var mail = new MailMessage()
                 {
-                    From = new MailAddress("JunkoElectronics.gmail.com"),
+                    From = new MailAddress("junkoelectronics@gmail.com"),
                     Subject = "Junko Admin Qeydiyyat",
                     Body = "Qeydiyyatdan keçmək üçün daxil olun : <a href='https://localhost:44342/control/users/register?Token=" + appAdmin.ConcurrencyStamp + "'>Profili aktivləşdir</a>"
                 };
@@ -51,11 +51,11 @@ namespace Junko.Helpers
             try
             {
                 // Credentials
-                var credentials = new NetworkCredential("JunkoElectronics.gmail.com", "zxcasdqwe.1.");
+                var credentials = new NetworkCredential("junkoelectronics@gmail.com", "cdexswzaq.1.");
                 // Mail message
                 var mail = new MailMessage()
                 {
-                    From = new MailAddress("JunkoElectronics.gmail.com"),
+                    From = new MailAddress("junkoelectronics@gmail.com"),
                     Subject = "Junko Admin Qeydiyyat",
                     Body = "Sizin Junko Saytına Adminliyiniz Təsdiqləndi !"
                 };

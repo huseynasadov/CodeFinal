@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -55,6 +55,12 @@ namespace Junko.Areas.Control.Controllers
         {
             if (ModelState.IsValid)
             {
+                if (_db.Users.Any(x=>x.Email==model.Email))
+                {
+                    TempData["Error"] = "Bu E-Poçt ünvanı artıq Qeydiyyatdan keçmişdir!";
+
+                    return View();
+                }
                 AppAdmin admin = new AppAdmin
                 {
                     Email = model.Email,
@@ -221,8 +227,7 @@ namespace Junko.Areas.Control.Controllers
             }
 
             return LocalRedirect("/home/error");
-        }
-
+        } 
 
 
     }

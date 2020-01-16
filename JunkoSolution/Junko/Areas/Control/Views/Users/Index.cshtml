@@ -43,14 +43,27 @@
                 <td>
                     @if (item.Ocupation != "Admin")
                     {
-                        <input @(item.EmailConfirmed == true ? "checked" : "") type="checkbox" id="toggle" class="toogleBoot toggle-checkbox"
-                               data-toggle="toggle"
-                               data-url="/Control/users/edit/@item.Id"
-                               data-on="Aktiv"
-                               data-off="Deaktiv"
-                               data-onstyle="success"
-                               data-offstyle="danger">
+                        if (item.UserName != User.Identity.Name)
+                        {
+                            <input @(item.EmailConfirmed == true ? "checked" : "") type="checkbox" id="toggle" class="toogleBoot toggle-checkbox"
+                                   data-toggle="toggle"
+                                   data-url="/Control/users/edit/@item.Id"
+                                   data-on="Aktiv"
+                                   data-off="Deaktiv"
+                                   data-onstyle="success"
+                                   data-offstyle="danger">
+                        }
+                        else
+                        {
+                            <span>Sən</span>
+                        }
+
                     }
+                    else
+                    {
+                        <span>Əsas</span>
+                    }
+
                 </td>
 
                 <td>
@@ -59,8 +72,10 @@
                 <td>
                     @if (item.Ocupation != "Admin")
                     {
-                        <a class="categoryDelete" asp-action="remove" asp-controller="users" asp-route-Email="@item.Email"><i class="fas fa-trash text-danger"></i></a>
-
+                        if (item.UserName != User.Identity.Name)
+                        {
+                            <a class="categoryDelete" asp-action="remove" asp-controller="users" asp-route-Email="@item.Email"><i class="fas fa-trash text-danger"></i></a>
+                        }
                     }
                 </td>
 
