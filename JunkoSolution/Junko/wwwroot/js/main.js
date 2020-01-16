@@ -1,4 +1,37 @@
 ﻿$(function () {
+    //console.log($(".product_timing").children().data('countdown'));
+    //var countdown = $(".product_timing").children();
+    //var d = new Date();
+
+    //var month = d.getMonth() + 1;
+    //var day = d.getDate();
+
+    //var output = d.getFullYear() + '/' +
+    //    (month < 10 ? '0' : '') + month + '/' +
+    //    (day < 10 ? '0' : '') + day;
+
+    //if (countdown.data('countdown') == output) {
+    //    console.log($(this));
+    //    $.ajax({
+    //        url: "/Shop/edit",
+    //        method: "POST",
+    //        data: form.serialize(),
+    //        success: function (res) {
+    //            if (res.status == false) {
+    //                toastr.error('Only After Register', 'Danger');
+    //                form.trigger("reset");
+    //            } else {
+    //                $("#reviews_wrapper_shop").append(res);
+    //                toastr.success('Comment added', 'Success');
+    //                form.trigger("reset");
+    //                $("#ReviewCount").html(`${count + 1}`)
+    //            }
+    //        }
+    //    });
+    //}
+    
+
+
     $("#ProductReview").submit(function (event) {
         event.preventDefault();
         var form = $(this);
