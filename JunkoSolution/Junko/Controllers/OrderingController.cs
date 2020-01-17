@@ -65,17 +65,18 @@ namespace Junko.Controllers
             return ViewComponent("SmallCart");
         }
 
-        public IActionResult Decrease(int id)
+        public async Task<IActionResult> Decrease(int id,int colorId=1)
         {
             List<CartItem> cart = HttpContext.Session.GetJson<List<CartItem>>("Cart");
-            CartItem cartItem = cart.FirstOrDefault(x => x.ProductId == id);
+            CartItem cartItem = cart.FirstOrDefault(x => x.ProductId == id && x.ColorId == colorId);
+            Color color = await _db.Colors.FirstOrDefaultAsync(x => x.Id == colorId);
             if (cartItem.Quantity > 1)
             {
                 --cartItem.Quantity;
             }
             else
             {
-                cart.RemoveAll(x=>x.ProductId==id);
+                cart.RemoveAll(x=>x.ProductId==id && x.ColorId==colorId);
             }
 
             if (cart.Count==0)
@@ -231,9 +232,9 @@ namespace Junko.Controllers
 
             foreach (var cart in carts)
             {
-                if (await _db.OrderProducts.FirstOrDefaultAsync(x => x.ProductId == cart.ProductId &&  x.UserClientId==user.Id) != null)
+                if (await _db.OrderProducts.FirstOrDefaultAsync(x => x.ProductId == cart.ProductId &&  x.UserClientId==user.Id && x.Complete==Complete.Processsing && x.Status==true) != null)
                 {
-                    _db.OrderProducts.FirstOrDefault(x => x.ProductId == cart.ProductId && x.UserClientId == user.Id).Quantity = cart.Quantity;
+                    _db.OrderProducts.FirstOrDefault(x => x.ProductId == cart.ProductId && x.UserClientId == user.Id && x.Complete == Complete.Processsing && x.Status==true).Quantity += cart.Quantity;
                    await _db.SaveChangesAsync();
                 }
                 else
@@ -253,7 +254,7 @@ namespace Junko.Controllers
                    await _db.SaveChangesAsync();
                 }
             }
-            model.OrderProducts =await _db.OrderProducts.Include("Product").Where(x => x.UserClientId == user.Id && x.Status==true).OrderByDescending(x => x.CreatedAt).ToListAsync();
+            model.OrderProducts =await _db.OrderProducts.Include("Product").Where(x => x.UserClientId == user.Id && x.Status==true && x.Complete==Complete.Processsing).OrderByDescending(x => x.CreatedAt).ToListAsync();
             return View(model);
         }
 

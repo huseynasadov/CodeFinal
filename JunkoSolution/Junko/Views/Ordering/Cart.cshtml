@@ -81,9 +81,9 @@
                                                         </td>
                                                         <td class="product_quantity">
                                                             <label>@_localizer["Quantity"]</label>
-                                                            <a asp-action="add" asp-controller="ordering" asp-route-id="@item.ProductId" class="badge badge-info">+</a>
+                                                            <a asp-action="add" asp-controller="ordering" asp-route-id="@item.ProductId" asp-route-colorId="@item.ColorId" class="badge badge-info">+</a>
                                                             @item.Quantity
-                                                            <a asp-action="decrease" asp-controller="ordering" asp-route-id="@item.ProductId" data-id="@item.ProductId" class="badge badge-info decreaseCart">-</a>
+                                                            <a asp-action="decrease" asp-controller="ordering" asp-route-id="@item.ProductId" asp-route-colorId="@item.ColorId" data-id="@item.ProductId" class="badge badge-info decreaseCart">-</a>
                                                         </td>
                                                         <td class="product_total">
                                                             <price price="@Model.CartItems.Where(x=>x.ProductId==item.ProductId).Sum(x=>x.Quantity*x.Price)" discount-price="0" language-id="@Model.LanguageId"></price>

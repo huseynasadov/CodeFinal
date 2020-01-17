@@ -7,7 +7,7 @@
 <h1>Məhsul haqqqında</h1>
 <div class="container">
     <div class="row">
-        <div class="col-6">
+        <div class="col-6 mb-5">
             <div>
                 <dl class="row">
                     <dt class="col-sm-2">
@@ -94,7 +94,7 @@
 
             </div>
         </div>
-        <div class="col-12">
+        <div class="col-12 mb-5">
             <table class="table">
                 <thead class="thead-dark">
                     <tr>
@@ -125,7 +125,31 @@
                 </tbody>
             </table>
         </div>
-        <div class="col-12">
+        <div class="col-12 mb-5">
+            <h3 class="text-center">Mövcud Rəngləri</h3>
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Ad</th>
+                        <th scope="col">Rəng</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var color in Model.Product.ProductColors)
+                    {
+                    <tr>
+                        <td>@color.Color.Name</td>
+                        <td><a style="font-size:30px;color:@color.Color.Code"><i class="fas fa-tint"></i></a></td>
+                        <td>
+                            <a class="categoryDelete" asp-action="delete" asp-controller="productcolors" asp-route-id="@color.Id"><i class="fas fa-trash text-danger"></i></a>
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="col-12 mb-5">
             <h3 class="text-center">Sifarişlər</h3>
             <table class="table">
                 <thead class="thead-dark">
@@ -153,7 +177,7 @@
                 </tbody>
             </table>
         </div>
-        <div class="col-12">
+        <div class="col-12 mb-5">
             <h3 class="text-center">Xüsusiyyətləri</h3>
             <table class="table">
                 <thead class="thead-dark">
@@ -178,7 +202,7 @@
                 </tbody>
             </table>
         </div>
-        <div class="col-12">
+        <div class="col-12 mb-5">
             <h3 class="text-center">Rəylər</h3>
             <table class="table">
                 <thead class="thead-dark">
@@ -192,15 +216,15 @@
                 <tbody>
                     @foreach (var item in Model.Product.ProductReviews)
                     {
-                    <tr>
-                        <th scope="row">@(item.User !=null ? item.User.Email : "")</th>
-                        <td>@item.Content</td>
-                        <td>@item.CreatedAt</td>
+                        <tr>
+                            <th scope="row">@(item.User != null ? item.User.Email : "")</th>
+                            <td>@item.Content</td>
+                            <td>@item.CreatedAt</td>
 
-                        <td>
-                            <a class="categoryDelete" asp-action="delete" asp-controller="productreviews" asp-route-id="@item.Id"><i class="fas fa-trash text-danger"></i></a>
-                        </td>
-                    </tr>
+                            <td>
+                                <a class="categoryDelete" asp-action="delete" asp-controller="productreviews" asp-route-id="@item.Id"><i class="fas fa-trash text-danger"></i></a>
+                            </td>
+                        </tr>
                     }
                 </tbody>
             </table>

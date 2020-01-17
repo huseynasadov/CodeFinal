@@ -47,6 +47,7 @@ namespace Junko.Areas.Control.Controllers
                 .Include("OrderProducts.User")
                 .Include("ProperityProducts.Properity.ProperityTranslates")
                 .Include("ProductReviews.User")
+                .Include("ProductColors.Color")
                 .FirstOrDefaultAsync(x => x.Slug == slug),
                 ProductTranslates = _context.ProductTranslates.Include("Language").Where(x => x.Product.Slug == slug).ToList()
             };

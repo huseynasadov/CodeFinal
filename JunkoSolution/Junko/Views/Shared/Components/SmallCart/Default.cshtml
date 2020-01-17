@@ -27,7 +27,9 @@
                             <div class="cart_info">
                                 <a href="#">@item.ProductName</a>
                                 <p>
-                                    @_localizer["Qty"]: @item.Quantity  <span>
+                                    @_localizer["Qty"]: @item.Quantity
+                                    <a style="font-size:30px;color:@item.ColorCode"><i class="fas fa-tint"></i></a>
+                                    <span>
                                         <price price="@item.Total" discount-price="0" language-id="@Model.LanguageId"></price>
                                     </span>
                                 </p>
