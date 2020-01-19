@@ -1850,14 +1850,14 @@ namespace Junko.DAL
 
             // Order Product
             modelBuilder.Entity<OrderProduct>().HasData(
-                new OrderProduct {Id=1, UserClientId=1, ProductId=1, Price=3000, Quantity=1, CreatedAt=DateTime.Now},
-                new OrderProduct {Id=2, UserClientId=1, ProductId=2, Price=6000, Quantity=2, CreatedAt=DateTime.Now},
-                new OrderProduct {Id=3, UserClientId=1, ProductId=3, Price=3000, Quantity=1, CreatedAt=DateTime.Now},
-                new OrderProduct {Id=4, UserClientId=1, ProductId=4, Price=9000, Quantity=3, CreatedAt=DateTime.Now},
-                new OrderProduct {Id=5, UserClientId=1, ProductId=5, Price=3000, Quantity=1, CreatedAt=DateTime.Now},
-                new OrderProduct {Id=6, UserClientId=1, ProductId=2, Price=12000, Quantity=4, CreatedAt=DateTime.Now},
-                new OrderProduct {Id=7, UserClientId=1, ProductId=2, Price=3000, Quantity=1, CreatedAt=DateTime.Now},
-                new OrderProduct {Id=8, UserClientId=1, ProductId=1, Price=3000, Quantity=1, CreatedAt=DateTime.Now}
+                new OrderProduct {Id=1, UserClientId=1, ProductId=1, Price=3000, Quantity=1, CreatedAt=DateTime.Now,ColorId=1, Complete = Complete.Completed, Status = true},
+                new OrderProduct {Id=2, UserClientId=1, ProductId=2, Price=6000, Quantity=2, CreatedAt=DateTime.Now, ColorId = 3, Complete = Complete.Completed, Status = true },
+                new OrderProduct {Id=3, UserClientId=1, ProductId=3, Price=3000, Quantity=1, CreatedAt=DateTime.Now, ColorId = 1, Complete = Complete.Completed, Status = true },
+                new OrderProduct {Id=4, UserClientId=1, ProductId=4, Price=9000, Quantity=3, CreatedAt=DateTime.Now, ColorId = 2, Complete = Complete.Completed, Status = true },
+                new OrderProduct {Id=5, UserClientId=1, ProductId=5, Price=3000, Quantity=1, CreatedAt=DateTime.Now, ColorId = 1, Complete = Complete.Completed, Status = true },
+                new OrderProduct {Id=6, UserClientId=1, ProductId=2, Price=12000, Quantity=4, CreatedAt=DateTime.Now, ColorId = 1, Complete = Complete.Completed, Status = true },
+                new OrderProduct {Id=7, UserClientId=1, ProductId=2, Price=3000, Quantity=1, CreatedAt=DateTime.Now, ColorId = 1, Complete = Complete.Completed, Status = true },
+                new OrderProduct {Id=8, UserClientId=1, ProductId=1, Price=3000, Quantity=1, CreatedAt=DateTime.Now, ColorId = 3, Complete = Complete.Completed, Status = true }
                 );
         }
     }

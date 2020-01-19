@@ -41,7 +41,7 @@
                                                      data-parent="#accordion">
                                                     <div class="card-body widget-succategory-card">
                                                         <ul>
-                                                            @foreach (var subcat in cat.ProductCategory.ProductSubCategories.Where(x=>x.Status==true))
+                                                            @foreach (var subcat in cat.ProductCategory.ProductSubCategories.Where(x => x.Status == true))
                                                             {
                                                                 <li class="widget-succategory"><a asp-controller="shop" asp-action="index" asp-route-category="@subcat.Id">@subcat.ProductSubCategoryTranslate.FirstOrDefault(s => s.LanguageId == cat.LanguageId).Name</a></li>
                                                             }
@@ -213,7 +213,7 @@
                         @foreach (var product in Model.Products)
                         {
                             <div class="col-lg-4 col-md-4 col-12 ">
-                                
+
                                 <article class="single_product">
                                     <figure class="ProductList">
                                         <div class="product_thumb">
@@ -229,7 +229,6 @@
                                                 <ul>
                                                     <li class="wishlist"><a class="addToCartWishlist" asp-action="AddWishlist" asp-controller="ordering" asp-route-id="@product.Id" data-id="@product.Id" title="@_localizer["Add to Wishlist"]"><i class="fa fa-heart-o" aria-hidden="true"></i></a></li>
 
-                                                    <li class="quick_button"><a href="#" data-toggle="modal" data-target="#modal_box" title="@_localizer["Quick View"]"> <span class="ion-ios-search-strong"></span></a></li>
                                                 </ul>
                                             </div>
                                             <div class="add_to_cart">
@@ -273,8 +272,6 @@
                                                 <div class="action_links">
                                                     <ul>
                                                         <li class="wishlist"><a class="addToCartWishlist" asp-action="AddWishlist" asp-controller="ordering" asp-route-id="@product.Id" data-id="@product.Id" title="@_localizer["Add to Wishlist"]"><i class="fa fa-heart-o" aria-hidden="true"></i>@_localizer["Add to Wishlist"]</a></li>
-
-                                                        <li class="quick_button"><a href="#" data-toggle="modal" data-target="#modal_box" title="@_localizer["Quick View"]"> <span class="ion-ios-search-strong"></span>@_localizer["Quick View"] </a></li>
                                                     </ul>
                                                 </div>
                                             </div>

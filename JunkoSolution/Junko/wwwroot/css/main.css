@@ -6700,7 +6700,7 @@ textarea:-ms-input-placeholder {
     border-radius: 0;
 }
 
-    .modal-content button.close {
+    .modal-content a.close {
         position: absolute;
         left: 94%;
         width: 35px;
@@ -6714,7 +6714,7 @@ textarea:-ms-input-placeholder {
         z-index: 9;
     }
 
-        .modal-content button.close:hover {
+        .modal-content a.close:hover {
             color: #0063d1;
         }
 

@@ -1,4 +1,5 @@
 ﻿$(function () {
+   
     $(".ProductColor").on("change", function () {
         var select = $(this);
         var colorId = select.val();
@@ -127,7 +128,7 @@
                             'Your file has been deleted.',
                             'success'
                         ).then(() => {
-                            location.reload()
+                            location.reload();
                         })
                     }
                 })
@@ -1173,6 +1174,13 @@ $(function () {
         }
     });
 
-    
+    $("#LanguageSelect").change(function () {
+        $("#soundDummy").html('<audio id="playTarget" src="/Sound/Drop-SoundBible.com-655931796.wav" autoplay>');
+    });
     
 })(jQuery);	
+
+function playSound() {
+    document.getElementById("soundDummy").innerHTML = "<embed src='~/Sound/Push-SoundBible.com-513260752.wav' autostart=true loop=false volume=100 hidden=true>";
+    return true;
+}

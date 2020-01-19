@@ -29,7 +29,7 @@
                             @if (Model.User.Email != null)
                             {
                                 <li><a asp-controller="login" asp-action="account">@Model.User.Email </a></li>
-                                <li><a asp-controller="ordering" asp-action="checkout"> @_localizer["Checkout"] </a></li>
+                                <li><a class="checkout" asp-controller="ordering" asp-action="checkout"> @_localizer["Checkout"] </a></li>
                             }
                             else
                             {
@@ -65,67 +65,8 @@
                         </form>
                     </div>
 
-                    <div class="middel_right_info">
-                        <div class="header_wishlist">
-                            <a asp-controller="ordering" asp-action="wishlist"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
-                            <span class="wishlist_quantity">3</span>
-                        </div>
-                        <div class="mini_cart_wrapper">
-                            <a href="javascript:void(0)">
-                                <i class="fa fa-shopping-bag"
-                                   aria-hidden="true"></i>$147.00 <i class="fa fa-angle-down"></i>
-                            </a>
-                            <span class="cart_quantity">2</span>
-                            <!--mini cart-->
-                            <div class="mini_cart">
-                                <div class="cart_item">
-                                    <div class="cart_img">
-                                        <a href="#"><img src="~/images/s-product/product.jpg" alt=""></a>
-                                    </div>
-                                    <div class="cart_info">
-                                        <a href="#">Sit voluptatem rhoncus sem lectus</a>
-                                        <p>Qty: 1 X <span> $60.00 </span></p>
-                                    </div>
-                                    <div class="cart_remove">
-                                        <a href="#"><i class="ion-android-close"></i></a>
-                                    </div>
-                                </div>
-                                <div class="cart_item">
-                                    <div class="cart_img">
-                                        <a href="#"><img src="~/images/s-product/product2.jpg" alt=""></a>
-                                    </div>
-                                    <div class="cart_info">
-                                        <a href="#">Natus erro at congue massa commodo</a>
-                                        <p>Qty: 1 X <span> $60.00 </span></p>
-                                    </div>
-                                    <div class="cart_remove">
-                                        <a href="#"><i class="ion-android-close"></i></a>
-                                    </div>
-                                </div>
-                                <div class="mini_cart_table">
-                                    <div class="cart_total">
-                                        <span>Sub total:</span>
-                                        <span class="price">$138.00</span>
-                                    </div>
-                                    <div class="cart_total mt-10">
-                                        <span>total:</span>
-                                        <span class="price">$138.00</span>
-                                    </div>
-                                </div>
-
-                                <div class="mini_cart_footer">
-                                    <div class="cart_button">
-                                        <a asp-controller="ordering" asp-action="cart">@_localizer["View cart"]</a>
-                                    </div>
-                                    <div class="cart_button">
-                                        <a asp-controller="ordering" asp-action="checkout">@_localizer["Checkout"]</a>
-                                    </div>
-
-                                </div>
-
-                            </div>
-                            <!--mini cart end-->
-                        </div>
+                    <div class="smallCart">
+                        @await Component.InvokeAsync("SmallCart")
                     </div>
                     <div id="menu" class="text-left ">
                         <ul class="offcanvas_main_menu">
@@ -195,7 +136,7 @@
                                 @if (Model.User.Email != null)
                                 {
                                     <li><a asp-controller="login" asp-action="account" asp-route-returnUrl="@ViewBag.returnUrl">@Model.User.Email </a></li>
-                                    <li><a asp-controller="ordering" asp-action="checkout"> @_localizer["Checkout"] </a></li>
+                                    <li><a class="checkout" asp-controller="ordering" asp-action="checkout"> @_localizer["Checkout"] </a></li>
                                 }
                                 else
                                 {

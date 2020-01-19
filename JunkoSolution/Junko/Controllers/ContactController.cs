@@ -11,7 +11,7 @@ namespace Junko.Controllers
 {
     public class ContactController : Controller
     {
-        JunkoDBContext _db;
+       private readonly JunkoDBContext _db;
         public ContactController(JunkoDBContext context)
         {
             _db = context;

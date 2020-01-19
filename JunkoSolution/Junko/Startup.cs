@@ -77,7 +77,7 @@ namespace Junko
             services.AddMvc(option => option.EnableEndpointRouting = false);
             services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.ConfigureApplicationCookie(opts => opts.LoginPath = "/Control/users/login");
-           
+            services.AddRouting(options => options.LowercaseUrls = true);
 
         }
 

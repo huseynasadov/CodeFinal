@@ -43,7 +43,6 @@ namespace Junko.Areas.Control.Controllers
             }
             return NotFound();
         }
-
         public IActionResult Create()
         {
 

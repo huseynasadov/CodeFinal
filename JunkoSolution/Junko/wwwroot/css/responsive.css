@@ -356,13 +356,9 @@
         padding: 5px 10px;
     }
 
-    .grid_view .quick_button {
-        bottom: 5px;
-    }
+   
 
-        .grid_view .quick_button a {
-            line-height: 37px;
-        }
+      
 
     .grid_view .action_button ul li a {
         width: 43px;
@@ -392,13 +388,7 @@
         line-height: 35px;
     }
 
-    .product_sidebar .quick_button {
-        bottom: 12px;
-    }
-
-        .product_sidebar .quick_button a {
-            line-height: 35px;
-        }
+  
 
     .product_sidebar .hover_action a {
         width: 40px;

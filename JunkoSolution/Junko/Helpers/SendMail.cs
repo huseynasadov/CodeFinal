@@ -22,7 +22,7 @@ namespace Junko.Helpers
                 {
                     From = new MailAddress("junkoelectronics@gmail.com"),
                     Subject = "Junko Admin Qeydiyyat",
-                    Body = "Qeydiyyatdan keçmək üçün daxil olun : <a href='https://localhost:44342/control/users/register?Token=" + appAdmin.ConcurrencyStamp + "'>Profili aktivləşdir</a>"
+                    Body = "Qeydiyyatdan keçmək üçün daxil olun : <a href='https://junkoelectronics.azurewebsites.net/control/users/register?Token=" + appAdmin.ConcurrencyStamp + "'>Profili aktivləşdir</a>"
                 };
                 mail.IsBodyHtml = true;
                 mail.To.Add(new MailAddress(appAdmin.Email));

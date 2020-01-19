@@ -189,7 +189,6 @@ namespace Junko.Controllers
 
             return View(model);
         }
-
         [HttpPost]
         public async Task<IActionResult> Review(ProductReview review)
         {
@@ -235,6 +234,12 @@ namespace Junko.Controllers
             _db.ProductReviews.Remove(shopReview);
             await _db.SaveChangesAsync();
             return Redirect((!string.IsNullOrEmpty(Request.Headers["Referer"]) ? Request.Headers["Referer"].ToString() : "/blog/detail/" + shopReview.ProductId));
+        }
+        public  IActionResult Modal(string slug) 
+        {
+            ViewBag.productId = slug;
+
+           return ViewComponent("Modal");
         }
     }
 }

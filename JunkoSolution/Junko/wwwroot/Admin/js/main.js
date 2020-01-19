@@ -42,7 +42,7 @@
         }).then((result) => {
             if (result.value) {
                 $.ajax({
-                    url: "https://localhost:44399/" + $(deletinput).attr("href"),
+                    url: $(deletinput).attr("href"),
                     success: function () {
                         Swal.fire(
                             'Deleted!',
