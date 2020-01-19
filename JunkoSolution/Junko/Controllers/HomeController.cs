@@ -27,8 +27,8 @@ namespace Junko.Controllers
             var culture = rqf.RequestCulture.Culture;
             HomeVM model = new HomeVM {
              Partners=await _db.Partners.ToListAsync(),
-             BestCategory=await _db.ProductCategories.Include("ProductCategoryTranslate").Include("ProductSubCategories").OrderByDescending(a=>a.ProductSubCategories.OrderByDescending(a=>a.BrandProductCategories.OrderByDescending(a=>a.Products.OrderByDescending(a=>a.FollowCount).FirstOrDefault().FollowCount).FirstOrDefault().Products.OrderByDescending(a=>a.FollowCount).FirstOrDefault().FollowCount).FirstOrDefault().BrandProductCategories.OrderByDescending(a=>a.Products.OrderByDescending(a=>a.FollowCount).FirstOrDefault().FollowCount).FirstOrDefault().Products.OrderByDescending(a=>a.FollowCount).FirstOrDefault().FollowCount).ToListAsync(),
-             NewProductsCategory=await _db.ProductCategories.Include("ProductCategoryTranslate").Include("ProductSubCategories.ProductSubCategoryTranslate").
+             BestCategory=await _db.ProductCategories.Include("ProductCategoryTranslate").Include("ProductSubCategories.ProductSubCategoryTranslate").OrderByDescending(a=>a.ProductSubCategories.OrderByDescending(a=>a.BrandProductCategories.OrderByDescending(a=>a.Products.OrderByDescending(a=>a.FollowCount).FirstOrDefault().FollowCount).FirstOrDefault().Products.OrderByDescending(a=>a.FollowCount).FirstOrDefault().FollowCount).FirstOrDefault().BrandProductCategories.OrderByDescending(a=>a.Products.OrderByDescending(a=>a.FollowCount).FirstOrDefault().FollowCount).FirstOrDefault().Products.OrderByDescending(a=>a.FollowCount).FirstOrDefault().FollowCount).Take(5).ToListAsync(),
+             NewProductsCategory=await _db.ProductCategories.Where(x=>x.Status).Include("ProductCategoryTranslate").Include("ProductSubCategories.ProductSubCategoryTranslate").
              OrderByDescending(a=>a.ProductSubCategories.
              OrderByDescending(a=>a.BrandProductCategories.
              OrderByDescending(a=>a.Products.
@@ -44,12 +44,10 @@ namespace Junko.Controllers
              FirstOrDefault().Products.
              OrderByDescending(a=>a.CreatedAt).
              FirstOrDefault().CreatedAt).Take(3).ToListAsync(),
-             BestFollow =await _db.Products.OrderByDescending(a=>a.FollowCount).FirstOrDefaultAsync(),
              HomeHeaders=await _db.HomeHeaders.Include("Product.ProductPhotos").Include("HomeHeaderTranslates").OrderBy(a=>a.Order).ToListAsync(),
-             NewProducts=await _db.Products.Include("BrandProductCategory.ProductSubCategory").Where(p=>p.Status==true).OrderByDescending(a => a.CreatedAt).ToListAsync(),
-             MostFollowProducts=await _db.Products.OrderByDescending(a=>a.FollowCount).Where(p=>p.Status==true).ToListAsync(),
-             MostSaleds=await _db.Products.Include("ProductPhotos").Include("BrandProductCategory.ProductSubCategory.ProductSubCategoryTranslate.Language").OrderByDescending(p=>p.OrderProducts.Count).Where(p=>p.Status==true).ToListAsync(),
-             SaledProducts=await _db.Products.OrderByDescending(p=>p.CreatedAt).Where(p=>p.Discount>0).ToListAsync(),
+             NewProducts=await _db.Products.Include("ProductPhotos").Include("BrandProductCategory.ProductSubCategory").Where(p=>p.Status==true).OrderByDescending(a => a.CreatedAt).ToListAsync(),
+             MostFollowProducts=await _db.Products.OrderByDescending(a=>a.FollowCount).Where(p=>p.Status==true).Take(6).ToListAsync(),
+             MostSaleds=await _db.Products.Include("ProductPhotos").Include("BrandProductCategory.ProductSubCategory.ProductSubCategoryTranslate.Language").OrderByDescending(p=>p.OrderProducts.Count).Where(p=>p.Status==true).Take(9).ToListAsync(),
              LanguageId= _db.Languages.FirstOrDefault(l=>l.LanguageCode==culture.ToString()).Id
             };
             return View(model);

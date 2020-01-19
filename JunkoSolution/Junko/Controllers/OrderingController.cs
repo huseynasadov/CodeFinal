@@ -48,6 +48,9 @@ namespace Junko.Controllers
             List<CartItem> cart = HttpContext.Session.GetJson<List<CartItem>>("Cart") ?? new List<CartItem>();
             CartItem cartItem = cart.FirstOrDefault(x => x.ProductId == id && x.ColorId==colorId);
             Color color = await _db.Colors.FirstOrDefaultAsync(x => x.Id == colorId);
+            int MostFollowed = (int)_db.Products.Where(x => x.Status == true).OrderByDescending(x => x.FollowCount).FirstOrDefault().FollowCount;
+            int ThisFollowd = (int)product.FollowCount;
+            product.StarCount = (ThisFollowd *5/ MostFollowed);
             if (cartItem==null)
             {
                 cart.Add(new CartItem(product, color));
@@ -56,6 +59,8 @@ namespace Junko.Controllers
             {
                 cartItem.Quantity += 1;
             }
+            
+            await _db.SaveChangesAsync();
 
             HttpContext.Session.SetJson("Cart",cart);
             if (HttpContext.Request.Headers["x-requested-with"] != "XMLHttpRequest")
@@ -162,6 +167,9 @@ namespace Junko.Controllers
             Color color = await _db.Colors.FirstOrDefaultAsync(x => x.Id == colorId);
             List<CartItem> cart = HttpContext.Session.GetJson<List<CartItem>>("Wishlist") ?? new List<CartItem>();
             CartItem cartItem = cart.FirstOrDefault(x => x.ProductId == id && x.ColorId==colorId);
+            int MostFollowed = (int)_db.Products.Where(x => x.Status == true).OrderByDescending(x => x.FollowCount).FirstOrDefault().FollowCount;
+            int ThisFollowd = (int)product.FollowCount;
+            product.StarCount = (ThisFollowd * 5 / MostFollowed);
             if (cartItem == null)
             {
                 cart.Add(new CartItem(product, color));
@@ -173,7 +181,9 @@ namespace Junko.Controllers
 
                 return ViewComponent("SmallCart");
             }
-           
+
+            
+            await _db.SaveChangesAsync();
             HttpContext.Session.SetJson("Wishlist", cart);
             if (HttpContext.Request.Headers["x-requested-with"] != "XMLHttpRequest")
                 return Redirect((!string.IsNullOrEmpty(Request.Headers["Referer"]) ? Request.Headers["Referer"].ToString() : "/"));

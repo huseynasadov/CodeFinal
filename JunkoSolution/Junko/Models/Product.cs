@@ -31,6 +31,9 @@ namespace Junko.Models
         public DateTime CreatedAt { get; set; }
         [Display(Name = "Baxış sayı")]
         public decimal? FollowCount { get; set; }
+        [Display(Name = "Ulduz sayı")]
+        [Range(0,5)]
+        public int? StarCount { get; set; }
         [Display(Name = "Brend < Alt Kateqoriya")]
         public BrandProductCategory BrandProductCategory { get; set; }
         public ICollection<ProductTranslate> ProductTranslates { get; set; }

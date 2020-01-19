@@ -1,4 +1,5 @@
 ﻿@using Microsoft.AspNetCore.Mvc.Localization
+@using Junko.Helpers
 @using Microsoft.AspNetCore.Localization;
 @inject IViewLocalizer _localizer
 @model ICollection<Product>
@@ -10,26 +11,27 @@
 <div class="product_carousel product_column5 owl-carousel">
     @foreach (var product in Model)
     {
+      
         <article class="single_product">
             <figure>
                 <div class="product_thumb">
                     <a class="primary_img" asp-controller="shop" asp-action="detail" asp-route-slug="@product.Slug"><img style="height:200px; object-fit:contain" src="~/images/@(product.ProductPhotos.FirstOrDefault()==null?"product/product-default.png":product.ProductPhotos.FirstOrDefault().Photo) " alt="@product.Name"></a>
-                    <a class="secondary_img" asp-controller="shop" asp-action="detail" asp-route-slug="@product.Slug"><img style="height:200px; object-fit:contain" src="~/images/@(product.ProductPhotos.FirstOrDefault()==null ?"product/product-default.png":product.ProductPhotos.Count==1?product.ProductPhotos.FirstOrDefault().Photo:product.ProductPhotos.Skip(1).FirstOrDefault().Photo)" alt="@product.Name"></a>
-                    <div class="label_product">
-                        <span class="label_sale">@_localizer["sale"]</span>
-                    </div>
-                    <div class="action_links">
-                        <ul>
-                            <li class="wishlist"><a class="addToCartWishlistSaled" asp-action="AddWishlist" asp-controller="ordering" asp-route-id="@product.Id" data-id="@product.Id" title="@_localizer["Add to Wishlist"]"><i class="fa fa-heart-o" aria-hidden="true"></i></a></li>
-                           
-                        </ul>
-                    </div>
+                    @if (product.DiscountDate != 0)
+                    {
+                        <div class="label_product">
+                            <span class="label_sale">@_localizer["sale"]</span>
+                        </div>
+                    }
                     <div class="add_to_cart">
-                        <a href="cart.html" title="add to cart">@_localizer["Add to cart"]</a>
+                        <a class="addToCart" asp-action="add" asp-controller="ordering" asp-route-id="@product.Id" data-id="@product.Id" title="@_localizer["Add to cart"]">@_localizer["Add to cart"]</a>
                     </div>
-                    <div class="product_timing">
-                        <div data-countdown="@DateTime.Now.AddDays((double)product.DiscountDate).ToString("yyyy'/'MM'/'dd")"></div>
-                    </div>
+                    @if (product.DiscountDate != 0)
+                    {
+                        <div class="product_timing">
+                            <div data-countdown="@DateTime.Now.AddDays((double)product.DiscountDate).ToString("yyyy'/'MM'/'dd")"></div>
+                        </div>
+                    }
+
                 </div>
                 <figcaption class="product_content">
 

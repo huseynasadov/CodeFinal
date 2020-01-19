@@ -2119,37 +2119,6 @@ textarea:-ms-input-placeholder {
   letter-spacing: -0.5px;
 }
 
-.product_deals_column4 .col-lg-3 {
-  flex: 0 0 100%;
-  max-width: 100%;
-}
-.product_deals_column4 .owl-nav div {
-  font-size: 15px;
-  font-weight: 400;
-  left: -19%;
-  bottom: -10px;
-  top: auto;
-  opacity: inherit;
-  visibility: inherit;
-  background: #eee;
-  border: 1px solid #ebebeb;
-  padding: 5px 10px;
-  min-width: 80px;
-  border-radius: 4px;
-  text-align: center;
-  color: #242424;
-}
- 
-.product_deals_column4 .owl-nav div:hover {
-  background: #0063d1;
-  border-color: #0063d1;
-  color: #ffffff;
-}
-.product_deals_column4 .owl-nav div.owl-next {
-  left: -10%;
-  right: auto;
-}
-
 /*home four css here*/
  
 
@@ -2450,32 +2419,6 @@ textarea:-ms-input-placeholder {
  
 
 /*testimonial css here*/
-
-.testimonial_active .testimonial_thumb a img {
-  width: inherit;
-  display: inline-block;
-  border-radius: 50%;
-}
-.testimonial_active .owl-dots {
-  margin-top: 22px;
-  text-align: center;
-}
-.testimonial_active .owl-dots .owl-dot {
-  width: 10px;
-  height: 10px;
-  background: #ebebeb;
-  border-radius: 50%;
-  display: inline-block;
-  margin: 0 3px;
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
-}
-.testimonial_active .owl-dots .owl-dot.active {
-  background: #0063d1;
-}
-.testimonial_active .owl-dots .owl-dot:hover {
-  background: #0063d1;
-}
 
 .testimonial_thumb {
   text-align: center;
@@ -5541,38 +5484,6 @@ textarea:-ms-input-placeholder {
   height: 550px;
 }
  
-
-.blog_thumb_active:hover .owl-nav > div {
-  left: 20px;
-  opacity: 1;
-  visibility: visible;
-}
-.blog_thumb_active:hover .owl-nav > div.owl-next {
-  right: 20px;
-}
-.blog_thumb_active .owl-nav > div {
-  position: absolute;
-  top: 50%;
-  transform: translatey(-50%);
-  background: rgba(0, 99, 209, 0.6);
-  width: 30px;
-  height: 30px;
-  line-height: 30px;
-  font-size: 20px;
-  color: #fff;
-  text-align: center;
-  border-radius: 50%;
-  left: 40px;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
-  opacity: 0;
-  visibility: hidden;
-}
-.blog_thumb_active .owl-nav > div.owl-next {
-  right: 40px;
-  left: auto;
-}
-
 .blog_aduio_icone {
   margin-bottom: 14px;
   margin-top: 23px;
@@ -5594,10 +5505,6 @@ textarea:-ms-input-placeholder {
   width: 30%;
 }
 
-.blog_nosidebar .blog_thumb_active {
-  float: left;
-  width: 30%;
-}
 
 .blog_nosidebar .blog_content {
   float: left;
@@ -6062,40 +5969,6 @@ textarea:-ms-input-placeholder {
 
 .modal_description.mb-15 {
   margin-bottom: 20px;
-}
-
-.product_navactive.owl-carousel:hover .owl-nav div {
-  opacity: 1;
-  visibility: visible;
-}
-.product_navactive.owl-carousel .owl-nav {
-  display: block;
-}
-.product_navactive.owl-carousel .owl-nav div {
-  position: absolute;
-  background: #f2f2f2;
-  border-radius: 3px;
-  color: #333;
-  height: 32px;
-  top: 50%;
-  transform: translatey(-50%);
-  width: 32px;
-  text-align: center;
-  line-height: 32px;
-  left: -7px;
-  font-size: 18px;
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
-  opacity: 0;
-  visibility: hidden;
-}
-.product_navactive.owl-carousel .owl-nav div:hover {
-  background: #0063d1;
-  color: #ffffff;
-}
-.product_navactive.owl-carousel .owl-nav div.owl-next {
-  right: -7px;
-  left: auto;
 }
 
 /*modal css end*/

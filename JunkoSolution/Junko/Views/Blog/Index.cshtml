@@ -6,55 +6,48 @@
 }
 <!--breadcrumbs area start-->
 
-@{await Html.PartialAsync("~/Views/Shared/_Breadcrumb.cshtml", model:Model.Breadcrumb);}
+@{await Html.PartialAsync("~/Views/Shared/_Breadcrumb.cshtml", model: Model.Breadcrumb);}
 <!--breadcrumbs area end-->
 <!--Main Start-->
 <main>
 
     <!--blog area start-->
-    <div class="blog_page_section blog_reverse mt-60">
+    <div class="blog_page_section blog_nosidebar mt-60">
         <div class="container">
             <div class="row">
-                <div class="col-lg-3 blog-">
-                    @await Html.PartialAsync("~/Views/Shared/_BlogLeftSide.cshtml",model:Model)
-                </div>
-                <div class="col-lg-9">
-                    <div class="blog_wrapper blog_wrapper_sidebar">
+                <div class="col-lg-12">
+                    <div class="blog_wrapper">
                         <div class="blog_header">
                             <h1>@_localizer["Blogs"]</h1>
                         </div>
-                        <div class="row">
-                            @foreach (var blog in Model.Blogs)
-                            {
-                                <div class="col-lg-6 col-md-6">
-                                    <article class="single_blog mb-60">
-                                        <figure>
-                                            <div class="blog_thumb">
-                                                <a asp-controller="blog" asp-action="detail" asp-route-id="@blog.BlogId">
-                                                    <img style="height:200px" src="~/images/@(blog.Blog.Photo !=null ? blog.Blog.Photo:"noimage.png")"
-                                                         alt="@blog.Title">
-                                                </a>
-                                            </div>
-                                            <figcaption class="blog_content">
-                                                <h3><a asp-controller="blog" asp-action="detail" asp-route-id="@blog.BlogId">@blog.Title</a></h3>
-                                                <div class="blog_meta">
-                                                    <span class="author">@_localizer["Posted By"] : <a href="#">@(blog.Blog.AdminManager !=null ? blog.Blog.AdminManager.Category.AdminCategoryTranslates.FirstOrDefault(a=>a.LanguageId==blog.LanguageId).Name : "Admin")</a> / </span>
-                                                    <span class="post_date">@_localizer["On"] : <a href="#">@blog.Blog.CreatedAt.ToString("MMMM dd, yyyy")</a></span>
-                                                </div>
-                                                <div class="blog_desc">
-                                                    <p>
-                                                        @blog.Desc
-                                                    </p>
-                                                </div>
-                                                <footer class="readmore_button">
-                                                    <a asp-controller="blog" asp-action="detail" asp-route-id="@blog.BlogId">@_localizer["read more"]</a>
-                                                </footer>
-                                            </figcaption>
-                                        </figure>
-                                    </article>
-                                </div>
-                            }
-                        </div>
+                        @foreach (var blog in Model.Blogs)
+                        {
+                            <article class="single_blog mb-60">
+                                <figure>
+                                    <div class="blog_thumb">
+                                        <a asp-controller="blog" asp-action="detail" asp-route-id="@blog.BlogId">
+                                            <img style="height:200px" src="~/images/@(blog.Blog.Photo !=null ? blog.Blog.Photo:"noimage.png")"
+                                                 alt="@blog.Title">
+                                        </a>
+                                    </div>
+                                    <figcaption class="blog_content">
+                                        <h3><a asp-controller="blog" asp-action="detail" asp-route-id="@blog.BlogId">@blog.Title</a></h3>
+                                        <div class="blog_meta">
+                                            <span class="author">@_localizer["Posted By"] : <a href="#">@(blog.Blog.AdminManager != null ? blog.Blog.AdminManager.Category.AdminCategoryTranslates.FirstOrDefault(a => a.LanguageId == blog.LanguageId).Name : "Admin")</a> / </span>
+                                            <span class="post_date">@_localizer["On"] : <a href="#">@blog.Blog.CreatedAt.ToString("MMMM dd, yyyy")</a></span>
+                                        </div>
+                                        <div class="blog_desc">
+                                            <p>
+                                                @blog.Desc
+                                            </p>
+                                        </div>
+                                        <footer class="readmore_button">
+                                            <a asp-controller="blog" asp-action="detail" asp-route-id="@blog.BlogId">@_localizer["read more"]</a>
+                                        </footer>
+                                    </figcaption>
+                                </figure>
+                            </article>
+                        }
                     </div>
                 </div>
             </div>
@@ -66,7 +59,7 @@
         <div class="container">
 
             @await Html.PartialAsync("~/Views/Shared/_Pagination.cshtml", model: Model.Pagination)
-            
+
         </div>
     </div>
     <!--blog pagination area end-->

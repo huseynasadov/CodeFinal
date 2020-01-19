@@ -1,8 +1,11 @@
 ﻿@using Microsoft.AspNetCore.Mvc.Localization
+@using Junko.Helpers
 @inject IViewLocalizer _localizer
 @model ShopIndexVM
 @{
     ViewData["Title"] = _localizer["Shop"];
+   List<CartItem> carts = Context.Session.GetJson<List<CartItem>>("Wishlist") ?? new List<CartItem>();
+    bool isFollowed = false;
 }
 
 <!--breadcrumbs area start-->
@@ -60,80 +63,6 @@
                                     <button type="submit">Filter</button>
                                     <input type="text" name="filter" id="amount" />
                                 </form>
-                            </div>
-                            <div class="widget_list">
-                                <h2>Compare Products</h2>
-                                <div class="recent_product_container">
-                                    <article class="recent_product_list">
-                                        <figure>
-                                            <div class="product_thumb">
-                                                <a href="product-detail.html"><img src="~/images/product/product1.jpg" alt=""></a>
-                                            </div>
-                                            <div class="product_content">
-                                                <h3><a href="product-detail.html">Natus erro at congue</a></h3>
-                                                <div class="product_ratings">
-                                                    <ul>
-                                                        <li><a href="#"><i class="ion-android-star-outline"></i></a></li>
-                                                        <li><a href="#"><i class="ion-android-star-outline"></i></a></li>
-                                                        <li><a href="#"><i class="ion-android-star-outline"></i></a></li>
-                                                        <li><a href="#"><i class="ion-android-star-outline"></i></a></li>
-                                                        <li><a href="#"><i class="ion-android-star-outline"></i></a></li>
-                                                    </ul>
-                                                </div>
-                                                <div class="price_box">
-                                                    <span class="old_price">$70.00</span>
-                                                    <span class="current_price">$65.00</span>
-                                                </div>
-                                            </div>
-                                        </figure>
-                                    </article>
-                                    <article class="recent_product_list">
-                                        <figure>
-                                            <div class="product_thumb">
-                                                <a href="product-detail.html"><img src="~/images/product/product2.jpg" alt=""></a>
-                                            </div>
-                                            <div class="product_content">
-                                                <h3><a href="product-detail.html">Auctor gravida enim</a></h3>
-                                                <div class="product_ratings">
-                                                    <ul>
-                                                        <li><a href="#"><i class="ion-android-star-outline"></i></a></li>
-                                                        <li><a href="#"><i class="ion-android-star-outline"></i></a></li>
-                                                        <li><a href="#"><i class="ion-android-star-outline"></i></a></li>
-                                                        <li><a href="#"><i class="ion-android-star-outline"></i></a></li>
-                                                        <li><a href="#"><i class="ion-android-star-outline"></i></a></li>
-                                                    </ul>
-                                                </div>
-                                                <div class="price_box">
-                                                    <span class="old_price">$70.00</span>
-                                                    <span class="current_price">$65.00</span>
-                                                </div>
-                                            </div>
-                                        </figure>
-                                    </article>
-                                    <article class="recent_product_list">
-                                        <figure>
-                                            <div class="product_thumb">
-                                                <a href="product-detail.html"><img src="~/images/product/product24.jpg" alt=""></a>
-                                            </div>
-                                            <div class="product_content">
-                                                <h3><a href="product-detail.html">Cillum dolore tortor</a></h3>
-                                                <div class="product_ratings">
-                                                    <ul>
-                                                        <li><a href="#"><i class="ion-android-star-outline"></i></a></li>
-                                                        <li><a href="#"><i class="ion-android-star-outline"></i></a></li>
-                                                        <li><a href="#"><i class="ion-android-star-outline"></i></a></li>
-                                                        <li><a href="#"><i class="ion-android-star-outline"></i></a></li>
-                                                        <li><a href="#"><i class="ion-android-star-outline"></i></a></li>
-                                                    </ul>
-                                                </div>
-                                                <div class="price_box">
-                                                    <span class="old_price">$70.00</span>
-                                                    <span class="current_price">$65.00</span>
-                                                </div>
-                                            </div>
-                                        </figure>
-                                    </article>
-                                </div>
                             </div>
                         </div>
                     </aside>
@@ -212,6 +141,11 @@
                         }
                         @foreach (var product in Model.Products)
                         {
+                            isFollowed = false;
+                            if (carts.Any(x=>x.ProductId==product.Id))
+                            {
+                                isFollowed = true;
+                            }
                             <div class="col-lg-4 col-md-4 col-12 ">
 
                                 <article class="single_product">
@@ -227,7 +161,7 @@
                                             }
                                             <div class="action_links">
                                                 <ul>
-                                                    <li class="wishlist"><a class="addToCartWishlist" asp-action="AddWishlist" asp-controller="ordering" asp-route-id="@product.Id" data-id="@product.Id" title="@_localizer["Add to Wishlist"]"><i class="fa fa-heart-o" aria-hidden="true"></i></a></li>
+                                                    <li class="wishlist"><a class="addToCartWishlist @(isFollowed==true?"followed":"")" asp-action="AddWishlist" asp-controller="ordering" asp-route-id="@product.Id" data-id="@product.Id" title="@_localizer["Add to Wishlist"]"><i class="fa fa-heart-o" aria-hidden="true"></i></a></li>
 
                                                 </ul>
                                             </div>
@@ -241,11 +175,13 @@
 
                                             <div class="product_ratings">
                                                 <ul>
-                                                    <li><a href="#"><i class="ion-android-star-outline"></i></a></li>
-                                                    <li><a href="#"><i class="ion-android-star-outline"></i></a></li>
-                                                    <li><a href="#"><i class="ion-android-star-outline"></i></a></li>
-                                                    <li><a href="#"><i class="ion-android-star-outline"></i></a></li>
-                                                    <li><a href="#"><i class="ion-android-star-outline"></i></a></li>
+                                                    @{
+                                                        var starCount = product.StarCount;
+                                                    }
+                                                    @for (int i = 0; i < 5; i++)
+                                                    {
+                                                        <li><a title="@(starCount!=null? starCount:0) Star" style="cursor:copy"><i class="ion-android-star-outline @(starCount !=null && starCount > i && starCount !=0 ?"checked":"")"></i></a></li>
+                                                    }
                                                 </ul>
                                             </div>
                                             <h3 class="product_name grid_name"><a style="font-weight:bold;font-size:medium;color:dimgray" asp-controller="shop" asp-action="detail" asp-route-slug="@product.Slug">@product.Name</a></h3>
@@ -257,11 +193,11 @@
                                                 <h3 class="product_name"><a style="font-weight:bold;font-size:medium;color:dimgray" asp-controller="shop" asp-action="detail" asp-route-slug="@product.Slug">@product.Name</a></h3>
                                                 <div class="product_ratings">
                                                     <ul>
-                                                        <li><a href="#"><i class="ion-android-star-outline"></i></a></li>
-                                                        <li><a href="#"><i class="ion-android-star-outline"></i></a></li>
-                                                        <li><a href="#"><i class="ion-android-star-outline"></i></a></li>
-                                                        <li><a href="#"><i class="ion-android-star-outline"></i></a></li>
-                                                        <li><a href="#"><i class="ion-android-star-outline"></i></a></li>
+
+                                                        @for (int i = 0; i < 5; i++)
+                                                        {
+                                                            <li><a title="@(starCount!=null? starCount:0) Star" style="cursor:copy"><i class="ion-android-star-outline @(starCount !=null && starCount > i && starCount !=0 ?"checked":"")"></i></a></li>
+                                                        }
                                                     </ul>
                                                 </div>
                                             </div>
@@ -271,7 +207,7 @@
                                                 </div>
                                                 <div class="action_links">
                                                     <ul>
-                                                        <li class="wishlist"><a class="addToCartWishlist" asp-action="AddWishlist" asp-controller="ordering" asp-route-id="@product.Id" data-id="@product.Id" title="@_localizer["Add to Wishlist"]"><i class="fa fa-heart-o" aria-hidden="true"></i>@_localizer["Add to Wishlist"]</a></li>
+                                                        <li class="wishlist"><a class="addToCartWishlist @(isFollowed==true?"followed":"")" asp-action="AddWishlist" asp-controller="ordering" asp-route-id="@product.Id" data-id="@product.Id" title="@_localizer["Add to Wishlist"]"><i class="fa fa-heart-o" aria-hidden="true"></i>@_localizer["Add to Wishlist"]</a></li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -314,13 +250,27 @@
             });
         });
         $(function () {
-            $("a.addToCartWishlist").click(function (e) {
+             $("a.addToCartWishlist").click(function (e) {
+                var count =parseInt($(".wishlist_quantity").html());
                 e.preventDefault();
                 let id = $(this).data("id");
-                $.get('/ordering/AddWishlist/' + id, {}, function (data) {
+                if ($(this).attr("class")=="addToCartWishlist followed") {
+                    $.ajax({
+                        url: "/Ordering/removeWishlist/" + id,
+                        success: function () {
+                            if (count!=0){
+                                $(".wishlist_quantity").html(count - 1);
+                            toastr.error('@_localizer["Product Deleted the WishhList"]', '@_localizer["Deleted"]');
+                            };
+                        }
+                    });
+                } else {
+                    $.get('/ordering/AddWishlist/' + id, {}, function (data) {
                     $("div.smallCart").html(data);
                     toastr.success("@_localizer["Product Added the WishhList"]", "@_localizer["Success"]");
                 });
+                }
+                $(this).toggleClass("followed",150);
             });
         });
     </script>

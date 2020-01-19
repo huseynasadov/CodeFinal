@@ -13,5 +13,6 @@ namespace Junko.ViewModels
         public int? CategoryId { get; set; }
         public int? OrderBy { get; set; }
         public int? BrandId { get; set; }
+        public string Search { get; set; }
     }
 }

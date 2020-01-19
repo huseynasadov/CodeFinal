@@ -1,4 +1,5 @@
-﻿ $(document).ready(function () {
+﻿$(document).ready(function () {
+
     String.prototype.removeAcento = function () {
         var text = this.toLowerCase();
         text = text.replace(new RegExp('[ÁÀÂÃ]', 'gi'), 'a');
@@ -55,11 +56,10 @@
                 })
             }
         })
-    })
-
-
+    });
     $(".statusActive").click(function (event) {
         event.preventDefault();
+
         var span = this;
         $.get($(span).attr("href"), {}, function (data) {
             if (data) {
@@ -67,6 +67,8 @@
             }
         });
     });
+
+   
 })
 
 function readURL(input) {
@@ -112,6 +114,8 @@ $(function () {
     $(function () {
         $(".toggle-handle").removeClass("btn-default");
         $(".toggle-handle").addClass("btn-light");
+
+
         $(".toogleBoot").parent().click(function () {
             var parent = $(this);
             if ($(this).attr("class") == "toggle btn btn-danger off") {
@@ -121,7 +125,7 @@ $(function () {
                         parent.addClass("btn-success");
                     }
                 }).then(function () {
-                    toastr.success('Ugurla basa catdi', 'Aktiv'); 
+                    toastr.success('Ugurla basa catdi', 'Aktiv');
                 });
             } else {
                 $.get($(this).children().data("url") + "?status=false", {}, function (data) {
@@ -133,9 +137,10 @@ $(function () {
                     toastr.error('Ugurla basa catdi', 'Deaktiv');
                 });
             }
-        })
+        });
+
+        $('.table').DataTable();
     });
 
-    $('.table').DataTable();
 
 })

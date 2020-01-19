@@ -143,6 +143,7 @@ namespace Junko.Areas.Control.Controllers
                 AppAdmin appUser = await _userManager.FindByEmailAsync(login.Email);
                 if (appUser != null)
                 {
+                    ViewBag.AdminUser = login.Email;
                     Microsoft.AspNetCore.Identity.SignInResult result = await _signInManager.PasswordSignInAsync(appUser, login.Password, false, false);
                     if (result.Succeeded)
                         return RedirectToAction("index", "Dashboard");

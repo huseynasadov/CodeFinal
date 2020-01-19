@@ -231,9 +231,6 @@
         margin-bottom: 24px;
     }
 
-    .product_deals_column4 .owl-nav div {
-        min-width: 63px;
-    }
 
     .home_section_four .section_title h2 {
         font-size: 17px;
@@ -908,14 +905,6 @@
             margin-bottom: 10px;
         }
 
-    .product_deals_column4 .owl-nav div {
-        right: 98px;
-        left: auto;
-        top: -64px;
-        bottom: auto;
-        min-width: 70px;
-    }
-
     .blog_carousel .owl-nav div {
         left: 0;
     }
@@ -1217,10 +1206,6 @@
         width: 35%;
     }
 
-    .blog_nosidebar .blog_thumb_active {
-        width: 35%;
-    }
-
     .blog_nosidebar .blog_meta {
         margin-bottom: 9px;
     }
@@ -1276,10 +1261,6 @@
         padding-top: 31px;
     }
 
-    .product_deals_column4 .owl-nav div.owl-next {
-        right: 17px;
-        left: auto;
-    }
 
     .newletter_content h2 {
         font-size: 17px;
@@ -1951,10 +1932,6 @@
             font-size: 19px;
             margin-bottom: 10px;
         }
-
-    .product_deals_column4 .owl-nav div {
-        display: none;
-    }
 
     .deals_product_four {
         margin-bottom: 27px;
@@ -2797,9 +2774,6 @@
         height: 200px;
     }
 
-    .blog_nosidebar .blog_thumb_active {
-        width: 100%;
-    }
 
     .blog_nosidebar .blog_content {
         width: 100%;

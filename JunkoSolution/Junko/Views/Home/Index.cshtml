@@ -69,8 +69,9 @@
     </section>
     <!-- category  end-->
     <!--product start-->
-
-    @await Html.PartialAsync("~/Views/Shared/_MostSaled.cshtml", model: Model.MostSaleds)
+    <div class="container mb-4">
+        @await Html.PartialAsync("~/Views/Shared/_MostSaled.cshtml", model: Model.MostSaleds)
+    </div>
     <!--product end-->
     <!--banner start-->
     <div class="banner_area banner_two mb-40">
@@ -132,11 +133,11 @@
             <div class="tab-content">
                 @for (int i = 0; i < Model.NewProductsCategory.Count; i++)
                 {
-                    ProductCategory cat = Model.NewProductsCategory.Skip(i).FirstOrDefault(x=>x.Status==true);
+                    ProductCategory cat = Model.NewProductsCategory.Skip(i).FirstOrDefault();
 
                     <div class="tab-pane fade @(i==0?"show active":"")" id="NewArrival-@cat.Id" role="tabpanel">
                         <div class="row featured_container featured_column3">
-                            @foreach (var product in Model.NewProducts.Where(n => n.BrandProductCategory.ProductSubCategory.ProductCategoryId == cat.Id))
+                            @foreach (var product in Model.NewProducts.Where(n => n.BrandProductCategory.ProductSubCategory.ProductCategoryId == cat.Id).Take(6))
                             {
                                 <div class="col-lg-4">
                                    
@@ -163,11 +164,13 @@
                                                 </h3>
                                                 <div class="product_ratings">
                                                     <ul>
-                                                        <li><a href="#"><i class="ion-android-star-outline"></i></a></li>
-                                                        <li><a href="#"><i class="ion-android-star-outline"></i></a></li>
-                                                        <li><a href="#"><i class="ion-android-star-outline"></i></a></li>
-                                                        <li><a href="#"><i class="ion-android-star-outline"></i></a></li>
-                                                        <li><a href="#"><i class="ion-android-star-outline"></i></a></li>
+                                                        @{
+                                                            var starCount = product.StarCount;
+                                                        }
+                                                        @for (int item=0; item < 5; item++)
+                                                        {
+                                                            <li><a title="@(starCount!=null? starCount:0) Star"><i class="ion-android-star-outline @(starCount !=null && starCount > item && starCount !=0 ?"checked":"")"></i></a></li>
+                                                        }
                                                     </ul>
                                                 </div>
                                                 <div class="add_to_cart">
@@ -192,13 +195,16 @@
                 <div class="col-12">
                     <div class="tab_btn_container">
                         <div class="section_title">
-                            <h2>@Model.BestCategory.FirstOrDefault().ProductCategoryTranslate.FirstOrDefault(a => a.LanguageId == Model.LanguageId).Name</h2>
+                            @{ 
+                                ProductCategory productCategory = Model.BestCategory.FirstOrDefault();
+                            }
+                            <h2>@productCategory.ProductCategoryTranslate.FirstOrDefault(a => a.LanguageId == Model.LanguageId).Name</h2>
                         </div>
                         <div class="product_tab_btn">
                             <ul class="nav" role="tablist">
-                                @for (int i = 0; i < Model.BestCategory.FirstOrDefault().ProductSubCategories.Count; i++)
+                                @for (int i = 0; i < productCategory.ProductSubCategories.Count; i++)
                                 {
-                                    ProductSubCategory cat = Model.BestCategory.FirstOrDefault().ProductSubCategories.Skip(i).FirstOrDefault();
+                                    ProductSubCategory cat = productCategory.ProductSubCategories.Skip(i).FirstOrDefault();
                                     <li>
                                         <a class="@(i==0?"active":"")" data-toggle="tab" href="#NewArrival-@cat.Id" role="tab"
                                            aria-controls="NewArrival-@cat.Id" aria-selected="@(i==0?true:false)">
@@ -212,13 +218,13 @@
                 </div>
             </div>
             <div class="tab-content">
-                @for (int i = 0; i < Model.BestCategory.FirstOrDefault().ProductSubCategories.Count; i++)
+                @for (int i = 0; i < productCategory.ProductSubCategories.Where(x=>x.Status==true).Count(); i++)
                 {
-                    ProductSubCategory cat = Model.BestCategory.FirstOrDefault().ProductSubCategories.Skip(i).FirstOrDefault();
+                    ProductSubCategory cat = productCategory.ProductSubCategories.Skip(i).FirstOrDefault(x=>x.Status==true);
 
                     <div class="tab-pane fade @(i==0?"show active":"")" id="NewArrival-@cat.Id" role="tabpanel">
                         <div class="row featured_container featured_column3">
-                            @foreach (var product in Model.NewProducts.Where(n => n.BrandProductCategory.ProductSubCategoryId == cat.Id))
+                            @foreach (var product in Model.NewProducts.Where(n => n.BrandProductCategory.ProductSubCategoryId == cat.Id).Take(6))
                             {
                                 <div class="col-lg-4">
                                     
@@ -226,10 +232,10 @@
                                         <figure>
                                             <div class="product_thumb">
                                                 <a class="primary_img" asp-controller="shop" asp-action="detail" asp-route-slug="@product.Slug">
-                                                    <img src="~/images/@(product.ProductPhotos.FirstOrDefault()==null?"product/product-default.png":product.ProductPhotos.FirstOrDefault().Photo) " alt="@product.Name">
+                                                    <img src="~/images/@(product.ProductPhotos.FirstOrDefault(x=>x.Status==true)==null?"product/product-default.png":product.ProductPhotos.FirstOrDefault(x=>x.Status==true).Photo) " alt="@product.Name">
                                                 </a>
                                                 <a class="secondary_img" asp-controller="shop" asp-action="detail" asp-route-slug="@product.Slug">
-                                                    <img src="~/images/@(product.ProductPhotos.FirstOrDefault()==null ?"product/product-default.png":product.ProductPhotos.Count==1?product.ProductPhotos.FirstOrDefault().Photo:product.ProductPhotos.Skip(1).FirstOrDefault().Photo)" alt="@product.Name">
+                                                    <img src="~/images/@(product.ProductPhotos.FirstOrDefault(x=>x.Status==true)==null ?"product/product-default.png":product.ProductPhotos.Count==1?product.ProductPhotos.FirstOrDefault(x=>x.Status==true).Photo:product.ProductPhotos.Skip(1).FirstOrDefault(x=>x.Status==true).Photo)" alt="@product.Name">
                                                 </a>
                                                 <div class="label_product">
                                                     <span class="label_sale">@_localizer["sale"] </span>
@@ -306,10 +312,10 @@
                                     <figure>
                                         <div class="product_thumb">
                                             <a class="primary_img" asp-controller="shop" asp-action="detail" asp-route-slug="@product.Slug">
-                                                <img src="~/images/@(product.ProductPhotos.FirstOrDefault()==null?"product/product-default.png":product.ProductPhotos.FirstOrDefault().Photo) " alt="@product.Name">
+                                                <img src="~/images/@(product.ProductPhotos.FirstOrDefault(x=>x.Status==true)==null?"product/product-default.png":product.ProductPhotos.FirstOrDefault(x=>x.Status==true).Photo) " alt="@product.Name">
                                             </a>
                                             <a class="secondary_img" asp-controller="shop" asp-action="detail" asp-route-slug="@product.Slug">
-                                                <img src="~/images/@(product.ProductPhotos.FirstOrDefault()==null ?"product/product-default.png":product.ProductPhotos.Count==1?product.ProductPhotos.FirstOrDefault().Photo:product.ProductPhotos.Skip(1).FirstOrDefault().Photo)" alt="@product.Name">
+                                                <img src="~/images/@(product.ProductPhotos.FirstOrDefault(x=>x.Status==true)==null ?"product/product-default.png":product.ProductPhotos.Count==1?product.ProductPhotos.FirstOrDefault(x=>x.Status==true).Photo:product.ProductPhotos.Skip(1).FirstOrDefault(x=>x.Status==true).Photo)" alt="@product.Name">
                                             </a>
                                         </div>
 
@@ -339,7 +345,7 @@
                             <h2><span> @_localizer["On sale Products"] </span></h2>
                         </div>
                         <div class="small_product_container small_product_active">
-                            @foreach (var product in Model.MostSaleds.Take(9))
+                            @foreach (var product in Model.MostSaleds)
                             {
                                 <article class="single_product">
                                     <figure>
@@ -377,7 +383,7 @@
                             <h2><span> @_localizer["Top rated Products"] </span></h2>
                         </div>
                         <div class="small_product_container small_product_active">
-                            @foreach (var product in Model.MostFollowProducts.Take(9))
+                            @foreach (var product in Model.MostFollowProducts)
                             {
                                 <article class="single_product">
                                     <figure>
@@ -421,10 +427,10 @@
                         {
                             <div class="brand_items">
                                 <div class="single_brand">
-                                    <a href="#"><img src="~/images/@partner.Photo" alt="@partner.Name"></a>
+                                    <a href="#"><img src="~/images/@(partner.Photo!=null? partner.Photo:"product/product-default.png")" alt="@partner.Name"></a>
                                 </div>
                                 <div class="single_brand">
-                                    <a href="#"><img src="~/images/@partner.Photo" alt="@partner.Name"></a>
+                                    <a href="#"><img src="~/images/@(partner.Photo!=null? partner.Photo:"product/product-default.png")" alt="@partner.Name"></a>
                                 </div>
                             </div>
                         }
@@ -450,13 +456,27 @@
             });
         });
         $(function () {
-            $("a.addToCartWishlistSaled").click(function (e) {
+             $("a.addToCartWishlist").click(function (e) {
+                var count =parseInt($(".wishlist_quantity").html());
                 e.preventDefault();
                 let id = $(this).data("id");
-                $.get('/ordering/AddWishlist/' + id, {}, function (data) {
+                if ($(this).attr("class")=="addToCartWishlist followed") {
+                    $.ajax({
+                        url: "/Ordering/removeWishlist/" + id,
+                        success: function () {
+                            if (count!=0){
+                                $(".wishlist_quantity").html(count - 1);
+                            toastr.error('@_localizer["Product Deleted the WishhList"]', '@_localizer["Deleted"]');
+                            };
+                        }
+                    });
+                } else {
+                    $.get('/ordering/AddWishlist/' + id, {}, function (data) {
                     $("div.smallCart").html(data);
                     toastr.success("@_localizer["Product Added the WishhList"]", "@_localizer["Success"]");
                 });
+                }
+                $(this).toggleClass("followed",150);
             });
         });
     </script>

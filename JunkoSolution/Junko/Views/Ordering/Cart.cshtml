@@ -86,7 +86,7 @@
                                                             <a asp-action="decrease" asp-controller="ordering" asp-route-id="@item.ProductId" asp-route-colorId="@item.ColorId" data-id="@item.ProductId" class="badge badge-info decreaseCart">-</a>
                                                         </td>
                                                         <td class="product_total">
-                                                            <price price="@Model.CartItems.Where(x=>x.ProductId==item.ProductId).Sum(x=>x.Quantity*x.Price)" discount-price="0" language-id="@Model.LanguageId"></price>
+                                                            <price price="@Model.CartItems.Where(x=>x.ProductId==item.ProductId && x.ColorId==item.ColorId).Sum(x=>x.Quantity*x.Price)" discount-price="0" language-id="@Model.LanguageId"></price>
                                                         </td>
                                                     </tr>
                                                 }

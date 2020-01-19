@@ -18,12 +18,12 @@
                     <div class="product-details-tab">
                         <div id="img-1" class="zoomWrapper single-zoom d-flex justify-content-center align-items-center">
                             <a href="#">
-                                <img style="height:400px;object-fit:contain" id="zoom1" src="~/images/@(Model.Product.ProductPhotos.FirstOrDefault(x=>x.Status==true)==null?"product/product-default.png":Model.Product.ProductPhotos.FirstOrDefault(x=>x.Status==true).Photo)"
+                                <img style="height:400px;object-fit:contain" id="zoom_05" src="~/images/@(Model.Product.ProductPhotos.FirstOrDefault(x=>x.Status==true)==null?"product/product-default.png":Model.Product.ProductPhotos.FirstOrDefault(x=>x.Status==true).Photo)"
                                      data-zoom-image="../images/@(Model.Product.ProductPhotos.FirstOrDefault(x=>x.Status==true)==null?"product/product-default.png":Model.Product.ProductPhotos.FirstOrDefault(x=>x.Status==true).Photo)" alt="@Model.Product.Name">
                             </a>
                         </div>
                         <div class="single-zoom-thumb">
-                            <ul class="s-tab-zoom owl-carousel single-product-active" id="gallery_02">
+                            <ul class="s-tab-zoom owl-carousel single-product-active" id="gallery_01">
                                 @foreach (var photo in Model.Product.ProductPhotos.Where(x => x.Status == true))
                                 {
                                     <li>
@@ -71,11 +71,13 @@
                             </div>
                             <div class="product_ratting">
                                 <ul>
-                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                    @{ 
+                                        var starCount = Model.Product.StarCount;
+                                    }
+                                    @for (int i = 0; i < 5; i++)
+                                    {
+                                        <li><a title="@(starCount!=null? starCount:0) Star"><i class="fa fa-star @(starCount !=null && starCount > i && starCount !=0 ?"checked":"")"></i></a></li>
+                                    }
                                     <li class="review"><a href="#"> (customer review ) </a></li>
                                 </ul>
 

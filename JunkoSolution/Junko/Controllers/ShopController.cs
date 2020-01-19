@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Junko.DAL;
+using Junko.Helpers;
 using Junko.Models;
 using Junko.ViewModels;
 using Microsoft.AspNetCore.Localization;
@@ -45,7 +46,7 @@ namespace Junko.Controllers
 
             };
 
-            if (category != null)
+            if (category != null && category!=0)
             {
                 model.Products =await _db.Products.Include("ProductPhotos").Where(p => p.Status == true && p.BrandProductCategory.ProductSubCategoryId == category).OrderByDescending(p => p.CreatedAt).Skip((count - 1) * 12).Take(12).ToListAsync();
                 pageCount =await _db.Products.Where(p => p.Status == true && p.BrandProductCategory.ProductSubCategoryId == category).CountAsync() / 12;
@@ -100,7 +101,7 @@ namespace Junko.Controllers
                 }
                 model.ProductCount =await _db.Products.Where(p => p.Status == true).CountAsync();
             }
-            if (brand != null)
+            if (brand != null && brand !=0)
             {
                 model.Products = await _db.Products.Include("ProductPhotos").Where(p => p.BrandProductCategoryId == brand && p.Status == true).Skip((count - 1) * 12).Take(12).ToListAsync();
                 model.Pagination.BrandId = brand;
@@ -119,6 +120,7 @@ namespace Junko.Controllers
                 {
                     pageCount++;
                 }
+                model.Pagination.Search = search;
                 model.ProductCount =await _db.Products.Where(p => p.Name.Contains(search) || p.BrandProductCategory.Brand.Name.Contains(search) || p.BrandProductCategory.ProductSubCategory.ProductSubCategoryTranslate.Any(a => a.Name.Contains(search)) && p.Status == true).CountAsync();
             }
             if (!string.IsNullOrEmpty(filter))
@@ -134,6 +136,8 @@ namespace Junko.Controllers
                 model.ProductCount =await _db.Products.Where(p => p.Status == true && p.Price > decimal.Parse(parts[0]) && p.Price < decimal.Parse(parts[1])).CountAsync();
             }
             model.Pagination.PageCount = pageCount;
+
+           
             return View(model);
         }
         public async Task<IActionResult> Detail(string slug)
