@@ -4,18 +4,14 @@
 @model ShopIndexVM
 @{
     ViewData["Title"] = _localizer["Shop"];
-   List<CartItem> carts = Context.Session.GetJson<List<CartItem>>("Wishlist") ?? new List<CartItem>();
+    List<CartItem> carts = Context.Session.GetJson<List<CartItem>>("Wishlist") ?? new List<CartItem>();
     bool isFollowed = false;
 }
-
 <!--breadcrumbs area start-->
-
-
 @await Html.PartialAsync("~/Views/Shared/_Breadcrumb.cshtml", model: Model.Breadcrumb)
 <!--breadcrumbs area end-->
 <!--Main Start-->
 <main>
-
     <!--shop  area start-->
     <div class="shop_area shop_reverse mt-60 mb-60">
         <div class="container">
@@ -142,7 +138,7 @@
                         @foreach (var product in Model.Products)
                         {
                             isFollowed = false;
-                            if (carts.Any(x=>x.ProductId==product.Id))
+                            if (carts.Any(x => x.ProductId == product.Id))
                             {
                                 isFollowed = true;
                             }
@@ -227,8 +223,6 @@
                         </div>
                     </div>
                     <!--blog pagination area end-->
-                    <!--shop toolbar end-->
-                    <!--shop wrapper end-->
                 </div>
             </div>
         </div>
@@ -250,27 +244,29 @@
             });
         });
         $(function () {
-             $("a.addToCartWishlist").click(function (e) {
+             $(".addToCartWishlist").click(function (e) {
+                 e.preventDefault();
                 var count =parseInt($(".wishlist_quantity").html());
-                e.preventDefault();
-                let id = $(this).data("id");
-                if ($(this).attr("class")=="addToCartWishlist followed") {
+                 let id = $(this).data("id");
+                if ($(this).hasClass("followed")) {
                     $.ajax({
                         url: "/Ordering/removeWishlist/" + id,
                         success: function () {
-                            if (count!=0){
+                            if (count != 0) {
                                 $(".wishlist_quantity").html(count - 1);
                             toastr.error('@_localizer["Product Deleted the WishhList"]', '@_localizer["Deleted"]');
                             };
                         }
                     });
-                } else {
+                    $(this).toggleClass("followed");
+                }else{
                     $.get('/ordering/AddWishlist/' + id, {}, function (data) {
                     $("div.smallCart").html(data);
                     toastr.success("@_localizer["Product Added the WishhList"]", "@_localizer["Success"]");
-                });
-                }
-                $(this).toggleClass("followed",150);
+                    });
+                    $(this).toggleClass("followed");
+                 }
+                  
             });
         });
     </script>

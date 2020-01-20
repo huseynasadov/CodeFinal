@@ -37,16 +37,7 @@
                 <input asp-for="Birthday" class="form-control" data-validation="required birthdate" />
                 <span asp-validation-for="Birthday" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label for="Password_confirmation" class="control-label">Parol</label>
-                <input type="password" name="Password_confirmation" id="Password_confirmation" class="form-control" />
-                <span asp-validation-for="Password" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label for="Password" class="control-label">Təkrar Parol</label>
-                <input asp-for="Password" class="form-control" data-validation="confirmation" />
-                <span asp-validation-for="Password" class="text-danger"></span>
-            </div>
+                <input hidden asp-for="Password"/>
             <div class="form-group">
                 <input type="submit" value="Yadda Saxla" class="btn btn-primary" />
             </div>

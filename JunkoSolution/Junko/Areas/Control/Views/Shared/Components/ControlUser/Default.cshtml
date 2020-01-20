@@ -15,6 +15,10 @@
         <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
         Şəxsi hesab
     </a>
+    <a class="dropdown-item" asp-action="editPassword" asp-controller="users" asp-route-Token="@ViewBag.Token">
+        <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+        Parolu dəyiş
+    </a>
     <div class="dropdown-divider"></div>
     <a class="dropdown-item" asp-action="logout" asp-controller="users" data-toggle="modal" data-target="#logoutModal">
         <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>

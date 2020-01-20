@@ -24,6 +24,7 @@ namespace Junko.ViewComponents
                 if (appUser != null)
                 {
                     ViewBag.AdminUser = appUser.Email;
+                    ViewBag.Token = appUser.ConcurrencyStamp;
                     return View();
                 }
             }

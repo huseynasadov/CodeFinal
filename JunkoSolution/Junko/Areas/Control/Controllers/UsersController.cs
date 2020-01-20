@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Junko.Helpers;
+using Microsoft.EntityFrameworkCore;
 
 namespace Junko.Areas.Control.Controllers
 {
@@ -214,7 +215,49 @@ namespace Junko.Areas.Control.Controllers
 
             return View();
         }
+        [AllowAnonymous]
+        public async Task<IActionResult> EditPassword(string Token)
+        {
+            if (!string.IsNullOrEmpty(Token))
+            {
+                AppAdmin appUser = await _db.Users.FirstOrDefaultAsync(x => x.ConcurrencyStamp == Token);
 
+                if (appUser!=null)
+                {
+
+                    User user = new User(appUser);
+
+                    return View(user);
+                }
+
+            }
+            return NotFound();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [AllowAnonymous]
+        public async Task<IActionResult> EditPassword(User user)
+        {
+
+            if (ModelState.IsValid)
+            {
+
+                AppAdmin appUser = await _db.Users.FirstOrDefaultAsync(x => x.Email == user.Email);
+
+                if (user.Password != null)
+                {
+                    appUser.PasswordHash = _passwordHasher.HashPassword(appUser, user.Password);
+                }
+                await _db.SaveChangesAsync();
+                IdentityResult result = await _userManager.UpdateAsync(appUser);
+                if (result.Succeeded)
+                    TempData["Success"] = "Sənin Məlumatların dəyişdirildi!";
+                return RedirectToAction("index", "dashboard");
+            }
+
+            return View(user);
+        }
         public async Task<IActionResult> Remove(string Email)
         {
             AppAdmin appAdmin = await _userManager.FindByEmailAsync(Email);
@@ -227,8 +270,29 @@ namespace Junko.Areas.Control.Controllers
             }
 
             return LocalRedirect("/home/error");
-        } 
+        }
 
+        [AllowAnonymous]
+        public IActionResult ForgotPassword() { return View(); }
+
+        [AllowAnonymous]
+        [HttpPost]
+        public async Task<IActionResult> ForgotPassword(string Email) 
+        {
+            if (!string.IsNullOrEmpty(Email))
+            {
+                AppAdmin appAdmin = await _db.Users.FirstOrDefaultAsync(x => x.Email == Email);
+                if (appAdmin !=null)
+                {
+                    SendMail mail = new SendMail();
+                    mail.ForgotPassword(appAdmin);
+                    TempData["Success"] = "Zəhmət olmasa E-Poçt ünvanını yoxlayın";
+                    return RedirectToAction("login", "users");
+                }
+            }
+            TempData["Success"] = "Yanlış E-Poçt";
+            return View();
+        }
 
     }
 }

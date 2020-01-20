@@ -7,7 +7,7 @@
 
 <!--breadcrumbs area start-->
 
-@await Html.PartialAsync("~/Views/Shared/_Breadcrumb.cshtml",model:Model.BlogVM.Breadcrumb)
+@await Html.PartialAsync("~/Views/Shared/_Breadcrumb.cshtml", model: Model.BlogVM.Breadcrumb)
 <!--breadcrumbs area end-->
 <!--Main Start-->
 <main>
@@ -15,7 +15,7 @@
     <div class="blog_details mt-60">
         <div class="container">
             <div class="row">
-                
+
                 <div class="col-lg-12 col-md-12">
                     <!--blog grid area start-->
                     <div class="blog_wrapper">
@@ -24,14 +24,14 @@
                                 <div class="post_header">
                                     <h3 class="post_title">@Model.Blog.Title</h3>
                                     <div class="blog_meta">
-                                        <span class="author">@_localizer["Posted By"] : <a href="#">@(Model.Blog.Blog.AdminManager !=null ? Model.Blog.Blog.AdminManager.Category.AdminCategoryTranslates.FirstOrDefault(a => a.LanguageId == Model.Blog.LanguageId).Name : "Admin")</a> / </span>
+                                        <span class="author">@_localizer["Posted By"] : <a href="#">@(Model.Blog.Blog.AdminManager != null ? Model.Blog.Blog.AdminManager.Category.AdminCategoryTranslates.FirstOrDefault(a => a.LanguageId == Model.Blog.LanguageId).Name : "Admin")</a> / </span>
                                         <span class="post_date">@_localizer["On"] : <a href="#">@Model.Blog.Blog.CreatedAt.ToString("MMMM dd, yyyy")</a> /</span>
                                         <span class="post_category">
                                             In : <a href="#">
-                                            @foreach (var cat in Model.BlogCategories)
-                                            {
-                                                <span>@cat.Category.BlogCategoryTranslates.FirstOrDefault(b=>b.LanguageId==Model.Blog.LanguageId).Name</span>
-                                            }
+                                                @foreach (var cat in Model.BlogCategories)
+                                                {
+                                                    <span>@cat.Category.BlogCategoryTranslates.FirstOrDefault(b => b.LanguageId == Model.Blog.LanguageId).Name</span>
+                                                }
                                             </a>
                                         </span>
                                     </div>
@@ -41,7 +41,7 @@
                                 </div>
                                 <figcaption class="blog_content">
                                     <div class="post_content">
-                                      @Html.Raw(Model.Blog.Content)
+                                        @Html.Raw(Model.Blog.Content)
                                     </div>
                                     <div class="entry_content">
 
@@ -123,13 +123,14 @@
                                             <div class="comment_content">
                                                 <div class="comment_meta">
                                                     <h5><a href="#">@(rev.AdminManagerId > 0 ? rev.Admin.Category.AdminCategoryTranslates.FirstOrDefault(a => a.LanguageId == Model.Blog.LanguageId).Name : rev.User.Firstname + " " + rev.User.Lastname)</a></h5>
-                                                    @if (Model.UserClientId == rev.UserClientId)
-                                                    {
-                                                        <div class="d-flex justify-content-between">
-                                                            <span>@rev.CreatedAt.ToString("MM dd, yyy 'at' HH:mm ")</span>
+
+                                                    <div class="d-flex justify-content-between">
+                                                        <span>@rev.CreatedAt.ToString("MM dd, yyy 'at' HH:mm ")</span>
+                                                        @if (Model.UserClientId == rev.UserClientId)
+                                                        {
                                                             <a asp-action="delete" asp-controller="Blog" asp-route-id="@rev.Id" style="font-size:1.5rem" class="text-danger @(Model.Blog.LanguageId==2 ? "blogReviewDeleteAz":"blogReviewDeleteEn")"><i class="fas fa-long-arrow-alt-left"></i></a>
-                                                        </div>
-                                                    }
+                                                        }
+                                                    </div>
 
 
                                                 </div>

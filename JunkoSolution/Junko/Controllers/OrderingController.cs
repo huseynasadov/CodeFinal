@@ -37,7 +37,6 @@ namespace Junko.Controllers
                 CartItems = cart,
                 GrandTotal=cart.Sum(x=>x.Price * x.Quantity)
             };
-
             ViewBag.Colors = _db.ProductColors.Include("Color").ToList();
             return View(model);
         }
@@ -59,13 +58,10 @@ namespace Junko.Controllers
             {
                 cartItem.Quantity += 1;
             }
-            
             await _db.SaveChangesAsync();
-
             HttpContext.Session.SetJson("Cart",cart);
             if (HttpContext.Request.Headers["x-requested-with"] != "XMLHttpRequest")
                 return Redirect((!string.IsNullOrEmpty(Request.Headers["Referer"]) ? Request.Headers["Referer"].ToString() : "/"));
-
 
             return ViewComponent("SmallCart");
         }

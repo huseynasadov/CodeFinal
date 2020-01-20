@@ -71,7 +71,7 @@
                             </div>
                             <div class="product_ratting">
                                 <ul>
-                                    @{ 
+                                    @{
                                         var starCount = Model.Product.StarCount;
                                     }
                                     @for (int i = 0; i < 5; i++)
@@ -120,7 +120,7 @@
                             <div class=" product_d_action">
                                 <ul>
                                     <li><a class="addToCartWishlistSaled button button-like" asp-action="AddWishlist" asp-controller="ordering" asp-route-id="@Model.Product.Id" data-id="@Model.Product.Id" title="@_localizer["Add to Wishlist"]"> <i class="fa fa-heart"></i><span>Like</span></a></li>
-                                    
+
                                 </ul>
                             </div>
                             <div class="product_meta">
@@ -214,7 +214,10 @@
                                                             <h5><a href="#">@(rev.AdminManagerId > 0 || rev.AdminManagerId != null ? rev.Admin.Category.AdminCategoryTranslates.FirstOrDefault(a => a.LanguageId == Model.LanguageId).Name : rev.User.Firstname + " " + rev.User.Lastname)</a></h5>
                                                             <div class="d-flex justify-content-between">
                                                                 <span>@rev.CreatedAt.ToString("MM dd, yyy 'at' HH:mm ")</span>
-                                                                <a asp-action="delete" asp-controller="Shop" asp-route-id="@rev.Id" style="font-size:1.5rem" class="text-danger @(Model.LanguageId==2 ? "shopReviewDeleteAz":"shopReviewDeleteEn")"><i class="fas fa-long-arrow-alt-left"></i></a>
+                                                                @if (Model.UserClientId == rev.UserClientId)
+                                                                {
+                                                                    <a asp-action="delete" asp-controller="Shop" asp-route-id="@rev.Id" style="font-size:1.5rem" class="text-danger @(Model.LanguageId == 2 ? "shopReviewDeleteAz" : "shopReviewDeleteEn")"><i class="fas fa-long-arrow-alt-left"></i></a>
+                                                                }
                                                             </div>
                                                         </div>
                                                         <p>

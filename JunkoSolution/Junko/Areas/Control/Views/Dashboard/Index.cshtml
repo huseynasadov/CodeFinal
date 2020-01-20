@@ -3,6 +3,7 @@
     ViewBag.Title = "Idarəetmə Paneli";
 }
 
+<partial name="_NotificationPartial" />s
 
 <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
@@ -157,7 +158,6 @@
 </div>
 
 <!-- Content Row -->
-
 <!-- Content Row -->
 <div class="row">
 
@@ -207,7 +207,7 @@
                 @for (int i = 1; i < 5; i++)
                 {
                     var otherCount = productsOrder.Skip(i).FirstOrDefault().OrderProducts.Where(x => x.Complete == Complete.Completed)?.Sum(x => x.Quantity);
-                    <h4 class="small font-weight-bold">@productsOrder.Skip(i).FirstOrDefault().Name<span class="float-right">@(((otherCount* 100 / firstCountOrder) )?.ToString("#")) %</span></h4>
+                    <h4 class="small font-weight-bold">@productsOrder.Skip(i).FirstOrDefault().Name<span class="float-right">@(((otherCount * 100 / firstCountOrder))?.ToString("#")) %</span></h4>
                     <div class="progress mb-4">
                         <div class="progress-bar bg-success" role="progressbar" style="width: @((otherCount*100/firstCountOrder)?.ToString("#")+"%" )" aria-valuenow="@(((otherCount*100/firstCountOrder))?.ToString("#") )" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
@@ -222,7 +222,16 @@
     </div>
 </div>
 
+@section Scripts{
 
+    <script>
+        $(function () {
+            setTimeout(function () {
+                $(".zmdi-notifications").fadeOut("slow");
+            }, 2500)
+        });
+    </script>
+}s
 
 
 
