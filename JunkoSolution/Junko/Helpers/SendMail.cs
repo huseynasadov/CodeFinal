@@ -56,7 +56,7 @@ namespace Junko.Helpers
                 {
                     From = new MailAddress("junkoelectronics@gmail.com"),
                     Subject = "Junko Şifrə Dəyişimi",
-                    Body = "Parolu dəyişdirmək üçün : <a href='https://localhost:44342/control/users/EditPassword?Token=" + appAdmin.ConcurrencyStamp + "'>Daxil Ol</a>"
+                    Body = "Parolu dəyişdirmək üçün : <a href='https://junkoelectronics.azurewebsites.net/control/users/EditPassword?Token=" + appAdmin.ConcurrencyStamp + "'>Daxil Ol</a>"
                 };
                 mail.IsBodyHtml = true;
                 mail.To.Add(new MailAddress(appAdmin.Email));

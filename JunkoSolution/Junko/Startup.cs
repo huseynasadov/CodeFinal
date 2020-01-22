@@ -108,7 +108,8 @@ namespace Junko
 
                 endpoints.MapControllerRoute(
                     name: "areas",
-                    pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{area:exists}/{controller=users}/{action=login}/{id?}");
+
 
                 endpoints.MapControllerRoute(
                     name: "default",

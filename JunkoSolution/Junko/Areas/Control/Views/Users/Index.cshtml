@@ -6,10 +6,13 @@
 
 <partial name="_NotificationPartial" />
 <h1>Admin Panel</h1>
+@if (ViewBag.isAdmin == "Admin")
+{
+    <p>
+        <a asp-action="create" asp-controller="users" class="btn btn-outline-info">Yeni Admin Yarat</a>
+    </p>
+}
 
-<p>
-    <a asp-action="create" asp-controller="users" class="btn btn-outline-info">Yeni Admin Yarat</a>
-</p>
 <table class="table display">
     <thead>
         <tr>
@@ -26,60 +29,67 @@
             <th>
                 E-Poçt
             </th>
-            <th></th>
+            @if (ViewBag.isAdmin == "Admin")
+            {
+                <th></th>
+            }
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
-                    @item.Firstname
-                </td>
-                <td>
-                    @item.Lastname
-                </td>
+        <tr>
+            <td>
+                @item.Firstname
+            </td>
+            <td>
+                @item.Lastname
+            </td>
 
-                <td>
-                    @if (item.Ocupation != "Admin")
+            <td>
+                @if (item.Ocupation != "Admin")
+                {
+                    if (item.UserName != User.Identity.Name)
                     {
-                        if (item.UserName != User.Identity.Name)
-                        {
-                            <input @(item.EmailConfirmed == true ? "checked" : "") type="checkbox" id="toggle" class="toogleBoot toggle-checkbox"
-                                   data-toggle="toggle"
-                                   data-url="/Control/users/edit/@item.Id"
-                                   data-on="Aktiv"
-                                   data-off="Deaktiv"
-                                   data-onstyle="success"
-                                   data-offstyle="danger">
-                        }
-                        else
-                        {
-                            <span>Sən</span>
-                        }
-
+                        <input @(item.EmailConfirmed == true ? "checked" : "") type="checkbox" id="toggle" class="toogleBoot toggle-checkbox"
+                               data-toggle="toggle"
+                               data-url="/Control/users/edit/@item.Id"
+                               data-on="Aktiv"
+                               data-off="Deaktiv"
+                               data-onstyle="success"
+                               data-offstyle="danger">
                     }
                     else
                     {
-                        <span>Əsas</span>
+                        <span>Sən</span>
                     }
 
-                </td>
+                }
+                else
+                {
+                    <span>Əsas</span>
+                }
 
+            </td>
+
+            <td>
+                @item.Email
+            </td>
+            @if (ViewBag.isAdmin == "Admin")
+            {
                 <td>
-                    @item.Email
-                </td>
-                <td>
-                    @if (item.Ocupation != "Admin")
+                @if (item.Ocupation != "Admin")
+                {
+                    if (item.UserName != User.Identity.Name)
                     {
-                        if (item.UserName != User.Identity.Name)
-                        {
-                            <a class="categoryDelete" asp-action="remove" asp-controller="users" asp-route-Email="@item.Email"><i class="fas fa-trash text-danger"></i></a>
-                        }
+                        <a class="categoryDelete" asp-action="remove" asp-controller="users" asp-route-Email="@item.Email"><i class="fas fa-trash text-danger"></i></a>
                     }
-                </td>
+                }
+            </td>
+            }
+            
 
-            </tr>
+        </tr>
         }
     </tbody>
 </table>

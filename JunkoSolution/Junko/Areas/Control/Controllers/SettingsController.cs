@@ -30,6 +30,14 @@ namespace Junko.Areas.Control.Controllers
         // GET: Control/Settings
         public async Task<IActionResult> Index()
         {
+            if (_context.Users.FirstOrDefault(x => x.UserName == User.Identity.Name).Ocupation == "Admin")
+            {
+                ViewBag.isAdmin = "Admin";
+            }
+            else
+            {
+                ViewBag.isAdmin = null;
+            }
             var junkoDBContext = _context.Setting.Include(s => s.AdminManager);
             return View(await junkoDBContext.ToListAsync());
         }

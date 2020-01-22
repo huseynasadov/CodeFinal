@@ -32,6 +32,14 @@ namespace Junko.Areas.Control.Controllers
         }
         public IActionResult Index()
         {
+            if ( _db.Users.FirstOrDefault(x=>x.UserName==User.Identity.Name).Ocupation=="Admin")
+            {
+                ViewBag.isAdmin = "Admin";
+            }
+            else
+            {
+                ViewBag.isAdmin = null;
+            }
             return View(_userManager.Users);
         }
         [AllowAnonymous]
@@ -120,7 +128,6 @@ namespace Junko.Areas.Control.Controllers
         
         // GET /account/login
         [AllowAnonymous]
-        [Route("control")]
         public IActionResult Login()
         {
             if (User.Identity.IsAuthenticated == true)
@@ -232,7 +239,7 @@ namespace Junko.Areas.Control.Controllers
                 }
 
             }
-            return NotFound();
+            return RedirectToAction("error","home");
         }
 
         [HttpPost]
@@ -254,7 +261,7 @@ namespace Junko.Areas.Control.Controllers
                 IdentityResult result = await _userManager.UpdateAsync(appUser);
                 if (result.Succeeded)
                     TempData["Success"] = "Sənin Məlumatların dəyişdirildi!";
-                return RedirectToAction("index", "dashboard");
+                return LocalRedirect("/control");
             }
 
             return View(user);
