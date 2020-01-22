@@ -55,7 +55,7 @@ namespace Junko.Areas.Control.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (_db.Users.Any(x=>x.Email==model.Email))
+                if (_db.Users.Any(x => x.Email == model.Email))
                 {
                     TempData["Error"] = "Bu E-Poçt ünvanı artıq Qeydiyyatdan keçmişdir!";
 
@@ -117,9 +117,10 @@ namespace Junko.Areas.Control.Controllers
 
             return View(user);
         }
-
+        
         // GET /account/login
         [AllowAnonymous]
+        [Route("control")]
         public IActionResult Login()
         {
             if (User.Identity.IsAuthenticated == true)
