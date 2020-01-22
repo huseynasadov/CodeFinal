@@ -81,8 +81,8 @@
                                                         </td>
                                                         <td class="product_quantity">
                                                             <label>@_localizer["Quantity"]</label>
-                                                            <a asp-action="add" asp-controller="ordering" asp-route-id="@item.ProductId" asp-route-colorId="@item.ColorId" class="badge badge-info">+</a>
-                                                            @item.Quantity
+                                                            <a asp-action="add" asp-controller="ordering" asp-route-id="@item.ProductId" asp-route-colorId="@item.ColorId" data-id="@item.ProductId" class="badge badge-info addCart">+</a>
+                                                            <span class="quantitySpan">@item.Quantity</span> 
                                                             <a asp-action="decrease" asp-controller="ordering" asp-route-id="@item.ProductId" asp-route-colorId="@item.ColorId" data-id="@item.ProductId" class="badge badge-info decreaseCart">-</a>
                                                         </td>
                                                         <td class="product_total">
@@ -104,33 +104,12 @@
                     <!--coupon code area start-->
                     <div class="coupon_area">
                         <div class="row">
-                            <div class="col-lg-6 col-md-6">
-                                <div class="coupon_code left">
-                                    <h3>Coupon</h3>
-                                    <div class="coupon_inner">
-                                        <p>@_localizer["Enter your coupon code if you have one"]</p>
-                                        <input placeholder="Coupon code" type="text">
-                                        <button type="submit">@_localizer["Apply coupon"]</button>
-                                    </div>
-                                </div>
-                            </div>
+                            
                             <div class="col-lg-6 col-md-6">
                                 <div class="coupon_code right">
                                     <h3>Cart Totals</h3>
                                     <div class="coupon_inner">
-                                        <div class="cart_subtotal">
-                                            <p>@_localizer["Subtotal"]</p>
-                                            <p class="cart_amount">
-                                                <price price="@Model.GrandTotal" discount-price="0" language-id="@Model.LanguageId"></price>
-                                            </p>
-                                        </div>
-                                        <div class="cart_subtotal ">
-                                            <p>@_localizer["Shipping"]</p>
-                                            <p class="cart_amount">
-                                                <price price="@Model.GrandTotal" discount-price="0" language-id="@Model.LanguageId"></price>
-                                            </p>
-                                        </div>
-
+                                       
                                         <div class="cart_subtotal">
                                             <p>@_localizer["Total"]</p>
                                             <p class="cart_amount">
@@ -163,9 +142,41 @@
             $(".decreaseCart").click(function (event) {
                 event.preventDefault();
                 let id = $(this).data("id");
+                var a = $(this);
+                var span = $(this).parent().children(".quantitySpan");
+                var quant = parseInt($(this).parent().children(".quantitySpan").html());
+                var total = parseFloat($(this).parent().parent().find(".current_price").html());
+                var alltotal =parseFloat($(".coupon_area").find(".current_price").html());
                 $.get('/ordering/decrease/' + id, {}, function (data) {
-                    $("body").html(data);
-
+                   
+                    if (quant>1) {
+                        span.html(quant - 1);
+                        
+                    a.parent().parent().children(".product_total").find(".current_price").html(((quant-1) * total).toFixed(2));
+                    $(".coupon_area").find(".current_price").html((alltotal - total).toFixed(2));
+                    toastr.success('@_localizer["Product quantity decreased"]', '@_localizer["Success"]');
+                    } else {
+                    span.parent().parent().remove();
+                        toastr.success('@_localizer["Product deleted"]', '@_localizer["Success"]');
+                        $(".coupon_area").find(".current_price").html((alltotal - total).toFixed(2));
+                    }
+                });
+            });
+        });
+         $(function () {
+            $(".addCart").click(function (event) {
+                event.preventDefault();
+                let id = $(this).data("id");
+                var a = $(this);
+                var span = $(this).parent().children(".quantitySpan");
+                var alltotal =parseFloat($(".coupon_area").find(".current_price").html());
+                var quant = parseInt($(this).parent().children(".quantitySpan").html());
+                var total = parseFloat($(this).parent().parent().find(".current_price").html());
+                $.get('/ordering/add/' + id, {}, function (data) {
+                    span.html(quant + 1);
+                    toastr.success('@_localizer["Same Product quantity increased"]', '@_localizer["Success"]');
+                    a.parent().parent().children(".product_total").find(".current_price").html(((quant + 1) * total).toFixed(2));
+                    $(".coupon_area").find(".current_price").html((alltotal + total).toFixed(2));
                 });
             });
         });

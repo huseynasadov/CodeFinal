@@ -22,5 +22,11 @@
     "inputFiles": [
       "wwwroot/js/main.js"
     ]
+  },
+  {
+    "outputFileName": "wwwroot/Admin/css/sb-admin-2.min.css",
+    "inputFiles": [
+      "wwwroot/Admin/css/sb-admin-2.css"
+    ]
   }
 ]

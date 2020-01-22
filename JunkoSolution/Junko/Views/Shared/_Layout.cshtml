@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Junko - @ViewData["Title"]</title>
-    <meta name="description" content="">
+    <meta name="description" content="JunkoElectronics">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/x-icon" href="~/images/favicon.ico">
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css">
@@ -33,63 +33,19 @@
 
     <div class="smallModal">
     </div>
-    <!--news letter popup start-->
-    @*<div class="newletter-popup">
-            <div id="boxes" class="newletter-container">
-                <div id="dialog" class="window">
-                    <div id="popup2">
-                        <span class="b-close"><span>close</span></span>
-                    </div>
-                    <div class="box">
-                        <div class="newletter-title">
-                            <h2>Newsletter</h2>
-                        </div>
-                        <div class="box-content newleter-content">
-                            <label class="newletter-label">
-                                Enter your email address to subscribe our notification of our new
-                                post &amp; features by email.
-                            </label>
-                            <div id="frm_subscribe">
-                                <form name="subscribe" id="subscribe_popup">
-                                     <span class="required">*</span><span>Enter you email address here...</span>
-                                    <input type="text" value="" name="subscribe_pemail" id="subscribe_pemail"
-                                           placeholder="Enter you email address here...">
-                                    <input type="hidden" value="" name="subscribe_pname" id="subscribe_pname">
-                                    <div id="notification"></div>
-                                    <a class="theme-btn-outlined"
-                                       onclick="email_subscribepopup()"><span>Subscribe</span></a>
-                                </form>
-                                <div class="subscribe-bottom">
-                                    <input type="checkbox" id="newsletter_popup_dont_show_again">
-                                    <label for="newsletter_popup_dont_show_again">Don't show this popup again</label>
-                                </div>
-                            </div>
-                             /#frm_subscribe
-                        </div>
-                         /.box-content
-                    </div>
-                </div>
-
-            </div>
-             /.box
-        </div>*@
-    <!--news letter popup start-->
-    <!-- Load Facebook SDK for JavaScript -->
-    <!-- Your customer chat code -->
 <div id="soundDummy"></div>
     <div class="fb-customerchat"
          attribution=setup_tool
          page_id="103527941195953">
     </div>
-    <script src="~/js/plugins.js"></script>
-
+    <script src="~/js/plugins.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <script src="~/lib/SeewAlert/sweetalert2.all.min.js"></script>
     <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
     <div id="fb-root"></div>
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v5.0&appId=1808703825929834&autoLogAppEvents=1"></script>
     <!-- Main JS -->
-    @*<script>
+    <script>
         window.fbAsyncInit = function () {
             FB.init({
                 xfbml: true,
@@ -103,8 +59,8 @@
             js = d.createElement(s); js.id = id;
             js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
             fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));</script>*@
-    <script src="~/js/main.js"></script>
+        }(document, 'script', 'facebook-jssdk'));</script>
+    <script src="~/js/main.min.js"></script>
     @RenderSection("Scripts", required: false)
 </body>
 

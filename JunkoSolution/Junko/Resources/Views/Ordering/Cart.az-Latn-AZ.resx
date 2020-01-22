@@ -141,8 +141,20 @@
   <data name="Product" xml:space="preserve">
     <value>Məhsul</value>
   </data>
+  <data name="Product deleted" xml:space="preserve">
+    <value>Məhsul silindi</value>
+  </data>
+  <data name="Product quantity decreased" xml:space="preserve">
+    <value>Seçilmiş məhsulun sayı azaldıldı</value>
+  </data>
   <data name="Quantity" xml:space="preserve">
     <value>Say</value>
+  </data>
+  <data name="Same Product quantity increased" xml:space="preserve">
+    <value>Seçilmiş məhsulun sayı artırıldı</value>
+  </data>
+  <data name="Success" xml:space="preserve">
+    <value>Uğurlu</value>
   </data>
   <data name="Total" xml:space="preserve">
     <value>Cəm</value>

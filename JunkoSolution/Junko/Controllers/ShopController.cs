@@ -19,7 +19,7 @@ namespace Junko.Controllers
         {
             _db = context;
         }
-        public async Task<IActionResult> Index(int? page, int? category, int? orderby, string filter, int? brand, string search)
+        public async Task<IActionResult> Index(int? page, int? category, int? orderby,int? brand, string search)
         {
             int count = page ?? 1;
             int pageCount = 1;
@@ -57,7 +57,7 @@ namespace Junko.Controllers
                 model.Pagination.PageCount = pageCount;
                 if (orderby == 2)
                 {
-                    model.Products =await _db.Products.Include("ProductPhotos").Where(p => p.Status == true && p.BrandProductCategory.ProductSubCategoryId == category).OrderByDescending(p => p.CreatedAt).Skip((count - 1) * 12).Take(12).ToListAsync();
+                    model.Products =await _db.Products.Include("ProductPhotos").Where(p => p.Status == true && p.BrandProductCategory.ProductSubCategoryId == category).OrderByDescending(p => p.FollowCount).Skip((count - 1) * 12).Take(12).ToListAsync();
                 }
                 else if (orderby == 3)
                 {
@@ -85,7 +85,7 @@ namespace Junko.Controllers
 
                 if (orderby == 2)
                 {
-                    model.Products =await _db.Products.Include("ProductPhotos").Where(p => p.Status == true).OrderByDescending(p => p.CreatedAt).Skip((count - 1) * 12).Take(12).ToListAsync();
+                    model.Products =await _db.Products.Include("ProductPhotos").Where(p => p.Status == true).OrderByDescending(p => p.FollowCount).Skip((count - 1) * 12).Take(12).ToListAsync();
                 }
                 else if (orderby == 3)
                 {
@@ -123,18 +123,7 @@ namespace Junko.Controllers
                 model.Pagination.Search = search;
                 model.ProductCount =await _db.Products.Where(p => p.Name.Contains(search) || p.BrandProductCategory.Brand.Name.Contains(search) || p.BrandProductCategory.ProductSubCategory.ProductSubCategoryTranslate.Any(a => a.Name.Contains(search)) && p.Status == true).CountAsync();
             }
-            if (!string.IsNullOrEmpty(filter))
-            {
-                string[] parts = filter.Split('-');
-                model.Products =await _db.Products.Include("ProductPhotos").Where(p => p.Status == true && p.Price > decimal.Parse(parts[0]) && p.Price < decimal.Parse(parts[1])).OrderByDescending(p => p.Price).Skip((count - 1) * 12).Take(12).ToListAsync();
-                
-                pageCount =await _db.Products.Where(p => p.Status == true && p.Price > decimal.Parse(parts[0]) && p.Price < decimal.Parse(parts[1])).CountAsync() / 12;
-                if (await _db.Products.Where(p => p.Status == true && p.Price > decimal.Parse(parts[0]) && p.Price < decimal.Parse(parts[1])).CountAsync() % 12 != 0)
-                {
-                    pageCount++;
-                }
-                model.ProductCount =await _db.Products.Where(p => p.Status == true && p.Price > decimal.Parse(parts[0]) && p.Price < decimal.Parse(parts[1])).CountAsync();
-            }
+           
             model.Pagination.PageCount = pageCount;
 
            
